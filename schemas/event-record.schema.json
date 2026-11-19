@@ -209,6 +209,13 @@
       "title": "Analysis Status",
       "type": "string"
     },
+    "concept_tags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Concept Tags",
+      "type": "array"
+    },
     "event_id": {
       "title": "Event Id",
       "type": "string"

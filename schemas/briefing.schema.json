@@ -123,6 +123,7 @@
         },
         "how": {
           "items": {
+            "description": "한국어 한 문장, 약 60자 이내",
             "minLength": 1,
             "type": "string"
           },
@@ -198,6 +199,7 @@
         },
         "what": {
           "items": {
+            "description": "한국어 한 문장, 약 60자 이내",
             "minLength": 1,
             "type": "string"
           },
@@ -207,6 +209,7 @@
         },
         "why": {
           "items": {
+            "description": "한국어 한 문장, 약 60자 이내",
             "minLength": 1,
             "type": "string"
           },
@@ -284,6 +287,7 @@
       "additionalProperties": false,
       "properties": {
         "evidence_quote": {
+          "description": "원문에서 그대로 복사한 연속 구간, 20~200자",
           "maxLength": 200,
           "minLength": 1,
           "title": "Evidence Quote",

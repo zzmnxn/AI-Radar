@@ -95,15 +95,17 @@ export type EmergingItem = {
 export type EvalResult = {
   "access": Access;
   "availability": "available" | "beta" | "preview" | "research" | "announced" | "unknown";
-  "category": string;
+  "category": "AI 코딩 도구" | "에이전트 확장" | "MCP·도구 연결" | "에이전트 설계·스택" | "컨텍스트·메모리" | "GenUI·AI 인터페이스" | "AI 개발 워크플로" | "새 모델·API" | "로컬·오픈 모델" | "새 AI 서비스" | "에이전트 작업 환경" | "AI 활용 패턴" | "기타";
   "claims": Array<Claim>;
   "how": Array<string>;
   "scores": Scores;
+  "skip_reason"?: string;
   "tags": Array<string>;
   "title_ko": string;
   "uncertainty"?: string | null;
   "what": Array<string>;
   "why": Array<string>;
+  "worth_briefing"?: boolean;
 };
 
 export type EventMember = {
@@ -114,6 +116,7 @@ export type EventMember = {
 
 export type EventRecord = {
   "analysis_status": "none" | "queued" | "deferred" | "done" | "failed" | "expired";
+  "concept_tags"?: Array<string>;
   "event_id": string;
   "fingerprint": string;
   "first_seen_at": string;

@@ -40,6 +40,7 @@
       "additionalProperties": false,
       "properties": {
         "evidence_quote": {
+          "description": "원문에서 그대로 복사한 연속 구간, 20~200자",
           "maxLength": 200,
           "minLength": 1,
           "title": "Evidence Quote",
@@ -165,6 +166,21 @@
           "type": "string"
         },
         "category": {
+          "enum": [
+            "AI 코딩 도구",
+            "에이전트 확장",
+            "MCP·도구 연결",
+            "에이전트 설계·스택",
+            "컨텍스트·메모리",
+            "GenUI·AI 인터페이스",
+            "AI 개발 워크플로",
+            "새 모델·API",
+            "로컬·오픈 모델",
+            "새 AI 서비스",
+            "에이전트 작업 환경",
+            "AI 활용 패턴",
+            "기타"
+          ],
           "title": "Category",
           "type": "string"
         },
@@ -177,6 +193,7 @@
         },
         "how": {
           "items": {
+            "description": "한국어 한 문장, 약 60자 이내",
             "minLength": 1,
             "type": "string"
           },
@@ -186,6 +203,13 @@
         },
         "scores": {
           "$ref": "#/$defs/Scores"
+        },
+        "skip_reason": {
+          "default": "",
+          "description": "worth_briefing이 false일 때 한 구절 사유",
+          "maxLength": 80,
+          "title": "Skip Reason",
+          "type": "string"
         },
         "tags": {
           "items": {
@@ -212,6 +236,7 @@
         },
         "what": {
           "items": {
+            "description": "한국어 한 문장, 약 60자 이내",
             "minLength": 1,
             "type": "string"
           },
@@ -222,6 +247,7 @@
         },
         "why": {
           "items": {
+            "description": "한국어 한 문장, 약 60자 이내",
             "minLength": 1,
             "type": "string"
           },
@@ -229,6 +255,11 @@
           "minItems": 1,
           "title": "Why",
           "type": "array"
+        },
+        "worth_briefing": {
+          "default": true,
+          "title": "Worth Briefing",
+          "type": "boolean"
         }
       },
       "required": [
@@ -309,30 +340,35 @@
       "additionalProperties": false,
       "properties": {
         "impact": {
+          "description": "정수 0~5",
           "maximum": 5,
           "minimum": 0,
           "title": "Impact",
           "type": "integer"
         },
         "interest": {
+          "description": "정수 0~5",
           "maximum": 5,
           "minimum": 0,
           "title": "Interest",
           "type": "integer"
         },
         "novelty": {
+          "description": "정수 0~5",
           "maximum": 5,
           "minimum": 0,
           "title": "Novelty",
           "type": "integer"
         },
         "practical": {
+          "description": "정수 0~5",
           "maximum": 5,
           "minimum": 0,
           "title": "Practical",
           "type": "integer"
         },
         "trust": {
+          "description": "정수 0~5",
           "maximum": 5,
           "minimum": 0,
           "title": "Trust",
