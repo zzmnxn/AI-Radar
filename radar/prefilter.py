@@ -1,6 +1,6 @@
 from collections import Counter
 from collections.abc import Callable, Iterable, Mapping
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timedelta
 from decimal import Decimal
 from pathlib import Path
@@ -11,7 +11,7 @@ from pydantic import Field, model_validator
 from .collect import Source
 
 from .models import Contract, EventRecord, Pool
-from .normalize import external_key, title_tokens
+from .normalize import external_key, hn_discussion_only, title_tokens
 
 from .queue import QUEUE as QUEUE
 from .queue import RETRY_WINDOW as RETRY_WINDOW
@@ -23,12 +23,19 @@ NOISE = ("ask hn hiring", "ask hn who is hiring", "ask hn who wants to be hired"
 FRESH = timedelta(hours=48)
 
 
+class InterestCategory(Contract):
+    id: str
+    name: str
+    weight: int = Field(gt=0)
+    aliases: list[str] = Field(min_length=1)
+
+
 class Interests(Contract):
-    weights: dict[str, int]
+    categories: list[InterestCategory] = Field(min_length=1)
     threshold: int = Field(gt=0)
     ai_tags: set[str]
-    ai_sources: set[str]
     ai_terms: list[str]
+    ai_sources: set[str] = Field(default_factory=set)
 
 
 class Pipeline(Contract):
@@ -40,6 +47,11 @@ class Pipeline(Contract):
     impact_top: int = Field(ge=1)
     judge_mode: JudgeMode = "normal"
     explore_min_score: float = Field(default=70, ge=0, le=100)
+    explore_min_prescore: int = Field(default=0, ge=0)
+    min_card_score: float = Field(default=0, ge=0, le=100)
+    exclude: dict[str, list[str]] = Field(default_factory=dict)
+    keep: list[str] = Field(default_factory=list)
+    signal_sources: set[str] = Field(default_factory=set)
 
     @model_validator(mode="after")
     def check_limits(self):
@@ -84,6 +96,7 @@ class Candidate:
 class CandidatePlan:
     selected: list[Candidate]
     deferred: list[Candidate]
+    excluded: dict[str, int] = field(default_factory=dict)
 
 
 def load_candidate_settings(directory: Path) -> CandidateSettings:
@@ -110,13 +123,42 @@ def freshness(event):
     )
 
 
-def _eligible(events, sources, now, interests, queue, shown):
+def _phrases(terms):
+    return [f" {' '.join(title_tokens(term))} " for term in terms]
+
+
+def exclusion_reason(title: str, pipeline: Pipeline) -> str | None:
+    """The first exclude reason whose phrase is in the title, unless a keep phrase is."""
+    phrase = f" {' '.join(title_tokens(title))} "
+    if any(term in phrase for term in _phrases(pipeline.keep)):
+        return None
+    for reason, terms in pipeline.exclude.items():
+        if any(term in phrase for term in _phrases(terms)):
+            return reason
+    return None
+
+
+def interest_categories(title: str, interests: Interests) -> list[str]:
+    """Category ids whose aliases appear as whole words in the title."""
+    phrase = f" {' '.join(title_tokens(title))} "
+    return [
+        category.id
+        for category in interests.categories
+        if any(
+            f" {' '.join(title_tokens(alias))} " in phrase for alias in category.aliases
+        )
+    ]
+
+
+def _eligible(events, sources, now, settings, queue, shown, excluded):
+    interests, pipeline = settings.interests, settings.pipeline
     latest = {}
     for event in events:
         prior = latest.get(event.event_id)
         if prior is None or prior.revision <= event.revision:
             latest[event.event_id] = event
-    ai_phrases = [f" {' '.join(title_tokens(term))} " for term in interests.ai_terms]
+    # AI tag names count as title words too, so the gate does not depend on taxonomy.
+    ai_phrases = _phrases([*interests.ai_terms, *interests.ai_tags])
     for event in latest.values():
         ref = primary_ref(event)
         entry = queue.get(event.event_id)
@@ -149,14 +191,33 @@ def _eligible(events, sources, now, interests, queue, shown):
         title = " ".join(title_tokens(event.title))
         if any(title == prefix or title.startswith(prefix + " ") for prefix in NOISE):
             continue
+        if hn_discussion_only(ref):
+            continue
+        if sources[ref.source_id].type == "mcp_registry" and not ref.link_target_url:
+            # Registry entries without a repository have no readable text to judge.
+            excluded["no_repository"] += 1
+            continue
+        if reason := exclusion_reason(event.title, pipeline):
+            excluded[reason] += 1
+            continue
         tags = set(event.rule_tags)
         if (
             not tags.intersection(interests.ai_tags)
             and not any(phrase in f" {title} " for phrase in ai_phrases)
-            and not any(
-                member.ref.source_id in interests.ai_sources for member in event.members
+            and not (
+                any(m.ref.source_id in interests.ai_sources for m in event.members)
+                and interest_categories(event.title, interests)
             )
         ):
+            continue
+        if (
+            all(m.ref.source_id in pipeline.signal_sources for m in event.members)
+            and not interest_categories(event.title, interests)
+            and len({m.ref.org for m in event.members}) < 2
+            and max((m.ref.metrics.hn_points or 0 for m in event.members), default=0)
+            < pipeline.hn_min_points
+        ):
+            excluded["no_signal"] += 1
             continue
         yield event, sources[ref.source_id], tags, retry
 
@@ -296,8 +357,9 @@ def build_candidates(
     affordable = max(
         0, min(call_slots, int((budget_left - headline_reserve) // estimate))
     )
+    excluded = Counter()
     eligible = list(
-        _eligible(events, sources, now, interests, queue or {}, shown or set())
+        _eligible(events, sources, now, settings, queue or {}, shown or set(), excluded)
     )
     points, gains = _impact_signals(
         eligible, pipeline, growth if affordable else None, current_stars or {}
@@ -305,8 +367,9 @@ def build_candidates(
     ranked = []
     emerging = set(emerging_terms)
     for event, source, tags, retry in eligible:
-        matches = tags.intersection(interests.weights)
-        interest = sum(interests.weights[tag] for tag in matches)
+        weights = {category.id: category.weight for category in interests.categories}
+        matches = set(interest_categories(event.title, interests))
+        interest = sum(weights[match] for match in matches)
         independent = len({member.ref.org for member in event.members})
         official = any(
             member.role in {"primary", "official"}
@@ -315,7 +378,7 @@ def build_candidates(
         )
         hn = points.get(event.event_id, 0)
         stars = gains.get(event.event_id, 0)
-        trending = tags & emerging
+        trending = (tags | set(event.concept_tags)) & emerging
         pools = []
         reasons = []
         if interest >= interests.threshold:
@@ -340,9 +403,16 @@ def build_candidates(
                 reasons.append(f"hn_points:{hn}")
             if stars:
                 reasons.append(f"star_growth_7d:{stars}")
+        score = interest * 10 + source.trust + 5 * bool(trending) + 5 * official
+        score += min(independent, 5) + min(hn // 25, 10) + min(stars, 10)
+        if (
+            "explore" in pools
+            and not trending
+            and score < pipeline.explore_min_prescore
+        ):
+            # Outside-interest items need a new-trend concept or a strong signal.
+            pools.remove("explore")
         if pools:
-            score = interest * 10 + source.trust + 5 * bool(trending) + 5 * official
-            score += min(independent, 5) + min(hn // 25, 10) + min(stars, 10)
             ranked.append(
                 Candidate(event, pools[0], tuple(pools), score, tuple(reasons), retry)
             )
@@ -350,13 +420,23 @@ def build_candidates(
     ranked.sort(
         key=lambda c: (-c.prescore, -freshness(c.event).timestamp(), c.event_id)
     )
+    per_source = Counter()
+    capped = []
+    for candidate in ranked:
+        source = sources[primary_ref(candidate.event).source_id]
+        if source.max_candidates and per_source[source.id] >= source.max_candidates:
+            excluded["source_cap"] += 1
+            continue
+        per_source[source.id] += 1
+        capped.append(candidate)
+    ranked = capped
     target = min(pipeline.target, pipeline.max, len(ranked))
     cached = cached or set()
     free = sum(candidate.event_id in cached for candidate in ranked)
     n = min(target, affordable + free)
     selected = _allocate(ranked, n, pipeline.pool_percent, cached, affordable)
     if affordable:
-        return CandidatePlan(selected, [])
+        return CandidatePlan(selected, [], dict(excluded))
     new = [c for c in ranked if not c.retry and c.event_id not in cached]
     waiting = sum(entry.status == "deferred" for entry in (queue or {}).values())
-    return CandidatePlan(selected, new[: max(0, target - waiting)])
+    return CandidatePlan(selected, new[: max(0, target - waiting)], dict(excluded))

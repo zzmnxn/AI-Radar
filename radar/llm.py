@@ -17,6 +17,8 @@ MAX_OUTPUT_TOKENS = 1600
 JUDGE_OUTPUT_TOKENS = 256
 HEADLINE_OUTPUT_TOKENS = 256
 HEADLINE_INPUT_TOKENS = 4500
+JUDGE_INPUT_TOKENS = 3000
+BYTES_PER_TOKEN = 3
 MAX_ARTICLE_BYTES = 12_000
 MAX_RESPONSE_BYTES = 256_000
 TOKEN_UNIT = Decimal(1_000_000)
@@ -33,6 +35,22 @@ class ModelConfig(Contract):
 
 class Judgment(Contract):
     verdicts: list[Support]
+
+
+class Concept(Contract):
+    name: str = Field(min_length=1, max_length=60, description="개념 이름, 영어 원어")
+    items: list[int] = Field(min_length=1, max_length=50)
+
+
+class Concepts(Contract):
+    concepts: list[Concept] = Field(max_length=15)
+
+
+CONCEPT_TITLES = 300
+# A busy day (the first run saw ~1,300 new titles) is split into batches.
+CONCEPT_BATCHES = 5
+CONCEPT_TITLE_CHARS = 120
+CONCEPT_OUTPUT_TOKENS = 1_500
 
 
 class Headline(Contract):
@@ -53,6 +71,41 @@ class ModelError(Exception):
         super().__init__(message)
 
 
+def _status_failure(status) -> Failure:
+    # Auth, rate-limit and server errors are not the item's fault, so retry instead of
+    # counting them against the item as an invalid answer.
+    if status in {401, 403, 408, 429} or status >= 500:
+        return "api_error"
+    return "schema_error"
+
+
+def _validation_detail(exc: ValidationError):
+    # Field paths and error types only: never echo model output or source text.
+    return "; ".join(
+        f"{'.'.join(map(str, error['loc'])) or '$'}:{error['type']}"
+        for error in exc.errors()[:8]
+    )
+
+
+def _trim_quotes(text, limit=200):
+    # Quotes are verbatim spans, so a prefix stays verbatim; verify still checks support.
+    try:
+        answer = json.loads(text)
+    except ValueError:
+        return text
+    claims = answer.get("claims") if isinstance(answer, dict) else None
+    if not isinstance(claims, list):
+        return text
+    for claim in claims:
+        quote = claim.get("evidence_quote") if isinstance(claim, dict) else None
+        if isinstance(quote, str) and len(quote) > limit:
+            cut = quote[:limit]
+            claim["evidence_quote"] = (
+                cut.rsplit(" ", 1)[0] if " " in cut else cut
+            ).rstrip()
+    return json.dumps(answer, ensure_ascii=False)
+
+
 def _post(payload, key):
     connection = http.client.HTTPSConnection("api.openai.com", timeout=60)
     try:
@@ -67,12 +120,9 @@ def _post(payload, key):
         )
         with connection.getresponse() as response:
             if response.status != 200:
-                kind = (
-                    "api_error"
-                    if response.status in {408, 429} or response.status >= 500
-                    else "schema_error"
+                raise ModelError(
+                    f"HTTP {response.status}", _status_failure(response.status)
                 )
-                raise ModelError(f"HTTP {response.status}", kind)
             body = response.read(MAX_RESPONSE_BYTES + 1)
             if len(body) > MAX_RESPONSE_BYTES:
                 raise ModelError("response too large", "schema_error")
@@ -90,19 +140,9 @@ def _structured_schema(node):
         return [_structured_schema(item) for item in node]
     if not isinstance(node, dict):
         return node
-    # Apply the portable Structured Outputs subset and validate finer constraints locally.
-    constraints = {
-        "default",
-        "format",
-        "minLength",
-        "maxLength",
-        "minimum",
-        "maximum",
-        "minItems",
-        "maxItems",
-        "pattern",
-        "title",
-    }
+    # Keep the numeric and array limits Structured Outputs enforces; string lengths are
+    # unsupported, so they live in descriptions and are validated locally.
+    constraints = {"default", "format", "minLength", "maxLength", "pattern", "title"}
     schema = {
         key: (
             {name: _structured_schema(value) for name, value in value.items()}
@@ -128,6 +168,7 @@ class OpenAIEvaluator:
         self.prompt = (prompt_dir / "evaluate.md").read_text(encoding="utf-8")
         self.judge_prompt = (prompt_dir / "judge.md").read_text(encoding="utf-8")
         self.headline_prompt = (prompt_dir / "headline.md").read_text(encoding="utf-8")
+        self.concept_prompt = (prompt_dir / "concepts.md").read_text(encoding="utf-8")
         self.schema = _structured_schema(EvalResult.model_json_schema())
         self.judge_schema = _structured_schema(Judgment.model_json_schema())
         version_inputs = [
@@ -163,8 +204,12 @@ class OpenAIEvaluator:
     def candidate_budget(self):
         budget = self.budget_state()
         remaining = self.config.daily_budget_usd - budget.estimated_usd
+        # Size the plan from the real payload ceiling, not max_input_tokens: the old
+        # 2 x 20,000 token guess was about 8x the observed cost and starved the queue.
+        overhead = len(self.prompt.encode()) + len(json.dumps(self.schema))
+        evaluation = (MAX_ARTICLE_BYTES + overhead) // BYTES_PER_TOKEN
         estimate = self._cost(
-            2 * self.config.max_input_tokens, MAX_OUTPUT_TOKENS + JUDGE_OUTPUT_TOKENS
+            evaluation + JUDGE_INPUT_TOKENS, MAX_OUTPUT_TOKENS + JUDGE_OUTPUT_TOKENS
         )
         headline = self._cost(HEADLINE_INPUT_TOKENS, HEADLINE_OUTPUT_TOKENS)
         return (
@@ -204,6 +249,12 @@ class OpenAIEvaluator:
                 {
                     "title": item.title,
                     "url": str(doc.evidence.url),
+                    "source": item.source_id,
+                    "source_class": item.source_class,
+                    "published_at": item.published_at.isoformat()
+                    if item.published_at
+                    else None,
+                    "hn_points": item.metrics.hn_points,
                     "source_text": self._untrusted(sources),
                 },
                 ensure_ascii=False,
@@ -227,6 +278,44 @@ class OpenAIEvaluator:
             self.last_failure = "schema_error"
             return None
         return result.verdicts
+
+    def concepts(self, rows):
+        """Name new technical concepts in (event_id, title) rows.
+
+        Sends up to CONCEPT_BATCHES calls of CONCEPT_TITLES numbered titles each.
+        Returns event_id -> lowercase concept names; a failed batch adds nothing.
+        """
+        rows = list(rows)[: CONCEPT_TITLES * CONCEPT_BATCHES]
+        found = {}
+        for start in range(0, len(rows), CONCEPT_TITLES):
+            batch = rows[start : start + CONCEPT_TITLES]
+            for event_id, names in self._concept_batch(batch).items():
+                tags = found.setdefault(event_id, [])
+                tags.extend(name for name in names if name not in tags)
+        return found
+
+    def _concept_batch(self, rows):
+        titles = [
+            f"{number}. {' '.join(title.split())[:CONCEPT_TITLE_CHARS]}"
+            for number, (_, title) in enumerate(rows, start=1)
+        ]
+        result = self._request(
+            self.concept_prompt,
+            _structured_schema(Concepts.model_json_schema()),
+            Concepts,
+            "radar_concepts",
+            self._untrusted(titles),
+            CONCEPT_OUTPUT_TOKENS,
+        )
+        found = {}
+        for concept in result.concepts if result else []:
+            name = " ".join(concept.name.casefold().split())
+            for number in concept.items:
+                if 1 <= number <= len(rows):
+                    tags = found.setdefault(rows[number - 1][0], [])
+                    if name not in tags:
+                        tags.append(name)
+        return found
 
     def headline(self, cards):
         result = self._request(
@@ -270,9 +359,11 @@ class OpenAIEvaluator:
                 }
             },
         }
-        input_estimate = len(json.dumps(payload, ensure_ascii=False).encode()) + 1024
+        size = len(json.dumps(payload, ensure_ascii=False).encode())
+        input_estimate = size // BYTES_PER_TOKEN + 1024
         if input_estimate > self.config.max_input_tokens:
             self.last_failure = "schema_error"
+            self.last_error = f"input_too_large:{input_estimate}"
             return None
         estimate = self._cost(input_estimate, max_output_tokens)
         headline = self._cost(HEADLINE_INPUT_TOKENS, HEADLINE_OUTPUT_TOKENS)
@@ -321,13 +412,18 @@ class OpenAIEvaluator:
             ]
             if len(outputs) != 1:
                 raise ModelError("missing structured output", "schema_error")
-            return contract.model_validate_json(outputs[0])
+            text = _trim_quotes(outputs[0]) if contract is EvalResult else outputs[0]
+            return contract.model_validate_json(text)
         except (ModelError, ValidationError, KeyError, TypeError) as exc:
             self.last_failure = (
                 exc.kind if isinstance(exc, ModelError) else "schema_error"
             )
             self.last_error = (
-                str(exc) if isinstance(exc, ModelError) else type(exc).__name__
+                str(exc)
+                if isinstance(exc, ModelError)
+                else _validation_detail(exc)
+                if isinstance(exc, ValidationError)
+                else type(exc).__name__
             )
             return None
         finally:

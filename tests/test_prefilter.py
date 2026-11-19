@@ -67,13 +67,29 @@ def test_pool_mix_and_no_duplicate_assignment():
     explore, c = sample(
         10, label="explore", title="Anthropic releases new benchmark", kind="aggregator"
     )
-    plan = select(interest + impact + explore + interest, a | b | c, "30")
+    for event in explore:
+        event.concept_tags = ["benchmark harness"]
+    plan = select(
+        interest + impact + explore + interest,
+        a | b | c,
+        "30",
+        emerging_terms=["benchmark harness"],
+    )
     assert len({row.event_id for row in plan.selected}) == 15
     assert Counter(row.pool for row in plan.selected) == {
         "interest": 6,
         "impact": 5,
         "explore": 4,
     }
+    explored = [row for row in plan.selected if row.pool == "explore"]
+    assert all("emerging:benchmark harness" in row.reasons for row in explored)
+
+
+def test_explore_needs_a_new_trend_concept_or_a_strong_prescore():
+    explore, c = sample(
+        3, label="explore", title="Anthropic releases new benchmark", kind="aggregator"
+    )
+    assert select(explore, c, "30").selected == []
 
 
 def test_deferred_bypasses_48h_with_slot_cap():
@@ -239,7 +255,7 @@ def test_run_retries_a_sixty_hour_event_after_budget_recovers(tmp_path):
 
     results, demo_fetch, demo_evaluate = demo_inputs(NOW)
     old = results[0].items[0]
-    old.title = "OpenAI provides an AI model"
+    old.title = "OpenAI provides a new model in the Responses API"
     evaluation = demo_evaluate(old, demo_fetch(old, now=NOW))
     settings = load_candidate_settings(Path("config"))
     transport = []
@@ -320,3 +336,145 @@ def test_run_retries_a_sixty_hour_event_after_budget_recovers(tmp_path):
     assert card.pool == "interest"
     queue = QUEUE.validate_json((tmp_path / "state/analysis_queue.json").read_bytes())
     assert queue[card.event_id].status == "done"
+
+
+def test_hn_discussion_without_link_is_not_a_candidate():
+    cfg = load_merge_config(Path("config"))
+    hn = "https://news.ycombinator.com/item?id="
+    rows = [
+        ("1", "OpenAI researchers resign after board fight", None),
+        ("2", "Show HN: OpenAI agent that edits spreadsheets", None),
+        ("3", "Launch HN: Claude code review bot for teams", None),
+        ("4", "OpenAI ships GPT audio streaming API", "https://example.org/gpt"),
+    ]
+    items = [
+        item(
+            f"hn{id}",
+            f"{hn}{id}",
+            title=title,
+            org="hn",
+            kind="aggregator",
+            link_target_url=target,
+            published_at=NOW,
+        )
+        for id, title, target in rows
+    ]
+    events = group(items, [], cfg, now=NOW).new
+    selected = select(events, {"hn": source("hn", "hackernews")}, "10").selected
+    titles = {
+        event.title
+        for event in events
+        if event.event_id in {candidate.event_id for candidate in selected}
+    }
+    assert titles == {title for _, title, _ in rows[1:]}
+
+
+def _titled(rows):
+    cfg = load_merge_config(Path("config"))
+    items = [
+        item(
+            f"t{i}",
+            f"https://example.org/t/{i}",
+            title=title,
+            org=org,
+            published_at=NOW,
+        )
+        for i, (title, org) in enumerate(rows)
+    ]
+    events = group(items, [], cfg, now=NOW).new
+    sources = {org: source(org, "rss") for _, org in rows}
+    return events, sources
+
+
+def test_off_topic_news_is_excluded_before_evaluation_with_reasons():
+    rows = [
+        ("Three senior researchers resign from OpenAI", "a"),
+        ("Anthropic raises funding at a higher valuation", "b"),
+        ("OpenAI partners with a bank for a webinar series", "c"),
+        ("Claude tops the LLM leaderboard ranking", "d"),
+        ("OpenAI sued over GPT training data in court", "e"),
+        ("Inside the Codex sandbox for AI agents", "f"),
+    ]
+    events, sources = _titled(rows)
+    plan = select(events, sources, "10")
+    titles = {c.event.title for c in plan.selected}
+    assert titles == {rows[5][0]}
+    assert plan.excluded == {
+        "personnel": 1,
+        "funding": 1,
+        "promo": 1,
+        "ranking": 1,
+        "lawsuit": 1,
+    }
+
+
+def test_research_sources_need_a_signal_beyond_being_ai():
+    rows = [
+        ("Improving hyper-connections for LLM training", "arxiv-cs-cl"),
+        ("Verification loops for LLM agent harness design", "arxiv-cs-cl"),
+    ]
+    events, sources = _titled(rows)
+    plan = select(events, sources, "10")
+    assert {c.event.title for c in plan.selected} == {rows[1][0]}
+    assert plan.excluded == {"no_signal": 1}
+
+
+def test_ai_source_needs_an_interest_match_without_ai_words():
+    rows = [
+        ("Inside the Codex sandbox", "openai-news"),
+        ("A message to our customers in Chile", "openai-news"),
+    ]
+    events, sources = _titled(rows)
+    assert {c.event.title for c in select(events, sources, "10").selected} == {
+        rows[0][0]
+    }
+
+
+def test_mcp_registry_entries_need_a_repository_to_be_judged():
+    cfg = load_merge_config(Path("config"))
+    title = "io.github.example/agent-mcp-server 1.0.0"
+    items = [
+        item(
+            "with-repo",
+            "https://registry.modelcontextprotocol.io/v0.1/servers/a/versions/1.0.0",
+            title=title,
+            org="mcp-registry",
+            kind="product",
+            published_at=NOW,
+            link_target_url="https://github.com/example/agent-mcp-server",
+        ),
+        item(
+            "no-repo",
+            "https://registry.modelcontextprotocol.io/v0.1/servers/b/versions/1.0.0",
+            title=title.replace("example", "other"),
+            org="mcp-registry",
+            kind="product",
+            published_at=NOW,
+        ),
+    ]
+    events = group(items, [], cfg, now=NOW).new
+    sources = {"mcp-registry": source("mcp-registry", "mcp_registry")}
+    plan = select(events, sources, "10")
+    assert [c.event.primary_item_id for c in plan.selected] == ["with-repo"]
+    assert plan.excluded == {"no_repository": 1}
+
+
+def test_source_cap_keeps_only_the_newest_release():
+    cfg = load_merge_config(Path("config"))
+    items = [
+        item(
+            f"r{i}",
+            f"https://github.com/anthropics/claude-code/releases/tag/v2.1.{i}",
+            title=f"Claude Code v2.1.{i}",
+            org="claude-code-releases",
+            published_at=NOW - timedelta(hours=10 - i),
+        )
+        for i in range(3)
+    ]
+    events = group(items, [], cfg, now=NOW).new
+    feed = source("claude-code-releases", "rss").model_copy(
+        update={"max_candidates": 1}
+    )
+    plan = select(events, {"claude-code-releases": feed}, "10")
+    assert [c.event.title for c in plan.selected] == ["Claude Code v2.1.2"]
+    assert plan.excluded == {"source_cap": 2}

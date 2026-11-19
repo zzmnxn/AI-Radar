@@ -72,7 +72,7 @@ def test_github_uses_readme_api_with_bounded_text():
     def fetch(endpoint, *, max_bytes, accept, github_token):
         assert endpoint == api
         assert max_bytes == ARTICLE_BYTES
-        assert "application/vnd.github.raw+json" in accept
+        assert accept == {"application/vnd.github.raw+json"}
         return Response(
             api, 200, {"content-type": "application/vnd.github.raw+json"}, b"a" * 60_001
         )
@@ -120,3 +120,121 @@ def test_arxiv_pdf_link_uses_abstract_and_other_pdfs_are_rejected():
                 endpoint, 200, {"content-type": "application/pdf"}, b"%PDF"
             ),
         )
+
+
+def _doc(text):
+    from radar.enrich import SourceDoc
+    from radar.models import EvidenceMeta
+
+    return SourceDoc(
+        text,
+        EvidenceMeta(
+            url=URL,
+            final_url=URL,
+            http_status=200,
+            content_type="text/html",
+            fetched_at=NOW,
+            text_sha256="0" * 64,
+            chars=len(text),
+            truncated=False,
+        ),
+    )
+
+
+def _numeric_claim(text, quote):
+    return Claim(
+        role="what",
+        sentence_index=0,
+        text=text,
+        evidence_url=URL,
+        evidence_quote=quote,
+    )
+
+
+def test_number_words_match_digits_but_not_other_numbers():
+    quote = "Three senior researchers left the lab to start a new company."
+    doc = _doc(quote)
+    three = _numeric_claim("선임 연구원 3명이 떠났다.", quote)
+    thirty = _numeric_claim("선임 연구원 30명이 떠났다.", quote)
+    assert verified_claims([three, thirty], doc) == [three]
+
+
+def test_number_words_keep_decimal_and_percent_behaviour():
+    quote = "Latency dropped by 12.5% while accuracy stayed at twenty points."
+    doc = _doc(quote)
+    good = _numeric_claim("지연이 12.5% 줄었고 정확도는 20점이다.", quote)
+    bad = _numeric_claim("지연이 12% 줄었다.", quote)
+    assert verified_claims([good, bad], doc) == [good]
+
+
+def _hn_item(title):
+    return RawItem(
+        item_id="hn",
+        source_id="hackernews-show",
+        source_class="aggregator",
+        title=title,
+        url="https://news.ycombinator.com/item?id=42",
+        canonical_url="https://news.ycombinator.com/item?id=42",
+        first_seen_at=NOW,
+    )
+
+
+def test_hn_self_post_uses_only_the_post_body():
+    import json
+
+    import pytest
+
+    from radar.http import FetchError
+
+    seen = []
+
+    def fetch(url, **kwargs):
+        seen.append(url)
+        body = {
+            "text": "<p>We built an agent that edits spreadsheets.</p>",
+            "children": [{"text": "A comment that must not be evidence."}],
+        }
+        return Response(
+            url, 200, {"content-type": "application/json"}, json.dumps(body).encode()
+        )
+
+    doc = enrich(_hn_item("Show HN: Sheet agent"), now=NOW, fetch=fetch)
+    assert seen == ["https://hn.algolia.com/api/v1/items/42"]
+    assert doc.text == "We built an agent that edits spreadsheets."
+    assert str(doc.evidence.url) == "https://news.ycombinator.com/item?id=42"
+
+    with pytest.raises(FetchError, match="discussion_only"):
+        enrich(_hn_item("OpenAI researchers resign"), now=NOW, fetch=fetch)
+
+
+def test_github_release_uses_api_release_notes():
+    import json
+
+    seen = []
+
+    def fetch(url, **kwargs):
+        seen.append((url, kwargs["accept"]))
+        body = {"body": "## New Features\n- Added WebRTC voice calls in the TUI."}
+        return Response(
+            url, 200, {"content-type": "application/json"}, json.dumps(body).encode()
+        )
+
+    page = "https://github.com/openai/codex/releases/tag/rust-v0.170.0"
+    release = RawItem(
+        item_id="r",
+        source_id="codex-releases",
+        source_class="official",
+        url=page,
+        canonical_url=page,
+        title="Codex 0.170.0",
+        first_seen_at=NOW,
+    )
+    doc = enrich(release, now=NOW, fetch=fetch)
+    assert seen == [
+        (
+            "https://api.github.com/repos/openai/codex/releases/tags/rust-v0.170.0",
+            {"application/json"},
+        )
+    ]
+    assert doc.text == "## New Features - Added WebRTC voice calls in the TUI."
+    assert str(doc.evidence.url) == page

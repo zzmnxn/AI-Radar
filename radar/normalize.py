@@ -50,3 +50,16 @@ def external_key(url):
 @lru_cache(maxsize=8192)
 def title_tokens(title):
     return tuple(TITLE_TOKEN.findall(unicodedata.normalize("NFKC", title).casefold()))
+
+
+# HN posts whose own body can serve as evidence when they link nowhere else.
+HN_SELF_POSTS = ("show hn", "ask hn", "launch hn")
+
+
+def hn_discussion_only(ref) -> bool:
+    """An HN item with no outbound link whose only text would be the comments."""
+    return (
+        urlsplit(str(ref.url)).hostname == "news.ycombinator.com"
+        and ref.link_target_url is None
+        and not " ".join(title_tokens(ref.title)).startswith(HN_SELF_POSTS)
+    )

@@ -393,6 +393,11 @@ def _run_slice(
             f"interest={pools['interest']} impact={pools['impact']} "
             f"explore={pools['explore']} star_growth={growth_count}"
         )
+        if plan.excluded:
+            dropped = ",".join(
+                f"{reason}x{count}" for reason, count in sorted(plan.excluded.items())
+            )
+            summary += f" prefilter_excluded={dropped}"
     else:
         mode = "normal"
         # The offline preview uses synthetic evidence and judgment.
@@ -429,6 +434,7 @@ def _run_slice(
     completed = []
     analyzed = 0
     rejected = Counter()
+    llm_errors = Counter()
     examined = []
     for event, pool in candidates:
         item = _raw_from_ref(primary_ref(event), collected)
@@ -456,6 +462,9 @@ def _run_slice(
                 else evaluate(item, doc)
             )
             if evaluation is None:
+                if failure := getattr(evaluate, "last_failure", None):
+                    detail = getattr(evaluate, "last_error", None)
+                    llm_errors[f"{failure}[{detail}]" if detail else failure] += 1
                 if candidate_settings and evaluate.last_failure:
                     deferred += update_queue(event, evaluate.last_failure)
                     save_queue()
@@ -464,6 +473,11 @@ def _run_slice(
             enter("verify")
             checked = verify(evaluation, docs, judge, link_check, mode=mode)
             if checked is None:
+                if failure := getattr(evaluate, "last_failure", None):
+                    detail = getattr(evaluate, "last_error", None)
+                    llm_errors[
+                        f"judge:{failure}[{detail}]" if detail else f"judge:{failure}"
+                    ] += 1
                 if candidate_settings:
                     deferred += update_queue(
                         event, evaluate.last_failure or "schema_error"
@@ -513,6 +527,11 @@ def _run_slice(
             if examined
             else 0,
         )
+    if llm_errors:
+        errors = ",".join(
+            f"{reason}x{count}" for reason, count in sorted(llm_errors.items())
+        )
+        summary = " ".join(filter(None, [summary, f"llm_errors={errors}"]))
     if rejected:
         breakdown = " ".join(
             f"{reason}={count}" for reason, count in sorted(rejected.items())
@@ -536,6 +555,9 @@ def _run_slice(
         explore_min_score=candidate_settings.pipeline.explore_min_score
         if candidate_settings
         else 70,
+        min_score=candidate_settings.pipeline.min_card_score
+        if candidate_settings
+        else 0,
     )
     enter("assemble")
     if stats is not None:

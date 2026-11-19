@@ -1,13 +1,7 @@
-import re
-import unicodedata
-
 from pydantic import Field
 
 from .models import Contract, EventRecord
 from .normalize import title_tokens
-
-WORD = re.compile(r"[^\W_]+(?:-[^\W_]+)*", re.UNICODE)
-CAMEL_CASE = re.compile(r"[a-z][A-Z]")
 
 
 class Taxonomy(Contract):
@@ -18,6 +12,7 @@ class Taxonomy(Contract):
 
 
 def rule_tags(event: EventRecord, taxonomy: Taxonomy) -> list[str]:
+    """Taxonomy tags only. New concepts come from LLM extraction, not title n-grams."""
     tags = {
         taxonomy.source_tag_map[tag.casefold()]
         for member in event.members
@@ -28,9 +23,6 @@ def rule_tags(event: EventRecord, taxonomy: Taxonomy) -> list[str]:
         name: {" ".join(title_tokens(alias)) for alias in [name, *terms]} - {""}
         for name, terms in taxonomy.entities.items()
     }
-    known = set().union(*aliases.values())
-    stops = set(taxonomy.stop_words) | known
-    candidates = set()
     for title in {event.title, *(member.ref.title for member in event.members)}:
         phrase = " " + " ".join(title_tokens(title)) + " "
         tags.update(
@@ -38,23 +30,4 @@ def rule_tags(event: EventRecord, taxonomy: Taxonomy) -> list[str]:
             for name, terms in aliases.items()
             if any(f" {term} " in phrase for term in terms)
         )
-        words = WORD.findall(unicodedata.normalize("NFKC", title))
-        normalized = [word.casefold() for word in words]
-        for index, word in enumerate(normalized):
-            if not any(char.isalpha() for char in word) or word in stops:
-                continue
-            original = words[index]
-            if (
-                "-" in word
-                or CAMEL_CASE.search(original)
-                or (len(original) >= 3 and original.isupper())
-            ):
-                candidates.add(word)
-            for width in (2, 3):
-                window = normalized[index : index + width]
-                if len(window) == width and all(
-                    term not in stops and any(char.isalpha() for char in term)
-                    for term in window
-                ):
-                    candidates.add(" ".join(window))
-    return sorted(tags | (candidates - known))
+    return sorted(tags)

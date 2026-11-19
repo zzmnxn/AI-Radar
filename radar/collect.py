@@ -1,6 +1,7 @@
 import hashlib
 import json
 import os
+import re
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -52,6 +53,27 @@ class Source(Contract):
     expected_cadence_days: int = Field(gt=0)
     auth: Literal["none", "env:GITHUB_TOKEN"]
     terms_note: str
+    # Release feeds title entries with a bare version; prefix the tool name.
+    title_prefix: str | None = None
+    skip_prereleases: bool = False
+    # GitHub release feeds have no <published>; their <updated> is the release time.
+    published_from_updated: bool = False
+    # At most this many candidates per run come from the source (newest first).
+    max_candidates: int | None = Field(default=None, ge=1)
+
+
+PRERELEASE = re.compile(
+    r"[-.](?:alpha|beta|rc|pre|preview|nightly|canary|dev)\b", re.IGNORECASE
+)
+
+
+def _release_title(source, title):
+    if not title or not source.title_prefix:
+        return title
+    title = re.sub(r"^release\s+", "", title.strip(), flags=re.IGNORECASE)
+    if title.casefold().startswith(source.title_prefix.casefold()):
+        return title
+    return f"{source.title_prefix} {title}"
 
 
 @dataclass
@@ -252,6 +274,11 @@ def collect_source(source, now, *, since=None, until=None, fetch=None):
             rows = mcp_rows(url, start, fetch_page, reasons)
         items = []
         for row in rows:
+            if source.skip_prereleases and PRERELEASE.search(row.get("title") or ""):
+                continue
+            row["title"] = _release_title(source, row.get("title"))
+            if source.published_from_updated and not row.get("published"):
+                row["published"] = row.get("updated")
             try:
                 item = _item(source, now, **row)
             except (ValidationError, AttributeError, ValueError):

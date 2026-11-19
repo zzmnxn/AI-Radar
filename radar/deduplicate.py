@@ -372,6 +372,32 @@ def load_events(data: Path) -> list[EventRecord]:
     return current
 
 
+def _tag_concepts(result, extract):
+    """Ask once for concepts in new or revised titles; on failure keep going without."""
+    changed = result.new + result.revised
+    if not changed:
+        return
+    try:
+        found = extract([(event.event_id, event.title) for event in changed])
+    except Exception:
+        found = {}
+    for bucket in (result.new, result.revised):
+        bucket[:] = [
+            event.model_copy(
+                update={
+                    "concept_tags": sorted(
+                        {
+                            tag.casefold().strip()
+                            for tag in found.get(event.event_id, [])
+                        }
+                        - {""}
+                    )
+                }
+            )
+            for event in bucket
+        ]
+
+
 def record_events(
     items,
     data: Path,
@@ -382,6 +408,7 @@ def record_events(
     trust=None,
     active_sources=None,
     before_trends=None,
+    concepts=None,
 ):
     directory = data / "state/events"
     staging = data / ".staging"
@@ -390,6 +417,8 @@ def record_events(
         flock(lock, LOCK_EX)
         current = load_events(data)
         result = group(items, current, cfg, now=now, orgs=orgs, trust=trust)
+        if concepts:
+            _tag_concepts(result, concepts)
         shards = defaultdict(list)
         for event in result.new + result.revised + result.touched:
             month = event.first_seen_at.astimezone(KST).strftime("%Y-%m")

@@ -94,3 +94,22 @@ def test_explicit_dates_force_and_failure_preserve_snapshot(tmp_path):
     last = validate_snapshot(data, references=True)
     assert "index/2025.json" in last.published.files
     assert "index/2026.json" in last.published.files
+
+
+def test_real_runs_reject_dates_older_than_the_backfill_window(tmp_path):
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "radar",
+            "run",
+            "--data",
+            str(tmp_path),
+            "--date",
+            "2023-11-19",
+        ],
+        capture_output=True,
+    )
+    assert result.returncode == 2
+    assert b"at most 7 days" in result.stderr
+    assert not (tmp_path / "manifest.json").exists()

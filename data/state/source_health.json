@@ -110,7 +110,7 @@
     ],
     "health": "degraded",
     "last_attempt_at": "2026-11-19T01:53:56.165136Z",
-    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": null,
     "last_completeness": "partial",
     "last_item_at": "2026-11-17T00:00:00Z",
     "last_success_at": "2026-11-19T01:53:56.165136Z",
@@ -118,14 +118,7 @@
   },
   "mcp-registry": {
     "consecutive_failures": 0,
-    "gaps": [
-      {
-        "from": "2023-11-16T07:00:00+09:00",
-        "reason": "pagination_stopped",
-        "status": "lookback_capped",
-        "to": "2023-11-19T07:00:00+09:00"
-      }
-    ],
+    "gaps": [],
     "health": "healthy",
     "last_attempt_at": "2026-11-19T01:53:56.165136Z",
     "last_complete_at": "2026-11-19T01:53:56.165136Z",

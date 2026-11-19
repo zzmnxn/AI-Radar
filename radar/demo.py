@@ -54,7 +54,7 @@ def demo_inputs(now):
     evaluation = EvalResult(
         scores=dict(practical=4, impact=4, novelty=3, trust=4, interest=4),
         title_ko=title,
-        category="검색",
+        category="새 AI 서비스",
         tags=["문서 검색", "출처"],
         what=[what],
         why=[why],

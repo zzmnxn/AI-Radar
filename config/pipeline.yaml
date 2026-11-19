@@ -9,3 +9,27 @@ hn_min_points: 25
 impact_top: 10
 judge_mode: normal
 explore_min_score: 70
+# Outside-interest candidates without a new-trend concept need this prescore.
+explore_min_prescore: 20
+# Cards below this weighted score (0-100) are dropped even if the briefing is short.
+min_card_score: 55
+# Title phrases that drop an event before evaluation (reason: phrases). Matching is
+# by whole words; the count per reason is written to the run summary.
+exclude:
+  personnel: [resign, resigns, resigned, resignation, hires, hired, joins, joined,
+              departs, departure, steps down, poached, appointed, ousted, fired,
+              layoffs, laid off]
+  funding: [raises, raised, funding, valuation of, at a valuation, billion valuation,
+            valued at, revenue, earnings, IPO, investment, invests, investors, acquires,
+            acquired, Series A,
+            Series B, Series C, seed round]
+  gossip: [CEO, rumor, rumors, drama, feud]
+  ranking: [leaderboard, rankings, top 10, top 5]
+  promo: [partnership, partners with, partner with, webinar, conference, award, awards,
+          summit, keynote, hackathon, sponsored, meetup]
+  lawsuit: [lawsuit, lawsuits, sues, sued, suing, court, courtroom, judge, verdict]
+# Regulation and policy stay even when an exclude phrase also matches.
+keep: [regulation, regulator, regulators, policy, AI Act, FTC, antitrust]
+# Sources that are AI by nature; their items need an interest category, HN points or
+# a second organisation before they become candidates.
+signal_sources: [arxiv-cs-cl, huggingface-daily-papers, mcp-registry]

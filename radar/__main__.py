@@ -40,7 +40,9 @@ SCHEMAS = {
 }
 
 
-def _collect_events(sources, now, data, config_path, *, enter=None, details=None):
+def _collect_events(
+    sources, now, data, config_path, *, enter=None, details=None, concepts=None
+):
     cfg = load_merge_config(config_path)
     grouped = None
 
@@ -59,6 +61,7 @@ def _collect_events(sources, now, data, config_path, *, enter=None, details=None
             trust={source.id: source.trust for source in sources},
             active_sources=len(sources),
             before_trends=(lambda: enter("tag")) if enter else None,
+            concepts=concepts,
         )
 
     results = collect_with_health(
@@ -68,6 +71,8 @@ def _collect_events(sources, now, data, config_path, *, enter=None, details=None
 
 
 KST = ZoneInfo("Asia/Seoul")
+# Sources only return recent items, so older backfills produce empty briefings.
+MAX_BACKFILL_DAYS = 7
 MODEL_SETTINGS = {
     "model": "RADAR_MODEL",
     "daily_budget_usd": "RADAR_DAILY_BUDGET_USD",
@@ -159,6 +164,7 @@ def _run_command(arguments, data):
                         arguments.merge_config,
                         enter=enter,
                         details=results,
+                        concepts=evaluator.concepts,
                     )
                     options.update(
                         evaluate=evaluator,
@@ -295,8 +301,18 @@ def main() -> None:
             or data.resolve().is_relative_to(Path("data").resolve())
         ):
             parser.error("--no-llm requires a separate --data preview directory")
-        if arguments.date and arguments.date > datetime.now(KST).date():
+        today = datetime.now(KST).date()
+        if arguments.date and arguments.date > today:
             parser.error("--date cannot be in the future in Korea")
+        if (
+            arguments.date
+            and not arguments.no_llm
+            and arguments.date < today - timedelta(days=MAX_BACKFILL_DAYS)
+        ):
+            parser.error(
+                f"--date can go back at most {MAX_BACKFILL_DAYS} days; "
+                "sources only return recent items"
+            )
         try:
             manifest = _run_command(arguments, data)
         except (SnapshotConflict, OSError, ValueError) as exc:

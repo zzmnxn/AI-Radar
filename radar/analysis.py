@@ -18,6 +18,9 @@ def weighted_total(scores):
 
 
 def analyze(event, version, checked, usage, now):
+    reason = checked.rejection_reason or (
+        None if checked.evaluation.worth_briefing else "not_worth_briefing"
+    )
     return AnalysisRecord(
         analysis_id=analysis_id(event, version),
         event_id=event.event_id,
@@ -28,12 +31,12 @@ def analyze(event, version, checked, usage, now):
         verification=checked.verification,
         verdict=(
             "rejected"
-            if checked.rejection_reason
+            if reason
             else "partial"
             if checked.verification.level == "partial"
             else "accepted"
         ),
-        rejection_reason=checked.rejection_reason,
+        rejection_reason=reason,
         usage=usage,
         created_at=now,
     )

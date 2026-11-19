@@ -1,7 +1,15 @@
 from datetime import date
 from typing import Annotated, Literal
 
-from pydantic import AwareDatetime, BaseModel, ConfigDict, Field, HttpUrl, RootModel
+from pydantic import (
+    AwareDatetime,
+    BaseModel,
+    BeforeValidator,
+    ConfigDict,
+    Field,
+    HttpUrl,
+    RootModel,
+)
 
 from .config import DEADLINE_KST, SCHEMA_VERSION
 
@@ -23,10 +31,39 @@ ClaimRole = Literal["what", "why", "how", "availability", "access"]
 Pool = Literal["interest", "explore", "impact"]
 Count = Annotated[int, Field(ge=0)]
 Revision = Annotated[int, Field(ge=1)]
-Rating = Annotated[int, Field(ge=0, le=5)]
+Rating = Annotated[int, Field(ge=0, le=5, description="정수 0~5")]
+# Interest categories, in config/interests.yaml order, plus the fallback.
+CATEGORIES = (
+    "AI 코딩 도구",
+    "에이전트 확장",
+    "MCP·도구 연결",
+    "에이전트 설계·스택",
+    "컨텍스트·메모리",
+    "GenUI·AI 인터페이스",
+    "AI 개발 워크플로",
+    "새 모델·API",
+    "로컬·오픈 모델",
+    "새 AI 서비스",
+    "에이전트 작업 환경",
+    "AI 활용 패턴",
+    "기타",
+)
+Category = Annotated[
+    Literal[CATEGORIES],
+    BeforeValidator(lambda value: value if value in CATEGORIES else "기타"),
+]
 Rate = Annotated[float, Field(ge=0, le=1)]
-Quote = Annotated[str, Field(min_length=1, max_length=200)]
-Sentence = Annotated[str, Field(min_length=1)]
+Quote = Annotated[
+    str,
+    Field(
+        min_length=1,
+        max_length=200,
+        description="원문에서 그대로 복사한 연속 구간, 20~200자",
+    ),
+]
+Sentence = Annotated[
+    str, Field(min_length=1, description="한국어 한 문장, 약 60자 이내")
+]
 
 
 class Contract(BaseModel):
@@ -88,6 +125,8 @@ class EventRecord(Contract):
     members: list[EventMember] = Field(min_length=1)
     related_event_ids: list[str] = Field(default_factory=list)
     rule_tags: list[str] = Field(default_factory=list)
+    # New technical concepts named by the daily LLM extraction (lowercase).
+    concept_tags: list[str] = Field(default_factory=list)
     taxonomy_version: str
     first_seen_at: AwareDatetime
     revision_history: list[EventRevision] = Field(min_length=1)
@@ -129,7 +168,14 @@ class Claim(Contract):
 
 class EvalResult(Contract):
     scores: Scores
-    category: str
+    # Exit for items a practitioner would not act on; defaults keep stored rows valid.
+    worth_briefing: bool = True
+    skip_reason: str = Field(
+        default="",
+        max_length=80,
+        description="worth_briefing이 false일 때 한 구절 사유",
+    )
+    category: Category
     tags: list[str]
     title_ko: str
     what: list[Sentence] = Field(min_length=1, max_length=2)

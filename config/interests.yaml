@@ -1,9 +1,76 @@
-# Initial editorial interests for the shared briefing.
-weights:
-  openai: 2
-  mcp: 2
-  ai-agent: 2
-  code review: 2
+# Editorial interests: 12 categories (decision 2026-11-19).
+# Tool names are aliases only. Development categories (1-5, 7, 11) weigh 3,
+# the rest 2. Aliases match whole words in the title, case-insensitively.
+categories:
+  - id: coding-tools
+    name: AI 코딩 도구
+    weight: 3
+    aliases: [Claude Code, Codex, Cursor, Copilot, Windsurf, Aider, Cline, Gemini CLI,
+              Kiro, Zed, Jules, code review, coding agent, coding agents,
+              coding assistant, AI coding, vibe coding]
+  - id: agent-extensions
+    name: 에이전트 확장
+    weight: 3
+    aliases: [hooks, skills, Agent Skills, subagent, subagents, plugin, plugins,
+              slash command, slash commands, custom commands, CLAUDE.md, AGENTS.md]
+  - id: mcp-tools
+    name: MCP·도구 연결
+    weight: 3
+    aliases: [MCP, Model Context Protocol, MCP server, tool calling, function calling,
+              tool use, A2A, computer use, browser use, browser automation]
+  - id: agent-design
+    name: 에이전트 설계·스택
+    weight: 3
+    aliases: [harness, agent harness, sandbox, sandboxing, verification loop, evals,
+              eval, guardrails, agent framework, Agents SDK, Agent SDK, LangGraph,
+              LangChain, CrewAI, DSPy, PydanticAI, Mastra, agent loop, multi-agent,
+              agentic workflow, agentic workflows]
+  - id: context-memory
+    name: 컨텍스트·메모리
+    weight: 3
+    aliases: [context window, context engineering, long context, memory, agent memory,
+              RAG, retrieval, prompt caching, token usage, tokens, compaction,
+              embeddings]
+  - id: genui
+    name: GenUI·AI 인터페이스
+    weight: 2
+    aliases: [Generative UI, GenUI, AI interface, AI UI, Artifacts, Canvas, voice mode,
+              voice agent, UI generation, v0]
+  - id: dev-workflow
+    name: AI 개발 워크플로
+    weight: 3
+    aliases: [how we, case study, in production, lessons learned, postmortem,
+              spec-driven, spec-driven development, TDD, pair programming,
+              developer workflow, engineering workflow, AI-assisted development]
+  - id: models-api
+    name: 새 모델·API
+    weight: 2
+    aliases: [GPT, Gemini, Claude Opus, Claude Sonnet, Claude Haiku, Opus, Sonnet, Haiku,
+              Llama, Mistral, Qwen, DeepSeek, Grok, Responses API, API, new model,
+              model release, reasoning model]
+  - id: local-models
+    name: 로컬·오픈 모델
+    weight: 2
+    aliases: [local, locally, local LLM, open-weight, open weights, Ollama, llama.cpp,
+              vLLM, MLX, LM Studio, GGUF, quantization, quantized, on-device,
+              self-hosted]
+  - id: ai-services
+    name: 새 AI 서비스
+    weight: 2
+    aliases: [introducing, launches, launched, now available, generally available,
+              Show HN, Launch HN, AI app, beta]
+  - id: agent-workspace
+    name: 에이전트 작업 환경
+    weight: 3
+    aliases: [Orca, worktree, worktrees, parallel agents, background agents,
+              background agent, cloud agents, agent manager, remote agents, Conductor,
+              tmux, agent orchestration]
+  - id: usage-patterns
+    name: AI 활용 패턴
+    weight: 2
+    aliases: [Obsidian, LLM wiki, second brain, personal knowledge, knowledge base,
+              note-taking, personal automation, personal assistant, NotebookLM, n8n,
+              Zapier, workflow automation, how I use]
 threshold: 2
 ai_tags:
   [artificial-intelligence, machine-learning, large-language-model, ai-agent,
@@ -11,6 +78,10 @@ ai_tags:
 ai_terms:
   [foundation model, generative ai, inference, fine-tuning, multimodal, vision-language,
    neural network, reinforcement learning, diffusion model, model weights, open-weight]
+# AI-native sources: an item without AI words still passes when it also matches an
+# interest category (e.g. "Inside the Codex sandbox"). Membership alone is not enough.
 ai_sources:
   [huggingface-blog, hackernews-ai, openai-news, google-ai, microsoft-ai,
-   github-ai, github-ai-repositories, arxiv-cs-cl, huggingface-daily-papers, mcp-registry]
+   github-ai, github-ai-repositories, arxiv-cs-cl, huggingface-daily-papers, mcp-registry,
+   cursor-changelog, latent-space, claude-code-releases, codex-releases,
+   gemini-cli-releases]

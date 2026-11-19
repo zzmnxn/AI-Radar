@@ -229,3 +229,26 @@ def test_archive_backfills_titles_in_older_years(tmp_path):
     assert index_path in published.published.files
     row = json.loads(path.read_bytes())[earlier.date().isoformat()]
     assert row["titles"] == ["테스트용 · 문서 검색 결과에 원문 링크 추가"]
+
+
+def test_cards_below_the_minimum_score_are_not_used_to_fill():
+    cards = [card("high", 80, "a", "a"), card("low", 40, "b", "b")]
+    picked = select(cards, [], explore_min_score=70, min_score=55)
+    assert [c.event_id for c in picked] == ["high"]
+
+
+def test_same_product_version_from_two_sources_becomes_one_card():
+    cards = [
+        card("OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available", 78, "a", "a"),
+        card("Introducing GPT-6.2 Astra and Sol", 90, "b", "b"),
+        card("Claude Code v2.1 adds hooks", 70, "c", "c"),
+        card("Top 5 agent tools for 2026", 60, "d", "d"),
+        card("Five steps to step 2 of agent evals", 60, "e", "e"),
+    ]
+    picked = select(cards, [], explore_min_score=70)
+    assert [c.event_id for c in picked] == [
+        "Introducing GPT-6.2 Astra and Sol",
+        "Claude Code v2.1 adds hooks",
+        "Five steps to step 2 of agent evals",
+        "Top 5 agent tools for 2026",
+    ]

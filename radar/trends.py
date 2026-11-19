@@ -16,7 +16,8 @@ KST = ZoneInfo("Asia/Seoul")
 class TrendRow(Contract):
     date: date
     tag: str
-    kind: Literal["taxonomy", "candidate"]
+    # "candidate" rows are legacy title n-grams; they are kept readable but ignored.
+    kind: Literal["taxonomy", "concept", "candidate"]
     events: Count
     independent_orgs: Count
     active_sources: Count
@@ -55,14 +56,14 @@ def rebuild_day(
             and all(seen != day for seen, _ in member_days)
         ):
             continue
-        for tag in event.rule_tags:
+        for tag in {*event.rule_tags, *event.concept_tags}:
             event_ids[tag].add(event.event_id)
             orgs[tag].update(org for seen, org in member_days if seen <= day)
     return [
         TrendRow(
             date=day,
             tag=tag,
-            kind="taxonomy" if tag in known else "candidate",
+            kind="taxonomy" if tag in known else "concept",
             events=len(ids),
             independent_orgs=len(orgs[tag]),
             active_sources=active_sources,
@@ -78,7 +79,6 @@ def emerging(history: Iterable[TrendDay], today: date) -> list[EmergingItem]:
     baseline = Counter()
     recent_exposure = baseline_exposure = baseline_days = 0
     first_seen = {}
-    known = set()
     discovery_ids = defaultdict(set)
     discovery_orgs = defaultdict(set)
     for day in sorted(history, key=lambda day: day.date):
@@ -91,9 +91,9 @@ def emerging(history: Iterable[TrendDay], today: date) -> list[EmergingItem]:
             baseline_exposure += day.active_sources
             baseline_days += 1
         for row in day.rows:
+            if row.kind != "concept":
+                continue
             first_seen.setdefault(row.tag, day.date)
-            if row.kind == "taxonomy":
-                known.add(row.tag)
             if age < 14:
                 discovery_ids[row.tag].update(row.event_ids)
                 discovery_orgs[row.tag].update(row.orgs)
@@ -107,12 +107,7 @@ def emerging(history: Iterable[TrendDay], today: date) -> list[EmergingItem]:
     discoveries = set()
     for tag, ids in discovery_ids.items():
         org_count = len(discovery_orgs[tag])
-        if (
-            tag not in known
-            and (today - first_seen[tag]).days < 14
-            and len(ids) >= 2
-            and org_count >= 2
-        ):
+        if (today - first_seen[tag]).days < 14 and len(ids) >= 2 and org_count >= 2:
             discoveries.add(tag)
             ranked.append(
                 (

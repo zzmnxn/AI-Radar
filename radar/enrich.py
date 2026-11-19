@@ -1,4 +1,5 @@
 import hashlib
+import json
 import os
 import re
 import unicodedata
@@ -6,17 +7,17 @@ from dataclasses import dataclass
 from datetime import datetime
 from email.message import Message
 from html.parser import HTMLParser
-from urllib.parse import quote, urlsplit
+from urllib.parse import parse_qs, quote, urlsplit
 
 from .http import ARTICLE_BYTES, FetchError, safe_get
 from .models import Claim, EvidenceMeta, RawItem
-from .normalize import ARXIV_ID, external_key
+from .normalize import ARXIV_ID, external_key, hn_discussion_only
 
 ARTICLE_TYPES = frozenset({"application/xhtml+xml", "text/html", "text/plain"})
 MAX_CHARS = 60_000
-README_TYPES = frozenset(
-    {"application/vnd.github.raw+json", "application/octet-stream", "text/plain"}
-)
+JSON_TYPES = frozenset({"application/json"})
+# GitHub echoes the Accept header back as the content type, so ask for one type only.
+README_TYPES = frozenset({"application/vnd.github.raw+json"})
 
 
 class ArticleParser(HTMLParser):
@@ -73,14 +74,47 @@ def _normalized(value: str) -> str:
     return " ".join(unicodedata.normalize("NFKC", value).split())
 
 
+NUMBER_PATTERN = re.compile(r"[0-9]+(?:[.,][0-9]+)*")
+NUMBER_WORDS = {
+    word: str(value)
+    for value, word in enumerate(
+        "zero one two three four five six seven eight nine ten eleven twelve "
+        "thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty".split()
+    )
+} | {
+    "hundred": "100",
+    "thousand": "1000",
+    "million": "1000000",
+    "billion": "1000000000",
+}
+NUMBER_WORD_PATTERN = re.compile(r"\b(" + "|".join(NUMBER_WORDS) + r")\b", re.I)
+
+
+def _numbers(text: str) -> set[str]:
+    """Digit tokens plus English number words read as digits ("Three" -> "3")."""
+    words = NUMBER_WORD_PATTERN.sub(lambda m: NUMBER_WORDS[m[1].lower()], text)
+    return set(NUMBER_PATTERN.findall(words))
+
+
 def enrich(item: RawItem, *, now: datetime, fetch=safe_get) -> SourceDoc:
     original = str(item.link_target_url or item.url)
     url = original
     accept = ARTICLE_TYPES
     options = {}
+    json_field, json_html = None, False
     parts = urlsplit(original)
     key = external_key(original)
-    if key and key[0] == "github_repo":
+    if key and key[0] == "github_release":
+        # Release notes from the API; the release page is mostly GitHub chrome.
+        repo, _, tag = parts.path.strip("/").partition("/releases/tag/")
+        url = (
+            f"https://api.github.com/repos/{quote(repo, safe='/')}"
+            f"/releases/tags/{quote(tag, safe='')}"
+        )
+        accept = JSON_TYPES
+        json_field = "body"
+        options["github_token"] = os.environ.get("GITHUB_TOKEN")
+    elif key and key[0] == "github_repo":
         path = quote(parts.path.strip("/"), safe="/")
         url = f"https://api.github.com/repos/{path}/readme"
         accept = README_TYPES
@@ -91,6 +125,14 @@ def enrich(item: RawItem, *, now: datetime, fetch=safe_get) -> SourceDoc:
         )
         if match:
             url = f"https://arxiv.org/abs/{match[1]}"
+    elif parts.hostname == "news.ycombinator.com" and item.link_target_url is None:
+        # Use the post body only; the HN page itself is mostly comments.
+        hn_id = parse_qs(parts.query).get("id", [""])[0]
+        if hn_discussion_only(item) or not hn_id.isdecimal():
+            raise FetchError("discussion_only")
+        url = f"https://hn.algolia.com/api/v1/items/{hn_id}"
+        accept = JSON_TYPES
+        json_field, json_html = "text", True
     response = fetch(url, max_bytes=ARTICLE_BYTES, accept=accept, **options)
     if response.body is None or not 200 <= response.status < 300:
         raise FetchError("http_error", response.status)
@@ -107,7 +149,19 @@ def enrich(item: RawItem, *, now: datetime, fetch=safe_get) -> SourceDoc:
     except LookupError as exc:
         raise FetchError("unsupported_charset") from exc
 
-    if headers.get_content_type() in {"text/html", "application/xhtml+xml"}:
+    if json_field:
+        try:
+            text = json.loads(text).get(json_field) or ""
+        except (ValueError, AttributeError) as exc:
+            raise FetchError("bad_content_type") from exc
+    if json_html or (
+        not json_field
+        and headers.get_content_type()
+        in {
+            "text/html",
+            "application/xhtml+xml",
+        }
+    ):
         parser = ArticleParser()
         parser.feed(text)
         parser.close()
@@ -178,23 +232,20 @@ def claim_window(claim: Claim, doc: SourceDoc) -> tuple[str, str, bool]:
     ):
         return "", "", False
     text = _normalized(doc.text)
-    number_pattern = r"[0-9]+(?:[.,][0-9]+)*"
-    numbers = set(re.findall(number_pattern, _normalized(claim.text)))
+    numbers = _numbers(_normalized(claim.text))
     fallback = "", "", False
     spans = _quote_spans(quote, text)
     for start, end, best in spans:
         found = text[start:end]
         window = text[max(0, start - 300) : end + 300]
-        if set(re.findall(number_pattern, window)).issuperset(numbers):
+        if _numbers(window).issuperset(numbers):
             # Among nearby fuzzy starts, retain the closest original excerpt.
             for later, stop, ratio in spans:
                 if best == 1.0 or later > start + len(quote) // 8:
                     break
                 candidate = text[later:stop]
                 context = text[max(0, later - 300) : stop + 300]
-                if ratio > best and set(re.findall(number_pattern, context)).issuperset(
-                    numbers
-                ):
+                if ratio > best and _numbers(context).issuperset(numbers):
                     found, window, best = candidate, context, ratio
             return found, window, True
         fallback = found, window, False

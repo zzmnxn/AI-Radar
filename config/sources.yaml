@@ -193,3 +193,80 @@
   expected_cadence_days: 1
   auth: none
   terms_note: Public registry metadata for active server versions with agent in their name.
+- id: cursor-changelog
+  name: Cursor Changelog
+  org: Cursor
+  type: rss
+  url: https://cursor.com/changelog/rss.xml
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 7
+  auth: none
+  terms_note: Public RSS feed of the Cursor changelog.
+- id: latent-space
+  name: Latent Space
+  org: Latent Space
+  type: rss
+  url: https://www.latent.space/feed
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 3
+  auth: none
+  terms_note: Public Substack RSS feed.
+- id: claude-code-releases
+  name: Claude Code Releases
+  org: Anthropic
+  type: rss
+  url: https://github.com/anthropics/claude-code/releases.atom
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 7
+  auth: none
+  terms_note: Public GitHub releases Atom feed; prereleases are skipped.
+  title_prefix: Claude Code
+  skip_prereleases: true
+  published_from_updated: true
+  max_candidates: 1
+- id: codex-releases
+  name: Codex CLI Releases
+  org: OpenAI
+  type: rss
+  url: https://github.com/openai/codex/releases.atom
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 7
+  auth: none
+  terms_note: Public GitHub releases Atom feed; prereleases are skipped.
+  title_prefix: Codex
+  skip_prereleases: true
+  published_from_updated: true
+  max_candidates: 1
+- id: gemini-cli-releases
+  name: Gemini CLI Releases
+  org: Google
+  type: rss
+  url: https://github.com/google-gemini/gemini-cli/releases.atom
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 7
+  auth: none
+  terms_note: Public GitHub releases Atom feed; prereleases are skipped.
+  title_prefix: Gemini CLI
+  skip_prereleases: true
+  published_from_updated: true
+  max_candidates: 1

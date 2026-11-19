@@ -44,7 +44,7 @@ def test_slice_publishes_only_verified_sentences_and_preserves_on_failure(tmp_pa
     )
     evaluation = EvalResult(
         scores=dict(practical=4, impact=4, novelty=4, trust=4, interest=4),
-        category="tool",
+        category="AI 코딩 도구",
         tags=[],
         title_ko="캐시 크기 설정",
         what=["캐시 크기를 설정할 수 있다."],
@@ -89,10 +89,8 @@ def test_slice_publishes_only_verified_sentences_and_preserves_on_failure(tmp_pa
     path = briefing_path(manifest.published.date)
     briefing = Briefing.model_validate_json((tmp_path / path).read_bytes())
     (card,) = briefing.cards
-    assert (briefing.emerging[0].tag, briefing.emerging[0].kind) == (
-        "novamesh",
-        "discovery",
-    )
+    # Emerging terms now come only from LLM concept extraction (see test_trends).
+    assert briefing.emerging == []
     assert card.how == []
     assert card.availability == "unknown"
     assert card.access.type == "unknown"
@@ -157,3 +155,48 @@ def test_validate_snapshot_rejects_modified_data(tmp_path):
     (tmp_path / "manifest.json").write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="hash mismatch"):
         validate_snapshot(tmp_path)
+
+
+def test_slice_summary_records_llm_failure_detail(tmp_path):
+    item = RawItem(
+        item_id="a",
+        source_id="rss",
+        source_class="official",
+        title="Configurable NovaMesh cache",
+        url=URL,
+        canonical_url=URL,
+        published_at=NOW,
+        first_seen_at=NOW,
+    )
+    doc = SourceDoc(
+        QUOTE,
+        EvidenceMeta(
+            url=URL,
+            final_url=URL,
+            http_status=200,
+            content_type="text/plain",
+            fetched_at=NOW,
+            text_sha256="x",
+            chars=len(QUOTE),
+            truncated=False,
+        ),
+    )
+
+    class Failing:
+        last_failure = "schema_error"
+        last_error = "what:too_long"
+
+        def __call__(self, item, doc):
+            return None
+
+    manifest = run_slice(
+        [CollectResult(source("rss", "rss"), "complete", [item])],
+        NOW,
+        tmp_path,
+        fetch=lambda item, *, now: doc,
+        evaluate=Failing(),
+        analyzer_version="fixture",
+        limit=1,
+    )
+    assert manifest.last_run.outcome == "failed"
+    assert "llm_errors=schema_error[what:too_long]x1" in manifest.last_run.message

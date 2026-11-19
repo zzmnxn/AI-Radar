@@ -84,3 +84,29 @@ def test_atom_updated_does_not_replace_missing_published_date():
     assert item.source_updated_at == NOW - timedelta(hours=14)
     assert str(item.url) == "https://example.org/posts/one"
     assert item.source_tags == ["cs.AI"]
+
+
+def test_release_feed_prefixes_titles_skips_prereleases_and_dates_by_update():
+    body = b"""<feed xmlns="http://www.w3.org/2005/Atom">
+      <entry><id>a</id><title>Release v0.69.0</title>
+        <link rel="alternate" href="https://github.com/o/r/releases/tag/v0.69.0"/>
+        <updated>2026-11-17T10:00:00Z</updated></entry>
+      <entry><id>b</id><title>v0.70.0-preview.0</title>
+        <link rel="alternate" href="https://github.com/o/r/releases/tag/v0.70.0-preview.0"/>
+        <updated>2026-11-17T11:00:00Z</updated></entry>
+      <entry><id>c</id><title>0.172.0-alpha.1</title>
+        <link rel="alternate" href="https://github.com/o/r/releases/tag/rust-v0.172.0-alpha.1"/>
+        <updated>2026-11-17T12:00:00Z</updated></entry>
+    </feed>"""
+    feed = source("releases", "rss").model_copy(
+        update=dict(
+            title_prefix="Gemini CLI",
+            skip_prereleases=True,
+            published_from_updated=True,
+        )
+    )
+    (result,) = collect([feed], NOW, fetch=lambda *a, **k: body)
+    (item,) = result.items
+    assert item.title == "Gemini CLI v0.69.0"
+    assert item.published_at == NOW - timedelta(hours=14)
+    assert result.completeness == "complete"
