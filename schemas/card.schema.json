@@ -1,0 +1,323 @@
+{
+  "$defs": {
+    "Access": {
+      "additionalProperties": false,
+      "properties": {
+        "note_ko": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note Ko"
+        },
+        "type": {
+          "enum": [
+            "open",
+            "signup",
+            "waitlist",
+            "paid",
+            "enterprise",
+            "region_limited",
+            "api_only",
+            "unknown"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "Access",
+      "type": "object"
+    },
+    "CardSource": {
+      "additionalProperties": false,
+      "properties": {
+        "org": {
+          "title": "Org",
+          "type": "string"
+        },
+        "source_class": {
+          "enum": [
+            "official",
+            "community",
+            "research",
+            "product",
+            "aggregator"
+          ],
+          "title": "Source Class",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "source_class",
+        "org",
+        "url",
+        "title"
+      ],
+      "title": "CardSource",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_quote": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Evidence Quote",
+          "type": "string"
+        },
+        "evidence_url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Evidence Url",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "what",
+            "why",
+            "how",
+            "availability",
+            "access"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "sentence_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sentence Index"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "text",
+        "evidence_url",
+        "evidence_quote"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "VerificationSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "level": {
+          "enum": [
+            "verified",
+            "partial"
+          ],
+          "title": "Level",
+          "type": "string"
+        },
+        "uncertainty": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Uncertainty"
+        }
+      },
+      "required": [
+        "level",
+        "claims"
+      ],
+      "title": "VerificationSummary",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "access": {
+      "$ref": "#/$defs/Access"
+    },
+    "analysis_id": {
+      "title": "Analysis Id",
+      "type": "string"
+    },
+    "availability": {
+      "enum": [
+        "available",
+        "beta",
+        "preview",
+        "research",
+        "announced",
+        "unknown"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "card_id": {
+      "title": "Card Id",
+      "type": "string"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "how": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "maxItems": 3,
+      "title": "How",
+      "type": "array"
+    },
+    "pool": {
+      "enum": [
+        "interest",
+        "explore",
+        "impact"
+      ],
+      "title": "Pool",
+      "type": "string"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Published At"
+    },
+    "revision": {
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "score": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Score",
+      "type": "number"
+    },
+    "sources": {
+      "items": {
+        "$ref": "#/$defs/CardSource"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+    },
+    "title_ko": {
+      "title": "Title Ko",
+      "type": "string"
+    },
+    "update_of": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Update Of"
+    },
+    "verification_summary": {
+      "$ref": "#/$defs/VerificationSummary"
+    },
+    "what": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "What",
+      "type": "array"
+    },
+    "why": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Why",
+      "type": "array"
+    }
+  },
+  "required": [
+    "card_id",
+    "event_id",
+    "revision",
+    "analysis_id",
+    "title_ko",
+    "category",
+    "tags",
+    "sources",
+    "what",
+    "why",
+    "how",
+    "availability",
+    "access",
+    "verification_summary",
+    "score",
+    "pool"
+  ],
+  "title": "Card",
+  "type": "object"
+}

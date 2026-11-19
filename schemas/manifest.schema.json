@@ -1,0 +1,189 @@
+{
+  "$defs": {
+    "LastRun": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "failed_stage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Failed Stage"
+        },
+        "finished_at": {
+          "format": "date-time",
+          "title": "Finished At",
+          "type": "string"
+        },
+        "message": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Message"
+        },
+        "outcome": {
+          "enum": [
+            "ok",
+            "failed",
+            "skipped"
+          ],
+          "title": "Outcome",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        },
+        "sources": {
+          "$ref": "#/$defs/SourceCounts"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "Started At",
+          "type": "string"
+        }
+      },
+      "required": [
+        "run_id",
+        "date",
+        "started_at",
+        "finished_at",
+        "outcome",
+        "sources"
+      ],
+      "title": "LastRun",
+      "type": "object"
+    },
+    "PublishedSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "date": {
+          "format": "date",
+          "title": "Date",
+          "type": "string"
+        },
+        "files": {
+          "additionalProperties": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "title": "Files",
+          "type": "object"
+        },
+        "generated_at": {
+          "format": "date-time",
+          "title": "Generated At",
+          "type": "string"
+        },
+        "run_id": {
+          "title": "Run Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "date",
+        "run_id",
+        "generated_at",
+        "files"
+      ],
+      "title": "PublishedSnapshot",
+      "type": "object"
+    },
+    "SourceCounts": {
+      "additionalProperties": false,
+      "properties": {
+        "active": {
+          "minimum": 0,
+          "title": "Active",
+          "type": "integer"
+        },
+        "complete": {
+          "minimum": 0,
+          "title": "Complete",
+          "type": "integer"
+        },
+        "failed": {
+          "minimum": 0,
+          "title": "Failed",
+          "type": "integer"
+        },
+        "partial": {
+          "minimum": 0,
+          "title": "Partial",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "active",
+        "complete",
+        "partial",
+        "failed"
+      ],
+      "title": "SourceCounts",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "deadline_kst": {
+      "const": "07:00",
+      "default": "07:00",
+      "title": "Deadline Kst",
+      "type": "string"
+    },
+    "last_run": {
+      "$ref": "#/$defs/LastRun"
+    },
+    "last_success_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Last Success At"
+    },
+    "published": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PublishedSnapshot"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "default": "1.0.0",
+      "title": "Schema Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "last_run"
+  ],
+  "title": "Manifest",
+  "type": "object"
+}

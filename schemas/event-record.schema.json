@@ -1,0 +1,293 @@
+{
+  "$defs": {
+    "EventMember": {
+      "additionalProperties": false,
+      "properties": {
+        "merge_reason": {
+          "title": "Merge Reason",
+          "type": "string"
+        },
+        "ref": {
+          "$ref": "#/$defs/SourceRef"
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "official",
+            "coverage",
+            "discussion"
+          ],
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ref",
+        "role",
+        "merge_reason"
+      ],
+      "title": "EventMember",
+      "type": "object"
+    },
+    "EventRevision": {
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "revised_at": {
+          "format": "date-time",
+          "title": "Revised At",
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 1,
+          "title": "Revision",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "revision",
+        "revised_at",
+        "reason"
+      ],
+      "title": "EventRevision",
+      "type": "object"
+    },
+    "SourceMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "hn_points": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hn Points"
+        }
+      },
+      "title": "SourceMetrics",
+      "type": "object"
+    },
+    "SourceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Canonical Url",
+          "type": "string"
+        },
+        "first_seen_at": {
+          "format": "date-time",
+          "title": "First Seen At",
+          "type": "string"
+        },
+        "item_id": {
+          "title": "Item Id",
+          "type": "string"
+        },
+        "link_target_url": {
+          "anyOf": [
+            {
+              "format": "uri",
+              "maxLength": 2083,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Link Target Url"
+        },
+        "metrics": {
+          "$ref": "#/$defs/SourceMetrics"
+        },
+        "org": {
+          "title": "Org",
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        },
+        "snippet_sha256": {
+          "title": "Snippet Sha256",
+          "type": "string"
+        },
+        "source_class": {
+          "enum": [
+            "official",
+            "community",
+            "research",
+            "product",
+            "aggregator"
+          ],
+          "title": "Source Class",
+          "type": "string"
+        },
+        "source_id": {
+          "title": "Source Id",
+          "type": "string"
+        },
+        "source_tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Tags",
+          "type": "array"
+        },
+        "source_updated_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Updated At"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "item_id",
+        "source_id",
+        "source_class",
+        "url",
+        "canonical_url",
+        "title",
+        "first_seen_at",
+        "org",
+        "snippet_sha256"
+      ],
+      "title": "SourceRef",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analysis_status": {
+      "enum": [
+        "none",
+        "queued",
+        "deferred",
+        "done",
+        "failed",
+        "expired"
+      ],
+      "title": "Analysis Status",
+      "type": "string"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "fingerprint": {
+      "title": "Fingerprint",
+      "type": "string"
+    },
+    "first_seen_at": {
+      "format": "date-time",
+      "title": "First Seen At",
+      "type": "string"
+    },
+    "last_activity_at": {
+      "format": "date-time",
+      "title": "Last Activity At",
+      "type": "string"
+    },
+    "members": {
+      "items": {
+        "$ref": "#/$defs/EventMember"
+      },
+      "minItems": 1,
+      "title": "Members",
+      "type": "array"
+    },
+    "primary_item_id": {
+      "title": "Primary Item Id",
+      "type": "string"
+    },
+    "related_event_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Related Event Ids",
+      "type": "array"
+    },
+    "revision": {
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "revision_history": {
+      "items": {
+        "$ref": "#/$defs/EventRevision"
+      },
+      "minItems": 1,
+      "title": "Revision History",
+      "type": "array"
+    },
+    "rule_tags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Rule Tags",
+      "type": "array"
+    },
+    "taxonomy_version": {
+      "title": "Taxonomy Version",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "revision",
+    "fingerprint",
+    "primary_item_id",
+    "title",
+    "members",
+    "taxonomy_version",
+    "first_seen_at",
+    "revision_history",
+    "last_activity_at",
+    "analysis_status"
+  ],
+  "title": "EventRecord",
+  "type": "object"
+}

@@ -1,0 +1,150 @@
+{
+  "$defs": {
+    "RawMetrics": {
+      "additionalProperties": false,
+      "properties": {
+        "gh_stars": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gh Stars"
+        },
+        "hn_points": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Hn Points"
+        }
+      },
+      "title": "RawMetrics",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "canonical_url": {
+      "format": "uri",
+      "maxLength": 2083,
+      "minLength": 1,
+      "title": "Canonical Url",
+      "type": "string"
+    },
+    "first_seen_at": {
+      "format": "date-time",
+      "title": "First Seen At",
+      "type": "string"
+    },
+    "item_id": {
+      "title": "Item Id",
+      "type": "string"
+    },
+    "link_target_url": {
+      "anyOf": [
+        {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Link Target Url"
+    },
+    "metrics": {
+      "$ref": "#/$defs/RawMetrics"
+    },
+    "published_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Published At"
+    },
+    "snippet": {
+      "default": "",
+      "maxLength": 300,
+      "title": "Snippet",
+      "type": "string"
+    },
+    "source_class": {
+      "enum": [
+        "official",
+        "community",
+        "research",
+        "product",
+        "aggregator"
+      ],
+      "title": "Source Class",
+      "type": "string"
+    },
+    "source_id": {
+      "title": "Source Id",
+      "type": "string"
+    },
+    "source_tags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Source Tags",
+      "type": "array"
+    },
+    "source_updated_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Updated At"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "url": {
+      "format": "uri",
+      "maxLength": 2083,
+      "minLength": 1,
+      "title": "Url",
+      "type": "string"
+    }
+  },
+  "required": [
+    "item_id",
+    "source_id",
+    "source_class",
+    "url",
+    "canonical_url",
+    "title",
+    "first_seen_at"
+  ],
+  "title": "RawItem",
+  "type": "object"
+}

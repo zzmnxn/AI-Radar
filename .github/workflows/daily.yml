@@ -1,0 +1,167 @@
+name: Publish AI Radar
+
+on:
+  schedule:
+    - cron: '7 21 * * *'
+    - cron: '37 22 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: Briefing date in Korea (YYYY-MM-DD)
+        type: string
+      force:
+        description: Regenerate the latest published date
+        type: boolean
+        default: false
+      no_llm:
+        description: Generate and validate synthetic data in the runner only
+        type: boolean
+        default: false
+      fail_stage:
+        description: Inject a failure for a recovery drill
+        type: choice
+        default: none
+        options: [none, collect, group, tag, prefilter, enrich, evaluate, verify, select, assemble, prune, publish]
+      deploy_only:
+        description: Redeploy the last validated snapshot
+        type: boolean
+        default: false
+
+permissions: {}
+concurrency:
+  group: radar-publish
+  cancel-in-progress: false
+
+jobs:
+  pipeline:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    outputs:
+      data_outcome: ${{ steps.run.outputs.outcome || (inputs.deploy_only && 'skipped') || 'crashed' }}
+      validate: ${{ steps.validate.outcome }}
+      head_sha: ${{ steps.commit.outputs.head_sha }}
+      commit_sha: ${{ steps.commit.outputs.commit_sha }}
+      commit_result: ${{ steps.commit.outcome }}
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: ${{ !inputs.no_llm && !inputs.deploy_only }}
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install .
+      - name: Generate briefing
+        id: run
+        if: '!inputs.deploy_only'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ !inputs.no_llm && github.token || '' }}
+          OPENAI_API_KEY: ${{ !inputs.no_llm && secrets.OPENAI_API_KEY || '' }}
+          RADAR_MODEL: ${{ vars.RADAR_MODEL }}
+          RADAR_DAILY_BUDGET_USD: ${{ vars.RADAR_DAILY_BUDGET_USD }}
+          RADAR_INPUT_USD_PER_MILLION: ${{ vars.RADAR_INPUT_USD_PER_MILLION }}
+          RADAR_OUTPUT_USD_PER_MILLION: ${{ vars.RADAR_OUTPUT_USD_PER_MILLION }}
+          RADAR_FAIL_STAGE: ${{ inputs.fail_stage != 'none' && inputs.fail_stage || '' }}
+          RUN_DATE: ${{ inputs.date }}
+          RUN_FORCE: ${{ inputs.force }}
+          RUN_PREVIEW: ${{ inputs.no_llm }}
+        run: |
+          args=()
+          if [[ -n "$RUN_DATE" ]]; then args+=("--date=$RUN_DATE"); fi
+          if [[ "$RUN_FORCE" == true || -n "$RADAR_FAIL_STAGE" ]]; then args+=(--force); fi
+          if [[ "$RUN_PREVIEW" == true ]]; then
+            args+=(--no-llm --data "$RUNNER_TEMP/radar-preview")
+          fi
+          python -m radar run "${args[@]}"
+      - name: Validate snapshot
+        id: validate
+        if: always()
+        env:
+          RUN_PREVIEW: ${{ inputs.no_llm && !inputs.deploy_only }}
+        run: |
+          data=data
+          if [[ "$RUN_PREVIEW" == true ]]; then data="$RUNNER_TEMP/radar-preview"; fi
+          python -m radar validate-data --data "$data"
+      - name: Commit validated data
+        id: commit
+        if: always() && steps.validate.outcome == 'success' && (!inputs.no_llm || inputs.deploy_only)
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: bash .github/scripts/commit-data.sh
+      - name: Save run details
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: radar-run-log
+          path: out/run-log.json
+          retention-days: 30
+          if-no-files-found: ignore
+
+  deploy:
+    needs: pipeline
+    if: always() && needs.pipeline.outputs.validate == 'success' && needs.pipeline.outputs.head_sha != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          ref: ${{ needs.pipeline.outputs.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install .
+      - run: python -m radar validate-data
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '24'
+      - run: npm ci
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+          RADAR_COMMIT: ${{ needs.pipeline.outputs.head_sha }}
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: web/dist
+      - uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+        id: deployment
+
+  report:
+    if: always()
+    needs: [pipeline, deploy]
+    runs-on: ubuntu-latest
+    env:
+      DATA_OUTCOME: ${{ needs.pipeline.outputs.data_outcome }}
+      VALIDATE: ${{ needs.pipeline.outputs.validate }}
+      COMMIT_SHA: ${{ needs.pipeline.outputs.commit_sha }}
+      COMMIT_RESULT: ${{ needs.pipeline.outputs.commit_result }}
+      DEPLOY_OUTCOME: ${{ needs.deploy.result }}
+      PIPELINE_OUTCOME: ${{ needs.pipeline.result }}
+    steps:
+      - name: Report generation, validation, commit and deployment
+        run: |
+          commit="${COMMIT_SHA:-none}"
+          if [[ "$COMMIT_RESULT" == failure || "$COMMIT_RESULT" == cancelled ]]; then
+            commit=failed
+          fi
+          deployment="$DEPLOY_OUTCOME"
+          if [[ "$deployment" == cancelled ]]; then deployment=failure; fi
+          printf '| Generation | Validation | Commit | Deployment |\n|---|---|---|---|\n| %s | %s | %s | %s |\n' \
+            "${DATA_OUTCOME:-skipped}" "${VALIDATE:-skipped}" "$commit" "$deployment" >> "$GITHUB_STEP_SUMMARY"
+          if [[ "$PIPELINE_OUTCOME" == failure || "$PIPELINE_OUTCOME" == cancelled ||
+                "$VALIDATE" == failure || "$deployment" == failure || "$commit" == failed ||
+                "$DATA_OUTCOME" == failed || "$DATA_OUTCOME" == crashed ]]; then
+            exit 1
+          fi

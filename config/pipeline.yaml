@@ -1,0 +1,11 @@
+min: 8
+target: 15
+max: 25
+pool_percent:
+  interest: 40
+  impact: 35
+  explore: 25
+hn_min_points: 25
+impact_top: 10
+judge_mode: normal
+explore_min_score: 70

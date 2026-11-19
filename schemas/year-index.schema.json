@@ -1,0 +1,58 @@
+{
+  "$defs": {
+    "IndexEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "card_count": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Card Count",
+          "type": "integer"
+        },
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Categories",
+          "type": "array"
+        },
+        "headline_ko": {
+          "title": "Headline Ko",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "titles": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Titles",
+          "type": "array"
+        }
+      },
+      "required": [
+        "path",
+        "headline_ko",
+        "card_count",
+        "categories",
+        "tags"
+      ],
+      "title": "IndexEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": {
+    "$ref": "#/$defs/IndexEntry"
+  },
+  "title": "YearIndex",
+  "type": "object"
+}

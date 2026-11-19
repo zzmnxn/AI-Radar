@@ -1,0 +1,35 @@
+version: "2"
+entities:
+  openai: [OpenAI]
+  gpt: [GPT, ChatGPT]
+  anthropic: [Anthropic]
+  claude: [Claude]
+  google: [Google, DeepMind]
+  gemini: [Gemini]
+  meta: [Meta AI]
+  llama: [Llama]
+  microsoft: [Microsoft]
+  github: [GitHub]
+  copilot: [Copilot]
+  hugging-face: [Hugging Face, HuggingFace]
+  langchain: [LangChain]
+  mcp: [MCP, Model Context Protocol]
+  arxiv: [arXiv]
+  artificial-intelligence: [AI, Artificial Intelligence]
+  machine-learning: [ML, Machine Learning]
+  ai-agent: [Agent, Agents, Agentic AI, AI Agent, AI Agents]
+  large-language-model: [LLM, LLMs, Large Language Model, Large Language Models]
+  reasoning: [Reasoning]
+  evaluation: [Evaluation, Evaluating, Benchmark, Benchmarks, Benchmarking]
+source_tag_map:
+  cs.ai: artificial-intelligence
+  cs.lg: machine-learning
+  stat.ml: machine-learning
+stop_words:
+  [a, an, and, are, as, at, be, been, but, by, can, for, from, has, have,
+   how, in, into, is, it, its, more, new, of, "on", or, our, that, the,
+   their, this, to, using, was, we, what, when, who, why, will, with,
+   your, adds, announces, based, coverage, introduces, latest, model,
+   models, release, released, research, show, study, system, systems, update,
+   approach, applications, data, framework, improves, language, large, learning,
+   method, methods, open, performance, results, training, understanding]

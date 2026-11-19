@@ -1,0 +1,195 @@
+- id: github-changelog
+  name: GitHub Changelog
+  org: GitHub
+  type: rss
+  url: https://github.blog/changelog/feed/
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 2
+  auth: none
+  terms_note: Public RSS feed.
+- id: huggingface-blog
+  name: Hugging Face Blog
+  org: Hugging Face
+  type: rss
+  url: https://huggingface.co/blog/feed.xml
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 3
+  auth: none
+  terms_note: Public RSS feed.
+- id: simon-willison
+  name: Simon Willison
+  org: Simon Willison
+  type: rss
+  url: https://simonwillison.net/atom/everything/
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 2
+  auth: none
+  terms_note: Public Atom feed.
+- id: hackernews-front-page
+  name: Hacker News Front Page
+  org: Hacker News
+  type: hackernews
+  url: https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=100
+  source_class: aggregator
+  discovery_mode: open
+  supports_range: false
+  trust: 3
+  status: candidate
+  expected_cadence_days: 1
+  auth: none
+  terms_note: Public Algolia Hacker News search endpoint.
+- id: hackernews-show
+  name: Show HN
+  org: Hacker News
+  type: hackernews
+  url: https://hn.algolia.com/api/v1/search_by_date?tags=show_hn&numericFilters=points%3E%3D5&hitsPerPage=200
+  source_class: aggregator
+  discovery_mode: open
+  supports_range: true
+  trust: 3
+  status: candidate
+  expected_cadence_days: 1
+  auth: none
+  terms_note: Public Algolia search endpoint for Show HN stories with at least five points.
+- id: hackernews-ai
+  name: Hacker News AI Search
+  org: Hacker News
+  type: hackernews
+  url: https://hn.algolia.com/api/v1/search_by_date?tags=story&query=AI&numericFilters=points%3E%3D10&hitsPerPage=200
+  source_class: aggregator
+  discovery_mode: keyword
+  supports_range: true
+  trust: 3
+  status: candidate
+  expected_cadence_days: 1
+  auth: none
+  terms_note: Public Algolia search endpoint for AI stories with at least ten points.
+- id: openai-news
+  name: OpenAI News
+  org: OpenAI
+  type: rss
+  url: https://openai.com/news/rss.xml
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 3
+  auth: none
+  terms_note: Public RSS feed.
+- id: google-ai
+  name: Google AI
+  org: Google
+  type: rss
+  url: https://blog.google/innovation-and-ai/rss/
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 3
+  auth: none
+  terms_note: Public RSS feed.
+- id: microsoft-ai
+  name: Microsoft AI Blog
+  org: Microsoft
+  type: rss
+  url: https://www.microsoft.com/en-us/ai/blog/feed/
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 7
+  auth: none
+  terms_note: Public RSS feed.
+- id: microsoft-research
+  name: Microsoft Research
+  org: Microsoft
+  type: rss
+  url: https://www.microsoft.com/en-us/research/feed/
+  source_class: research
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 5
+  auth: none
+  terms_note: Public RSS feed.
+- id: github-ai
+  name: GitHub AI and ML
+  org: GitHub
+  type: rss
+  url: https://github.blog/ai-and-ml/feed/
+  source_class: official
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 7
+  auth: none
+  terms_note: Public RSS feed.
+- id: github-ai-repositories
+  name: GitHub AI Repositories
+  org: GitHub
+  type: github_search
+  url: https://api.github.com/search/repositories?q=topic%3Aartificial-intelligence+stars%3A%3E%3D100+is%3Apublic+archived%3Afalse+fork%3Afalse
+  source_class: community
+  discovery_mode: open
+  supports_range: true
+  trust: 3
+  status: candidate
+  expected_cadence_days: 1
+  auth: env:GITHUB_TOKEN
+  terms_note: Public repository metadata from GitHub REST Search.
+- id: arxiv-cs-cl
+  name: arXiv Computation and Language
+  org: arXiv
+  type: arxiv
+  url: https://export.arxiv.org/api/query?search_query=cat%3Acs.CL
+  source_class: research
+  discovery_mode: keyword
+  supports_range: true
+  trust: 4
+  status: candidate
+  expected_cadence_days: 2
+  auth: none
+  terms_note: Public arXiv API metadata for the Computation and Language category.
+- id: huggingface-daily-papers
+  name: Hugging Face Daily Papers
+  org: Hugging Face
+  type: hf_papers
+  url: https://huggingface.co/api/daily_papers
+  source_class: research
+  discovery_mode: open
+  supports_range: true
+  trust: 4
+  status: candidate
+  expected_cadence_days: 2
+  auth: none
+  terms_note: Public Daily Papers metadata and links to original arXiv papers.
+- id: mcp-registry
+  name: MCP Registry Agent Servers
+  org: Model Context Protocol
+  type: mcp_registry
+  url: https://registry.modelcontextprotocol.io/v0.1/servers?search=agent
+  source_class: product
+  discovery_mode: open
+  supports_range: true
+  trust: 3
+  status: candidate
+  expected_cadence_days: 1
+  auth: none
+  terms_note: Public registry metadata for active server versions with agent in their name.

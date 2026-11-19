@@ -1,0 +1,16 @@
+# Initial editorial interests for the shared briefing.
+weights:
+  openai: 2
+  mcp: 2
+  ai-agent: 2
+  code review: 2
+threshold: 2
+ai_tags:
+  [artificial-intelligence, machine-learning, large-language-model, ai-agent,
+   openai, gpt, anthropic, claude, gemini, llama, hugging-face, langchain, mcp]
+ai_terms:
+  [foundation model, generative ai, inference, fine-tuning, multimodal, vision-language,
+   neural network, reinforcement learning, diffusion model, model weights, open-weight]
+ai_sources:
+  [huggingface-blog, hackernews-ai, openai-news, google-ai, microsoft-ai,
+   github-ai, github-ai-repositories, arxiv-cs-cl, huggingface-daily-papers, mcp-registry]

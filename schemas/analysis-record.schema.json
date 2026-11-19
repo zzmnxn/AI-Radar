@@ -1,0 +1,495 @@
+{
+  "$defs": {
+    "Access": {
+      "additionalProperties": false,
+      "properties": {
+        "note_ko": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Note Ko"
+        },
+        "type": {
+          "enum": [
+            "open",
+            "signup",
+            "waitlist",
+            "paid",
+            "enterprise",
+            "region_limited",
+            "api_only",
+            "unknown"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "Access",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence_quote": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Evidence Quote",
+          "type": "string"
+        },
+        "evidence_url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Evidence Url",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "what",
+            "why",
+            "how",
+            "availability",
+            "access"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "sentence_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sentence Index"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "text",
+        "evidence_url",
+        "evidence_quote"
+      ],
+      "title": "Claim",
+      "type": "object"
+    },
+    "ClaimCheck": {
+      "additionalProperties": false,
+      "properties": {
+        "numbers_match": {
+          "title": "Numbers Match",
+          "type": "boolean"
+        },
+        "quote_found": {
+          "title": "Quote Found",
+          "type": "boolean"
+        },
+        "role": {
+          "enum": [
+            "what",
+            "why",
+            "how",
+            "availability",
+            "access"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "sentence_index": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sentence Index"
+        },
+        "support": {
+          "enum": [
+            "supported",
+            "partial",
+            "unsupported",
+            "nei",
+            "not_checked"
+          ],
+          "title": "Support",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "quote_found",
+        "numbers_match",
+        "support"
+      ],
+      "title": "ClaimCheck",
+      "type": "object"
+    },
+    "EvalResult": {
+      "additionalProperties": false,
+      "properties": {
+        "access": {
+          "$ref": "#/$defs/Access"
+        },
+        "availability": {
+          "enum": [
+            "available",
+            "beta",
+            "preview",
+            "research",
+            "announced",
+            "unknown"
+          ],
+          "title": "Availability",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "how": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 3,
+          "title": "How",
+          "type": "array"
+        },
+        "scores": {
+          "$ref": "#/$defs/Scores"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        },
+        "title_ko": {
+          "title": "Title Ko",
+          "type": "string"
+        },
+        "uncertainty": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Uncertainty"
+        },
+        "what": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 1,
+          "title": "What",
+          "type": "array"
+        },
+        "why": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 1,
+          "title": "Why",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scores",
+        "category",
+        "tags",
+        "title_ko",
+        "what",
+        "why",
+        "how",
+        "availability",
+        "access",
+        "claims"
+      ],
+      "title": "EvalResult",
+      "type": "object"
+    },
+    "EvidenceMeta": {
+      "additionalProperties": false,
+      "properties": {
+        "chars": {
+          "minimum": 0,
+          "title": "Chars",
+          "type": "integer"
+        },
+        "content_type": {
+          "title": "Content Type",
+          "type": "string"
+        },
+        "fetched_at": {
+          "format": "date-time",
+          "title": "Fetched At",
+          "type": "string"
+        },
+        "final_url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Final Url",
+          "type": "string"
+        },
+        "http_status": {
+          "maximum": 599,
+          "minimum": 100,
+          "title": "Http Status",
+          "type": "integer"
+        },
+        "text_sha256": {
+          "title": "Text Sha256",
+          "type": "string"
+        },
+        "truncated": {
+          "title": "Truncated",
+          "type": "boolean"
+        },
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "final_url",
+        "http_status",
+        "content_type",
+        "fetched_at",
+        "text_sha256",
+        "chars",
+        "truncated"
+      ],
+      "title": "EvidenceMeta",
+      "type": "object"
+    },
+    "Scores": {
+      "additionalProperties": false,
+      "properties": {
+        "impact": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Impact",
+          "type": "integer"
+        },
+        "interest": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Interest",
+          "type": "integer"
+        },
+        "novelty": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Novelty",
+          "type": "integer"
+        },
+        "practical": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Practical",
+          "type": "integer"
+        },
+        "trust": {
+          "maximum": 5,
+          "minimum": 0,
+          "title": "Trust",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "practical",
+        "impact",
+        "novelty",
+        "trust",
+        "interest"
+      ],
+      "title": "Scores",
+      "type": "object"
+    },
+    "Usage": {
+      "additionalProperties": false,
+      "properties": {
+        "input_tokens": {
+          "minimum": 0,
+          "title": "Input Tokens",
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "title": "Output Tokens",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "input_tokens",
+        "output_tokens"
+      ],
+      "title": "Usage",
+      "type": "object"
+    },
+    "Verification": {
+      "additionalProperties": false,
+      "properties": {
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/ClaimCheck"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "level": {
+          "enum": [
+            "verified",
+            "partial"
+          ],
+          "title": "Level",
+          "type": "string"
+        },
+        "link_ok": {
+          "title": "Link Ok",
+          "type": "boolean"
+        },
+        "quote_found_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Quote Found Rate",
+          "type": "number"
+        },
+        "supported_rate": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Supported Rate",
+          "type": "number"
+        }
+      },
+      "required": [
+        "link_ok",
+        "level",
+        "claims",
+        "quote_found_rate",
+        "supported_rate"
+      ],
+      "title": "Verification",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analysis_id": {
+      "title": "Analysis Id",
+      "type": "string"
+    },
+    "analyzer_version": {
+      "title": "Analyzer Version",
+      "type": "string"
+    },
+    "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+    },
+    "eval": {
+      "$ref": "#/$defs/EvalResult"
+    },
+    "event_id": {
+      "title": "Event Id",
+      "type": "string"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/EvidenceMeta"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "rejection_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rejection Reason"
+    },
+    "revision": {
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "usage": {
+      "$ref": "#/$defs/Usage"
+    },
+    "verdict": {
+      "enum": [
+        "accepted",
+        "partial",
+        "rejected"
+      ],
+      "title": "Verdict",
+      "type": "string"
+    },
+    "verification": {
+      "$ref": "#/$defs/Verification"
+    }
+  },
+  "required": [
+    "analysis_id",
+    "event_id",
+    "revision",
+    "analyzer_version",
+    "evidence",
+    "eval",
+    "verification",
+    "verdict",
+    "usage",
+    "created_at"
+  ],
+  "title": "AnalysisRecord",
+  "type": "object"
+}
