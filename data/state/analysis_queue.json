@@ -1,55 +1,46 @@
 {
-  "0048c043fe7482b79b630458974fdbbae3a4cbe2065e49c5632c3a65492c4d28": {
-    "attempts": 0,
-    "first_queued_at": "2023-11-19T07:00:00+09:00",
-    "invalid_attempts": 0,
-    "next_attempt_after": null,
-    "reason": null,
-    "revision": 1,
-    "status": "done"
-  },
-  "33baf2683a15f974a92bdf3ddb1786ef1fa223e4502e2af2d9272c0397d45bbe": {
+  "85714c1c539151e4d8d5cca6a26c09201dadf098f36ddb279c5ca2c3ffc01861": {
     "attempts": 1,
-    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
+    "reason": "fetch_permanent",
+    "revision": 1,
+    "status": "deferred"
+  },
+  "9b2edc7c7cf7aad3afc8c3a7fdea4360423103410ec652d510878b8ad9bee8bb": {
+    "attempts": 1,
+    "first_queued_at": "2026-11-19T01:53:56.165136Z",
+    "invalid_attempts": 1,
+    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
     "reason": "schema_error",
     "revision": 1,
     "status": "deferred"
   },
-  "b1afb5bde47dc1719725dbb8a96436d9c7cd873fcbbfabe308591556fd7e5c3d": {
+  "9c140093e46f3cf7d234ea538c38a0143e2b4f01fa31904ca7c4fa0ec92d78a1": {
     "attempts": 1,
-    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
     "reason": "schema_error",
     "revision": 1,
     "status": "deferred"
   },
-  "bac31b59851d4d6b2c41fa881e77970d2ccf0534045d6c74bddc848d505ce6ae": {
+  "d4cfbc3b0e605a782e2ba59c7d458871affa4cde6bb447fa01329eeb3b37c5d4": {
     "attempts": 1,
-    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
     "reason": "schema_error",
     "revision": 1,
     "status": "deferred"
   },
-  "e4d1fc0527bb70fa2f0a99bcf96d727effaeb9bf295414022df893d235bbf3f8": {
+  "dc73b9f878aeb547c9a2819cfa23e1ab257d608ecbcd4dea8e98c5866ebb8b44": {
     "attempts": 1,
-    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2023-11-19T07:15:00+09:00",
-    "reason": "schema_error",
-    "revision": 1,
-    "status": "deferred"
-  },
-  "f2c0f145c51fa60c2208fe174458dd85cf95a2d9e712d92b26e4d126d81d58ae": {
-    "attempts": 1,
-    "first_queued_at": "2023-11-19T07:00:00+09:00",
-    "invalid_attempts": 1,
-    "next_attempt_after": "2023-11-19T07:15:00+09:00",
-    "reason": "schema_error",
+    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
+    "reason": "fetch_permanent",
     "revision": 1,
     "status": "deferred"
   }
