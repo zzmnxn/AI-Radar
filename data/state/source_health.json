@@ -1,0 +1,174 @@
+{
+  "arxiv-cs-cl": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "healthy",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": "2023-11-18T20:32:59Z",
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "arxiv-cs-cl"
+  },
+  "github-ai": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "github-ai"
+  },
+  "github-ai-repositories": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "healthy",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": "2023-11-18T20:41:35Z",
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "github-ai-repositories"
+  },
+  "github-changelog": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "github-changelog"
+  },
+  "google-ai": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "google-ai"
+  },
+  "hackernews-ai": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "healthy",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": "2023-11-18T21:08:13Z",
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "hackernews-ai"
+  },
+  "hackernews-front-page": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "hackernews-front-page"
+  },
+  "hackernews-show": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "healthy",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": "2023-11-18T17:13:37Z",
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "hackernews-show"
+  },
+  "huggingface-blog": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": "2023-11-09T00:00:00Z",
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "huggingface-blog"
+  },
+  "huggingface-daily-papers": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "healthy",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": "2023-11-16T18:59:51Z",
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "huggingface-daily-papers"
+  },
+  "mcp-registry": {
+    "consecutive_failures": 0,
+    "gaps": [
+      {
+        "from": "2023-11-16T07:00:00+09:00",
+        "reason": "pagination_stopped",
+        "status": "open",
+        "to": "2023-11-19T07:00:00+09:00"
+      }
+    ],
+    "health": "degraded",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": null,
+    "last_completeness": "partial",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "mcp-registry"
+  },
+  "microsoft-ai": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "microsoft-ai"
+  },
+  "microsoft-research": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "microsoft-research"
+  },
+  "openai-news": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "healthy",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": "2023-11-17T08:00:00Z",
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "openai-news"
+  },
+  "simon-willison": {
+    "consecutive_failures": 0,
+    "gaps": [],
+    "health": "stale",
+    "last_attempt_at": "2023-11-19T07:00:00+09:00",
+    "last_complete_at": "2023-11-19T07:00:00+09:00",
+    "last_completeness": "complete",
+    "last_item_at": null,
+    "last_success_at": "2023-11-19T07:00:00+09:00",
+    "source_id": "simon-willison"
+  }
+}

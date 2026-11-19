@@ -1,0 +1,29 @@
+{
+  "deadline_kst": "07:00",
+  "last_run": {
+    "date": "2023-11-19",
+    "failed_stage": null,
+    "finished_at": "2026-11-19T01:42:30.894313Z",
+    "message": "interest=2 impact=2 explore=2 star_growth=0 what_unsupported=1 deferred=5",
+    "outcome": "ok",
+    "run_id": "78078dfb43ac4d37b15a8fee23b9e4e1",
+    "sources": {
+      "active": 15,
+      "complete": 14,
+      "failed": 0,
+      "partial": 1
+    },
+    "started_at": "2026-11-19T01:41:50.401454Z"
+  },
+  "last_success_at": "2023-11-19T07:00:00+09:00",
+  "published": {
+    "date": "2023-11-19",
+    "files": {
+      "briefings/2023-11-19.json": "5521870f73f36036f246d227cd72f22b39208711cb54e75e9317cf913b967f04",
+      "index/2023.json": "49b9a218830e60daa9307f695592f9c2f4c970fbb946046e38eecd9afe15e8a1"
+    },
+    "generated_at": "2023-11-19T07:00:00+09:00",
+    "run_id": "78078dfb43ac4d37b15a8fee23b9e4e1"
+  },
+  "schema_version": "1.0.0"
+}

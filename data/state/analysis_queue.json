@@ -1,0 +1,56 @@
+{
+  "0048c043fe7482b79b630458974fdbbae3a4cbe2065e49c5632c3a65492c4d28": {
+    "attempts": 0,
+    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "33baf2683a15f974a92bdf3ddb1786ef1fa223e4502e2af2d9272c0397d45bbe": {
+    "attempts": 1,
+    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "invalid_attempts": 1,
+    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "reason": "schema_error",
+    "revision": 1,
+    "status": "deferred"
+  },
+  "b1afb5bde47dc1719725dbb8a96436d9c7cd873fcbbfabe308591556fd7e5c3d": {
+    "attempts": 1,
+    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "invalid_attempts": 1,
+    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "reason": "schema_error",
+    "revision": 1,
+    "status": "deferred"
+  },
+  "bac31b59851d4d6b2c41fa881e77970d2ccf0534045d6c74bddc848d505ce6ae": {
+    "attempts": 1,
+    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "invalid_attempts": 1,
+    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "reason": "schema_error",
+    "revision": 1,
+    "status": "deferred"
+  },
+  "e4d1fc0527bb70fa2f0a99bcf96d727effaeb9bf295414022df893d235bbf3f8": {
+    "attempts": 1,
+    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "invalid_attempts": 1,
+    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "reason": "schema_error",
+    "revision": 1,
+    "status": "deferred"
+  },
+  "f2c0f145c51fa60c2208fe174458dd85cf95a2d9e712d92b26e4d126d81d58ae": {
+    "attempts": 1,
+    "first_queued_at": "2023-11-19T07:00:00+09:00",
+    "invalid_attempts": 1,
+    "next_attempt_after": "2023-11-19T07:15:00+09:00",
+    "reason": "schema_error",
+    "revision": 1,
+    "status": "deferred"
+  }
+}
