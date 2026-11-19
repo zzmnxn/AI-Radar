@@ -18,16 +18,23 @@ export const dateTime = new Intl.DateTimeFormat("ko-KR", {
   hour: "2-digit", minute: "2-digit", hourCycle: "h23",
 });
 
+const FIRST_ISSUE = Date.UTC(2026, 10, 18);
+export function issueNumber(date: string) {
+  const days = Math.round((Date.parse(`${date}T00:00:00Z`) - FIRST_ISSUE) / 86_400_000);
+  return Math.max(days + 1, 1);
+}
+
 function safeLink(url: string) {
   return /^https?:\/\//i.test(url) ? url : undefined;
 }
 
-function Story({ card, featured = false }: { card: Card; featured?: boolean }) {
+function Story({ card, featured = false, index = 0 }: { card: Card; featured?: boolean; index?: number }) {
   const Heading = featured ? "h2" : "h3";
   return (
     <article className={featured ? "story featured" : "story followup"} id={card.card_id}>
       <div className="story-label">
-        {featured && <span>대표 기사</span>}
+        <span className="story-no">{String(index + 1).padStart(2, "0")}</span>
+        {featured && <span>Featured</span>}
         <span>{card.category}</span>
         {card.update_of && <span className="update">업데이트</span>}
       </div>
@@ -79,27 +86,26 @@ export function Edition({ briefing, success }: { briefing: Briefing; success?: s
     <>
       <section className="lead">
         <div className="edition-line">
+          <span className="issue">Issue No.{issueNumber(briefing.date)}</span>
           <time dateTime={briefing.date}>{briefing.date.replaceAll("-", ".")}</time>
           {success && <span>마지막 성공 {success}</span>}
         </div>
+        <p className="lead-kicker">오늘의 한 줄 브리핑</p>
         <h1>{briefing.headline_ko}</h1>
+        <p className="lead-note">
+          원본 {counts.raw.toLocaleString("ko-KR")}건 중 {counts.analyzed.toLocaleString("ko-KR")}건을 평가해
+          {" "}{counts.selected}건을 골랐습니다.
+        </p>
       </section>
-      <dl className="counts" aria-label="브리핑 집계">
-        {Object.entries({
-          원본: counts.raw, 사건: counts.events, 후보: counts.candidates,
-          분석: counts.analyzed, 선정: counts.selected,
-        }).map(([label, count]) => (
-          <div key={label}><dt>{label}</dt><dd>{count.toLocaleString("ko-KR")}</dd></div>
-        ))}
-      </dl>
       {featured && <section className={followups.length ? "stories" : "stories single"} aria-label="브리핑 기사">
-        <Story card={featured} featured />
+        <Story card={featured} featured index={0} />
         {!!followups.length && <section className="followups">
           <h2>함께 볼 소식</h2>
-          {followups.map((card) => <Story card={card} key={card.card_id} />)}
+          {followups.map((card, i) => <Story card={card} key={card.card_id} index={i + 1} />)}
         </section>}
       </section>}
       {!!briefing.emerging.length && <section className="emerging">
+        <p className="section-kicker">Emerging Radar</p>
         <h2>새롭게 떠오르는 주제</h2>
         <ul>{briefing.emerging.map((item) => (
           <li key={item.tag}>
