@@ -1,4 +1,67 @@
 {
+  "1e02ab9c34ce90d4cc82015b1e8d2f722634fb0d1769c93cf2d22c97962977bd": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "362ee7bc4f1920475e98c490549b28915aac62115a628231eedd7bc94bd171a2": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "3fc68dfee9f5c7e65a9fb51dddf9e5b8ffd9526409f7706aee04bda4c8cbc789": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "44b118d337500cd77b4b8c72cd6564e3036b84bd55ab494a97bffa303129e1c8": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "609d1cc13cd295adb217bbee8a391c9ac56ee807c8745f1e469314ed0cb0316e": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "67952d9a918d2536a7bf3b37b6c05ec5dc7c7c22fdf68db178458bb74b4d4f2d": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "82fe289fe466dcc1d4f71a60b5a7fb88a90a6df5cf719a456eac5a721e5f3552": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
   "85714c1c539151e4d8d5cca6a26c09201dadf098f36ddb279c5ca2c3ffc01861": {
     "attempts": 1,
     "first_queued_at": "2026-11-19T01:53:56.165136Z",
@@ -8,40 +71,76 @@
     "revision": 1,
     "status": "deferred"
   },
+  "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a": {
+    "attempts": 1,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 1,
+    "next_attempt_after": "2026-11-20T02:29:29.916901Z",
+    "reason": "schema_error",
+    "revision": 1,
+    "status": "deferred"
+  },
   "9b2edc7c7cf7aad3afc8c3a7fdea4360423103410ec652d510878b8ad9bee8bb": {
     "attempts": 1,
     "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
-    "reason": "schema_error",
+    "next_attempt_after": null,
+    "reason": null,
     "revision": 1,
-    "status": "deferred"
+    "status": "done"
   },
   "9c140093e46f3cf7d234ea538c38a0143e2b4f01fa31904ca7c4fa0ec92d78a1": {
     "attempts": 1,
     "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
-    "reason": "schema_error",
+    "next_attempt_after": null,
+    "reason": null,
     "revision": 1,
-    "status": "deferred"
+    "status": "done"
+  },
+  "b4928e127abfbfc275c3730d105be2dd726416458dba58370377c0184b2f1434": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
+  },
+  "c900da28c4b03b663c23e4003e96a7222de6e940a2aa82c8aacb5456df126cb8": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
   },
   "d4cfbc3b0e605a782e2ba59c7d458871affa4cde6bb447fa01329eeb3b37c5d4": {
     "attempts": 1,
     "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
-    "reason": "schema_error",
+    "next_attempt_after": null,
+    "reason": null,
     "revision": 1,
-    "status": "deferred"
+    "status": "done"
   },
   "dc73b9f878aeb547c9a2819cfa23e1ab257d608ecbcd4dea8e98c5866ebb8b44": {
     "attempts": 1,
     "first_queued_at": "2026-11-19T01:53:56.165136Z",
     "invalid_attempts": 1,
-    "next_attempt_after": "2026-11-19T02:08:56.165136Z",
-    "reason": "fetch_permanent",
+    "next_attempt_after": null,
+    "reason": null,
     "revision": 1,
-    "status": "deferred"
+    "status": "done"
+  },
+  "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339": {
+    "attempts": 0,
+    "first_queued_at": "2026-11-20T02:14:29.916901Z",
+    "invalid_attempts": 0,
+    "next_attempt_after": null,
+    "reason": null,
+    "revision": 1,
+    "status": "done"
   }
 }

@@ -1,0 +1,367 @@
+{
+  "cards": [
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "aa94148c5a81dc9a0e84c6f8d7b448ef2d7e35cc69e98234061e4f862b607ab6",
+      "availability": "unknown",
+      "card_id": "card_aa94148c5a81",
+      "category": "컨텍스트·메모리",
+      "event_id": "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
+      "how": [
+        "Claude Code는 플러그인으로 바로 설치할 수 있다.",
+        "다른 에이전트는 설치 후 `agent-memory-mcp setup codex --yes`로 연결한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-19T10:41:05.890067Z",
+      "revision": 1,
+      "score": 88.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.ipiton/agent-memory-mcp 0.19.0",
+          "url": "https://github.com/ipiton/agent-memory-mcp"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "memory",
+        "SQLite",
+        "Claude Code",
+        "docs search",
+        "drift detection"
+      ],
+      "title_ko": "에이전트용 로컬 메모리·문서 검색 MCP 서버 0.19.0",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Long-term memory and project-docs search for coding agents, in one local MCP server backed by SQLite.",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "코딩 에이전트가 쓰는 로컬 메모리·문서 검색 MCP 서버가 나왔다."
+          },
+          {
+            "evidence_quote": "Searches memory and docs together.** Decisions, facts and procedures are ranked alongside your docs, ADRs and runbooks,",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "SQLite 기반으로 결정 기록, 런북, ADR을 함께 검색한다."
+          },
+          {
+            "evidence_quote": "Your agent remembers why a decision was made, finds the runbook that matches an incident,",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "에이전트가 왜 그런 결정을 했는지와 근거 문서를 같이 찾게 해준다."
+          },
+          {
+            "evidence_quote": "steward_run` finds duplicates, contradictions and stale entries, and sends anything risky to a review inbox.",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "메모리 중복·충돌·드리프트를 점검해 오래 쓰는 프로젝트에 유용하다."
+          },
+          {
+            "evidence_quote": "/plugin install agent-memory --marketplace ipiton/agent-memory-mcp",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "Claude Code는 플러그인으로 바로 설치할 수 있다."
+          },
+          {
+            "evidence_quote": "brew install agent-memory-mcp cd your-repo agent-memory-mcp setup codex --yes",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "다른 에이전트는 설치 후 `agent-memory-mcp setup codex --yes`로 연결한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "코딩 에이전트가 쓰는 로컬 메모리·문서 검색 MCP 서버가 나왔다.",
+        "SQLite 기반으로 결정 기록, 런북, ADR을 함께 검색한다."
+      ],
+      "why": [
+        "에이전트가 왜 그런 결정을 했는지와 근거 문서를 같이 찾게 해준다.",
+        "메모리 중복·충돌·드리프트를 점검해 오래 쓰는 프로젝트에 유용하다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "b037fb3cb8267e4f7f121826e338656c8a3ec861b399e68f61c80317c5f409ea",
+      "availability": "unknown",
+      "card_id": "card_b037fb3cb826",
+      "category": "AI 코딩 도구",
+      "event_id": "362ee7bc4f1920475e98c490549b28915aac62115a628231eedd7bc94bd171a2",
+      "how": [],
+      "pool": "impact",
+      "published_at": "2026-11-18T21:49:21Z",
+      "revision": 1,
+      "score": 87.0,
+      "sources": [
+        {
+          "org": "GitHub",
+          "source_class": "official",
+          "source_id": "github-changelog",
+          "title": "Gemini 4 Neon in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot"
+        }
+      ],
+      "tags": [
+        "GitHub Copilot",
+        "Gemini",
+        "coding agent",
+        "multistep tool use",
+        "model availability"
+      ],
+      "title_ko": "GitHub Copilot에 Gemini 4 Neon 정식 제공",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Gemini 4 Neon is now generally available in GitHub Copilot.",
+            "evidence_url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Gemini 4 Neon이 GitHub Copilot에서 일반 제공으로 바뀌었습니다."
+          },
+          {
+            "evidence_quote": "It is designed for agentic coding, multistep tool use, and knowledge work.",
+            "evidence_url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "코딩 에이전트와 멀티스텝 도구 사용에 맞춘 모델입니다."
+          },
+          {
+            "evidence_quote": "Copilot Enterprise and Copilot Business plan administrators can manage access to Gemini 4 Neon through the model policy in Copilot settings.",
+            "evidence_url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "관리자는 Enterprise·Business에서 모델 정책으로 접근을 제어할 수 있습니다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "Gemini 4 Neon이 GitHub Copilot에서 일반 제공으로 바뀌었습니다.",
+        "코딩 에이전트와 멀티스텝 도구 사용에 맞춘 모델입니다."
+      ],
+      "why": [
+        "관리자는 Enterprise·Business에서 모델 정책으로 접근을 제어할 수 있습니다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "55e2ad697d05d0180add017213fd404d7b7f937649c99e31d3dd821ff96acdaa",
+      "availability": "unknown",
+      "card_id": "card_55e2ad697d05",
+      "category": "MCP·도구 연결",
+      "event_id": "dc73b9f878aeb547c9a2819cfa23e1ab257d608ecbcd4dea8e98c5866ebb8b44",
+      "how": [
+        "트리뱅크 폴더를 열고 새 세션에서 검증을 요청한다.",
+        "예시: “Use ud-validate to validate this treebank, then show all errors.”",
+        "지원 호스트는 플러그인 또는 MCP 인터페이스로 설치하라고 안내한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-18T02:19:22.562314Z",
+      "revision": 1,
+      "score": 59.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.mehmetoguzderin/ud-agent-skill-mcp-plugin 0.1.0-beta.1",
+          "url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "plugin",
+        "skills",
+        "treebank",
+        "CONLL-U",
+        "Universal Dependencies"
+      ],
+      "title_ko": "Universal Dependencies 검증용 MCP 플러그인",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Validate, edit, compare and investigate Universal Dependencies treebanks and CONLL-U in your own agent.",
+            "evidence_url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Universal Dependencies treebank와 CONLL-U를 검증·편집·비교하는 MCP 플러그인이 나왔다."
+          },
+          {
+            "evidence_quote": "The package supplies six skills and 104 application tools.",
+            "evidence_url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "이 플러그인은 6개 스킬과 104개 도구를 묶어 여러 에이전트에 연결한다."
+          },
+          {
+            "evidence_quote": "Use upstream UD tools without the hassle. Tested for you and your agent.",
+            "evidence_url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "UD 검증 작업을 에이전트 안에서 바로 돌려 수동 설정을 줄인다."
+          },
+          {
+            "evidence_quote": "Install the plugin through your agent, open a treebank folder, and ask it to work.",
+            "evidence_url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "기존 UD 도구를 각 에이전트 플러그인/ M C P 경로로 붙여 쓸 수 있다."
+          },
+          {
+            "evidence_quote": "Open the treebank folder and start a new session.",
+            "evidence_url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "트리뱅크 폴더를 열고 새 세션에서 검증을 요청한다."
+          },
+          {
+            "evidence_quote": "Ask: **“Use ud-validate to validate this treebank, then show all errors.”",
+            "evidence_url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "예시: “Use ud-validate to validate this treebank, then show all errors.”"
+          },
+          {
+            "evidence_quote": "Find your agent below and install through its own plugin or MCP interface.",
+            "evidence_url": "https://github.com/mehmetoguzderin/ud-agent-skill-mcp-plugin",
+            "role": "how",
+            "sentence_index": 2,
+            "text": "지원 호스트는 플러그인 또는 MCP 인터페이스로 설치하라고 안내한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "Universal Dependencies treebank와 CONLL-U를 검증·편집·비교하는 MCP 플러그인이 나왔다.",
+        "이 플러그인은 6개 스킬과 104개 도구를 묶어 여러 에이전트에 연결한다."
+      ],
+      "why": [
+        "UD 검증 작업을 에이전트 안에서 바로 돌려 수동 설정을 줄인다.",
+        "기존 UD 도구를 각 에이전트 플러그인/ M C P 경로로 붙여 쓸 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "1a1647b6c5406a27ba23fec2b7de5c0791ce6b60b22ae89c0c1cdf621cf476af",
+      "availability": "unknown",
+      "card_id": "card_1a1647b6c540",
+      "category": "AI 개발 워크플로",
+      "event_id": "d4cfbc3b0e605a782e2ba59c7d458871affa4cde6bb447fa01329eeb3b37c5d4",
+      "how": [],
+      "pool": "interest",
+      "published_at": "2026-11-17T21:16:12Z",
+      "revision": 1,
+      "score": 56.0,
+      "sources": [
+        {
+          "org": "Hacker News",
+          "source_class": "aggregator",
+          "source_id": "hackernews-ai",
+          "title": "Harvard researchers find AI coding agents shifted the bottleneck to code review",
+          "url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/"
+        }
+      ],
+      "tags": [
+        "AI coding agents",
+        "code review",
+        "productivity",
+        "developer workflow",
+        "Harvard study"
+      ],
+      "title_ko": "AI 코딩 에이전트가 코드 리뷰를 병목으로 바꾼다는 하버드 연구",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Engineers at firms that adopted AI coding agents added about 30 percent more code, yet finished work did not measurably rise and getting code through review took 49 percent longer",
+            "evidence_url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "AI 코딩 에이전트 도입 뒤 코드 작성량은 늘었지만, 완료된 작업은 늘지 않았습니다."
+          },
+          {
+            "evidence_quote": "The time from pull request submission to merge rose 3.45 days on a 7.03-day baseline, a 49 percent increase. The share of pull requests receiving a formal change request increased",
+            "evidence_url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "대신 코드 리뷰 시간이 길어지고 변경 요청과 리뷰 코멘트가 증가했습니다."
+          },
+          {
+            "evidence_quote": "Output is where the gain stops. The paper counts finished work as Jira issues resolved, and an issue counts as complete when its code is deployed to production.",
+            "evidence_url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "코드를 더 빨리 쓰는 것만으로는 생산성이 오르지 않을 수 있음을 보여줍니다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "AI 코딩 에이전트 도입 뒤 코드 작성량은 늘었지만, 완료된 작업은 늘지 않았습니다.",
+        "대신 코드 리뷰 시간이 길어지고 변경 요청과 리뷰 코멘트가 증가했습니다."
+      ],
+      "why": [
+        "코드를 더 빨리 쓰는 것만으로는 생산성이 오르지 않을 수 있음을 보여줍니다."
+      ]
+    }
+  ],
+  "counts": {
+    "accepted": 4,
+    "analyzed": 14,
+    "candidates": 15,
+    "deferred": 1,
+    "events": 1524,
+    "raw": 588,
+    "selected": 4
+  },
+  "date": "2026-11-20",
+  "emerging": [
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 2곳의 사건 6건에서 처음 나타났습니다.",
+      "tag": "agent marketplace"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 4건에서 처음 나타났습니다.",
+      "tag": "computer use"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 4건에서 처음 나타났습니다.",
+      "tag": "context engineering"
+    }
+  ],
+  "generated_at": "2026-11-20T02:14:29.916901Z",
+  "headline_ko": "오늘의 AI 브리핑",
+  "run_id": "53f6854ef61d49ec8ccb728c47d11e0c",
+  "schema_version": "1.0.0"
+}

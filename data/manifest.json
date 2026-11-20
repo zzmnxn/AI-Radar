@@ -1,21 +1,29 @@
 {
   "deadline_kst": "07:00",
   "last_run": {
-    "date": "2026-11-19",
-    "failed_stage": "verify",
-    "finished_at": "2026-11-19T01:54:31.449761Z",
-    "message": "interest=2 impact=2 explore=1 star_growth=0 deferred=5",
-    "outcome": "failed",
-    "run_id": "430d776ee091413c8d5a2c597dfeae77",
+    "date": "2026-11-20",
+    "failed_stage": null,
+    "finished_at": "2026-11-20T02:16:30.248465Z",
+    "message": "interest=9 impact=5 explore=1 star_growth=0 prefilter_excluded=fundingx2,lawsuitx1,no_repositoryx91,no_signalx65,source_capx3 llm_errors=judge:schema_errorx1 not_worth_briefing=1 what_unsupported=5 why_unsupported=4 deferred=6",
+    "outcome": "ok",
+    "run_id": "53f6854ef61d49ec8ccb728c47d11e0c",
     "sources": {
-      "active": 15,
-      "complete": 14,
-      "failed": 0,
+      "active": 20,
+      "complete": 18,
+      "failed": 1,
       "partial": 1
     },
-    "started_at": "2026-11-19T01:53:56.165136Z"
+    "started_at": "2026-11-20T02:14:29.916901Z"
   },
-  "last_success_at": null,
-  "published": null,
+  "last_success_at": "2026-11-20T02:14:29.916901Z",
+  "published": {
+    "date": "2026-11-20",
+    "files": {
+      "briefings/2026-11-20.json": "7373f1537869589faa0232c5a17356d232ea53bd260cbee5ee5228bef9605249",
+      "index/2026.json": "50b5b74c582126beed1793c91369bd04ad45d9d794605e7fee5db3b24b78bfd9"
+    },
+    "generated_at": "2026-11-20T02:14:29.916901Z",
+    "run_id": "53f6854ef61d49ec8ccb728c47d11e0c"
+  },
   "schema_version": "1.0.0"
 }

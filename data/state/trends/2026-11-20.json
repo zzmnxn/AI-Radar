@@ -1,0 +1,608 @@
+{
+  "active_sources": 20,
+  "date": "2026-11-20",
+  "rows": [
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "e1bbdb0d2bb95749e88ce20aee890624dd197c776e9522635714b98b7f221f89"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent guilds"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "487b8fc8e6dd8ff97ffddfba7a2c02bdb335bae5553b48d65bfb9cc098f2a769",
+        "4e122be5632a821a12aecf8d8906ace631b50d5b92001f4887a1aee5db6b4b32",
+        "6fde4689ee44710704c5fc03d1c2df19bbd6a9907314d8aa3d4f0ecffa27b0fc",
+        "77c54d03f8bcbbe1f9ca900a14e409175bd3ce1178eac0cbea4f985683303dce",
+        "c0680b8814709487c19628f4ef28b9c65fa7a844a22766109b9893d4143b4d7e",
+        "cabaf4f890c72b5cf4f0c3c82d38705cad82fa364874a8d54b9b9b45d90a05d9"
+      ],
+      "events": 6,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News",
+        "Model Context Protocol"
+      ],
+      "tag": "agent marketplace"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "2a85b25d805083c3f37733b6ffacc2d0b483c75b3d3c7150e979225f37b5f229",
+        "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+        "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent memory"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "1d3f6a4fd236d835b6edd4efb6d78185cda3a100f7a0c81b829841ed3a9e7415",
+        "9bc325bf521dd1235948742dd9c694936071ccdc2b91bd24e87a758d955dbddf",
+        "dcf155944b8d8e2bb276039304c67287a31481ae2c6e4d6116948bfaf749d11b"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent tracing"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "0d18628208b4bbe5f914389ea9e0bd8f4e17d2ceae01cd6077056dd3970d896d",
+        "1310fea1870b4ed37646574ec3f470628d6e04c3277c76b11ae0e377ae9b901d",
+        "1521333f85b6845972e234dd77735b74b550d40fccd4dce9ad54c7599cecd21b",
+        "1d3f6a4fd236d835b6edd4efb6d78185cda3a100f7a0c81b829841ed3a9e7415",
+        "2347518c59dce38810cadd650824c8b5890f46ab32fede7872a1f7dab0c6c3e3",
+        "25712483b8e2be8b67387e3268b53ca09a617bf1d2ca568283d7d80f59bb8745",
+        "2814eb84e031f4a8970351318ae6b138279243e2beb0d7a2b99d707ee9503b91",
+        "2a85b25d805083c3f37733b6ffacc2d0b483c75b3d3c7150e979225f37b5f229",
+        "2c140880405172a5eeb39b2e0439bc8d0172f9264f59890a27ecececf05fbed9",
+        "2ca7f0fbd9fe4393b2fb754387a14375fff91a7f959e12a4d724b67eb6b12255",
+        "3594b4c13067d4a62fd5f2a85ad9a50ccee24ebda0aa33284520740bde31e042",
+        "372eb5eb40310d60d61eabfef76e5c7fc9b2faa3d136ce729a23d46502fd4b12",
+        "3a1e717d35229a9d026756bec63bd2ab8a9882f433e06f70ff0fd5c1951ef779",
+        "3af987550c1241306354b662e5ae33a31bff5ad30e081c60b47617a6ea7dd411",
+        "454d7d2f09bf08ef47bab47849796596d8046db8592919c98f09d978de9d3b0e",
+        "45643611a06f6285055cf0507cb2126c4b15d389522478954f81e6de6fa5e352",
+        "45c13efec595005982867a0d5c95f3d74fd27600c0985bb222f17c55d89a399a",
+        "49abc0e4bb3f613910c4b63adc76fd7fd508e8e7f37b110248e34cc29b7e703e",
+        "49d15b4ec1f0cf90fbc4c04244a5e67b98f9e802c0fcf47d8fb8af6a0177b961",
+        "4ea1d5c92471b5bf2b9c9379fa15e8552b123dfe77c1ef9e92ea02655444d040",
+        "561a919de44d0de4086b0034177ff6578ffb7e22aa40f95187c172c763466064",
+        "58b903bec8093f27c7e4f596a118cb9613de0582caa5d90a7b470618fba01db0",
+        "5ed7df91d0097546fde08b70d78445e158b955100494d4c2093384d61694e7f7",
+        "66fdbbf8f9f1cf65bca52f7f4d8c07da5ddaf3e19373754a85d30f4755cbd4df",
+        "69bfaba2c7ce0a646be28727eb1f60d84f3cb89f327c43cfb9c53d63d871fdac",
+        "6e3cab43602ad0c6a5e3d72af5f93d7f19f4b118408c21d0ead8fc50b475041f",
+        "710701b9baadb65a5123db02ecc01a5c60c96ab48149a15081e1981df4edceaf",
+        "77982d85c3e9db88d3ff4a919c2b30fb762ee4a4d4d13f48c4d1fe84030ee426",
+        "77c54d03f8bcbbe1f9ca900a14e409175bd3ce1178eac0cbea4f985683303dce",
+        "7a8b2094d9309992db8cf8bc4a7dc724db06e14208fc1931a8bd43a8e0a26bf5",
+        "7c870f745bfa140be1f2eb2b7e67b2ff20dff7c23fc272bf69306b537ea573e7",
+        "8b0484757f07582cdac82992067cfc6e3f7d470a5745afbea6a239fa47499fc8",
+        "8b16ca47736c3379c48c5648e4fdfb5a9b9c62781aa30a7a381fbe47d1c8942a",
+        "8dbf1de7d23a4ffda2574c5dfb4a04481237d7a3b259cad6b2e0b4fabcd44f92",
+        "8f201abba45c7e365e7db9bbbc456228163794fc3e5cce74a62bdfdb3b6ed041",
+        "925031e7e45262b44bca408f0016cba3e9f80e1014bdbd7a507dad7e2463c67f",
+        "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+        "936d5996bcd8c1e3648a6a92633ce65bd340ec6cb7a7653fc5840d5dd4454ba0",
+        "96e36f68e3d83da648b72f44a108f764f9be487ee9066c122599611f90780934",
+        "9bc325bf521dd1235948742dd9c694936071ccdc2b91bd24e87a758d955dbddf",
+        "9ccf316b10fe613f184a6d0d76c1c9fbd535cf6afbe8f4e6c134cc19c7c7c0cf",
+        "9f0643dece29c817ec670ec94e5755ab39c236d186247c4848e72bc3fa0683c7",
+        "a0c40b04aa3282e66cf204ab63463d101e8aa659fbde1a6aeeefaef8e18db142",
+        "a5f98e78b26fa176cc0ca88ca8fa32f4a28c5c2e2f6fe4145756afbefb7ab4d9",
+        "b7f5e33bfb9eaa52641b6b873befbdb39ab6bc3c43b38053b67b8590f1a69a06",
+        "b8c34308bbcb06de805c8d3c0629d63d30709915b33df43ace6384b868f89046",
+        "bac01ee3e48cd7b8cbded80629c4e447d6d481a541a14a291dac0d918ffb9ce6",
+        "bb91f32e93432e2a5045b15f23870464592389318e4f5af53c2943194ed5e2a3",
+        "c13db87abe3c211479195c45bc81768535d11a9487334dedad9dddf735004ff7",
+        "c310b5e368969ddf7758fc3620872e9ef3922948839aa2e62c9831e72c75eff4",
+        "c990c6d779cb5bc18e411562d41ef03f413bde307a7fef52565b809d727f05cc",
+        "d6c833850db9f8cfc86a2b19fb40266bdb24417039dd938aef3eb5d2588f6f4d",
+        "d740404e27f79d3cdccc2fbfa0497e2b91a6551213f9931ebc380270861b74a9",
+        "d79cf4aa6e7092602672d856082fcd527f034a1f7519fc4b920b8a3fff0fd670",
+        "dcf155944b8d8e2bb276039304c67287a31481ae2c6e4d6116948bfaf749d11b",
+        "dd9289a865a780d1eaf74ef53463faddeffc3f1a23cba3215cdf46b4d44541cb",
+        "ddaccd891e5dd65d766d64701a977b581d69a2e6dbaf22ab710ffb27551f2027",
+        "df232c6ef6f879f97254a5e3d0a582ad57e6b57b90b152e1bd496306dd6fcce2",
+        "e1bbdb0d2bb95749e88ce20aee890624dd197c776e9522635714b98b7f221f89",
+        "e4e510d9ee7a11919e5a285d3ec5b4e4fad934215893f484350b321016653f1b",
+        "e6b7484c04f34c2b0b6d3ea76557c8d6318e0814b7664d29ca4573b2d44cd7eb",
+        "ee625d4769b2f78ed888953a2f201972b7eb95122a6339a7660a16f9d5a6b9c0",
+        "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
+        "f590787b33d2cc439a13b898e19b372ffde4a1254ebd5d6f1ad43897b597b4f5",
+        "f950fa5b59b821499e624ded46e21a1869e251255c338e049d026ae1f9158f08",
+        "fc6e9233f9cb2ed29d5105bd49a1ea4a8898e58c4a174a069d5e9d15309a9d23",
+        "fd3aeefc58b04c8315f1041d722a0c3fbfabc44e1f2f150e476285665dc18344",
+        "ff11ff3008e33fd5d2c0789357d2874c9f870339d5ab8aabd524e7ca6b8b9b39"
+      ],
+      "events": 68,
+      "independent_orgs": 4,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "Hugging Face",
+        "Model Context Protocol",
+        "arXiv"
+      ],
+      "tag": "ai-agent"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "94cd71b2068cb68dac7335725532110eb7af5ca4b66d3d4c4226b2cb0639ed3e",
+        "9c21cef04a40e1536cb8c59094fd2a321e429bf84abd5330c3342d9ba8bedde4",
+        "d7c762ab491016a0dda250624229a74d329a0324c8b15a5d8f5f249697cbcff3"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "anthropic"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "0e152491b431bfdd94d2c2ff161cd04bbdd29a748e565346221aa75960b0ce86",
+        "1121d2b0078eb31f9cbd61a8eb933c2a66f984ea7c2cf45b9b3bfffb33403bd7",
+        "1ff1be276a8e9f2246ec71333019385dfa710345eaecd873de2b6798e940b240",
+        "2347518c59dce38810cadd650824c8b5890f46ab32fede7872a1f7dab0c6c3e3",
+        "2c140880405172a5eeb39b2e0439bc8d0172f9264f59890a27ecececf05fbed9",
+        "316d7d7dbe94e9774d4b66861990aa334367b5556079d15265c2c74089f85d76",
+        "3920e20ffb2328a073d7748189351fb9c52532458f3a9b3783ab7707af215b88",
+        "3fc68dfee9f5c7e65a9fb51dddf9e5b8ffd9526409f7706aee04bda4c8cbc789",
+        "422a41a02ec456602f316ec9f7e97c5c85eb99b57943d595187d583f34022209",
+        "44b118d337500cd77b4b8c72cd6564e3036b84bd55ab494a97bffa303129e1c8",
+        "454d7d2f09bf08ef47bab47849796596d8046db8592919c98f09d978de9d3b0e",
+        "48c75582431fbb4f8db4b2efc90dc77417f093812bb51a12503667ef14e6c08c",
+        "5148b16a207fae5ef9553b61f3ba390aed9ffb6367606fb697244cecf4ba6f8c",
+        "65b885ae3302ee471fe0ab604117c42301dad36dc77c8afb1451ace1ccf2d390",
+        "84f6f97b594a498065a6cb3867936a2ade50d9afebc3d2b1c48ae01672bdf1a6",
+        "91eed0c071a52f09527631c12400f127538b4a66ce3392fe3b4099104ca1f25e",
+        "94cd71b2068cb68dac7335725532110eb7af5ca4b66d3d4c4226b2cb0639ed3e",
+        "9bc325bf521dd1235948742dd9c694936071ccdc2b91bd24e87a758d955dbddf",
+        "9cdeacc855c0caeb4b5761f581091a717d77089d0bcc3a25570dab1c10d1fc4a",
+        "9e3563d58ecc4bfc5cc706d6bd4c6759da97248f7474dfba3bedd215eaa50ecc",
+        "a0a4d31eefb72db095b42a9f0587fe7eec7e55df3f7b44dfde4d04b85bf75a3a",
+        "a0c40b04aa3282e66cf204ab63463d101e8aa659fbde1a6aeeefaef8e18db142",
+        "b3ea487f065056fe3c9c0fba0e797b49bcad04a3b3e7069a0cdad5f2aac8a2c8",
+        "b9c2ee694ae6953ba43e3fdc8dc38519d4fc5e0ade5379b9a261e7c53e239c43",
+        "c13db87abe3c211479195c45bc81768535d11a9487334dedad9dddf735004ff7",
+        "d6c833850db9f8cfc86a2b19fb40266bdb24417039dd938aef3eb5d2588f6f4d",
+        "d740404e27f79d3cdccc2fbfa0497e2b91a6551213f9931ebc380270861b74a9",
+        "d7c762ab491016a0dda250624229a74d329a0324c8b15a5d8f5f249697cbcff3",
+        "ec9683e244aa31c39c04e1222de04ce949af38111acb674a0597ea00831a65ff",
+        "f7860bd222bbc5fdbe3cfea45574dfb55c00e3a4c901dbd94c06124b1430f290",
+        "ff1dd41b06f16d0ea4ea895f5426c46da64bf317e1298df62f86057b87b19965",
+        "ff1e1fb2a23a137921d9fc342a5ecbc5622b79420bc6e138297a176374e07ab9",
+        "ffe8531407bea3205be9469086d372c82b9af44dc3bdf58b50c9350a1463fd12"
+      ],
+      "events": 33,
+      "independent_orgs": 5,
+      "kind": "taxonomy",
+      "orgs": [
+        "GitHub",
+        "Hacker News",
+        "Hugging Face",
+        "Model Context Protocol",
+        "arXiv"
+      ],
+      "tag": "artificial-intelligence"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "1590e3f6387642d1f8fc94a639289586bce982eda9abd63a35928546a7164efc",
+        "2814eb84e031f4a8970351318ae6b138279243e2beb0d7a2b99d707ee9503b91",
+        "8f7a055a1b360233ad87f8f6e9ed14545bc77431e59e77c825c7cd5ff6f24435",
+        "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+        "c900da28c4b03b663c23e4003e96a7222de6e940a2aa82c8aacb5456df126cb8",
+        "f3d370a5121afbf2b74a441ed17e14480982c4fee8de87420c27e4050b730e64"
+      ],
+      "events": 6,
+      "independent_orgs": 3,
+      "kind": "taxonomy",
+      "orgs": [
+        "Anthropic",
+        "Hacker News",
+        "Model Context Protocol"
+      ],
+      "tag": "claude"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "44b118d337500cd77b4b8c72cd6564e3036b84bd55ab494a97bffa303129e1c8",
+        "8dbf1de7d23a4ffda2574c5dfb4a04481237d7a3b259cad6b2e0b4fabcd44f92",
+        "d6c833850db9f8cfc86a2b19fb40266bdb24417039dd938aef3eb5d2588f6f4d",
+        "fc6e9233f9cb2ed29d5105bd49a1ea4a8898e58c4a174a069d5e9d15309a9d23"
+      ],
+      "events": 4,
+      "independent_orgs": 3,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News",
+        "Hugging Face",
+        "Model Context Protocol"
+      ],
+      "tag": "computer use"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "3fc68dfee9f5c7e65a9fb51dddf9e5b8ffd9526409f7706aee04bda4c8cbc789",
+        "426e8f60ce7782915f6d9539834dd7ac31a98e304e21329ff03d0708a3757187",
+        "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+        "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339"
+      ],
+      "events": 4,
+      "independent_orgs": 3,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News",
+        "Hugging Face",
+        "Model Context Protocol"
+      ],
+      "tag": "context engineering"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "095e886450788279170b676f5e74240e2c8578a5a06536237cccbd73fc5c1fba",
+        "1de0113cd8f478b659af7f2338401ad53cd28ab4db870be1246ea4ed989a9bc9",
+        "526149b232bedc323b86e86bea9caca0fea8be5bdba49defcfc48234827e3315",
+        "6e0753618aca5156a85afc4a8a411591ebd7280aa33a0c3f951492de82e3717a",
+        "d16d580a6b6dccd2e5f9862cc508bc93c8b20546cd34a6cd1df6ff7ec4a1fe3a",
+        "dcd471d69e87b6e0dc13aa6e230d6fe37bcbee1e7193e469392b19ca461f5304"
+      ],
+      "events": 6,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hugging Face"
+      ],
+      "tag": "evaluation"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "02f125d9c6cc44016cdd5863c55514ff9b228cc9a9c1f186a956db5a6ed46313",
+        "352723699d6c2a143c8ea3655a9b7d2ce1c7fcd1635e0395e01b3304c2ed2c7b",
+        "a913764b1be35e0fc8d73e7e95d72534487b286679126dfc43a1f67f603187da",
+        "b4928e127abfbfc275c3730d105be2dd726416458dba58370377c0184b2f1434",
+        "ff264ab396492a82c5c104b037d403f4bd4b5e23733ee32614d7b492e798e07a"
+      ],
+      "events": 5,
+      "independent_orgs": 4,
+      "kind": "taxonomy",
+      "orgs": [
+        "Google",
+        "Hacker News",
+        "Latent Space",
+        "Simon Willison"
+      ],
+      "tag": "gemini"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "06d99b4f791c5da000bdff0eef5e2bbcf5d81da7d7d4c66b0610cc3453cc310f",
+        "0bbf8adb1cab336c565349040ede4ba84ea4b3eb640cbd70da07ce4ef1d9d2c4",
+        "1310fea1870b4ed37646574ec3f470628d6e04c3277c76b11ae0e377ae9b901d",
+        "1d3f6a4fd236d835b6edd4efb6d78185cda3a100f7a0c81b829841ed3a9e7415",
+        "2a85b25d805083c3f37733b6ffacc2d0b483c75b3d3c7150e979225f37b5f229",
+        "2ca7f0fbd9fe4393b2fb754387a14375fff91a7f959e12a4d724b67eb6b12255",
+        "3594b4c13067d4a62fd5f2a85ad9a50ccee24ebda0aa33284520740bde31e042",
+        "372eb5eb40310d60d61eabfef76e5c7fc9b2faa3d136ce729a23d46502fd4b12",
+        "4248bac08bfb379212081e15ea661128187b8b7b532fe0b0662e3b23bdd17057",
+        "42fc1a4970ced0d3ad0097f956f382e38dbb6b4306be97cfa913c06143034310",
+        "444f5b8443b56053bdadea631a5927f74b2c5880369d5378fd47dbcc3c35f186",
+        "454d7d2f09bf08ef47bab47849796596d8046db8592919c98f09d978de9d3b0e",
+        "45c13efec595005982867a0d5c95f3d74fd27600c0985bb222f17c55d89a399a",
+        "49abc0e4bb3f613910c4b63adc76fd7fd508e8e7f37b110248e34cc29b7e703e",
+        "58b903bec8093f27c7e4f596a118cb9613de0582caa5d90a7b470618fba01db0",
+        "5c2760b5008e0639a4508f5e0f235e4b4bb8a72d76a4dd740c28d50a38e8d677",
+        "5ed7df91d0097546fde08b70d78445e158b955100494d4c2093384d61694e7f7",
+        "69bfaba2c7ce0a646be28727eb1f60d84f3cb89f327c43cfb9c53d63d871fdac",
+        "6bafb5a529dc7d197cdd47480efa00b2da4684d195257172de47efbb09a3b0e2",
+        "710701b9baadb65a5123db02ecc01a5c60c96ab48149a15081e1981df4edceaf",
+        "74df5afd5e5196e119497407590e2227caa19898c5c417366a385df7a2d25b95",
+        "77982d85c3e9db88d3ff4a919c2b30fb762ee4a4d4d13f48c4d1fe84030ee426",
+        "8b0484757f07582cdac82992067cfc6e3f7d470a5745afbea6a239fa47499fc8",
+        "8b16ca47736c3379c48c5648e4fdfb5a9b9c62781aa30a7a381fbe47d1c8942a",
+        "8dbf1de7d23a4ffda2574c5dfb4a04481237d7a3b259cad6b2e0b4fabcd44f92",
+        "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+        "96e36f68e3d83da648b72f44a108f764f9be487ee9066c122599611f90780934",
+        "9f0643dece29c817ec670ec94e5755ab39c236d186247c4848e72bc3fa0683c7",
+        "a23e1e865f76eabef2d627a32759adac5345e008f816802d4916d8e0b11f02ab",
+        "b7f5e33bfb9eaa52641b6b873befbdb39ab6bc3c43b38053b67b8590f1a69a06",
+        "b8c34308bbcb06de805c8d3c0629d63d30709915b33df43ace6384b868f89046",
+        "bb91f32e93432e2a5045b15f23870464592389318e4f5af53c2943194ed5e2a3",
+        "be56a77510bc1654fe4f18b21019a920211f4bf9fae5f5d5302ec86f419ee9c3",
+        "bf0bff02dfbe16e05c0e872ae013c081f49e44d4663b7a870ffa78acf583a836",
+        "c990c6d779cb5bc18e411562d41ef03f413bde307a7fef52565b809d727f05cc",
+        "d6c833850db9f8cfc86a2b19fb40266bdb24417039dd938aef3eb5d2588f6f4d",
+        "d79cf4aa6e7092602672d856082fcd527f034a1f7519fc4b920b8a3fff0fd670",
+        "dcf155944b8d8e2bb276039304c67287a31481ae2c6e4d6116948bfaf749d11b",
+        "dd9289a865a780d1eaf74ef53463faddeffc3f1a23cba3215cdf46b4d44541cb",
+        "ddaccd891e5dd65d766d64701a977b581d69a2e6dbaf22ab710ffb27551f2027",
+        "df232c6ef6f879f97254a5e3d0a582ad57e6b57b90b152e1bd496306dd6fcce2",
+        "e1bbdb0d2bb95749e88ce20aee890624dd197c776e9522635714b98b7f221f89",
+        "e4e510d9ee7a11919e5a285d3ec5b4e4fad934215893f484350b321016653f1b",
+        "e6b7484c04f34c2b0b6d3ea76557c8d6318e0814b7664d29ca4573b2d44cd7eb",
+        "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
+        "fd3aeefc58b04c8315f1041d722a0c3fbfabc44e1f2f150e476285665dc18344"
+      ],
+      "events": 46,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "Model Context Protocol"
+      ],
+      "tag": "github"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "9342dbf934e428aa00c16520441f258a949ccd62bcb28471deb475c04ce3c227",
+        "db9b81401cb73d7b9082ca9ac29601a9357fe6b1322fac9d2899b92f57a7cc92"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Latent Space",
+        "OpenAI"
+      ],
+      "tag": "gpt"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "02f125d9c6cc44016cdd5863c55514ff9b228cc9a9c1f186a956db5a6ed46313",
+        "ad3e76f01115ccd7be18209f48bee92b901d79e2074d0c998596e68781b3d1f4",
+        "c310b5e368969ddf7758fc3620872e9ef3922948839aa2e62c9831e72c75eff4",
+        "d740404e27f79d3cdccc2fbfa0497e2b91a6551213f9931ebc380270861b74a9",
+        "f590787b33d2cc439a13b898e19b372ffde4a1254ebd5d6f1ad43897b597b4f5"
+      ],
+      "events": 5,
+      "independent_orgs": 3,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hugging Face",
+        "Simon Willison",
+        "arXiv"
+      ],
+      "tag": "large-language-model"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "444f5b8443b56053bdadea631a5927f74b2c5880369d5378fd47dbcc3c35f186",
+        "74df5afd5e5196e119497407590e2227caa19898c5c417366a385df7a2d25b95",
+        "7a8b2094d9309992db8cf8bc4a7dc724db06e14208fc1931a8bd43a8e0a26bf5",
+        "96e36f68e3d83da648b72f44a108f764f9be487ee9066c122599611f90780934",
+        "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339"
+      ],
+      "events": 5,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "mcp"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "9342dbf934e428aa00c16520441f258a949ccd62bcb28471deb475c04ce3c227"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "OpenAI"
+      ],
+      "tag": "openai"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "74df5afd5e5196e119497407590e2227caa19898c5c417366a385df7a2d25b95",
+        "9f0643dece29c817ec670ec94e5755ab39c236d186247c4848e72bc3fa0683c7",
+        "be56a77510bc1654fe4f18b21019a920211f4bf9fae5f5d5302ec86f419ee9c3"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "payment safety"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "42fc1a4970ced0d3ad0097f956f382e38dbb6b4306be97cfa913c06143034310",
+        "f590787b33d2cc439a13b898e19b372ffde4a1254ebd5d6f1ad43897b597b4f5"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hugging Face",
+        "Model Context Protocol"
+      ],
+      "tag": "prompt injection defense"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "4808af62f6eea7f5b113a8958d6ae23a4f6867b9d9e9814ffc20b6045ca8f4cd",
+        "d740404e27f79d3cdccc2fbfa0497e2b91a6551213f9931ebc380270861b74a9"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hugging Face",
+        "arXiv"
+      ],
+      "tag": "reasoning"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "3aa93cb91ee52648a421270b411590c31a642bbdd869ff5d6d9fc9207e2ff15d",
+        "6354249ede65dfe84ebbb3a2c8b56500a28aa4f3168fdeb925cd88881000cff7",
+        "c310b5e368969ddf7758fc3620872e9ef3922948839aa2e62c9831e72c75eff4"
+      ],
+      "events": 3,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "GitHub",
+        "Hugging Face"
+      ],
+      "tag": "self-improvement"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "1521333f85b6845972e234dd77735b74b550d40fccd4dce9ad54c7599cecd21b",
+        "3af987550c1241306354b662e5ae33a31bff5ad30e081c60b47617a6ea7dd411"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News",
+        "Model Context Protocol"
+      ],
+      "tag": "shared agent inbox"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "095e886450788279170b676f5e74240e2c8578a5a06536237cccbd73fc5c1fba"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hugging Face"
+      ],
+      "tag": "specification-driven evaluation"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "040ee3cb53de2563ce028b2f8a3e999f5b60812d0e6bba03cb0154ef7b030eb3",
+        "ad3e76f01115ccd7be18209f48bee92b901d79e2074d0c998596e68781b3d1f4"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News",
+        "Hugging Face"
+      ],
+      "tag": "token compression"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "3a1e717d35229a9d026756bec63bd2ab8a9882f433e06f70ff0fd5c1951ef779",
+        "49d15b4ec1f0cf90fbc4c04244a5e67b98f9e802c0fcf47d8fb8af6a0177b961"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "tool schema"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "4808af62f6eea7f5b113a8958d6ae23a4f6867b9d9e9814ffc20b6045ca8f4cd",
+        "51fcb464fc056e5e5d0fbbeaf8ddb526363b3c1f947bbf193c4578ff899f8467"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hugging Face"
+      ],
+      "tag": "visual imagination"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-20",
+      "event_ids": [
+        "2bff6136ade5af37d7d31777e7b36b89898659eabb57e7b0810d6bbe13ecdcab",
+        "51fcb464fc056e5e5d0fbbeaf8ddb526363b3c1f947bbf193c4578ff899f8467",
+        "526149b232bedc323b86e86bea9caca0fea8be5bdba49defcfc48234827e3315",
+        "9ccf316b10fe613f184a6d0d76c1c9fbd535cf6afbe8f4e6c134cc19c7c7c0cf",
+        "ee84f3d25a4860228c683ecf766bf2d4af55e694bc6ba886a29567f5881a9154"
+      ],
+      "events": 5,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hugging Face"
+      ],
+      "tag": "world model"
+    }
+  ]
+}
