@@ -38,5 +38,54 @@
       "Universal Dependencies 검증용 MCP 플러그인",
       "AI 코딩 에이전트가 코드 리뷰를 병목으로 바꾼다는 하버드 연구"
     ]
+  },
+  "2026-11-21": {
+    "card_count": 5,
+    "categories": [
+      "AI 코딩 도구",
+      "MCP·도구 연결",
+      "새 AI 서비스",
+      "에이전트 설계·스택"
+    ],
+    "headline_ko": "하네스 적응형 어댑터와 Claude Code·DeepAgentLabs·언리얼 엔진·Watch Duty 관련 AI 업데이트가 공개됐다.",
+    "path": "briefings/2026-11-21.json",
+    "tags": [
+      "Base",
+      "Claude Code",
+      "Epic Games",
+      "GRPO",
+      "Gemini",
+      "Google.org Fellowship",
+      "Hugging Face",
+      "LoRA",
+      "MCP",
+      "OpenEnv",
+      "RL",
+      "Scene Graph",
+      "Solana",
+      "TRL",
+      "UE6",
+      "Unreal Engine",
+      "Verse",
+      "Watch Duty",
+      "agent harness",
+      "agentic workflows",
+      "alerting",
+      "chaos testing",
+      "offline validation",
+      "payments",
+      "transcription",
+      "wallet",
+      "wildfire",
+      "workflow analysis",
+      "x402"
+    ],
+    "titles": [
+      "하네스 적응형 어댑터: 에이전트 하네스에 맞춰 성능·비용을 최적화",
+      "Claude Code용 x402 지갑 MCP 플러그인 0.4.0",
+      "DeepAgentLabs MCP 서버 1.1.0 출시",
+      "Epic Games, 언리얼 엔진에 AI 코딩을 본격 반영",
+      "Watch Duty가 Gemini로 산불 경보를 더 빠르게 내보내는 방법"
+    ]
   }
 }

@@ -1,0 +1,450 @@
+{
+  "cards": [
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "696b6568d64c749e6f25f63cc3f7c29b56bcf0e2f0f0a4a057de3dec019ef815",
+      "availability": "unknown",
+      "card_id": "card_696b6568d64c",
+      "category": "에이전트 설계·스택",
+      "event_id": "701a571706ec6c00de8bbc6af8a9bc31d2eec98a2272e87a59a9e6a4a97a82f1",
+      "how": [
+        "TRL의 AsyncGRPOTrainer와 OpenEnv, harbor를 사용했다.",
+        "Qwen/Qwen3.8-27B에 LoRA를 붙여 하네스 안에서 RL을 돌렸다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-20T00:00:00Z",
+      "revision": 1,
+      "score": 83.0,
+      "sources": [
+        {
+          "org": "Hugging Face",
+          "source_class": "official",
+          "source_id": "huggingface-blog",
+          "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+          "url": "https://huggingface.co/blog/harness-adapters-at-scale"
+        }
+      ],
+      "tags": [
+        "RL",
+        "LoRA",
+        "agent harness",
+        "TRL",
+        "OpenEnv",
+        "GRPO",
+        "Hugging Face"
+      ],
+      "title_ko": "하네스 적응형 어댑터: 에이전트 하네스에 맞춰 성능·비용을 최적화",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "We trained one LoRA adapter for Qwen3.8-27B per agent harness (pi, Hermes Agent, OpenCode), with RL inside the harness itself.",
+            "evidence_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Qwen3.8-27B용 하네스별 LoRA 어댑터를 RL로 학습해 성능과 토큰 효율을 높였다."
+          },
+          {
+            "evidence_quote": "The three LoRAs are also merged into a single super adapter that runs unchanged under pi, Hermes Agent and OpenCode.",
+            "evidence_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "pi, Hermes Agent, OpenCode용 어댑터를 학습하고 하나의 슈퍼 어댑터로도 합쳤다."
+          },
+          {
+            "evidence_quote": "you can reproduce this on your own task, harness, model combinations.",
+            "evidence_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "자신이 쓰는 에이전트 하네스에서 바로 맞춘 어댑터를 만들 수 있다."
+          },
+          {
+            "evidence_quote": "we can get 55% pass@1, with average token usage of 1.5K.",
+            "evidence_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "같은 모델이라도 하네스에 맞추면 정확도와 비용을 함께 개선할 수 있다."
+          },
+          {
+            "evidence_quote": "Datasets, training and agent rollouts all happen on the Hub in Jobs using TRL's AsyncGRPOTrainer, OpenEnv and harbor.",
+            "evidence_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "TRL의 AsyncGRPOTrainer와 OpenEnv, harbor를 사용했다."
+          },
+          {
+            "evidence_quote": "To obtain our final harness adapters, we trained LoRA adapters on top of Qwen/Qwen3.8-27B using TRL's AsyncGRPOTrainer.",
+            "evidence_url": "https://huggingface.co/blog/harness-adapters-at-scale",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "Qwen/Qwen3.8-27B에 LoRA를 붙여 하네스 안에서 RL을 돌렸다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "Qwen3.8-27B용 하네스별 LoRA 어댑터를 RL로 학습해 성능과 토큰 효율을 높였다.",
+        "pi, Hermes Agent, OpenCode용 어댑터를 학습하고 하나의 슈퍼 어댑터로도 합쳤다."
+      ],
+      "why": [
+        "자신이 쓰는 에이전트 하네스에서 바로 맞춘 어댑터를 만들 수 있다.",
+        "같은 모델이라도 하네스에 맞추면 정확도와 비용을 함께 개선할 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "2dc137c733f9bebc259bdf28e9b0607c5e97d2040693847212333652070275fc",
+      "availability": "unknown",
+      "card_id": "card_2dc137c733f9",
+      "category": "MCP·도구 연결",
+      "event_id": "963ed9605176fb3b6d7d4729b331428a1fbc5094889ceb0b7af57d0184a510fa",
+      "how": [
+        "Claude Code에서 `claude plugin marketplace add kato9292929/x402-wallet-mcp`를 실행한다.",
+        "설정 후 새 세션에서 `check_sign_in_status`를 호출해 준비 상태를 본다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-20T09:10:58.509440Z",
+      "revision": 1,
+      "score": 75.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.kato9292929/agentpay402-mcp 0.4.0",
+          "url": "https://github.com/kato9292929/x402-wallet-mcp"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "Claude Code",
+        "x402",
+        "wallet",
+        "payments",
+        "Base",
+        "Solana"
+      ],
+      "title_ko": "Claude Code용 x402 지갑 MCP 플러그인 0.4.0",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "# AgentPay402 MCP A Claude Code plugin that lets Claude **discover, check and pay for** [x402](https://x402.org) APIs with your own wallet",
+            "evidence_url": "https://github.com/kato9292929/x402-wallet-mcp",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Claude Code가 x402 API를 발견·검사·결제하는 MCP 플러그인이 나왔다."
+          },
+          {
+            "evidence_quote": "with your own wallet (CDP, Privy, Crossmint, or your browser wallet such as Rabby or MetaMask; USDC on Base and Solana, plus Nevermined credits).",
+            "evidence_url": "https://github.com/kato9292929/x402-wallet-mcp",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "사용자 지갑으로 Base·Solana USDC나 Nevermined 크레딧 결제를 처리한다."
+          },
+          {
+            "evidence_quote": "Before paying it checks the seller; after paying it confirms the transfer on chain and the delivery.",
+            "evidence_url": "https://github.com/kato9292929/x402-wallet-mcp",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "결제 전 Seller Probe와 한도 체크로 오결제 위험을 줄일 수 있다."
+          },
+          {
+            "evidence_quote": "```bash claude plugin marketplace add kato9292929/x402-wallet-mcp claude plugin install agentpay402-mcp@x402inc ```",
+            "evidence_url": "https://github.com/kato9292929/x402-wallet-mcp",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "Claude Code에서 `claude plugin marketplace add kato9292929/x402-wallet-mcp`를 실행한다."
+          },
+          {
+            "evidence_quote": "Start a new session and ask Claude to run `check_sign_in_status`.",
+            "evidence_url": "https://github.com/kato9292929/x402-wallet-mcp",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "설정 후 새 세션에서 `check_sign_in_status`를 호출해 준비 상태를 본다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "Claude Code가 x402 API를 발견·검사·결제하는 MCP 플러그인이 나왔다.",
+        "사용자 지갑으로 Base·Solana USDC나 Nevermined 크레딧 결제를 처리한다."
+      ],
+      "why": [
+        "결제 전 Seller Probe와 한도 체크로 오결제 위험을 줄일 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "4c13e671da062af26678b15836a4a63096468c84164323d6cd0f1e68dcd7cd51",
+      "availability": "unknown",
+      "card_id": "card_4c13e671da06",
+      "category": "MCP·도구 연결",
+      "event_id": "4fd84b5b99178d46e58cf45427d1f89d514dd357c30c9d6a3192f622e315a6b0",
+      "how": [],
+      "pool": "interest",
+      "published_at": "2026-11-21T02:05:40.566792Z",
+      "revision": 1,
+      "score": 71.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.DeepAgentLabs/deep-agentic-core-mcp 1.1.0",
+          "url": "https://github.com/DeepAgentLabs/mcp-server"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "agentic workflows",
+        "chaos testing",
+        "workflow analysis",
+        "offline validation"
+      ],
+      "title_ko": "DeepAgentLabs MCP 서버 1.1.0 출시",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "The local integration candidate adds offline validation for AIOS 0.4/0.6/0.8 draft families, held-byte provenance resolution and native access audit exports.",
+            "evidence_url": "https://github.com/DeepAgentLabs/mcp-server",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "deep-agentic-core-mcp 1.1.0이 오프라인 검증, provenance 해석, 감사 내보내기를 추가했다."
+          },
+          {
+            "evidence_quote": "`core.docs_catalog` discovers products and documentation versions, `core.docs_search` finds relevant APIs and examples, and `core.docs_read` retrieves complete sections with source citations.",
+            "evidence_url": "https://github.com/DeepAgentLabs/mcp-server",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "또한 docs_catalog·docs_search·docs_read로 에코시스템 문서를 MCP에서 바로 조회할 수 있다."
+          },
+          {
+            "evidence_quote": "That means MCP clients can connect once and access observability, chaos, sidecar discovery, and later Control Tower-aligned operations surfaces through one server.",
+            "evidence_url": "https://github.com/DeepAgentLabs/mcp-server",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "MCP 클라이언트 한 번 연결로 분석·검증·문서 조회를 묶어 쓸 수 있다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "deep-agentic-core-mcp 1.1.0이 오프라인 검증, provenance 해석, 감사 내보내기를 추가했다.",
+        "또한 docs_catalog·docs_search·docs_read로 에코시스템 문서를 MCP에서 바로 조회할 수 있다."
+      ],
+      "why": [
+        "MCP 클라이언트 한 번 연결로 분석·검증·문서 조회를 묶어 쓸 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "302a58c84c917fa05ae2c2171d6a9e27b58c672024e4c82293e3952aa68520dc",
+      "availability": "unknown",
+      "card_id": "card_302a58c84c91",
+      "category": "AI 코딩 도구",
+      "event_id": "0e71e93c9f6c3cadf7c717422a28c677a951433e7311ac00ec2db4e0103ae2fc",
+      "how": [
+        "UE5.9 개발자 프리뷰에서 Unreal Canvas를 확인할 수 있다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-20T12:16:36Z",
+      "revision": 1,
+      "score": 61.0,
+      "sources": [
+        {
+          "org": "Hacker News",
+          "source_class": "aggregator",
+          "source_id": "hackernews-ai",
+          "title": "Epic Games Turns to AI Coding for the Unreal Engine",
+          "url": "https://spectrum.ieee.org/epic-games-unreal-engine-ai"
+        }
+      ],
+      "tags": [
+        "Unreal Engine",
+        "Epic Games",
+        "Claude Code",
+        "MCP",
+        "Verse",
+        "Scene Graph",
+        "UE6"
+      ],
+      "title_ko": "Epic Games, 언리얼 엔진에 AI 코딩을 본격 반영",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "UE6 will lean into that reality by moving all code to Verse, a text-based programming language that will replace both Blueprints and Unreal Engine 5’s C++ gameplay framework.",
+            "evidence_url": "https://spectrum.ieee.org/epic-games-unreal-engine-ai",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Epic이 UE6에서 블루프린트와 C++ 게임플레이를 Verse로 옮기고, AI가 코드 중심으로 다루게 한다."
+          },
+          {
+            "evidence_quote": "Unreal Engine 5.9 offers a glimpse at what that transition will mean in practice. Released as a developer preview on 9 November, it includes a new feature called Unreal Canvas.",
+            "evidence_url": "https://spectrum.ieee.org/epic-games-unreal-engine-ai",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "UE5.9 개발자 프리뷰에는 협업용 Unreal Canvas도 들어갔다."
+          },
+          {
+            "evidence_quote": "UE6 will make the engine more modular and expose its systems through an application programming interface “so that AI tooling can get at them without needing to fall back to slow computer use,”",
+            "evidence_url": "https://spectrum.ieee.org/epic-games-unreal-engine-ai",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "언리얼 개발자는 AI 코딩 도구로 엔진 내부를 더 직접 수정하고 자동화하기 쉬워진다."
+          },
+          {
+            "evidence_quote": "Released as a developer preview on 9 November, it includes a new feature called Unreal Canvas.",
+            "evidence_url": "https://spectrum.ieee.org/epic-games-unreal-engine-ai",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "UE5.9 개발자 프리뷰에서 Unreal Canvas를 확인할 수 있다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "Epic이 UE6에서 블루프린트와 C++ 게임플레이를 Verse로 옮기고, AI가 코드 중심으로 다루게 한다.",
+        "UE5.9 개발자 프리뷰에는 협업용 Unreal Canvas도 들어갔다."
+      ],
+      "why": [
+        "언리얼 개발자는 AI 코딩 도구로 엔진 내부를 더 직접 수정하고 자동화하기 쉬워진다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "eb33ce8b431bdbffc6b1bdacdb3a213ced5f1821685dfffe9f3adf4e7cb084eb",
+      "availability": "unknown",
+      "card_id": "card_eb33ce8b431b",
+      "category": "새 AI 서비스",
+      "event_id": "c3e6a3cdd21944210f43e7d83becfa78d94eba25f983ba28c1b8a189e8459af0",
+      "how": [
+        "Google.org Fellowship 지원으로 20,000시간의 무전 기록을 학습했다."
+      ],
+      "pool": "impact",
+      "published_at": "2026-11-20T17:00:00Z",
+      "revision": 1,
+      "score": 55.0,
+      "sources": [
+        {
+          "org": "Google",
+          "source_class": "official",
+          "source_id": "google-ai",
+          "title": "How Watch Duty is using Gemini to get wildfire alerts out faster",
+          "url": "https://blog.google/company-news/outreach-and-initiatives/google-org/watch-duty-gemini-tool/"
+        }
+      ],
+      "tags": [
+        "Gemini",
+        "wildfire",
+        "transcription",
+        "alerting",
+        "Google.org Fellowship",
+        "Watch Duty"
+      ],
+      "title_ko": "Watch Duty가 Gemini로 산불 경보를 더 빠르게 내보내는 방법",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "a new Gemini-powered tool turns noisy fire radio into real-time text, helping Watch Duty spot new wildfire dispatches in under 30 seconds.",
+            "evidence_url": "https://blog.google/company-news/outreach-and-initiatives/google-org/watch-duty-gemini-tool/",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Gemini 기반 새 도구가 잡음 많은 산불 무전음을 실시간 텍스트로 바꾼다."
+          },
+          {
+            "evidence_quote": "helping Watch Duty spot new wildfire dispatches in under 30 seconds.",
+            "evidence_url": "https://blog.google/company-news/outreach-and-initiatives/google-org/watch-duty-gemini-tool/",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "Watch Duty는 이를 써서 새 화재 출동을 30초 안에 포착한다."
+          },
+          {
+            "evidence_quote": "The system removes the added strain of deciphering noisy audio so volunteers can focus on verifying incidents and getting alerts out.",
+            "evidence_url": "https://blog.google/company-news/outreach-and-initiatives/google-org/watch-duty-gemini-tool/",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "무전 청취·전사 병목을 줄여 더 빨리 검증하고 경보를 보낼 수 있다."
+          },
+          {
+            "evidence_quote": "designed and tested to handle more than 10,000 feeds at once.",
+            "evidence_url": "https://blog.google/company-news/outreach-and-initiatives/google-org/watch-duty-gemini-tool/",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "대규모 무전 피드에서도 놓침을 줄이는 운영 패턴을 보여준다."
+          },
+          {
+            "evidence_quote": "used more than 20,000 hours of past radio recordings to build a Gemini-powered tool",
+            "evidence_url": "https://blog.google/company-news/outreach-and-initiatives/google-org/watch-duty-gemini-tool/",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "Google.org Fellowship 지원으로 20,000시간의 무전 기록을 학습했다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "Gemini 기반 새 도구가 잡음 많은 산불 무전음을 실시간 텍스트로 바꾼다.",
+        "Watch Duty는 이를 써서 새 화재 출동을 30초 안에 포착한다."
+      ],
+      "why": [
+        "무전 청취·전사 병목을 줄여 더 빨리 검증하고 경보를 보낼 수 있다.",
+        "대규모 무전 피드에서도 놓침을 줄이는 운영 패턴을 보여준다."
+      ]
+    }
+  ],
+  "counts": {
+    "accepted": 5,
+    "analyzed": 14,
+    "candidates": 15,
+    "deferred": 1,
+    "events": 1737,
+    "raw": 483,
+    "selected": 5
+  },
+  "date": "2026-11-21",
+  "emerging": [
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 6건에서 처음 나타났습니다.",
+      "tag": "computer use"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 6건에서 처음 나타났습니다.",
+      "tag": "context engineering"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 2곳의 사건 6건에서 처음 나타났습니다.",
+      "tag": "agent marketplace"
+    }
+  ],
+  "generated_at": "2026-11-21T02:07:00.559189Z",
+  "headline_ko": "하네스 적응형 어댑터와 Claude Code·DeepAgentLabs·언리얼 엔진·Watch Duty 관련 AI 업데이트가 공개됐다.",
+  "run_id": "6fec226ee8cc41b0a9d16601a9dabdae",
+  "schema_version": "1.0.0"
+}
