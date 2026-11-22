@@ -1,29 +1,5 @@
 [
   {
-    "card_id": "card_aa94148c5a81",
-    "date": "2026-11-20",
-    "event_id": "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
-    "revision": 1
-  },
-  {
-    "card_id": "card_b037fb3cb826",
-    "date": "2026-11-20",
-    "event_id": "362ee7bc4f1920475e98c490549b28915aac62115a628231eedd7bc94bd171a2",
-    "revision": 1
-  },
-  {
-    "card_id": "card_55e2ad697d05",
-    "date": "2026-11-20",
-    "event_id": "dc73b9f878aeb547c9a2819cfa23e1ab257d608ecbcd4dea8e98c5866ebb8b44",
-    "revision": 1
-  },
-  {
-    "card_id": "card_1a1647b6c540",
-    "date": "2026-11-20",
-    "event_id": "d4cfbc3b0e605a782e2ba59c7d458871affa4cde6bb447fa01329eeb3b37c5d4",
-    "revision": 1
-  },
-  {
     "card_id": "card_696b6568d64c",
     "date": "2026-11-21",
     "event_id": "701a571706ec6c00de8bbc6af8a9bc31d2eec98a2272e87a59a9e6a4a97a82f1",
@@ -51,6 +27,54 @@
     "card_id": "card_eb33ce8b431b",
     "date": "2026-11-21",
     "event_id": "c3e6a3cdd21944210f43e7d83becfa78d94eba25f983ba28c1b8a189e8459af0",
+    "revision": 1
+  },
+  {
+    "card_id": "card_aa94148c5a81",
+    "date": "2026-11-20",
+    "event_id": "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
+    "revision": 1
+  },
+  {
+    "card_id": "card_b037fb3cb826",
+    "date": "2026-11-20",
+    "event_id": "362ee7bc4f1920475e98c490549b28915aac62115a628231eedd7bc94bd171a2",
+    "revision": 1
+  },
+  {
+    "card_id": "card_55e2ad697d05",
+    "date": "2026-11-20",
+    "event_id": "dc73b9f878aeb547c9a2819cfa23e1ab257d608ecbcd4dea8e98c5866ebb8b44",
+    "revision": 1
+  },
+  {
+    "card_id": "card_1a1647b6c540",
+    "date": "2026-11-20",
+    "event_id": "d4cfbc3b0e605a782e2ba59c7d458871affa4cde6bb447fa01329eeb3b37c5d4",
+    "revision": 1
+  },
+  {
+    "card_id": "card_8914b24f67fe",
+    "date": "2026-11-22",
+    "event_id": "b7f5e33bfb9eaa52641b6b873befbdb39ab6bc3c43b38053b67b8590f1a69a06",
+    "revision": 1
+  },
+  {
+    "card_id": "card_81cf84a6f87c",
+    "date": "2026-11-22",
+    "event_id": "5532ba7e7e0e093823ad8f4386ba1346534325b3c8eae3333353f38e028704e8",
+    "revision": 1
+  },
+  {
+    "card_id": "card_d2a2df37cd53",
+    "date": "2026-11-22",
+    "event_id": "c5c2f959d4911a43dd4caaf3498d12765bbbf1f65d18d67bead205a66e94cd48",
+    "revision": 1
+  },
+  {
+    "card_id": "card_646b8396d4b5",
+    "date": "2026-11-22",
+    "event_id": "66aa923c021c1b869a2ab3546e3a45e44c06e65ad35491b3c205bd033bb18c9d",
     "revision": 1
   }
 ]

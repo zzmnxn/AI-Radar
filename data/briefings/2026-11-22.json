@@ -1,0 +1,388 @@
+{
+  "cards": [
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "8914b24f67fe930b25101d438b203af3b77d9f87f8e8c593a5307daa3ca8d66d",
+      "availability": "unknown",
+      "card_id": "card_8914b24f67fe",
+      "category": "MCP·도구 연결",
+      "event_id": "b7f5e33bfb9eaa52641b6b873befbdb39ab6bc3c43b38053b67b8590f1a69a06",
+      "how": [
+        "설치 후 System Console > Plugins > Agents에서 AI 서비스를 추가합니다.",
+        "이후 Agents 페이지에서 에이전트를 만들고 DM이나 채널에서 사용합니다.",
+        "MCP 클라이언트는 `/plugins/mattermost-ai/mcp-server/mcp`로 연결합니다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-19T18:11:12.838900Z",
+      "revision": 1,
+      "score": 85.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.mattermost/mattermost-plugin-agents 2.13.0",
+          "url": "https://github.com/mattermost/mattermost-plugin-agents"
+        }
+      ],
+      "tags": [
+        "Mattermost",
+        "MCP",
+        "plugin",
+        "agent",
+        "self-hosted",
+        "LLM",
+        "OpenTelemetry",
+        "access control"
+      ],
+      "title_ko": "Mattermost Agents 플러그인 2.13.0",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Self-hosted AI agents for [Mattermost](https://github.com/mattermost/mattermost) that act on your behalf through tools and MCP servers, plus a built-in Mattermost MCP server",
+            "evidence_url": "https://github.com/mattermost/mattermost-plugin-agents",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Mattermost용 에이전트 플러그인이 나왔고, 내장 MCP 서버를 함께 제공합니다."
+          },
+          {
+            "evidence_quote": "The agent can search and post in Mattermost, call tools on other systems through the Model Context Protocol (MCP), and work with files, all with the permissions of the person it is acting for.",
+            "evidence_url": "https://github.com/mattermost/mattermost-plugin-agents",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "에이전트가 Mattermost 안에서 메시지·파일·도구를 다루며 사용자의 권한으로 동작합니다."
+          },
+          {
+            "evidence_quote": "The agent can search and post in Mattermost, call tools on other systems through the Model Context Protocol (MCP), and work with files",
+            "evidence_url": "https://github.com/mattermost/mattermost-plugin-agents",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "팀 채팅과 외부 도구 연결을 한 플러그인으로 묶어 바로 시험해볼 수 있습니다."
+          },
+          {
+            "evidence_quote": "You choose the LLM, including models that run on your own infrastructure, so with a self-hosted model, conversations and data stay in your environment.",
+            "evidence_url": "https://github.com/mattermost/mattermost-plugin-agents",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "자체 호스팅 LLM도 지원해 데이터 통제와 사내 도입 검토에 유리합니다."
+          },
+          {
+            "evidence_quote": "Go to **System Console > Plugins > Agents** and select **Add an AI Service**.",
+            "evidence_url": "https://github.com/mattermost/mattermost-plugin-agents",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "설치 후 System Console > Plugins > Agents에서 AI 서비스를 추가합니다."
+          },
+          {
+            "evidence_quote": "Open the **Agents** page from the product switcher (grid icon) and select **Create agent**.",
+            "evidence_url": "https://github.com/mattermost/mattermost-plugin-agents",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "이후 Agents 페이지에서 에이전트를 만들고 DM이나 채널에서 사용합니다."
+          },
+          {
+            "evidence_quote": "MCP clients connect to `/plugins/mattermost-ai/mcp-server/mcp` on your Mattermost server",
+            "evidence_url": "https://github.com/mattermost/mattermost-plugin-agents",
+            "role": "how",
+            "sentence_index": 2,
+            "text": "MCP 클라이언트는 `/plugins/mattermost-ai/mcp-server/mcp`로 연결합니다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "Mattermost용 에이전트 플러그인이 나왔고, 내장 MCP 서버를 함께 제공합니다.",
+        "에이전트가 Mattermost 안에서 메시지·파일·도구를 다루며 사용자의 권한으로 동작합니다."
+      ],
+      "why": [
+        "팀 채팅과 외부 도구 연결을 한 플러그인으로 묶어 바로 시험해볼 수 있습니다.",
+        "자체 호스팅 LLM도 지원해 데이터 통제와 사내 도입 검토에 유리합니다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "81cf84a6f87cfebb55bdcf1173b01781b8fecd1ce910877a27cf0214f6a76ffd",
+      "availability": "unknown",
+      "card_id": "card_81cf84a6f87c",
+      "category": "에이전트 설계·스택",
+      "event_id": "5532ba7e7e0e093823ad8f4386ba1346534325b3c8eae3333353f38e028704e8",
+      "how": [
+        "`uv tool install agent-mcts`로 설치한다.",
+        "`agent-mcts run \"fix the flaky test in tests/test_auth.py\"`처럼 실행한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-21T13:53:08Z",
+      "revision": 1,
+      "score": 82.0,
+      "sources": [
+        {
+          "org": "Hacker News",
+          "source_class": "aggregator",
+          "source_id": "hackernews-show",
+          "title": "Show HN: agent-mcts – Monte Carlo tree search on top of Claude Code",
+          "url": "https://github.com/natsu0529/agent-mcts"
+        }
+      ],
+      "tags": [
+        "MCTS",
+        "Claude Code",
+        "test-time search",
+        "git worktree",
+        "LLM judge"
+      ],
+      "title_ko": "Claude Code 위에 MCTS를 얹는 오픈소스 하네스",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "agent-mcts 🌳 **Turn any coding agent into a tree-searching agent.** `agent-mcts` is an open-source (MIT) test-time search harness that wraps a coding agent CLI with Monte Carlo Tree Search.",
+            "evidence_url": "https://github.com/natsu0529/agent-mcts",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Claude Code 같은 코딩 에이전트에 몬테카를로 트리 탐색을 붙인 오픈소스 하네스가 나왔다."
+          },
+          {
+            "evidence_quote": "Every node is a git branch** (`agent-mcts/<run>/<node>`), so `apply` is an ordinary squash merge and everything is auditable after the fact.",
+            "evidence_url": "https://github.com/natsu0529/agent-mcts",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "브랜치별 worktree와 세션 분기로 여러 해법을 탐색하고, 최종 결과만 적용한다."
+          },
+          {
+            "evidence_quote": "Production coding agents (Claude Code, Codex, Kimi, ...) run a **single linear loop**: act, observe, retry in place. No branching, no backtracking, no principled exploration.",
+            "evidence_url": "https://github.com/natsu0529/agent-mcts",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "단일 루프 에이전트보다 분기 탐색·백트래킹을 실무에 붙여볼 수 있다."
+          },
+          {
+            "evidence_quote": "```bash uv tool install agent-mcts cd your-project agent-mcts run \"fix the flaky test in tests/test_auth.py\"",
+            "evidence_url": "https://github.com/natsu0529/agent-mcts",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "`uv tool install agent-mcts`로 설치한다."
+          },
+          {
+            "evidence_quote": "agent-mcts run \"fix the flaky test in tests/test_auth.py\" agent-mcts run --agent codex \"fix the flaky test in tests/test_auth.py\"",
+            "evidence_url": "https://github.com/natsu0529/agent-mcts",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "`agent-mcts run \"fix the flaky test in tests/test_auth.py\"`처럼 실행한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "Claude Code 같은 코딩 에이전트에 몬테카를로 트리 탐색을 붙인 오픈소스 하네스가 나왔다.",
+        "브랜치별 worktree와 세션 분기로 여러 해법을 탐색하고, 최종 결과만 적용한다."
+      ],
+      "why": [
+        "단일 루프 에이전트보다 분기 탐색·백트래킹을 실무에 붙여볼 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "d2a2df37cd53d12abe76406ba10beb2dd97261daa98ce4952384934f66ab15d4",
+      "availability": "unknown",
+      "card_id": "card_d2a2df37cd53",
+      "category": "AI 코딩 도구",
+      "event_id": "c5c2f959d4911a43dd4caaf3498d12765bbbf1f65d18d67bead205a66e94cd48",
+      "how": [
+        "\"Type CLAWDOS at the C:\\\\> prompt and talk to Claude.\"",
+        "\"python3 scripts/setup-tools.py\"",
+        "\"python3 scripts/build.py # build/CLAWDOS.IMG, a bootable disk\""
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-21T05:38:01Z",
+      "revision": 1,
+      "score": 81.0,
+      "sources": [
+        {
+          "org": "Hacker News",
+          "source_class": "aggregator",
+          "source_id": "hackernews-ai",
+          "title": "ClawDOS – An AI coding agent for DOS",
+          "url": "http://ricapar.net/ClawDOS/"
+        }
+      ],
+      "tags": [
+        "AI coding agent",
+        "DOS",
+        "IBM PC XT",
+        "Claude Messages API",
+        "Turbo C",
+        "open source"
+      ],
+      "title_ko": "DOS에서 돌아가는 AI 코딩 에이전트 ClawDOS",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "An AI coding agent for DOS. It runs on an IBM PC XT: an 8088 at 4.77 MHz, 640K of RAM, a CGA card.",
+            "evidence_url": "http://ricapar.net/ClawDOS/",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "8088·DOS에서 도는 AI 코딩 에이전트 ClawDOS가 공개됐다."
+          },
+          {
+            "evidence_quote": "HARNESS.EXE is a 176 KB DOS program that speaks the Claude Messages API itself: it writes the requests, parses the streamed reply, runs the tools and keeps every conversation on its own disk.",
+            "evidence_url": "http://ricapar.net/ClawDOS/",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "Claude Messages API를 직접 말해 파일 편집·컴파일·실행까지 수행한다."
+          },
+          {
+            "evidence_quote": "What better way to cross the two than building an AI coding agent to run on DOS on original hardware?",
+            "evidence_url": "http://ricapar.net/ClawDOS/",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "옛 PC에서도 에이전트형 코딩 워크플로를 재현해 볼 수 있다."
+          },
+          {
+            "evidence_quote": "Type CLAWDOS at the C:\\> prompt and talk to Claude.",
+            "evidence_url": "http://ricapar.net/ClawDOS/",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "\"Type CLAWDOS at the C:\\\\> prompt and talk to Claude.\""
+          },
+          {
+            "evidence_quote": "python3 scripts/setup-tools.py # fetch the compilers, FreeDOS, mTCP and the emulators",
+            "evidence_url": "http://ricapar.net/ClawDOS/",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "\"python3 scripts/setup-tools.py\""
+          },
+          {
+            "evidence_quote": "python3 scripts/build.py # build/CLAWDOS.IMG, a bootable disk",
+            "evidence_url": "http://ricapar.net/ClawDOS/",
+            "role": "how",
+            "sentence_index": 2,
+            "text": "\"python3 scripts/build.py # build/CLAWDOS.IMG, a bootable disk\""
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "8088·DOS에서 도는 AI 코딩 에이전트 ClawDOS가 공개됐다.",
+        "Claude Messages API를 직접 말해 파일 편집·컴파일·실행까지 수행한다."
+      ],
+      "why": [
+        "옛 PC에서도 에이전트형 코딩 워크플로를 재현해 볼 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "646b8396d4b5c5bb7cfda849287e44333164cf7b507bd15af9cc1a78156d2d87",
+      "availability": "unknown",
+      "card_id": "card_646b8396d4b5",
+      "category": "MCP·도구 연결",
+      "event_id": "66aa923c021c1b869a2ab3546e3a45e44c06e65ad35491b3c205bd033bb18c9d",
+      "how": [],
+      "pool": "interest",
+      "published_at": "2026-11-21T17:49:29.016641Z",
+      "revision": 1,
+      "score": 73.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.probityai/agent-evidence-mcp 0.2.7",
+          "url": "https://github.com/probityai/probity"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "evidence",
+        "verification",
+        "offline",
+        "agent",
+        "observer",
+        "replay"
+      ],
+      "title_ko": "Probity: 에이전트 증거 검증용 MCP 서버와 도구 묶음",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "- `agent-evidence-mcp`: offline, read-only MCP server: checks a claim against evidence bytes and replays the conformance vectors",
+            "evidence_url": "https://github.com/probityai/probity",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "에이전트 주장과 증거를 오프라인으로 검증하는 MCP 서버가 나왔다."
+          },
+          {
+            "evidence_quote": "- `agent-evidence-observer`: records what an agent run did as pinned evidence **Product** | package | registry | version | downloads |",
+            "evidence_url": "https://github.com/probityai/probity",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "같은 저장소에 관찰자, 재생 도구, 검증 패키지가 함께 제공된다."
+          },
+          {
+            "evidence_quote": "The Claude Code and Cursor plugins ship from [harnesses/agent-evidence-plugins](harnesses/agent-evidence-plugins/README.md).",
+            "evidence_url": "https://github.com/probityai/probity",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "Claude Code와 Cursor 플러그인도 있어 기존 워크플로에 붙이기 쉽다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "에이전트 주장과 증거를 오프라인으로 검증하는 MCP 서버가 나왔다.",
+        "같은 저장소에 관찰자, 재생 도구, 검증 패키지가 함께 제공된다."
+      ],
+      "why": [
+        "Claude Code와 Cursor 플러그인도 있어 기존 워크플로에 붙이기 쉽다."
+      ]
+    }
+  ],
+  "counts": {
+    "accepted": 5,
+    "analyzed": 15,
+    "candidates": 15,
+    "deferred": 0,
+    "events": 1883,
+    "raw": 448,
+    "selected": 4
+  },
+  "date": "2026-11-22",
+  "emerging": [
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 9건에서 처음 나타났습니다.",
+      "tag": "computer use"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 2곳의 사건 7건에서 처음 나타났습니다.",
+      "tag": "agent verification"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 6건에서 처음 나타났습니다.",
+      "tag": "context engineering"
+    }
+  ],
+  "generated_at": "2026-11-22T01:09:47.305249Z",
+  "headline_ko": "Mattermost Agents 플러그인 2.13.0과 에이전트 증거 검증 도구를 비롯해 AI 코딩 에이전트와 관련 하네스·서버가 소개됐다.",
+  "run_id": "519ddae6c63240c690411e99222d5fba",
+  "schema_version": "1.0.0"
+}
