@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Radar 작동 원리</title>
+<meta name="description" content="AI Radar가 무엇을 수집하고, 어떤 기준으로 고르고, 어떻게 검증해 보여주는지 모듈별로 설명한다.">
+<style>
+:root {
+  --bg: #f6f5f1; --surface: #ffffff; --surface-2: #efede7; --surface-3: #e5e2da;
+  --text: #1c1b19; --muted: #6b665d; --line: #dcd8ce;
+  --accent: #c2410c; --accent-soft: #fdeee4;
+  --ok: #15803d; --ok-soft: #e3f4e8; --bad: #b91c1c; --bad-soft: #fbe6e6; --warn: #b45309; --warn-soft: #fdf1dc;
+  --llm: #7c3aed; --llm-soft: #efe8fd;
+  --c-run: #64748b; --c-collect: #0369a1; --c-organize: #7c3aed; --c-select: #c2410c;
+  --c-analyze: #b91c1c; --c-publish: #15803d; --c-view: #0f766e;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141311; --surface: #1d1c19; --surface-2: #26241f; --surface-3: #312e28;
+    --text: #ece9e2; --muted: #a39e93; --line: #37342e;
+    --accent: #fb923c; --accent-soft: #3a2416;
+    --ok: #4ade80; --ok-soft: #173322; --bad: #f87171; --bad-soft: #3b1a1a; --warn: #fbbf24; --warn-soft: #3a2c10;
+    --llm: #a78bfa; --llm-soft: #2a2140;
+    --c-run: #94a3b8; --c-collect: #38bdf8; --c-organize: #a78bfa; --c-select: #fb923c;
+    --c-analyze: #f87171; --c-publish: #4ade80; --c-view: #2dd4bf;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141311; --surface: #1d1c19; --surface-2: #26241f; --surface-3: #312e28;
+  --text: #ece9e2; --muted: #a39e93; --line: #37342e;
+  --accent: #fb923c; --accent-soft: #3a2416;
+  --ok: #4ade80; --ok-soft: #173322; --bad: #f87171; --bad-soft: #3b1a1a; --warn: #fbbf24; --warn-soft: #3a2c10;
+  --llm: #a78bfa; --llm-soft: #2a2140;
+  --c-run: #94a3b8; --c-collect: #38bdf8; --c-organize: #a78bfa; --c-select: #fb923c;
+  --c-analyze: #f87171; --c-publish: #4ade80; --c-view: #2dd4bf;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 15.5px/1.65 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Segoe UI", sans-serif;
+  word-break: keep-all; overflow-wrap: anywhere; }
+a { color: var(--accent); }
+code { font: 0.86em/1.5 var(--mono); background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+p { margin: 6px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; font-size: 12.5px; }
+.table-wrap { overflow-x: auto; margin: 10px 0; }
+
+/* layout */
+.layout { max-width: 1200px; margin: 0 auto; padding: 0 16px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+@media (min-width: 1000px) { .layout { grid-template-columns: 210px minmax(0, 1fr); } }
+nav.toc { padding: 20px 0 0; font-size: 14px; }
+nav.toc p { margin: 0 0 8px; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+nav.toc ol { list-style: none; margin: 0; padding: 0; }
+nav.toc a { color: var(--text); text-decoration: none; display: flex; gap: 8px; align-items: center; padding: 4px 8px; border-radius: 6px; }
+nav.toc a:hover { background: var(--surface-2); }
+nav.toc .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cat, var(--muted)); flex: none; }
+@media (min-width: 1000px) { nav.toc { position: sticky; top: 0; align-self: start; padding: 40px 0; } }
+@media (max-width: 999px) {
+  .layout { gap: 0; }
+  nav.toc ol { display: flex; flex-wrap: wrap; gap: 4px; }
+  nav.toc a { background: var(--surface-2); border-radius: 99px; padding: 2px 10px; font-size: 13px; }
+}
+main { padding: 24px 0 80px; min-width: 0; }
+@media (min-width: 1000px) { main { padding-top: 40px; } }
+
+/* header */
+.hero h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.2; margin: 0 0 8px; letter-spacing: -0.015em; }
+.hero .lede { font-size: 17px; color: var(--muted); margin: 0 0 14px; max-width: 44em; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12.5px; color: var(--muted); }
+.meta span { background: var(--surface-2); padding: 3px 10px; border-radius: 99px; }
+
+/* section */
+section.part { margin-top: 64px; }
+.part-head { display: flex; gap: 12px; align-items: center; margin-bottom: 4px; }
+.part-head h2 { font-size: 26px; margin: 0; line-height: 1.25; }
+.part-no { font: 700 15px/1 var(--mono); color: #fff; background: var(--cat); border-radius: 8px; width: 34px; height: 34px; display: grid; place-items: center; flex: none; }
+.part-summary { color: var(--muted); margin: 4px 0 18px; max-width: 46em; font-size: 16px; }
+.module { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin: 14px 0; }
+.module > h3 { margin: 0 0 2px; font-size: 18px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.files { font-size: 12px; color: var(--muted); margin: 0 0 12px; }
+.files code { font-size: 11.5px; }
+.one { font-size: 15.5px; margin: 0 0 12px; }
+.one b { color: var(--cat); }
+
+/* chips & badges */
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); white-space: nowrap; }
+.chip.llm { background: var(--llm-soft); color: var(--llm); }
+.chip.free { background: var(--ok-soft); color: var(--ok); }
+.chip.ok { background: var(--ok-soft); color: var(--ok); }
+.chip.bad { background: var(--bad-soft); color: var(--bad); }
+.chip.warn { background: var(--warn-soft); color: var(--warn); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* grids */
+.grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.grid.wide { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.tile { background: var(--surface-2); border-radius: 10px; padding: 12px 14px; }
+.tile h4 { margin: 0 0 4px; font-size: 14.5px; }
+.tile p { font-size: 13.5px; color: var(--muted); margin: 0; }
+.tile .big { font: 700 24px/1.1 var(--mono); color: var(--cat); }
+.tile.accent { background: color-mix(in srgb, var(--cat) 12%, var(--surface)); }
+
+/* pipeline overview */
+.pipeline { display: grid; gap: 0; grid-template-columns: 1fr; margin: 22px 0 6px; }
+@media (min-width: 760px) { .pipeline { grid-template-columns: repeat(7, 1fr); } }
+.stage { position: relative; text-decoration: none; color: var(--text); padding: 14px 12px; background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--cat); border-radius: 10px; margin: 0 0 22px; display: flex; flex-direction: column; gap: 4px; }
+@media (min-width: 760px) { .stage { margin: 0 14px 0 0; } .stage:last-child { margin-right: 0; } }
+.stage:hover { border-color: var(--cat); }
+.stage .k { font: 700 11px/1 var(--mono); color: var(--cat); }
+.stage strong { font-size: 15px; }
+.stage .n { font: 700 22px/1 var(--mono); }
+.stage .u { font-size: 12px; color: var(--muted); }
+.stage .chip { align-self: flex-start; margin-top: 4px; }
+.stage::after { content: "↓"; position: absolute; left: 50%; bottom: -21px; transform: translateX(-50%); color: var(--muted); font-size: 15px; }
+.stage:last-child::after { content: none; }
+@media (min-width: 760px) { .stage::after { content: "→"; left: auto; right: -14px; bottom: auto; top: 50%; transform: translateY(-50%); } }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+
+/* flow (generic horizontal) */
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; margin: 10px 0; }
+.flow .step { flex: 1 1 130px; background: var(--surface-2); border-radius: 8px; padding: 10px 12px; font-size: 13.5px; position: relative; }
+.flow .step b { display: block; font-size: 14px; margin-bottom: 2px; }
+.flow .step small { color: var(--muted); display: block; line-height: 1.45; }
+.flow .arrow { flex: 0 0 auto; align-self: center; color: var(--muted); font-size: 16px; }
+@media (max-width: 640px) { .flow { flex-direction: column; } .flow .arrow { transform: rotate(90deg); align-self: center; } }
+
+/* jobs diagram */
+.jobs { display: grid; gap: 10px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .jobs { grid-template-columns: 1.4fr 1fr 1fr; } }
+.job { border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--surface); }
+.job h4 { margin: 0 0 6px; font: 700 13px/1.2 var(--mono); }
+.job ol { margin: 0; padding-left: 18px; font-size: 13px; }
+.job li { margin: 3px 0; }
+.job .cond { font-size: 11.5px; color: var(--muted); }
+
+/* clock timeline */
+.clock { position: relative; height: 104px; margin: 18px 0 8px; }
+.clock .track { position: absolute; left: 0; right: 0; top: 70px; height: 10px; border-radius: 5px; background: linear-gradient(90deg, var(--surface-3) 0 29.17%, var(--ok-soft) 29.17% 100%); }
+.clock .mark { --row: 0; position: absolute; top: calc(var(--row) * 20px); transform: translateX(-50%); font-size: 11.5px; font-weight: 600; text-align: center; white-space: nowrap; }
+.clock .mark::after { content: ""; display: block; width: 2px; height: calc(52px - var(--row) * 20px); margin: 2px auto 0; background: currentColor; }
+.clock .tick { position: absolute; top: 84px; transform: translateX(-50%); font: 11px var(--mono); color: var(--muted); white-space: nowrap; }
+.clock .tick:last-child { transform: translateX(-100%); }
+
+/* file map */
+.filemap { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); }
+.filegroup { border-radius: 10px; padding: 12px; background: var(--surface-2); }
+.filegroup h4 { margin: 0 0 8px; font-size: 13.5px; display: flex; justify-content: space-between; gap: 8px; }
+.file { display: grid; grid-template-columns: minmax(0, 1fr); background: var(--surface); border-radius: 6px; padding: 6px 9px; margin: 5px 0; font-size: 12.5px; }
+.file code { background: none; padding: 0; font-size: 11.5px; color: var(--text); }
+.file span { color: var(--muted); }
+
+/* matrix */
+.matrix td, .matrix th { text-align: center; }
+.matrix td:first-child, .matrix th:first-child { text-align: left; }
+
+/* source board */
+.board { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.lane { background: var(--surface-2); border-radius: 10px; padding: 10px 12px; }
+.lane h4 { margin: 0 0 8px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.src { display: flex; justify-content: space-between; align-items: center; gap: 6px; background: var(--surface); border-radius: 6px; padding: 5px 8px; margin: 4px 0; font-size: 13px; }
+.trust { display: inline-flex; gap: 2px; flex: none; }
+.trust i { width: 6px; height: 6px; border-radius: 50%; background: var(--surface-3); }
+.trust i.on { background: var(--c-collect); }
+.mode { font: 600 10.5px/1 var(--mono); padding: 3px 5px; border-radius: 4px; background: var(--surface-2); color: var(--muted); flex: none; }
+.mode.open { background: var(--accent-soft); color: var(--accent); }
+
+/* merge diagram */
+.merge { display: grid; gap: 8px; grid-template-columns: 1fr; align-items: center; }
+@media (min-width: 760px) { .merge { grid-template-columns: 1fr 70px 1fr; } }
+.items .it { background: var(--surface-2); border-radius: 8px; padding: 7px 10px; font-size: 13px; margin: 5px 0; display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.merge .mid { text-align: center; color: var(--muted); font-size: 22px; }
+@media (max-width: 759px) { .merge .mid { transform: rotate(90deg); } }
+.event { border: 2px solid var(--c-organize); border-radius: 10px; padding: 10px 12px; background: color-mix(in srgb, var(--c-organize) 7%, var(--surface)); }
+.event h4 { margin: 0 0 6px; font-size: 14px; }
+.member { font-size: 12.5px; padding: 4px 0; border-top: 1px dashed var(--line); display: flex; justify-content: space-between; gap: 8px; }
+.member:first-of-type { border-top: 0; }
+
+/* gates */
+.gates { display: grid; gap: 0; }
+.gate { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.gate:last-child { border-bottom: 0; }
+.gate .no { width: 28px; height: 28px; border-radius: 50%; background: var(--surface-2); display: grid; place-items: center; font: 700 12px var(--mono); color: var(--c-select); }
+.gate b { font-size: 14.5px; }
+.gate small { display: block; color: var(--muted); font-size: 13px; line-height: 1.45; }
+.gdrop { font: 700 13px var(--mono); color: var(--bad); white-space: nowrap; text-align: right; }
+.gdrop.zero { color: var(--muted); font-weight: 400; }
+
+/* categories */
+.cats { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.cat { background: var(--surface-2); border-radius: 8px; padding: 9px 11px; position: relative; }
+.cat h4 { margin: 0 0 3px; font-size: 13.5px; padding-right: 30px; }
+.cat p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.45; }
+.w { position: absolute; top: 8px; right: 8px; font: 700 11px var(--mono); border-radius: 5px; padding: 2px 6px; }
+.w3 { background: var(--c-select); color: #fff; }
+.w2 { background: var(--surface-3); color: var(--muted); }
+
+/* pools */
+.pools { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.pool { border-radius: 10px; padding: 12px 14px; border: 2px solid var(--pc); background: color-mix(in srgb, var(--pc) 7%, var(--surface)); }
+.pool h4 { margin: 0; font-size: 15px; display: flex; justify-content: space-between; align-items: baseline; }
+.pool h4 span { font: 700 22px var(--mono); color: var(--pc); }
+.pool ul { margin: 6px 0 0; padding-left: 16px; font-size: 13px; }
+.p-interest { --pc: #2563eb; } .p-impact { --pc: #d97706; } .p-explore { --pc: #16a34a; }
+.ratio { display: flex; height: 26px; border-radius: 6px; overflow: hidden; margin: 12px 0 4px; font: 700 12px/26px var(--mono); color: #fff; text-align: center; }
+.ratio div { background: var(--pc); }
+
+/* stacked score bar */
+.stack { display: flex; height: 32px; border-radius: 6px; overflow: hidden; margin: 8px 0; font: 600 11.5px/32px var(--mono); color: #fff; }
+.stack div { text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+.stack-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); }
+.stack-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
+
+/* bar chart */
+.bars { display: grid; gap: 8px; margin: 10px 0; }
+.barrow { display: grid; grid-template-columns: 92px minmax(0, 1fr) 42px; gap: 10px; align-items: center; font-size: 13.5px; }
+.barrow .track { height: 18px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+.barrow .fill { height: 100%; background: var(--c-analyze); border-radius: 4px; }
+.barrow .v { font: 700 13px var(--mono); text-align: right; }
+.barrow small { display: block; color: var(--muted); font-size: 11.5px; line-height: 1.3; }
+
+/* decision flow */
+.decide { display: grid; gap: 8px; }
+.q { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+@media (min-width: 700px) { .q { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); } }
+.q .ask { background: var(--surface-2); border-left: 4px solid var(--c-analyze); border-radius: 0 8px 8px 0; padding: 8px 12px; font-size: 14px; }
+.q .ask small { display: block; color: var(--muted); font-size: 12px; }
+.q .no-path { background: var(--bad-soft); color: var(--bad); border-radius: 8px; padding: 8px 12px; font-size: 13px; display: flex; align-items: center; }
+.yes { text-align: left; padding-left: 18px; color: var(--ok); font-size: 12.5px; font-weight: 600; }
+.verdicts { display: grid; gap: 6px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); margin-top: 4px; }
+.verdicts div { border-radius: 8px; padding: 8px 10px; font-size: 13px; }
+.verdicts b { display: block; font: 700 12.5px var(--mono); }
+
+/* outcome rules */
+.outcomes { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+.outcome { border-radius: 10px; padding: 10px 12px; font-size: 13.5px; }
+.outcome b { display: block; font-size: 14px; }
+.outcome code { font-size: 11px; }
+.outcome.keep { background: var(--ok-soft); } .outcome.keep b { color: var(--ok); }
+.outcome.part { background: var(--warn-soft); } .outcome.part b { color: var(--warn); }
+.outcome.drop { background: var(--bad-soft); } .outcome.drop b { color: var(--bad); }
+
+/* checklist */
+.checks { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 6px; }
+.checks li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 8px; align-items: start; font-size: 14px; background: var(--surface-2); border-radius: 8px; padding: 8px 10px; }
+.checks .ic { width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; font-size: 12px; font-weight: 700; background: var(--c-publish); color: #fff; }
+.checks small { color: var(--muted); display: block; font-size: 12.5px; }
+
+/* card mock */
+.anatomy { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .anatomy { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
+.mock { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; background: var(--surface); box-shadow: 0 1px 0 var(--line); font-size: 13.5px; }
+.mock .lab { display: flex; gap: 8px; font: 600 11px var(--mono); color: var(--muted); }
+.mock .lab .ft { color: var(--accent); }
+.mock h5 { font-size: 18px; margin: 6px 0 2px; line-height: 1.35; }
+.mock .meta-line { color: var(--muted); font-size: 12px; }
+.mock .badges { display: flex; gap: 6px; margin: 8px 0; flex-wrap: wrap; }
+.mock .badge { font-size: 11.5px; border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; }
+.mock dl { margin: 8px 0; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 6px 10px; }
+.mock dt { font: 700 11.5px var(--mono); color: var(--accent); padding-top: 2px; }
+.mock dd { margin: 0; }
+.mock .src-link { color: var(--accent); font-size: 12.5px; }
+.mock details { margin-top: 8px; font-size: 12.5px; color: var(--muted); }
+.pin { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--c-view); color: #fff; font: 700 10.5px var(--mono); margin-right: 4px; vertical-align: 1px; flex: none; }
+.callouts { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; font-size: 13.5px; }
+.callouts li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 6px; align-items: start; }
+.callouts small { color: var(--muted); }
+
+/* banners */
+.banners { display: grid; gap: 8px; }
+.bn { border-radius: 8px; padding: 9px 12px; font-size: 13.5px; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
+.bn b { font-size: 13.5px; }
+.bn.ok { background: var(--ok-soft); } .bn.ok b { color: var(--ok); }
+.bn.stale { background: var(--warn-soft); } .bn.stale b { color: var(--warn); }
+.bn.failed { background: var(--bad-soft); } .bn.failed b { color: var(--bad); }
+.bn small { color: var(--muted); }
+
+/* funnel */
+.funnel { display: grid; gap: 8px; margin: 14px 0; }
+.frow { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; align-items: center; font-size: 13.5px; }
+.fbar { height: 30px; border-radius: 6px; background: var(--accent); color: #fff; font: 700 13px/30px var(--mono); padding: 0 10px; white-space: nowrap; min-width: max-content; }
+.fdrop { grid-column: 2; font-size: 12.5px; color: var(--bad); margin-top: -4px; }
+
+.callout { border-radius: 10px; padding: 10px 14px; font-size: 14px; margin: 10px 0; }
+.callout.warn { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+.callout.info { background: var(--surface-2); border-left: 4px solid var(--muted); }
+.formula { font: 13px/1.7 var(--mono); background: var(--surface-2); border-radius: 8px; padding: 10px 14px; overflow-x: auto; white-space: nowrap; }
+.rule-box { background: var(--accent-soft); border: 1.5px solid var(--accent); border-radius: 12px; padding: 18px 20px; }
+.rule-box h3 { margin: 0 0 10px; }
+footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; }
+.theme-toggle { margin-top: 14px; font: inherit; font-size: 12.5px; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 99px; padding: 3px 12px; cursor: pointer; }
+
+.cat-run { --cat: var(--c-run); } .cat-collect { --cat: var(--c-collect); } .cat-organize { --cat: var(--c-organize); }
+.cat-select { --cat: var(--c-select); } .cat-analyze { --cat: var(--c-analyze); } .cat-publish { --cat: var(--c-publish); } .cat-view { --cat: var(--c-view); }
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="toc" aria-label="목차">
+  <p>목차</p>
+  <ol>
+    <li><a href="#overview">한눈에 보기</a></li>
+    <li class="cat-run"><a href="#run"><span class="dot"></span>1 실행·운영</a></li>
+    <li class="cat-collect"><a href="#collect"><span class="dot"></span>2 수집</a></li>
+    <li class="cat-organize"><a href="#organize"><span class="dot"></span>3 정리</a></li>
+    <li class="cat-select"><a href="#select"><span class="dot"></span>4 후보 선별</a></li>
+    <li class="cat-analyze"><a href="#analyze"><span class="dot"></span>5 분석·검증</a></li>
+    <li class="cat-publish"><a href="#publish"><span class="dot"></span>6 선정·발행</a></li>
+    <li class="cat-view"><a href="#view"><span class="dot"></span>7 화면</a></li>
+    <li><a href="#example">실제 깔때기</a></li>
+    <li><a href="#knobs">조정 손잡이</a></li>
+    <li><a href="#maintain">갱신 규칙</a></li>
+  </ol>
+  <button class="theme-toggle" type="button" id="theme">테마 전환</button>
+</nav>
+
+<main>
+<header class="hero" id="overview">
+  <h1>AI Radar 작동 원리</h1>
+  <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
+  <div class="meta">
+    <span>최종 갱신 2026-11-22</span>
+    <span>마지막 반영: 최초 작성</span>
+    <span>모델 <code>gpt-5.4-mini</code></span>
+    <span>예산 $0.25/일</span>
+  </div>
+</header>
+
+<div class="pipeline">
+  <a class="stage cat-run" href="#run"><span class="k">01 RUN</span><strong>실행·운영</strong><span class="n">1회/일</span><span class="u">GitHub Actions</span></a>
+  <a class="stage cat-collect" href="#collect"><span class="k">02 COLLECT</span><strong>수집</strong><span class="n">448</span><span class="u">원본 항목 · 소스 20곳</span><span class="chip free">비용 0</span></a>
+  <a class="stage cat-organize" href="#organize"><span class="k">03 ORGANIZE</span><strong>정리</strong><span class="n">1,883</span><span class="u">누적 사건</span><span class="chip llm">LLM 개념 추출</span></a>
+  <a class="stage cat-select" href="#select"><span class="k">04 SELECT</span><strong>후보 선별</strong><span class="n">15</span><span class="u">후보</span><span class="chip free">규칙만 · 비용 0</span></a>
+  <a class="stage cat-analyze" href="#analyze"><span class="k">05 ANALYZE</span><strong>분석·검증</strong><span class="n">5</span><span class="u">검증 통과</span><span class="chip llm">LLM 평가·판정</span></a>
+  <a class="stage cat-publish" href="#publish"><span class="k">06 PUBLISH</span><strong>선정·발행</strong><span class="n">4</span><span class="u">카드 (최대 5)</span><span class="chip llm">LLM 헤드라인</span></a>
+  <a class="stage cat-view" href="#view"><span class="k">07 VIEW</span><strong>화면</strong><span class="n">Pages</span><span class="u">오늘·아카이브</span></a>
+</div>
+<div class="legend"><span>숫자: 2026-11-22 실행</span><span><span class="chip llm">LLM</span> 비용 발생 지점</span><span>진입점 <code>python -m radar run</code> → 순서는 <code>radar/slice.py</code>의 <code>run_slice</code></span></div>
+
+<!-- ============ 1 RUN ============ -->
+<section class="part cat-run" id="run">
+  <div class="part-head"><span class="part-no">1</span><h2>실행·운영</h2></div>
+  <p class="part-summary">서버·DB 없이 Actions와 저장소 파일만으로 돈다. 실패해도 이전 브리핑은 지킨다.</p>
+
+  <article class="module" id="m-actions">
+    <h3>하루 실행 흐름</h3>
+    <p class="files"><code>.github/workflows/daily.yml</code> · <code>ci.yml</code> · <code>.github/scripts/commit-data.sh</code></p>
+    <div class="jobs">
+      <div class="job"><h4>pipeline <span class="chip">contents: write</span></h4>
+        <ol><li><code>radar run</code> <span class="cond">실패해도 계속</span></li><li><code>radar validate-data</code></li><li>커밋·푸시 <span class="cond">검증 통과 + data/ 변경 시</span></li><li>로그 artifact 30일</li></ol></div>
+      <div class="job"><h4>deploy <span class="chip">pages: write</span></h4>
+        <ol><li>그 HEAD checkout</li><li>다시 검증</li><li>웹 빌드</li><li>Pages 배포</li></ol>
+        <p class="cond">검증 통과면 커밋이 없어도 배포 → 전날 배포 실패를 자동 복구</p></div>
+      <div class="job"><h4>report</h4>
+        <ol><li>data · commit · deploy 결과를 따로 표로</li><li>하나라도 실패면 exit 1 → 알림</li></ol></div>
+    </div>
+    <h4 style="margin:18px 0 0;font-size:14px">하루 시간표 (KST)</h4>
+    <div class="clock" aria-label="06:07 예약, 07:00 마감, 07:37 보조 예약, 실제 실행 10~11시">
+      <div class="track"></div>
+      <div class="mark" style="left:25.4%;color:var(--c-run)">06:07 예약</div>
+      <div class="mark" style="--row:1;left:29.17%;color:var(--ok)">07:00 마감</div>
+      <div class="mark" style="--row:2;left:33.5%;color:var(--c-run)">07:37 보조</div>
+      <div class="mark" style="left:44.5%;color:var(--warn)">10~11시 실제 실행</div>
+      <div class="tick" style="left:0%;transform:none">00</div><div class="tick" style="left:25%">06</div><div class="tick" style="left:50%">12</div><div class="tick" style="left:75%">18</div><div class="tick" style="left:100%">24</div>
+    </div>
+    <div class="callout warn">GitHub 예약 실행 지연으로 11-20~22 실측 4~5시간 늦게 돌았다. 그 사이 화면에는 "미발행" 배너가 뜬다.</div>
+  </article>
+
+  <article class="module" id="m-storage">
+    <h3>파일이 곧 DB</h3>
+    <p class="files"><code>radar/storage.py</code> · <code>radar/models.py</code>(형식 정본) · <code>schemas/</code> · <code>web/src/lib/types.gen.ts</code>(생성물)</p>
+    <p class="one">모든 상태는 <b><code>data/</code> 아래 JSON</b>. 키로 upsert한 뒤 통째로 다시 쓰고, 일관성은 <b>Git 커밋 단위</b>. 원문 본문은 저장하지 않는다.</p>
+    <div class="filemap">
+      <div class="filegroup"><h4>공개 <span class="chip ok">웹이 읽음</span></h4>
+        <div class="file"><code>manifest.json</code><span>공개 파일 목록·해시, 마지막 실행</span></div>
+        <div class="file"><code>briefings/YYYY-MM-DD.json</code><span>그날 브리핑</span></div>
+        <div class="file"><code>index/YYYY.json</code><span>아카이브 목록</span></div></div>
+      <div class="filegroup"><h4>상태 <span class="chip">파이프라인 기억</span></h4>
+        <div class="file"><code>state/events/</code><span>묶인 사건</span></div>
+        <div class="file"><code>state/analyses/</code><span>LLM 평가 캐시</span></div>
+        <div class="file"><code>state/analysis_queue.json</code><span>재시도 큐</span></div>
+        <div class="file"><code>state/shown.json</code><span>보여준 카드</span></div>
+        <div class="file"><code>state/trends/</code><span>개념 집계</span></div></div>
+      <div class="filegroup"><h4>운영 <span class="chip">관측</span></h4>
+        <div class="file"><code>state/source_health.json</code><span>소스 상태·누락 구간</span></div>
+        <div class="file"><code>state/llm-budget.json</code><span>오늘 호출·토큰·비용</span></div>
+        <div class="file"><code>runs/YYYY-MM.jsonl</code><span>실행 요약 이력</span></div></div>
+    </div>
+  </article>
+
+  <article class="module" id="m-failure">
+    <h3>실패하면 무엇이 남나</h3>
+    <p class="files"><code>radar/slice.py</code> (<code>finish</code>) · <code>radar/publish.py</code></p>
+    <div class="table-wrap"><table class="matrix">
+      <thead><tr><th>상황</th><th>공개 브리핑</th><th>manifest.last_run</th><th>화면</th></tr></thead>
+      <tbody>
+        <tr><td>정상</td><td>오늘 것으로 교체</td><td><span class="chip ok">ok</span></td><td>오늘 카드</td></tr>
+        <tr><td>카드가 0~4장</td><td>있는 만큼 교체</td><td><span class="chip ok">ok</span></td><td>적은 카드</td></tr>
+        <tr><td>소스 절반 이상 실패</td><td>유지</td><td><span class="chip bad">failed · collect</span></td><td>직전 브리핑 + 실패 배너</td></tr>
+        <tr><td>후보는 있는데 분석 0건</td><td>유지</td><td><span class="chip bad">failed · budget/verify</span></td><td>직전 브리핑 + 실패 배너</td></tr>
+        <tr><td>오늘 이미 발행됨</td><td>유지</td><td><span class="chip">skipped</span></td><td>오늘 카드</td></tr>
+        <tr><td>데이터 검증 실패</td><td colspan="2">커밋·배포 안 함</td><td>이전 빌드 그대로</td></tr>
+      </tbody>
+    </table></div>
+    <p class="files">실행 단계: <code>collect → group → tag → prefilter → enrich → evaluate → verify → select → assemble → prune → publish</code> · 드릴: dispatch 입력 <code>fail_stage</code></p>
+  </article>
+</section>
+
+<!-- ============ 2 COLLECT ============ -->
+<section class="part cat-collect" id="collect">
+  <div class="part-head"><span class="part-no">2</span><h2>수집</h2></div>
+  <p class="part-summary">설정 파일 하나가 볼 곳을 정한다. 소스의 성격(class)·신뢰도(trust)·탐색 방식(mode)이 뒤에서 점수와 풀을 바꾼다.</p>
+
+  <article class="module" id="m-sources">
+    <h3>소스 20곳</h3>
+    <p class="files"><code>config/sources.yaml</code> · <code>radar/collect.py</code> (<code>Source</code>)</p>
+    <div class="legend" style="margin:0 0 10px"><span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> trust 1~5 (사전 점수에 가산)</span><span><span class="mode">KW</span> keyword: 원래 AI 소식만</span><span><span class="mode open">OPEN</span> open: 아무 주제나, 탐색용</span></div>
+    <div class="board">
+      <div class="lane"><h4>공식 블로그 <span class="chip">official</span></h4>
+        <div class="src">OpenAI News <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">Google AI <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">Microsoft AI <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">GitHub Changelog <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">GitHub AI&amp;ML <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">Hugging Face Blog <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">Cursor Changelog <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div></div>
+      <div class="lane"><h4>코딩 도구 릴리스 <span class="chip">official · 하루 1건</span></h4>
+        <div class="src">Claude Code <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">Codex CLI <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">Gemini CLI <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <h4 style="margin-top:12px">연구 <span class="chip">research</span></h4>
+        <div class="src">Microsoft Research <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+        <div class="src">arXiv cs.CL <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        <div class="src"><span>HF Daily Papers <span class="mode open">OPEN</span></span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div></div>
+      <div class="lane"><h4>커뮤니티 <span class="chip">community</span></h4>
+        <div class="src">Simon Willison <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        <div class="src">Latent Space <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        <h4 style="margin-top:12px">Hacker News <span class="chip">aggregator</span></h4>
+        <div class="src"><span>Front Page <span class="mode open">OPEN</span></span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        <div class="src"><span>Show HN 5점↑ <span class="mode open">OPEN</span></span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        <div class="src">"AI" 검색 10점↑ <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div></div>
+      <div class="lane"><h4>저장소·레지스트리</h4>
+        <div class="src"><span>GitHub AI 저장소 ★100↑ <span class="mode open">OPEN</span></span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        <div class="src"><span>MCP Registry "agent" <span class="mode open">OPEN</span></span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+        <p style="font-size:12.5px;color:var(--muted);margin-top:8px">MCP Registry는 하루 수백 건을 내지만 대부분 저장소 링크가 없어 선별 단계에서 빠진다.</p></div>
+    </div>
+  </article>
+
+  <article class="module" id="m-collectors">
+    <h3>수집기와 안전한 HTTP</h3>
+    <p class="files"><code>radar/collect.py</code> · <code>radar/github.py</code> · <code>radar/normalize.py</code> · <code>radar/http.py</code></p>
+    <div class="flow">
+      <div class="step"><b>소스 type별 파서</b><small>rss · hackernews · github_search · arxiv · hf_papers · mcp_registry</small></div><span class="arrow">→</span>
+      <div class="step"><b>안전한 요청</b><small>사설 IP 차단 · 리다이렉트 재검사 · 크기·형식 제한</small></div><span class="arrow">→</span>
+      <div class="step"><b>RawItem</b><small>제목 · 정규화 URL · 발행 시각 · HN 점수 · 스타 · 원문 링크</small></div>
+    </div>
+    <div class="grid">
+      <div class="tile"><h4>조회 범위</h4><p>기간 조회 소스는 최근 3일, RSS는 피드의 최신 항목</p></div>
+      <div class="tile"><h4>릴리스 피드</h4><p>프리릴리스 제외, 제목 앞에 제품명(<code>title_prefix</code>)</p></div>
+      <div class="tile"><h4>완전성</h4><p>소스마다 complete / partial / failed</p></div>
+    </div>
+  </article>
+
+  <article class="module" id="m-health">
+    <h3>소스 상태와 누락 복구</h3>
+    <p class="files"><code>radar/health.py</code> · <code>data/state/source_health.json</code> · <code>radar sources verify</code></p>
+    <div class="chips" style="margin-bottom:10px"><span class="chip ok">healthy</span><span class="chip warn">degraded</span><span class="chip bad">failing</span><span class="chip">stale</span></div>
+    <div class="flow">
+      <div class="step"><b>실패·상한 도달</b><small>그 구간을 gap으로 기록</small></div><span class="arrow">→</span>
+      <div class="step"><b>다음 실행</b><small>최근 7일 안의 gap을 먼저 재조회</small></div><span class="arrow">→</span>
+      <div class="step"><b>결과</b><small>recovered · lookback_capped · unrecoverable</small></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 3 ORGANIZE ============ -->
+<section class="part cat-organize" id="organize">
+  <div class="part-head"><span class="part-no">3</span><h2>정리</h2></div>
+  <p class="part-summary">같은 소식을 하나의 "사건"으로 묶고, 태그와 신흥 개념을 붙여 Emerging Radar를 만든다.</p>
+
+  <article class="module" id="m-dedupe">
+    <h3>사건 묶기 <span class="chip free">규칙</span></h3>
+    <p class="files"><code>radar/deduplicate.py</code> (<code>group</code>, <code>record_events</code>) · <code>config/merge_overrides.yaml</code></p>
+    <div class="merge">
+      <div class="items">
+        <div class="it">OpenAI 블로그 "Introducing X" <span class="chip">official</span></div>
+        <div class="it">HN 게시물 → 같은 블로그 링크 <span class="chip">aggregator</span></div>
+        <div class="it">Simon Willison "X is out" <span class="chip">community</span></div>
+      </div>
+      <div class="mid">⇢</div>
+      <div>
+        <div class="event"><h4>사건 1 · revision 2</h4>
+          <div class="member"><span>OpenAI 블로그</span><span class="chip">primary</span></div>
+          <div class="member"><span>HN 게시물</span><span class="chip">discussion_target</span></div></div>
+        <div class="event" style="margin-top:8px;border-style:dashed"><h4>사건 2 (별도)</h4>
+          <div class="member"><span>Simon Willison 글</span><span class="chip">제목 유사 → related만</span></div></div>
+      </div>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>병합 기준</th><th>예</th><th>병합?</th></tr></thead>
+      <tbody>
+        <tr><td>같은 item id</td><td>같은 피드 항목 재수집</td><td><span class="chip ok">병합</span></td></tr>
+        <tr><td>정규화 URL 같음</td><td><code>?utm=</code>만 다른 링크</td><td><span class="chip ok">병합</span></td></tr>
+        <tr><td>같은 외부 키</td><td>GitHub <code>owner/repo</code>, arXiv id</td><td><span class="chip ok">병합</span></td></tr>
+        <tr><td>HN 원문 링크 = 다른 항목 URL</td><td>블로그 글과 그 HN 공유</td><td><span class="chip ok">병합</span></td></tr>
+        <tr><td>제목 유사도 ≥ 0.85 (±2일)</td><td>다른 매체의 같은 소식</td><td><span class="chip warn">관련만 표시</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="one">새 멤버가 붙으면 <b>revision +1</b> → 다시 보여줄 수 있고 화면에 "업데이트"로 표시된다. 제목만 같은 중복은 <a href="#m-pick">최종 선정</a>에서 거른다.</p>
+  </article>
+
+  <article class="module" id="m-tagging">
+    <h3>태그와 신흥 개념</h3>
+    <p class="files"><code>radar/tagging.py</code> · <code>config/taxonomy.yaml</code> · <code>radar/deduplicate.py</code> (<code>_tag_concepts</code>) · <code>prompts/concepts.md</code></p>
+    <div class="grid wide">
+      <div class="tile"><h4>규칙 태그 <span class="chip free">규칙</span></h4><p>제목에 OpenAI·GPT·Claude·MCP·Agent·LLM 등 → <code>openai</code>, <code>mcp</code>, <code>ai-agent</code> 태그. "AI 관련인가" 판정에 쓴다.</p></div>
+      <div class="tile"><h4>신흥 개념 <span class="chip llm">LLM</span></h4><p>새·수정 사건 제목을 300건씩(최대 5번) 보내 "context engineering" 같은 개념을 뽑는다. 회사·제품명·일반어 제외. 사건의 <code>concept_tags</code>에 저장.</p></div>
+    </div>
+  </article>
+
+  <article class="module" id="m-trends">
+    <h3>Emerging Radar 판정 <span class="chip free">규칙</span></h3>
+    <p class="files"><code>radar/trends.py</code> (<code>emerging</code>) · <code>data/state/trends/</code></p>
+    <div class="grid wide">
+      <div class="tile accent"><h4>발견 discovery</h4>
+        <div class="chips" style="margin:6px 0"><span class="chip">첫 등장 ≤ 14일</span><span class="chip">사건 ≥ 2</span><span class="chip">독립 조직 ≥ 2</span></div>
+        <p>11-22: computer use (3곳·9건), agent verification (2곳·7건), context engineering (3곳·6건)</p></div>
+      <div class="tile"><h4>관찰 observation</h4>
+        <div class="chips" style="margin:6px 0"><span class="chip">기준 이력 ≥ 30일</span><span class="chip">최근 7일 ≥ 3건</span><span class="chip">과거 대비 ≥ 2배</span></div>
+        <p>소스 수로 보정. 이력이 30일 쌓이기 전에는 나오지 않는다.</p></div>
+    </div>
+    <p class="one">브리핑에 최대 3건. 이 개념이 있는 사건은 <a href="#m-pools">explore 풀</a>에서 <b>+5점</b>.</p>
+  </article>
+</section>
+
+<!-- ============ 4 SELECT ============ -->
+<section class="part cat-select" id="select">
+  <div class="part-head"><span class="part-no">4</span><h2>후보 선별</h2></div>
+  <p class="part-summary">LLM 없이 규칙으로 15건 안팎까지 줄인다. 비용이 0인 단계라 <b>여기서 살아남는 것이 브리핑 성격을 가장 크게 정한다.</b></p>
+
+  <article class="module" id="m-gates">
+    <h3>탈락 관문 7개 (위에서부터)</h3>
+    <p class="files"><code>radar/prefilter.py</code> (<code>_eligible</code>, <code>exclusion_reason</code>) · <code>config/pipeline.yaml</code> (<code>exclude</code>, <code>keep</code>, <code>signal_sources</code>)</p>
+    <div class="gates">
+      <div class="gate"><span class="no">1</span><div><b>신선도</b><small>최근 48시간 밖이면 탈락 (재시도 큐 항목은 72시간)</small></div><span class="gdrop zero">—</span></div>
+      <div class="gate"><span class="no">2</span><div><b>재노출·완료</b><small>이미 보여준 사건·리비전, 분석 완료·실패·만료</small></div><span class="gdrop zero">—</span></div>
+      <div class="gate"><span class="no">3</span><div><b>잡음</b><small>"Who is hiring" 류, 원문 없는 HN 토론</small></div><span class="gdrop zero">—</span></div>
+      <div class="gate"><span class="no">4</span><div><b>저장소 없음</b><small>저장소 링크 없는 MCP 레지스트리 항목 (읽을 본문 없음)</small></div><span class="gdrop">−141</span></div>
+      <div class="gate"><span class="no">5</span><div><b>제외어</b><small>인사 · 투자 · 가십 · 순위 · 홍보 · 소송 단어. 단 regulation·policy·AI Act 등 keep 단어가 있으면 통과</small></div><span class="gdrop">−3</span></div>
+      <div class="gate"><span class="no">6</span><div><b>AI 관련성</b><small>AI 태그 · 제목의 AI 용어 · (AI 전문 소스 + 관심 분류) 중 하나 필요</small></div><span class="gdrop zero">—</span></div>
+      <div class="gate"><span class="no">7</span><div><b>신호 부족</b><small>arXiv · HF Papers · MCP Registry만으로 된 사건은 관심 분류 · 2개 조직 · HN 25점↑ 중 하나 필요</small></div><span class="gdrop">−60</span></div>
+    </div>
+    <p class="files" style="margin-top:8px">빨간 숫자: 11-22 실행의 탈락 수(실행 요약 <code>prefilter_excluded</code>). 1·2·3·6번은 집계하지 않는다.</p>
+  </article>
+
+  <article class="module" id="m-interests">
+    <h3>관심 분류 12개</h3>
+    <p class="files"><code>config/interests.yaml</code> (<code>categories</code>, <code>threshold: 2</code>)</p>
+    <p class="one">제목에 별칭이 단어로 있으면 해당. <b>관심 점수 = 가중치 합</b>, 기준 2 → <b>분류 하나만 맞아도 interest 후보</b>.</p>
+    <div class="cats">
+      <div class="cat"><span class="w w3">×3</span><h4>AI 코딩 도구</h4><p>Claude Code, Codex, Cursor, coding agent</p></div>
+      <div class="cat"><span class="w w3">×3</span><h4>에이전트 확장</h4><p>hooks, skills, plugin, subagent</p></div>
+      <div class="cat"><span class="w w3">×3</span><h4>MCP·도구 연결</h4><p>MCP, tool calling, computer use</p></div>
+      <div class="cat"><span class="w w3">×3</span><h4>에이전트 설계·스택</h4><p>harness, sandbox, evals, LangGraph</p></div>
+      <div class="cat"><span class="w w3">×3</span><h4>컨텍스트·메모리</h4><p>RAG, memory, context window</p></div>
+      <div class="cat"><span class="w w3">×3</span><h4>AI 개발 워크플로</h4><p>case study, spec-driven, TDD</p></div>
+      <div class="cat"><span class="w w3">×3</span><h4>에이전트 작업 환경</h4><p>worktree, parallel agents, tmux</p></div>
+      <div class="cat"><span class="w w2">×2</span><h4>GenUI·AI 인터페이스</h4><p>Generative UI, Canvas, voice mode</p></div>
+      <div class="cat"><span class="w w2">×2</span><h4>새 모델·API</h4><p>GPT, Gemini, Opus, API</p></div>
+      <div class="cat"><span class="w w2">×2</span><h4>로컬·오픈 모델</h4><p>Ollama, GGUF, self-hosted</p></div>
+      <div class="cat"><span class="w w2">×2</span><h4>새 AI 서비스</h4><p>introducing, launches, Show HN</p></div>
+      <div class="cat"><span class="w w2">×2</span><h4>AI 활용 패턴</h4><p>Obsidian, second brain, n8n</p></div>
+    </div>
+  </article>
+
+  <article class="module" id="m-pools">
+    <h3>세 개의 풀 — "왜 이 후보를 보는가"</h3>
+    <p class="files"><code>radar/prefilter.py</code> (<code>build_candidates</code>, <code>_impact_signals</code>) · <code>pipeline.yaml</code> (<code>pool_percent</code>, <code>hn_min_points</code>, <code>impact_top</code>, <code>explore_min_prescore</code>)</p>
+    <div class="pools">
+      <div class="pool p-interest"><h4>interest <span>40%</span></h4><ul><li>관심 점수 ≥ 2</li></ul></div>
+      <div class="pool p-impact"><h4>impact <span>35%</span></h4><ul><li>공식 소스</li><li>3개↑ 조직이 다룸</li><li>HN 25점↑ 상위 10</li><li>GitHub 7일 스타 증가 상위 10</li></ul></div>
+      <div class="pool p-explore"><h4>explore <span>25%</span></h4><ul><li>관심 밖 + (신흥 개념 / 분류 없음 / open 소스)</li><li>신흥 개념 없으면 사전 점수 ≥ 20</li></ul></div>
+    </div>
+    <div class="ratio"><div class="p-interest" style="width:40%">interest 6</div><div class="p-impact" style="width:35%">impact 5</div><div class="p-explore" style="width:25%">explore 4</div></div>
+    <p class="files">15건 기준 목표 배분. 한 사건이 여러 풀에 속할 수 있다. 11-22 실제: interest 9 · impact 5 · explore 1 (모자란 풀은 다른 풀로 채움)</p>
+
+    <h4 style="margin:18px 0 4px;font-size:14px">사전 점수 — 후보 순위</h4>
+    <div class="formula">관심점수×10 + trust(3~5) + 신흥개념 5 + 공식 5 + min(조직 수,5) + min(HN/25,10) + min(스타 증가,10)</div>
+    <p style="font-size:13px;color:var(--muted);margin-top:10px">가상 예: MCP 서버 저장소(×3 분류 2개 일치, trust 3)와 공식 블로그 글(×3 분류 1개, trust 5, 공식). 둘 다 조직 1곳, HN·스타 신호 없음.</p>
+    <div style="font-size:12.5px;margin-top:6px">MCP 서버 저장소 — 64점</div>
+    <div class="stack"><div style="width:47.6%;background:#2563eb">관심 60</div><div style="width:2.4%;background:#64748b"></div><div style="width:0.8%;background:#94a3b8"></div></div>
+    <div style="font-size:12.5px">공식 블로그 글 — 41점</div>
+    <div class="stack"><div style="width:23.8%;background:#2563eb">관심 30</div><div style="width:4%;background:#64748b"></div><div style="width:4%;background:#d97706"></div><div style="width:0.8%;background:#94a3b8"></div></div>
+    <div class="stack-legend"><span><i style="background:#2563eb"></i>관심×10</span><span><i style="background:#64748b"></i>trust</span><span><i style="background:#d97706"></i>공식 +5</span><span><i style="background:#94a3b8"></i>조직 수</span><span>(두 막대 같은 축척)</span></div>
+    <div class="callout info">관심 분류 하나가 +30점이라 다른 신호(공식 +5, trust 최대 5)보다 훨씬 크다. 분류 별칭이 제목에 잘 들어가는 MCP·에이전트 저장소가 위로 올라오는 이유다.</div>
+  </article>
+
+  <article class="module" id="m-allocate">
+    <h3>배분 · 예산 · 재시도 큐</h3>
+    <p class="files"><code>radar/prefilter.py</code> (<code>_allocate</code>) · <code>radar/queue.py</code> · <code>data/state/analysis_queue.json</code></p>
+    <div class="flow">
+      <div class="step"><b>① 정렬·상한</b><small>사전 점수 → 신선도. 소스별 <code>max_candidates</code> 초과 제외</small></div><span class="arrow">→</span>
+      <div class="step"><b>② 건수 결정</b><small>min(목표 15, 후보 수, 예산으로 가능한 수 + 캐시)</small></div><span class="arrow">→</span>
+      <div class="step"><b>③ 재시도 우선</b><small>대기 후보가 슬롯의 1/3까지 먼저</small></div><span class="arrow">→</span>
+      <div class="step"><b>④ 풀 채우기</b><small>풀마다 최소 1→2건, 나머지는 40/35/25. explore는 소스당 1건</small></div>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>큐 상태</th><th>언제</th><th>다음</th></tr></thead>
+      <tbody>
+        <tr><td><span class="chip warn">deferred</span></td><td>예산 부족, 원문 획득 실패, API 오류</td><td>다음 실행에서 우선 재시도 (15분·1시간 간격)</td></tr>
+        <tr><td><span class="chip ok">done</span></td><td>분석 완료</td><td>다시 평가하지 않음</td></tr>
+        <tr><td><span class="chip bad">expired</span></td><td>72시간 경과</td><td>포기</td></tr>
+      </tbody>
+    </table></div>
+  </article>
+</section>
+
+<!-- ============ 5 ANALYZE ============ -->
+<section class="part cat-analyze" id="analyze">
+  <div class="part-head"><span class="part-no">5</span><h2>분석·검증</h2></div>
+  <p class="part-summary">원문을 읽어 LLM이 점수와 한국어 요약을 만들고, 모든 문장에 원문 인용을 붙인다. 인용이 확인되지 않은 문장은 지운다.</p>
+
+  <article class="module" id="m-enrich">
+    <h3>원문 획득</h3>
+    <p class="files"><code>radar/enrich.py</code> (<code>enrich</code>) — 본문은 메모리에만, 저장하지 않음</p>
+    <div class="grid">
+      <div class="tile"><h4>기사·블로그</h4><p>HTML에서 본문 텍스트 추출</p></div>
+      <div class="tile"><h4>GitHub 저장소</h4><p>README 전체 (MCP 레지스트리 항목 포함)</p></div>
+      <div class="tile"><h4>GitHub 릴리스</h4><p>릴리스 노트</p></div>
+      <div class="tile"><h4>Show/Ask/Launch HN</h4><p>작성자 본문만, 댓글 제외</p></div>
+    </div>
+    <p class="one" style="margin-top:10px">공식 출처 멤버가 따로 있으면 그 문서도 가져와 <b>교차 근거</b>로 쓴다. 실패하면 큐로.</p>
+  </article>
+
+  <article class="module" id="m-evaluate">
+    <h3>LLM 평가 <span class="chip llm">LLM 1회/후보</span></h3>
+    <p class="files"><code>radar/llm.py</code> · <code>prompts/evaluate.md</code> · <code>radar/analysis.py</code> (<code>WEIGHTS</code>) · <code>radar/models.py</code> (<code>EvalResult</code>)</p>
+    <p class="one">독자: <b>"AI 도구를 실무에 바로 적용하려는 개발자, 아침 1~3분에 오늘 써볼 것을 고른다."</b> 원문은 <code>&lt;untrusted_source&gt;</code>로 감싸 지시를 따르지 않게 한다.</p>
+    <div class="anatomy" style="margin-top:4px">
+      <div>
+        <h4 style="margin:0 0 4px;font-size:14px">점수 가중치 (각 0~5점)</h4>
+        <div class="bars">
+          <div class="barrow"><span>practical<small>이번 주에 써볼 수 있나</small></span><div class="track"><div class="fill" style="width:100%"></div></div><span class="v">30</span></div>
+          <div class="barrow"><span>impact<small>작업 흐름을 바꾸나</small></span><div class="track"><div class="fill" style="width:83%"></div></div><span class="v">25</span></div>
+          <div class="barrow"><span>novelty<small>새 개념인가</small></span><div class="track"><div class="fill" style="width:67%"></div></div><span class="v">20</span></div>
+          <div class="barrow"><span>trust<small>공식·원 저장소인가</small></span><div class="track"><div class="fill" style="width:50%"></div></div><span class="v">15</span></div>
+          <div class="barrow"><span>interest<small>관심 분류 핵심인가</small></span><div class="track"><div class="fill" style="width:33%"></div></div><span class="v">10</span></div>
+        </div>
+        <div class="formula">score = Σ(점수 × 가중치) / 5 → 0~100</div>
+      </div>
+      <div>
+        <h4 style="margin:0 0 4px;font-size:14px">출력</h4>
+        <div class="table-wrap" style="margin:0"><table>
+          <tbody>
+            <tr><td><b>What</b></td><td>무엇이 바뀌었나 · 1~2문장</td></tr>
+            <tr><td><b>Why</b></td><td>왜 써볼 만한가 · 1~2문장</td></tr>
+            <tr><td><b>How</b></td><td>어떻게 시작하나 · 0~3문장, 원문에 방법이 있을 때만</td></tr>
+            <tr><td><b>claim</b></td><td>문장마다 원문 그대로 인용 20~200자 + URL</td></tr>
+            <tr><td><b>availability · access</b></td><td>원문에 명시될 때만, 아니면 unknown</td></tr>
+            <tr><td><b>worth_briefing</b></td><td>제외 출구: 인사·투자·홍보·소송·의견 글·특정 산업 사례·버그 수정뿐인 릴리스 → false</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="module" id="m-verify">
+    <h3>근거 검증 — 문장 하나가 살아남는 길</h3>
+    <p class="files"><code>radar/verify.py</code> (<code>verify</code>) · <code>radar/enrich.py</code> (<code>claim_window</code>) · <code>prompts/judge.md</code></p>
+    <div class="decide">
+      <div class="q"><div class="ask">대표 원문 링크가 살아 있나? <small>link_ok</small></div><div class="no-path">아니오 → 카드 폐기 (primary_link_failed)</div></div>
+      <div class="yes">예 ↓</div>
+      <div class="q"><div class="ask">인용이 원문 텍스트에 실제로 있나? <small>공백·기호 정규화 후 비교</small></div><div class="no-path">아니오 → 이 문장 삭제</div></div>
+      <div class="yes">예 ↓</div>
+      <div class="q"><div class="ask">문장 속 숫자가 원문과 같나?</div><div class="no-path">아니오 → 이 문장 삭제 (불확실 표시)</div></div>
+      <div class="yes">예 ↓</div>
+      <div class="q"><div class="ask"><span class="chip llm">판정 LLM</span> 한국어 주장 ↔ 인용·문맥의 뜻이 맞나? <small>무료/유료, 베타/정식, 지원/계획 구별</small></div><div></div></div>
+      <div class="verdicts">
+        <div style="background:var(--ok-soft)"><b style="color:var(--ok)">supported</b>문장 유지</div>
+        <div style="background:var(--warn-soft)"><b style="color:var(--warn)">partial</b>삭제 · 불확실 표시</div>
+        <div style="background:var(--warn-soft)"><b style="color:var(--warn)">nei</b>삭제 · 불확실 표시</div>
+        <div style="background:var(--bad-soft)"><b style="color:var(--bad)">unsupported</b>삭제</div>
+      </div>
+    </div>
+    <h4 style="margin:18px 0 6px;font-size:14px">카드 단위 결과</h4>
+    <div class="outcomes">
+      <div class="outcome keep"><b>verified · 게시</b>모든 문장이 supported</div>
+      <div class="outcome part"><b>partial · 게시</b>What 전부·Why 1개 이상 남음, 일부 삭제. "일부 내용은 근거가 충분하지 않아 제외했습니다" 표시. <code>judge_mode: strict</code>면 폐기</div>
+      <div class="outcome drop"><b>폐기</b>What 문장 중 하나라도 삭제 <code>what_unsupported</code> · Why 전부 삭제 <code>why_unsupported</code></div>
+    </div>
+    <div class="callout warn">11-22: 평가 15건 중 9건이 이 단계에서 폐기(<code>what_unsupported</code> 8). 서술형 긴 글일수록 What 문장 하나가 떨어져 통째로 빠지기 쉽다.</div>
+  </article>
+
+  <article class="module" id="m-budget">
+    <h3>재사용과 예산</h3>
+    <p class="files"><code>radar/analysis.py</code> (<code>save_analysis</code>, <code>recent_analyses</code>) · <code>radar/llm.py</code> (<code>_request</code>, <code>candidate_budget</code>) · Actions 변수 <code>RADAR_*</code></p>
+    <div class="grid">
+      <div class="tile"><span class="big">$0.25</span><h4>일 예산</h4><p>호출 전 예약, 끝나면 실제 토큰으로 정산</p></div>
+      <div class="tile"><span class="big">51</span><h4>하루 최대 호출</h4><p>후보 1건 = 평가 + 판정 2회, 헤드라인 1회분 예약</p></div>
+      <div class="tile"><span class="big">32</span><h4>11-22 호출</h4><p>입력 88k · 출력 12k 토큰, 약 $0.12</p></div>
+      <div class="tile"><span class="big">캐시</span><h4>재평가 안 함</h4><p>(사건, 리비전, 분석기 버전)이 같으면 저장된 결과 재사용</p></div>
+    </div>
+    <p class="files" style="margin-top:8px">LLM 실패 분류: <code>api_error</code> · <code>schema_error</code> · <code>budget</code> · <code>input_too_large</code> → 실행 요약 <code>llm_errors</code></p>
+  </article>
+</section>
+
+<!-- ============ 6 PUBLISH ============ -->
+<section class="part cat-publish" id="publish">
+  <div class="part-head"><span class="part-no">6</span><h2>선정·발행</h2></div>
+  <p class="part-summary">검증된 카드에서 최대 5장을 고르고, 파일을 한 번에 교체한 뒤 커밋·배포한다.</p>
+
+  <article class="module" id="m-pick">
+    <h3>최종 선정 규칙</h3>
+    <p class="files"><code>radar/select.py</code> (<code>select</code>, <code>_pick</code>, <code>subjects</code>) · <code>pipeline.yaml</code> (<code>min_card_score</code>, <code>explore_min_score</code>)</p>
+    <ul class="checks">
+      <li><span class="ic">1</span><div>점수 55 미만 제외 <small><code>min_card_score</code></small></div></li>
+      <li><span class="ic">2</span><div>최근 120일에 보여준 사건·리비전 제외 <small>더 높은 리비전이면 "업데이트"로 연결</small></div></li>
+      <li><span class="ic">3</span><div>점수 높은 순으로 고르기</div></li>
+      <li><span class="ic">4</span><div>같은 "제품명 버전"(예: <code>gpt 6.2</code>)은 1장만</div></li>
+      <li><span class="ic">5</span><div>같은 소스 ≤ 2장, 같은 조직 ≤ 2장</div></li>
+      <li><span class="ic">6</span><div>최대 5장, 모자라면 있는 만큼</div></li>
+      <li><span class="ic">7</span><div>explore 카드 중 70점 이상이 빠졌으면 1자리 예약 후 다시 고르기 <small>관심사 밖 발견용 자리</small></div></li>
+    </ul>
+  </article>
+
+  <article class="module" id="m-snapshot">
+    <h3>조립 → 발행</h3>
+    <p class="files"><code>radar/assemble.py</code> · <code>prompts/headline.md</code> · <code>radar/slice.py</code> (<code>_publish_archive</code>, <code>validate_snapshot</code>) · <code>radar/prune.py</code></p>
+    <div class="flow">
+      <div class="step"><b>헤드라인 <span class="chip llm">LLM</span></b><small>카드 제목 → 한국어 한 문장</small></div><span class="arrow">→</span>
+      <div class="step"><b>스테이징</b><small>브리핑 · 연도 인덱스 · shown 작성 후 스키마 재검증</small></div><span class="arrow">→</span>
+      <div class="step"><b>manifest</b><small>파일 해시 기록 후 한 번에 교체</small></div><span class="arrow">→</span>
+      <div class="step"><b>보관 정리</b><small>120일 지난 사건·분석·노출, 7개월 지난 트렌드 삭제</small></div><span class="arrow">→</span>
+      <div class="step"><b>Actions</b><small>validate → 커밋 → Pages 배포</small></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ 7 VIEW ============ -->
+<section class="part cat-view" id="view">
+  <div class="part-head"><span class="part-no">7</span><h2>화면</h2></div>
+  <p class="part-summary">React + Vite 정적 사이트. 브라우저는 <code>manifest.json</code>부터 읽고, manifest가 가리키는 파일만 불러온다.</p>
+
+  <article class="module" id="m-today">
+    <h3>카드 해부도</h3>
+    <p class="files"><code>web/src/briefing.tsx</code> (<code>Edition</code>, <code>Story</code>) · <code>web/src/lib/data.ts</code> · <code>web/src/style.css</code></p>
+    <div class="anatomy">
+      <div class="mock" aria-label="카드 예시 (2026-11-22 첫 카드)">
+        <div class="lab"><span class="pin">1</span><span>01</span><span class="ft">FEATURED</span><span>MCP·도구 연결</span></div>
+        <h5><span class="pin">2</span>Mattermost Agents 플러그인 2.13.0</h5>
+        <div class="meta-line"><span class="pin">3</span>Model Context Protocol · 11.20 03:11 KST</div>
+        <div class="badges"><span class="pin">4</span><span class="badge">이용 단계 확인 안 됨</span><span class="badge">접근 조건 확인 안 됨</span></div>
+        <dl>
+          <dt>WHAT</dt><dd><span class="pin">5</span>Mattermost용 에이전트 플러그인이 나왔고, 내장 MCP 서버를 함께 제공합니다.</dd>
+          <dt>WHY</dt><dd>자체 호스팅 LLM도 지원해 데이터 통제와 사내 도입 검토에 유리합니다.</dd>
+          <dt>HOW</dt><dd>설치 후 System Console &gt; Plugins &gt; Agents에서 AI 서비스를 추가합니다.</dd>
+        </dl>
+        <div class="meta-line">#Mattermost · #MCP · #plugin</div>
+        <div style="margin-top:6px"><span class="pin">6</span><span class="src-link">원문 보기 ↗</span></div>
+        <details open><summary><span class="pin">7</span>인용 근거 7개</summary><p style="margin:6px 0 0">WHAT — "…act on your behalf through tools and MCP servers, plus a built-in Mattermost MCP server"</p></details>
+      </div>
+      <ol class="callouts">
+        <li><span class="pin">1</span><div>순번 · Featured(첫 장) · 분류 · 새 리비전이면 "업데이트"</div></li>
+        <li><span class="pin">2</span><div>LLM이 만든 한국어 제목</div></li>
+        <li><span class="pin">3</span><div>출처 조직 · 발행 시각</div></li>
+        <li><span class="pin">4</span><div>이용 단계 · 접근 조건 배지 <small>원문 근거가 없으면 "확인 안 됨"</small></div></li>
+        <li><span class="pin">5</span><div>What / Why / How <small>판정 LLM이 supported로 본 문장만. How가 없으면 "사용법 근거 부족"</small></div></li>
+        <li><span class="pin">6</span><div>원문 링크</div></li>
+        <li><span class="pin">7</span><div>펼치면 문장별 원문 인용 <small>partial이면 "일부 내용은 근거가 충분하지 않아 제외했습니다"</small></div></li>
+      </ol>
+    </div>
+    <div class="flow" style="margin-top:16px">
+      <div class="step"><b>리드</b><small>호수 · 날짜 · 한 줄 헤드라인 · "원본 N건 중 M건 평가해 K건"</small></div>
+      <div class="step"><b>카드</b><small>Featured 1장 + "함께 볼 소식"</small></div>
+      <div class="step"><b>Emerging Radar</b><small>발견/관찰 · 개념 · 이유</small></div>
+      <div class="step"><b>푸터</b><small>소스 완료·부분·실패 수 · 빌드 커밋</small></div>
+    </div>
+  </article>
+
+  <article class="module" id="m-status">
+    <h3>상태 배너 — 마감 KST 07:00</h3>
+    <p class="files"><code>web/src/lib/status.ts</code> (<code>briefingStatus</code>) · <code>web/src/main.tsx</code> (<code>Today</code>)</p>
+    <p class="one">07시 전에는 <b>어제</b>, 07시 이후에는 <b>오늘</b> 날짜 브리핑을 기대한다.</p>
+    <div class="banners">
+      <div class="bn ok"><b>배너 없음</b><small>기대 날짜 브리핑이 공개됨</small></div>
+      <div class="bn stale"><b>오늘 브리핑 미발행</b><span>마지막 성공 11.21 11:07 KST</span><small>기대 날짜 브리핑이 아직 없음 → 직전 브리핑 표시</small></div>
+      <div class="bn failed"><b>오늘 브리핑 생성 실패</b><span>마지막 성공 11.21 11:07 KST</span><small>기대 날짜 실행이 failed → 직전 브리핑 표시</small></div>
+    </div>
+  </article>
+
+  <article class="module" id="m-archive">
+    <h3>아카이브</h3>
+    <p class="files"><code>web/src/archive-page.tsx</code> · <code>web/src/lib/archive.ts</code></p>
+    <div class="flow">
+      <div class="step"><b>#archive</b><small><code>index/YYYY.json</code>으로 날짜별 헤드라인 목록</small></div><span class="arrow">→</span>
+      <div class="step"><b>날짜 선택</b><small>그날 <code>briefings/</code> 파일을 같은 카드 형식으로</small></div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ EXAMPLE ============ -->
+<section class="part" id="example">
+  <div class="part-head"><h2>실제 깔때기 — 2026-11-22</h2></div>
+  <p class="part-summary">출처: <code>data/runs/2026-11.jsonl</code>, <code>data/briefings/2026-11-22.json</code></p>
+  <div class="funnel">
+    <div class="frow"><span>원본 항목</span><div class="fbar" style="width:100%">448</div></div>
+    <div class="frow"><span></span><span class="fdrop">사전 탈락 no_repository 141 · no_signal 60 · funding 2 · lawsuit 1 · 신선도·AI 관련성 등</span></div>
+    <div class="frow"><span>후보</span><div class="fbar" style="width:22%;background:var(--c-select)">15</div></div>
+    <div class="frow"><span>LLM 평가</span><div class="fbar" style="width:22%;background:var(--c-analyze)">15</div></div>
+    <div class="frow"><span></span><span class="fdrop">worth_briefing=false 1 · what_unsupported 8 · why_unsupported 1</span></div>
+    <div class="frow"><span>검증 통과</span><div class="fbar" style="width:12%;background:var(--c-analyze)">5</div></div>
+    <div class="frow"><span>최종 선정</span><div class="fbar" style="width:10%;background:var(--c-publish)">4</div></div>
+  </div>
+  <p class="files">막대 길이는 비례가 아니라 단계 구분용이다.</p>
+</section>
+
+<!-- ============ KNOBS ============ -->
+<section class="part" id="knobs">
+  <div class="part-head"><h2>조정 손잡이</h2></div>
+  <p class="part-summary">결과를 바꾸고 싶을 때 먼저 볼 설정 값.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>바꾸고 싶은 것</th><th>위치</th><th>현재 값</th></tr></thead>
+    <tbody>
+      <tr><td>수집 소스</td><td><code>config/sources.yaml</code></td><td>20곳</td></tr>
+      <tr><td>관심 분류·별칭·가중치</td><td><code>config/interests.yaml</code></td><td>12개, ×3/×2</td></tr>
+      <tr><td>interest 풀 기준</td><td><code>interests.yaml threshold</code></td><td>2</td></tr>
+      <tr><td>후보 수</td><td><code>pipeline.yaml min/target/max</code></td><td>8 / 15 / 25</td></tr>
+      <tr><td>풀 비율</td><td><code>pipeline.yaml pool_percent</code></td><td>40 / 35 / 25</td></tr>
+      <tr><td>impact 기준</td><td><code>hn_min_points</code>, <code>impact_top</code></td><td>25점, 상위 10</td></tr>
+      <tr><td>제외어·예외어</td><td><code>exclude</code>, <code>keep</code></td><td>6개 사유</td></tr>
+      <tr><td>신호 필요 소스</td><td><code>signal_sources</code></td><td>arXiv, HF Papers, MCP Registry</td></tr>
+      <tr><td>explore 조건</td><td><code>explore_min_prescore</code>, <code>explore_min_score</code></td><td>20 / 70</td></tr>
+      <tr><td>카드 점수 하한</td><td><code>min_card_score</code></td><td>55</td></tr>
+      <tr><td>검증 엄격도</td><td><code>judge_mode</code></td><td>normal</td></tr>
+      <tr><td>점수 가중치</td><td><code>radar/analysis.py WEIGHTS</code></td><td>30/25/20/15/10</td></tr>
+      <tr><td>평가 기준·제외 출구</td><td><code>prompts/evaluate.md</code></td><td>—</td></tr>
+      <tr><td>모델·예산</td><td>Actions 변수 <code>RADAR_*</code></td><td>gpt-5.4-mini, $0.25</td></tr>
+      <tr><td>예약 시각</td><td><code>daily.yml cron</code></td><td>21:07, 22:37 UTC</td></tr>
+      <tr><td>화면 마감</td><td>manifest <code>deadline_kst</code></td><td>07:00</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ MAINTAIN ============ -->
+<section class="part" id="maintain">
+  <div class="rule-box">
+    <h3>이 문서 갱신 규칙 — 기능을 바꾸면 같은 커밋에서 고친다</h3>
+    <ul class="checks">
+      <li><span class="ic" style="background:var(--accent)">1</span><div>대상 경로 <small><code>radar/</code> · <code>config/</code> · <code>prompts/</code> · <code>web/src/</code> · <code>.github/workflows/</code> · <code>schemas/</code>의 동작·기준·값·프롬프트</small></div></li>
+      <li><span class="ic" style="background:var(--accent)">2</span><div>각 모듈의 파일 목록(회색 줄)으로 고칠 섹션을 찾는다</div></li>
+      <li><span class="ic" style="background:var(--accent)">3</span><div>숫자를 바꿨으면 본문·도표와 <a href="#knobs">조정 손잡이</a> 표를 함께</div></li>
+      <li><span class="ic" style="background:var(--accent)">4</span><div>모듈 추가·삭제·이름 변경이면 섹션·목차·파일 목록까지</div></li>
+      <li><span class="ic" style="background:var(--accent)">5</span><div>상단 "최종 갱신" 날짜와 "마지막 반영"(바뀐 기능 한 줄)을 바꾼다 <small>대조한 커밋은 <code>git log -- docs/how-it-works.html</code>로 찾는다</small></div></li>
+      <li><span class="ic" style="background:var(--accent)">6</span><div>코드에서 확인한 것만 쓴다 <small>테스트만 바꾸거나 동작이 같은 리팩터링이면 생략 가능</small></div></li>
+    </ul>
+    <p class="files" style="margin:10px 0 0">에이전트용 같은 규칙: 저장소 루트 <code>AGENTS.md</code> (Claude Code는 <code>CLAUDE.md</code>가 불러옴)</p>
+  </div>
+</section>
+
+<footer>AI Radar · docs/how-it-works.html · 외부 리소스 없이 브라우저에서 바로 열린다.</footer>
+</main>
+</div>
+<script>
+(function () {
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("how-it-works-theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  document.getElementById("theme").addEventListener("click", function () {
+    var current = root.getAttribute("data-theme");
+    var dark = current ? current === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("how-it-works-theme", next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
