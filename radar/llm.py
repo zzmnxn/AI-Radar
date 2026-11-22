@@ -54,7 +54,7 @@ CONCEPT_OUTPUT_TOKENS = 1_500
 
 
 class Headline(Contract):
-    headline_ko: str = Field(min_length=1, max_length=120)
+    headline_ko: str = Field(min_length=1, max_length=30)
 
 
 class BudgetState(Contract):

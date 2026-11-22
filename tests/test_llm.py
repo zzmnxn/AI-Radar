@@ -272,3 +272,17 @@ def test_concepts_split_a_busy_day_into_capped_batches(tmp_path):
     assert len(sent) == CONCEPT_BATCHES
     assert f"1. Title {CONCEPT_TITLES}" in sent[1]["input"]
     assert set(found) == {f"e{CONCEPT_TITLES * n}" for n in range(CONCEPT_BATCHES)}
+
+
+def test_headline_is_capped_at_30_characters():
+    from pathlib import Path
+
+    import pytest
+    from pydantic import ValidationError
+
+    from radar.llm import Headline
+
+    assert Headline(headline_ko="가" * 30).headline_ko == "가" * 30
+    with pytest.raises(ValidationError):
+        Headline(headline_ko="가" * 31)
+    assert "30자" in Path("prompts/headline.md").read_text(encoding="utf-8")
