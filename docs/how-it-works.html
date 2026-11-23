@@ -324,7 +324,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
   <div class="meta">
     <span>최종 갱신 2026-11-22</span>
-    <span>마지막 반영: 30자 헤드라인, 레이더 화면</span>
+    <span>마지막 반영: 예약 시각 KST 01:07·04:37</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
     <span>예산 $0.25/일</span>
   </div>
@@ -359,15 +359,15 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
         <ol><li>data · commit · deploy 결과를 따로 표로</li><li>하나라도 실패면 exit 1 → 알림</li></ol></div>
     </div>
     <h4 style="margin:18px 0 0;font-size:14px">하루 시간표 (KST)</h4>
-    <div class="clock" aria-label="06:07 예약, 07:00 마감, 07:37 보조 예약, 실제 실행 10~11시">
+    <div class="clock" aria-label="01:07 예약, 04:37 보조 예약, 지연 시 예상 실행 05~06시, 07:00 마감">
       <div class="track"></div>
-      <div class="mark" style="left:25.4%;color:var(--c-run)">06:07 예약</div>
-      <div class="mark" style="--row:1;left:29.17%;color:var(--ok)">07:00 마감</div>
-      <div class="mark" style="--row:2;left:33.5%;color:var(--c-run)">07:37 보조</div>
-      <div class="mark" style="left:44.5%;color:var(--warn)">10~11시 실제 실행</div>
+      <div class="mark" style="left:4.7%;color:var(--c-run)">01:07 예약</div>
+      <div class="mark" style="--row:1;left:19.2%;color:var(--c-run)">04:37 보조</div>
+      <div class="mark" style="--row:2;left:22.9%;color:var(--warn)">지연 시 05~06시</div>
+      <div class="mark" style="left:29.17%;color:var(--ok)">07:00 마감</div>
       <div class="tick" style="left:0%;transform:none">00</div><div class="tick" style="left:25%">06</div><div class="tick" style="left:50%">12</div><div class="tick" style="left:75%">18</div><div class="tick" style="left:100%">24</div>
     </div>
-    <div class="callout warn">GitHub 예약 실행 지연으로 11-20~22 실측 4~5시간 늦게 돌았다. 그 사이 화면에는 "미발행" 배너가 뜬다.</div>
+    <div class="callout warn">GitHub 예약 실행은 늦게 시작되는 일이 잦다. 2026-11-20~22에 06:07 예약이 4~5시간 늦게 돌아 07:00 마감을 넘겼고, 그래서 예약을 01:07로 앞당겼다(2026-11-23 결정). 이미 발행된 날의 보조 실행은 <code>skipped</code>.</div>
   </article>
 
   <article class="module" id="m-storage">
@@ -889,7 +889,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
       <tr><td>점수 가중치</td><td><code>radar/analysis.py WEIGHTS</code></td><td>30/25/20/15/10</td></tr>
       <tr><td>평가 기준·제외 출구</td><td><code>prompts/evaluate.md</code></td><td>—</td></tr>
       <tr><td>모델·예산</td><td>Actions 변수 <code>RADAR_*</code></td><td>gpt-5.4-mini, $0.25</td></tr>
-      <tr><td>예약 시각</td><td><code>daily.yml cron</code></td><td>21:07, 22:37 UTC</td></tr>
+      <tr><td>예약 시각</td><td><code>daily.yml cron</code></td><td>16:07, 19:37 UTC (KST 01:07, 04:37)</td></tr>
       <tr><td>화면 마감</td><td>manifest <code>deadline_kst</code></td><td>07:00</td></tr>
       <tr><td>헤드라인 길이·문체</td><td><code>prompts/headline.md</code>, <code>radar/llm.py Headline</code></td><td>30자</td></tr>
       <tr><td>레이더 링 경계</td><td><code>web/src/lib/radar.ts MUST_KNOW / GOOD_TO_KNOW</code></td><td>85 / 70</td></tr>
