@@ -129,5 +129,38 @@
       "DOS에서 돌아가는 AI 코딩 에이전트 ClawDOS",
       "Probity: 에이전트 증거 검증용 MCP 서버와 도구 묶음"
     ]
+  },
+  "2026-11-23": {
+    "card_count": 3,
+    "categories": [
+      "MCP·도구 연결",
+      "에이전트 작업 환경"
+    ],
+    "headline_ko": "Trix 터미널 워크스페이스와 Agent402, AgentsChat 등 에이전트 협업·결제·도구 연동 기능이 업데이트됐다.",
+    "path": "briefings/2026-11-23.json",
+    "tags": [
+      "MCP",
+      "Solana",
+      "Token-2022",
+      "agent coordination",
+      "cloud sandbox",
+      "code review",
+      "coding-agents",
+      "multi-agent",
+      "notifications",
+      "parallel-execution",
+      "payments",
+      "terminal",
+      "tmux-alternative",
+      "wallet",
+      "workspace",
+      "worktrees",
+      "x402"
+    ],
+    "titles": [
+      "코딩 에이전트 상태를 보여주는 터미널 워크스페이스 Trix",
+      "Agent402 도구 모음 0.4.0, x402 결제용 MCP 포함",
+      "AgentsChat 0.36.31: 공유 MCP 룸과 에이전트 협업 레이어"
+    ]
   }
 }

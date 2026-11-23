@@ -1,0 +1,300 @@
+{
+  "cards": [
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "3ca3fa1baef3e137561e8c169393aa3af7e83e3dc9dcf9d3ed8fc60a78288e2f",
+      "availability": "unknown",
+      "card_id": "card_3ca3fa1baef3",
+      "category": "에이전트 작업 환경",
+      "event_id": "c022b897622b37287b520d7199a9265d443b82ec4eaea78e23383d5b3862c133",
+      "how": [
+        "Linux와 macOS에서 쓸 수 있고, brew 또는 pacman으로 설치한다.",
+        "`trix claude codex shell`처럼 실행할 에이전트를 지정해 시작한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-22T23:28:23Z",
+      "revision": 1,
+      "score": 79.0,
+      "sources": [
+        {
+          "org": "Hacker News",
+          "source_class": "aggregator",
+          "source_id": "hackernews-show",
+          "title": "Show HN: Trix - A terminal workspace that shows which coding agent needs you",
+          "url": "https://trixapp.ai/"
+        }
+      ],
+      "tags": [
+        "terminal",
+        "workspace",
+        "coding-agents",
+        "parallel-execution",
+        "tmux-alternative",
+        "worktrees",
+        "notifications"
+      ],
+      "title_ko": "코딩 에이전트 상태를 보여주는 터미널 워크스페이스 Trix",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "a workspace where coding agents live · v1.1.5 is out → Know which agent needs you. Run Claude Code, Codex, Grok, OpenCode, Cursor, Copilot, Muse, Gemini, Antigravity, Amp, shells or any CLI agent",
+            "evidence_url": "https://trixapp.ai/",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Trix는 여러 코딩 에이전트를 나란히 돌리고 상태를 한눈에 보여주는 터미널 워크스페이스다."
+          },
+          {
+            "evidence_quote": "When an agent is waiting on you, a red bar drops over the pane you're in, and you get a desktop notification and a bell.",
+            "evidence_url": "https://trixapp.ai/",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "에이전트가 기다리는 순간을 알려주고, 워크트리와 백그라운드 실행도 지원한다."
+          },
+          {
+            "evidence_quote": "trix shows you at a glance which one is working, which one is waiting on you, and which one finished while you were looking elsewhere.",
+            "evidence_url": "https://trixapp.ai/",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "여러 에이전트를 동시에 돌릴 때 누가 도움을 기다리는지 바로 확인할 수 있다."
+          },
+          {
+            "evidence_quote": "Agents run in a background server. Close the terminal and they keep working.",
+            "evidence_url": "https://trixapp.ai/",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "터미널을 닫아도 계속 실행돼 병렬 작업 관리가 더 쉬워진다."
+          },
+          {
+            "evidence_quote": "Runs on Linux and macOS. Other ways to install ↗ Latest: v1.1.5 (Nov 15, 2026). brew upgrade trix gets it; on Arch, run the pacman line again.",
+            "evidence_url": "https://trixapp.ai/",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "Linux와 macOS에서 쓸 수 있고, brew 또는 pacman으로 설치한다."
+          },
+          {
+            "evidence_quote": "$ trix claude codex shell # ...and start these agents in the current folder",
+            "evidence_url": "https://trixapp.ai/",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "`trix claude codex shell`처럼 실행할 에이전트를 지정해 시작한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "Trix는 여러 코딩 에이전트를 나란히 돌리고 상태를 한눈에 보여주는 터미널 워크스페이스다.",
+        "에이전트가 기다리는 순간을 알려주고, 워크트리와 백그라운드 실행도 지원한다."
+      ],
+      "why": [
+        "여러 에이전트를 동시에 돌릴 때 누가 도움을 기다리는지 바로 확인할 수 있다.",
+        "터미널을 닫아도 계속 실행돼 병렬 작업 관리가 더 쉬워진다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "9b24df8b39be1d495cee151ea400b9d4ff4c4e80658f92d9bb1f08f94cf7cf8f",
+      "availability": "unknown",
+      "card_id": "card_9b24df8b39be",
+      "category": "MCP·도구 연결",
+      "event_id": "f1937a5ae1960b51ddaaa8232ae577ba687eddf28eb35499c8b93a3247677017",
+      "how": [],
+      "pool": "interest",
+      "published_at": "2026-11-22T01:17:23.671160Z",
+      "revision": 1,
+      "score": 73.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.agent402-dev/a402-pay-mcp 0.4.0",
+          "url": "https://github.com/agent402-dev/agent402-toolkit"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "x402",
+        "Solana",
+        "payments",
+        "wallet",
+        "Token-2022"
+      ],
+      "title_ko": "Agent402 도구 모음 0.4.0, x402 결제용 MCP 포함",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "A402 (v1) is deprecated.** The token payment option is now **PREQ** (mint `aTbGw3gU5JyJkAdXLj8rYZ3mCXkPbyHjtTAyCX3jQLX`).",
+            "evidence_url": "https://github.com/agent402-dev/agent402-toolkit",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Solana용 Agent402 도구 모음이 v1 A402 대신 PREQ 결제 옵션으로 바뀌었다."
+          },
+          {
+            "evidence_quote": "`@agent402-dev/pay-mcp`](packages/pay-mcp) | MCP server that lets an AI agent pay x402 APIs from your own wallet, on your machine, within limits and allowlists you set",
+            "evidence_url": "https://github.com/agent402-dev/agent402-toolkit",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "로컬 지갑으로 x402 API 결제를 처리하는 pay-mcp와 온체인 사실 확인 도구를 제공한다."
+          },
+          {
+            "evidence_quote": "Reads public on-chain data for a token mint and returns facts with evidence addresses",
+            "evidence_url": "https://github.com/agent402-dev/agent402-toolkit",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "온체인 데이터 기반 확인과 지갑 서명을 함께 써야 하는 워크플로에 바로 맞는다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "Solana용 Agent402 도구 모음이 v1 A402 대신 PREQ 결제 옵션으로 바뀌었다.",
+        "로컬 지갑으로 x402 API 결제를 처리하는 pay-mcp와 온체인 사실 확인 도구를 제공한다."
+      ],
+      "why": [
+        "온체인 데이터 기반 확인과 지갑 서명을 함께 써야 하는 워크플로에 바로 맞는다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "5cae71fa395098e9d1118c3b10050eb373bd7f7b5b00596372c2cb230b170877",
+      "availability": "unknown",
+      "card_id": "card_5cae71fa3950",
+      "category": "MCP·도구 연결",
+      "event_id": "12d043a675428c41fbea664d693c3cfe64c8d9d584688a36be5fbba21f205f4a",
+      "how": [
+        "`npx -y agentschat-mcp@latest`로 참여를 시작한다.",
+        "`claude mcp add agentschat -- npx -y agentschat-mcp@latest --profile My-Agent`처럼 붙인다.",
+        "MCP 설정에 `command: npx`, `args: [\"-y\", \"agentschat-mcp@latest\", \"--profile\", \"My-Agent\"]`를 넣는다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-22T03:05:27.595331Z",
+      "revision": 1,
+      "score": 72.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.swswordholy-tech/agentschat-mcp 0.36.31",
+          "url": "https://github.com/swswordholy-tech/AgentsChat"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "multi-agent",
+        "code review",
+        "agent coordination",
+        "cloud sandbox"
+      ],
+      "title_ko": "AgentsChat 0.36.31: 공유 MCP 룸과 에이전트 협업 레이어",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Shared MCP Rooms & Social Network for AI Coding Agents",
+            "evidence_url": "https://github.com/swswordholy-tech/AgentsChat",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "에이전트들이 공유 MCP 룸에서 함께 대화·리뷰·투표하는 레이어가 나왔다."
+          },
+          {
+            "evidence_quote": "One command to join (`npx -y agentschat-mcp@latest`); zero agent-framework rewrite required.",
+            "evidence_url": "https://github.com/swswordholy-tech/AgentsChat",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "하나의 명령으로 기존 코딩 에이전트를 연결해 쓰는 방식이다."
+          },
+          {
+            "evidence_quote": "cross-review code, vote on proposals, track shared OKRs, and hand off decisions to humans",
+            "evidence_url": "https://github.com/swswordholy-tech/AgentsChat",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "에이전트 간 코드 리뷰와 의사결정을 한 흐름으로 묶어볼 수 있다."
+          },
+          {
+            "evidence_quote": "zero agent-framework rewrite required.",
+            "evidence_url": "https://github.com/swswordholy-tech/AgentsChat",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "프레임워크를 다시 짜지 않고 지금 쓰는 에이전트를 붙여볼 수 있다."
+          },
+          {
+            "evidence_quote": "One command to join (`npx -y agentschat-mcp@latest`); zero agent-framework rewrite required.",
+            "evidence_url": "https://github.com/swswordholy-tech/AgentsChat",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "`npx -y agentschat-mcp@latest`로 참여를 시작한다."
+          },
+          {
+            "evidence_quote": "claude mcp add agentschat -- npx -y agentschat-mcp@latest --profile My-Agent",
+            "evidence_url": "https://github.com/swswordholy-tech/AgentsChat",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "`claude mcp add agentschat -- npx -y agentschat-mcp@latest --profile My-Agent`처럼 붙인다."
+          },
+          {
+            "evidence_quote": "\"command\": \"npx\", \"args\": [\"-y\", \"agentschat-mcp@latest\", \"--profile\", \"My-Agent\"]",
+            "evidence_url": "https://github.com/swswordholy-tech/AgentsChat",
+            "role": "how",
+            "sentence_index": 2,
+            "text": "MCP 설정에 `command: npx`, `args: [\"-y\", \"agentschat-mcp@latest\", \"--profile\", \"My-Agent\"]`를 넣는다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "에이전트들이 공유 MCP 룸에서 함께 대화·리뷰·투표하는 레이어가 나왔다.",
+        "하나의 명령으로 기존 코딩 에이전트를 연결해 쓰는 방식이다."
+      ],
+      "why": [
+        "에이전트 간 코드 리뷰와 의사결정을 한 흐름으로 묶어볼 수 있다.",
+        "프레임워크를 다시 짜지 않고 지금 쓰는 에이전트를 붙여볼 수 있다."
+      ]
+    }
+  ],
+  "counts": {
+    "accepted": 4,
+    "analyzed": 15,
+    "candidates": 15,
+    "deferred": 0,
+    "events": 2033,
+    "raw": 354,
+    "selected": 3
+  },
+  "date": "2026-11-23",
+  "emerging": [
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 9건에서 처음 나타났습니다.",
+      "tag": "computer use"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 2곳의 사건 7건에서 처음 나타났습니다.",
+      "tag": "agent verification"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 6건에서 처음 나타났습니다.",
+      "tag": "context engineering"
+    }
+  ],
+  "generated_at": "2026-11-23T01:34:27.150412Z",
+  "headline_ko": "Trix 터미널 워크스페이스와 Agent402, AgentsChat 등 에이전트 협업·결제·도구 연동 기능이 업데이트됐다.",
+  "run_id": "68b11318b51e4185ade42a334f40fa81",
+  "schema_version": "1.0.0"
+}

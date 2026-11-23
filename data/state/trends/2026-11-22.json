@@ -300,15 +300,17 @@
         "a9826f56f1589a9bff3d0b62b13cf1730555539822d18e541ef9d617daa090b2",
         "b01806c4abdacdee60c6343dc7cf31644ec07b2195a70d1f5e98fbfd9a425267",
         "c5c2f959d4911a43dd4caaf3498d12765bbbf1f65d18d67bead205a66e94cd48",
+        "dc9b4a0c426ddc42fdcf787a56fcbf633cc6d19dad24a7c130a4be2df80e0fb3",
         "fbde991ea2f0ee8af0fb9f6da002c7ccbfc9493666e24e04ce4f8c473a3bd0b0"
       ],
-      "events": 16,
-      "independent_orgs": 3,
+      "events": 17,
+      "independent_orgs": 4,
       "kind": "taxonomy",
       "orgs": [
         "GitHub",
         "Hacker News",
-        "Model Context Protocol"
+        "Model Context Protocol",
+        "Simon Willison"
       ],
       "tag": "artificial-intelligence"
     },

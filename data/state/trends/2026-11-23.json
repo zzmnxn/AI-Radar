@@ -1,0 +1,504 @@
+{
+  "active_sources": 20,
+  "date": "2026-11-23",
+  "rows": [
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "47d21af7233b0bd2198ef15d472b0d55be41f34a42f0cf34c73031ef07c5ba2d",
+        "527b26cc83a289c676f262fa53903975b4fa7da6741d9a4cbe06530ddf8d65fe",
+        "7d3e3c0dc37b7a87c6a3817df978400289a0a6f8b9fa26163e94192883991e9f",
+        "83231e5ecd261dcf29e9dbb4ad31657207234ac05c4742222299f5c7d4fcacc7",
+        "98b688342ab2027b57774f924dfa9d6f8003408ac8ff3835ffefc0d20dd3e256",
+        "a8646ca828f54609235935d0310903fcbec2a0fd99ba048d4fbf8cae60b876a4"
+      ],
+      "events": 6,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent channel"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "764e6444cdaf9eb1ade5b121bec78d5a7e5a4fd310a9023b5df9c176ce9c1482",
+        "7d778ed9ef1aa4d5eceb968e39803275ee2b1291f26d9424a7c10aae22eb4d40"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent commerce"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "023cf68de1fe53ede7f62b66a0e13081ede7b191fa77a1c01bd6a68392e01106",
+        "10f0bc22d88c2a1c37a8f06198822a71dea6b08f2e5e51560ad8d7449d5f1818",
+        "3706e627832579e4930dc1ecf40cfbd71102ec908845014b86bcad5442aebe91",
+        "47211c061dfb6fa1db7aa838e2be7d530f0c96b73f1a3c9dc886158c0679396a",
+        "54d91239e41f16c2b54bc1496e52c09bc2526394eae3a47e8df23819b84e5b74",
+        "5f3da1be2adce8978c6c521c260ad716e6db6163d58d6681901954456526b5a4",
+        "73e0e8b967c8e2b7dd064d0b9975e4b77f1949b0373c1a63925dc0fae59615a7",
+        "b1fe73a693f9a967a644b736127ff61263721edb89e48a99090b57635436ffff",
+        "bcde3497ca207d00952d4b2804e4c20b922dd4e4b2d62a4a29c009febc83d671",
+        "c246982d2f5b0a70f9439956537e4d2efc7e386132dde969dd219568b9520ffe",
+        "cc8d015d30aa7a974d004316f1db39fc17a9d0f65ac75a3d82b1fa18a4fec225",
+        "d77e3bea6dcad36260d4a780ddb33d0304f0dfb9c77115c7a11fbc0452d1dd2e",
+        "db489b7c7d6da56e4c045abd5687b0734d63ef46b5ad4e6a8a0df83b28a19de5",
+        "efe7feb9c00b3dc5b4d6f74488170125ed8895f5a2a63aafccb5206bcaaf9daf"
+      ],
+      "events": 14,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent data tools"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "027aca84619bec21cf5e5d45d88c5d72b7d1a118371b15ba9df0b95cf492c7a8",
+        "0c7d6f60137efbdbec1d5f686943f8e22a10b4977c26be6c60af58e470c83606",
+        "2d2b448ff62bdaa47d7db7dfabbd20daa5055ac65e3bd4f857da0d1e119d7f85",
+        "83e6b0b9a309c900e9218b0e901f374a14ff2d877589c414a6d267b6e4dc80d8",
+        "f330cfe47d57e8f3ba73db4cf6f352d95c3a94566dd58864884a85351ff7cee6"
+      ],
+      "events": 5,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent directory"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "23afa3201211bd2f23394159d8576cc999a2c41f4f6dff7e0aabbc9a598e06f3",
+        "61ee4eeed3df917a4eb241032188a7887bce0bf283dd08e7c4584281dc7618e2",
+        "fc2c1c2da5b65bdb099eec60c2ad2df087bebadc78f526969ee8ba979925c5fe"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent network"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "068c1a0717599291f2d23120e7326a3113679008c4f00cf53f73d8bb0db6997d",
+        "7fba3e5f98ef35b05335c6719e7f65703b5212e5f17aee7b31a8f0676e9d678a"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent review"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "17ab2d8482fada98a50432b9a5cb2a7d982e00cb033ce0f31bc8c39bbb1ad83b",
+        "ac3305e929aa6978b70655bfb8b884e3880d1060a6d173e495ca4f51e4e131fe",
+        "d42a80b9ceb76f5a273df6613ae880544e82276e57786204d859d5df74684758",
+        "fcc6e9191e3744ad28eee5a06451c7eaba7f09c2345aa76f5af3dea218622b8e"
+      ],
+      "events": 4,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent security"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "3d98ae2b1a969396e4690f6277dc637f479e1f17ee7030bad9f30d871e77a617",
+        "6ac51d8d94a6c98d9f465f7279e199faa1266bbddf38007eacba01f90444f2b7"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News",
+        "Model Context Protocol"
+      ],
+      "tag": "agent trace"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "9ba4c94253fd281af3673a3906b83bfa98eda439a6c517292c79540b815f8b2e"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "agent verification"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "61ee4eeed3df917a4eb241032188a7887bce0bf283dd08e7c4584281dc7618e2",
+        "fc2c1c2da5b65bdb099eec60c2ad2df087bebadc78f526969ee8ba979925c5fe"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent-to-agent call"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "0f563cae8acd179f38eb32e0709d9b7e0a68eb1f4ae2beba84fb2f845350842f",
+        "c022b897622b37287b520d7199a9265d443b82ec4eaea78e23383d5b3862c133"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "agentic coding"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "023cf68de1fe53ede7f62b66a0e13081ede7b191fa77a1c01bd6a68392e01106",
+        "02466974f2fc3f2b7e0b1bea996d62f27806d8cd24c7f224f3525e91141bb90e",
+        "0c7d6f60137efbdbec1d5f686943f8e22a10b4977c26be6c60af58e470c83606",
+        "0f4ba20a74d064a98d4869f6d55454734f33725f83682311fc11b6f58c658b0f",
+        "0fb3f05de2fed8899e81fdf6b6c9039ed81dd3a94a67790e03471fb05c3c2193",
+        "10f0bc22d88c2a1c37a8f06198822a71dea6b08f2e5e51560ad8d7449d5f1818",
+        "17ab2d8482fada98a50432b9a5cb2a7d982e00cb033ce0f31bc8c39bbb1ad83b",
+        "1be3aaf5f88b0cd2e2edef7b9e65d09caefc9a226b14562a411f0308e896e639",
+        "1da1997b3fa8892dacafc9d48f3358f54d940b937364931699369dcc525daf04",
+        "1e67510ec69eb79d7fbba30916cbaef23e81c2d2609536674bb14b5982a9cab8",
+        "2231456c7ef2989ccb605a22f6f2e84c6fdacba0628aff57434a12f0921f87da",
+        "23afa3201211bd2f23394159d8576cc999a2c41f4f6dff7e0aabbc9a598e06f3",
+        "248f10e3d3a0f2267b13278313caa01d18dbfa22407e0b4608f04a20cff49c01",
+        "2f6093e46990222d773f3379967f272effca0c436deb5ecc3aae534108d02443",
+        "2f93daa6426d6651620ce92fa4ed0c384ece4c44704063ecd599dc08beb27403",
+        "310e05351ed833d98ab84acaf9066743341ae255cb11d1f5d92381a4cb1055ea",
+        "366f8aef1d98dcc34538af4969bd50038160f2f56c23627b63c4610c20dbf95a",
+        "3706e627832579e4930dc1ecf40cfbd71102ec908845014b86bcad5442aebe91",
+        "39701191c45813601e63fd170911964b2700b28cac0ec917bc8c9ec0f7346f8a",
+        "3d8154828738a84760ace6c5e6f21632233c52c5de3cf3819b359588d24f3c91",
+        "3d98ae2b1a969396e4690f6277dc637f479e1f17ee7030bad9f30d871e77a617",
+        "47211c061dfb6fa1db7aa838e2be7d530f0c96b73f1a3c9dc886158c0679396a",
+        "47d21af7233b0bd2198ef15d472b0d55be41f34a42f0cf34c73031ef07c5ba2d",
+        "4e5c410e426cf345e86d86da91ba268fd4f094eb1cef1fcb51572fb8ba6c7fb4",
+        "527b26cc83a289c676f262fa53903975b4fa7da6741d9a4cbe06530ddf8d65fe",
+        "54d91239e41f16c2b54bc1496e52c09bc2526394eae3a47e8df23819b84e5b74",
+        "5f3da1be2adce8978c6c521c260ad716e6db6163d58d6681901954456526b5a4",
+        "6167520741ef8cce6336c492707fcb9fc4d3bf4bcd29187e3a7dd1ac221169b5",
+        "61ee4eeed3df917a4eb241032188a7887bce0bf283dd08e7c4584281dc7618e2",
+        "6365fb7994508bbd7850cb510e7cb43ab233c391e7ddbe1cb7c63f6bacf1846d",
+        "6ac51d8d94a6c98d9f465f7279e199faa1266bbddf38007eacba01f90444f2b7",
+        "6c9d69fe27f2e76035296788685b0dd8b8b4e13c15fe46b719309052313e06c8",
+        "700a6cb2ad6ca2c416ac5c069feb3160def743dc22751f3aa1a0ebc5e6fff827",
+        "73e0e8b967c8e2b7dd064d0b9975e4b77f1949b0373c1a63925dc0fae59615a7",
+        "764e6444cdaf9eb1ade5b121bec78d5a7e5a4fd310a9023b5df9c176ce9c1482",
+        "7d3e3c0dc37b7a87c6a3817df978400289a0a6f8b9fa26163e94192883991e9f",
+        "7d778ed9ef1aa4d5eceb968e39803275ee2b1291f26d9424a7c10aae22eb4d40",
+        "7fba3e5f98ef35b05335c6719e7f65703b5212e5f17aee7b31a8f0676e9d678a",
+        "83231e5ecd261dcf29e9dbb4ad31657207234ac05c4742222299f5c7d4fcacc7",
+        "83e6b0b9a309c900e9218b0e901f374a14ff2d877589c414a6d267b6e4dc80d8",
+        "9224dc9198e78d2149c47d20e084567a9c943e7a5a7bb5b9d52f9ea3eace0acb",
+        "9243144fbd229d593bee2cc29434ea85bff731dd769ea0d2c7b99dc6369eadc1",
+        "98b688342ab2027b57774f924dfa9d6f8003408ac8ff3835ffefc0d20dd3e256",
+        "9a63fb790194ee11a07a597e06802437ddb87da2056b7f248bf5b193dbfff968",
+        "9b193df1f55c2de6d88a7fbd5e4e147578701850e11ef3abe4c05c794e0687f3",
+        "a8646ca828f54609235935d0310903fcbec2a0fd99ba048d4fbf8cae60b876a4",
+        "ac3305e929aa6978b70655bfb8b884e3880d1060a6d173e495ca4f51e4e131fe",
+        "b1fe73a693f9a967a644b736127ff61263721edb89e48a99090b57635436ffff",
+        "b4d356dd0ea67281feb3704c43679ab1847bde4d4d67437d99c8e7a4d73cb495",
+        "bcde3497ca207d00952d4b2804e4c20b922dd4e4b2d62a4a29c009febc83d671",
+        "c022b897622b37287b520d7199a9265d443b82ec4eaea78e23383d5b3862c133",
+        "c246982d2f5b0a70f9439956537e4d2efc7e386132dde969dd219568b9520ffe",
+        "cc8d015d30aa7a974d004316f1db39fc17a9d0f65ac75a3d82b1fa18a4fec225",
+        "cf3efb97207c8e53081841c5f8e2101749d159a8ec790cc6ae123ccba117a64c",
+        "d42a80b9ceb76f5a273df6613ae880544e82276e57786204d859d5df74684758",
+        "d60e61097f5f84d87f7007ab87b6ee50c5ce449585621f21afad76647224e61f",
+        "d77e3bea6dcad36260d4a780ddb33d0304f0dfb9c77115c7a11fbc0452d1dd2e",
+        "db489b7c7d6da56e4c045abd5687b0734d63ef46b5ad4e6a8a0df83b28a19de5",
+        "e1fa358f70ded0ddb510f98dc809403b7dc25c44b6b61f02664d0397a2dd97d1",
+        "efe7feb9c00b3dc5b4d6f74488170125ed8895f5a2a63aafccb5206bcaaf9daf",
+        "fc2c1c2da5b65bdb099eec60c2ad2df087bebadc78f526969ee8ba979925c5fe",
+        "fcc6e9191e3744ad28eee5a06451c7eaba7f09c2345aa76f5af3dea218622b8e"
+      ],
+      "events": 62,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "Model Context Protocol"
+      ],
+      "tag": "ai-agent"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "127bc957bcd42469b2fadd9dd30c96c98bc2af8a487dd2d8d1e3939638c16228",
+        "249d0d5e9f6446c64bd61cd1ab85780c0a69efb22915ab8055ae6da863599ac1"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "anthropic"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "0a6ff9e405e3be4c4db35d0649d967a0c32f7077f0ecea2689cf8e97580d0687",
+        "17ab2d8482fada98a50432b9a5cb2a7d982e00cb033ce0f31bc8c39bbb1ad83b",
+        "208d3ed1837d5a13341fce5c27ca018da1e113e61bede65f87008b00503029c2",
+        "249d0d5e9f6446c64bd61cd1ab85780c0a69efb22915ab8055ae6da863599ac1",
+        "2f93daa6426d6651620ce92fa4ed0c384ece4c44704063ecd599dc08beb27403",
+        "366f8aef1d98dcc34538af4969bd50038160f2f56c23627b63c4610c20dbf95a",
+        "3de3106f478e9e737195823ad6fff81f90b9987fd1aee2b8ae2b043141c4a8a5",
+        "44f4872bc1d68d1c39a4aa57fe4b4f99409ccce00d9876a8f96818b71e7d5b89",
+        "47d21af7233b0bd2198ef15d472b0d55be41f34a42f0cf34c73031ef07c5ba2d",
+        "54d91239e41f16c2b54bc1496e52c09bc2526394eae3a47e8df23819b84e5b74",
+        "66908d191493f637452b5ba169de21f2765627814514d9399d5022f8749a13d8",
+        "6ac51d8d94a6c98d9f465f7279e199faa1266bbddf38007eacba01f90444f2b7",
+        "6cc3e9092989bb83eb38f1e092f7d76f7c55a4409cf44d30ad51a452502bf82a",
+        "7f66ea4658e4eceea231d0bafd91e3d39fccd6df777211a349414e76480290bf",
+        "83231e5ecd261dcf29e9dbb4ad31657207234ac05c4742222299f5c7d4fcacc7",
+        "9243144fbd229d593bee2cc29434ea85bff731dd769ea0d2c7b99dc6369eadc1",
+        "968bcc8016d019ea8fc8086122e8b23e68bb7abcf14296322a8bd32324c45441",
+        "9846e43c57cc95a6dc6cb4175d3207eccbd46ba5e647de431e895912efbddc8a",
+        "9ba4c94253fd281af3673a3906b83bfa98eda439a6c517292c79540b815f8b2e",
+        "bf1d2b7dabb7610118e4eacca2d42162b1366d0b3d80bf69acbd463858dbe0e9",
+        "cab5c65f4090d25734d76f81a9ca7a145f2963b476ee8e261105cfa650c245f8",
+        "d359298e38bce7f266c5e88ed484e6ad2f6243275592e05e6be50350ba66e3de",
+        "dc9b4a0c426ddc42fdcf787a56fcbf633cc6d19dad24a7c130a4be2df80e0fb3",
+        "dcee74a69708ba689720fce19ceea5e3b745fee3d27c4354dd2c91390f72beb2",
+        "edd5bd55384b9a4e06e5d7783b3c752b6e2b5fad772612ca4a72e10d9c2a6f60"
+      ],
+      "events": 25,
+      "independent_orgs": 4,
+      "kind": "taxonomy",
+      "orgs": [
+        "GitHub",
+        "Hacker News",
+        "Model Context Protocol",
+        "Simon Willison"
+      ],
+      "tag": "artificial-intelligence"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "014af1395eb8747a4ae3fc77165c48244fb9b334eb765fa5ab14cd437378e0bd",
+        "023cf68de1fe53ede7f62b66a0e13081ede7b191fa77a1c01bd6a68392e01106",
+        "02466974f2fc3f2b7e0b1bea996d62f27806d8cd24c7f224f3525e91141bb90e",
+        "04156141cb3ff0a136737996946eabc2eced7ffcc21c1f8f66c9fc4756fd662c",
+        "0f4ba20a74d064a98d4869f6d55454734f33725f83682311fc11b6f58c658b0f",
+        "0fb3f05de2fed8899e81fdf6b6c9039ed81dd3a94a67790e03471fb05c3c2193",
+        "10f0bc22d88c2a1c37a8f06198822a71dea6b08f2e5e51560ad8d7449d5f1818",
+        "12d043a675428c41fbea664d693c3cfe64c8d9d584688a36be5fbba21f205f4a",
+        "17ab2d8482fada98a50432b9a5cb2a7d982e00cb033ce0f31bc8c39bbb1ad83b",
+        "23afa3201211bd2f23394159d8576cc999a2c41f4f6dff7e0aabbc9a598e06f3",
+        "2f6093e46990222d773f3379967f272effca0c436deb5ecc3aae534108d02443",
+        "2f93daa6426d6651620ce92fa4ed0c384ece4c44704063ecd599dc08beb27403",
+        "310e05351ed833d98ab84acaf9066743341ae255cb11d1f5d92381a4cb1055ea",
+        "366f8aef1d98dcc34538af4969bd50038160f2f56c23627b63c4610c20dbf95a",
+        "3706e627832579e4930dc1ecf40cfbd71102ec908845014b86bcad5442aebe91",
+        "39701191c45813601e63fd170911964b2700b28cac0ec917bc8c9ec0f7346f8a",
+        "3d98ae2b1a969396e4690f6277dc637f479e1f17ee7030bad9f30d871e77a617",
+        "4b6e4dd00bfc1e8cd0090fcb2a45f2b61755edf385df25815560dba849b53b7b",
+        "4e5c410e426cf345e86d86da91ba268fd4f094eb1cef1fcb51572fb8ba6c7fb4",
+        "54d91239e41f16c2b54bc1496e52c09bc2526394eae3a47e8df23819b84e5b74",
+        "5f3da1be2adce8978c6c521c260ad716e6db6163d58d6681901954456526b5a4",
+        "6c9d69fe27f2e76035296788685b0dd8b8b4e13c15fe46b719309052313e06c8",
+        "7389e6bda2294f19a4a886892faaf5d9c4f3381291c4b173d131bad8bea12432",
+        "73e0e8b967c8e2b7dd064d0b9975e4b77f1949b0373c1a63925dc0fae59615a7",
+        "78e3051616d8ccc63fbaceddc4ffe1621ad89ba9fa7388e01d6b7d5bd610d0c9",
+        "7d778ed9ef1aa4d5eceb968e39803275ee2b1291f26d9424a7c10aae22eb4d40",
+        "9224dc9198e78d2149c47d20e084567a9c943e7a5a7bb5b9d52f9ea3eace0acb",
+        "9b193df1f55c2de6d88a7fbd5e4e147578701850e11ef3abe4c05c794e0687f3",
+        "9bf8904d73f966eacae0cb11cdc00bfa30e52d6bc9f98889f15fe674bc292bc1",
+        "ac3305e929aa6978b70655bfb8b884e3880d1060a6d173e495ca4f51e4e131fe",
+        "b1fe73a693f9a967a644b736127ff61263721edb89e48a99090b57635436ffff",
+        "bcde3497ca207d00952d4b2804e4c20b922dd4e4b2d62a4a29c009febc83d671",
+        "c246982d2f5b0a70f9439956537e4d2efc7e386132dde969dd219568b9520ffe",
+        "c266bda3d33cf68dc5d9f86333ee655c2fda7b563786035b64f46fbf45d270b9",
+        "cab5c65f4090d25734d76f81a9ca7a145f2963b476ee8e261105cfa650c245f8",
+        "cc8d015d30aa7a974d004316f1db39fc17a9d0f65ac75a3d82b1fa18a4fec225",
+        "cf3efb97207c8e53081841c5f8e2101749d159a8ec790cc6ae123ccba117a64c",
+        "d42a80b9ceb76f5a273df6613ae880544e82276e57786204d859d5df74684758",
+        "d51ea95e7e30bc173e5ce4dd910fa74c1e8766eff7d77a96f5f2368d604b02d3",
+        "d77e3bea6dcad36260d4a780ddb33d0304f0dfb9c77115c7a11fbc0452d1dd2e",
+        "db489b7c7d6da56e4c045abd5687b0734d63ef46b5ad4e6a8a0df83b28a19de5",
+        "e1fa358f70ded0ddb510f98dc809403b7dc25c44b6b61f02664d0397a2dd97d1",
+        "efe7feb9c00b3dc5b4d6f74488170125ed8895f5a2a63aafccb5206bcaaf9daf",
+        "f1937a5ae1960b51ddaaa8232ae577ba687eddf28eb35499c8b93a3247677017",
+        "f6a7205fb67d2a7b7fdcdd0ff15e18d2a25755c0c04c74d248e3a2201e298b56",
+        "fcc6e9191e3744ad28eee5a06451c7eaba7f09c2345aa76f5af3dea218622b8e"
+      ],
+      "events": 46,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "github"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "17ab2d8482fada98a50432b9a5cb2a7d982e00cb033ce0f31bc8c39bbb1ad83b",
+        "3d8154828738a84760ace6c5e6f21632233c52c5de3cf3819b359588d24f3c91",
+        "7fba3e5f98ef35b05335c6719e7f65703b5212e5f17aee7b31a8f0676e9d678a",
+        "ac3305e929aa6978b70655bfb8b884e3880d1060a6d173e495ca4f51e4e131fe",
+        "d42a80b9ceb76f5a273df6613ae880544e82276e57786204d859d5df74684758",
+        "fcc6e9191e3744ad28eee5a06451c7eaba7f09c2345aa76f5af3dea218622b8e"
+      ],
+      "events": 6,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News",
+        "Model Context Protocol"
+      ],
+      "tag": "guardrail checks"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "92e4f5865f0df2f96a67749311f5b327af23d2554e7f2082eceb8b507afd9182"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "large-language-model"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "1da1997b3fa8892dacafc9d48f3358f54d940b937364931699369dcc525daf04",
+        "44f4872bc1d68d1c39a4aa57fe4b4f99409ccce00d9876a8f96818b71e7d5b89"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "local agent"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "040bf8c9ba9a8039ddb9b42458e7f686708a23e6ae4062dbb3118c92980b657d",
+        "59b0b01445662eb23a8d8a04030ea04adbf032b710424dd64b43866bb813ad3a"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "GitHub"
+      ],
+      "tag": "machine-learning"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "12d043a675428c41fbea664d693c3cfe64c8d9d584688a36be5fbba21f205f4a",
+        "17ab2d8482fada98a50432b9a5cb2a7d982e00cb033ce0f31bc8c39bbb1ad83b",
+        "2f6093e46990222d773f3379967f272effca0c436deb5ecc3aae534108d02443",
+        "51fb2260153a164b818bea61456cfee5473ae1987a04ca3c46ec2d8ecf0a4a28",
+        "83cc9449a7eff60c581ce5a34deca3cdfcdb94b6c4c5126015f5e33e5e47b2e7",
+        "f1937a5ae1960b51ddaaa8232ae577ba687eddf28eb35499c8b93a3247677017",
+        "fcc6e9191e3744ad28eee5a06451c7eaba7f09c2345aa76f5af3dea218622b8e"
+      ],
+      "events": 7,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "mcp"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "12d043a675428c41fbea664d693c3cfe64c8d9d584688a36be5fbba21f205f4a",
+        "17ab2d8482fada98a50432b9a5cb2a7d982e00cb033ce0f31bc8c39bbb1ad83b",
+        "2f6093e46990222d773f3379967f272effca0c436deb5ecc3aae534108d02443",
+        "83cc9449a7eff60c581ce5a34deca3cdfcdb94b6c4c5126015f5e33e5e47b2e7",
+        "9224dc9198e78d2149c47d20e084567a9c943e7a5a7bb5b9d52f9ea3eace0acb",
+        "cf3efb97207c8e53081841c5f8e2101749d159a8ec790cc6ae123ccba117a64c",
+        "f1937a5ae1960b51ddaaa8232ae577ba687eddf28eb35499c8b93a3247677017",
+        "fcc6e9191e3744ad28eee5a06451c7eaba7f09c2345aa76f5af3dea218622b8e"
+      ],
+      "events": 8,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "mcp integration"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-23",
+      "event_ids": [
+        "92e4f5865f0df2f96a67749311f5b327af23d2554e7f2082eceb8b507afd9182",
+        "c022b897622b37287b520d7199a9265d443b82ec4eaea78e23383d5b3862c133"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "subagent workflow"
+    }
+  ]
+}
