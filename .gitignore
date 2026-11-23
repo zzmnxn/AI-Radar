@@ -10,3 +10,4 @@ out/
 .preview-data/
 build/
 *.egg-info/
+.superpowers/
