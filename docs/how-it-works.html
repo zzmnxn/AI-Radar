@@ -324,7 +324,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
   <div class="meta">
     <span>최종 갱신 2026-11-22</span>
-    <span>마지막 반영: 예약 시각 KST 01:07·04:37</span>
+    <span>마지막 반영: arXiv RSS 전환, 예약 시각 KST 01:07·04:37</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
     <span>예산 $0.25/일</span>
   </div>
@@ -434,7 +434,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
         <div class="src">Gemini CLI <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
         <h4 style="margin-top:12px">연구 <span class="chip">research</span></h4>
         <div class="src">Microsoft Research <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
-        <div class="src">arXiv cs.CL <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
+        <div class="src"><span>arXiv cs.CL <span class="mode">RSS</span></span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
         <div class="src"><span>HF Daily Papers <span class="mode open">OPEN</span></span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div></div>
       <div class="lane"><h4>커뮤니티 <span class="chip">community</span></h4>
         <div class="src">Simon Willison <span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></div>
@@ -454,7 +454,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
     <h3>수집기와 안전한 HTTP</h3>
     <p class="files"><code>radar/collect.py</code> · <code>radar/github.py</code> · <code>radar/normalize.py</code> · <code>radar/http.py</code></p>
     <div class="flow">
-      <div class="step"><b>소스 type별 파서</b><small>rss · hackernews · github_search · arxiv · hf_papers · mcp_registry</small></div><span class="arrow">→</span>
+      <div class="step"><b>소스 type별 파서</b><small>rss · hackernews · github_search · hf_papers · mcp_registry (arxiv API 파서는 남아 있으나 2026-11-23부터 미사용: API가 429 반환 → arXiv는 RSS로 수집)</small></div><span class="arrow">→</span>
       <div class="step"><b>안전한 요청</b><small>사설 IP 차단 · 리다이렉트 재검사 · 크기·형식 제한</small></div><span class="arrow">→</span>
       <div class="step"><b>RawItem</b><small>제목 · 정규화 URL · 발행 시각 · HN 점수 · 스타 · 원문 링크</small></div>
     </div>

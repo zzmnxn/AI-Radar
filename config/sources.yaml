@@ -157,16 +157,17 @@
 - id: arxiv-cs-cl
   name: arXiv Computation and Language
   org: arXiv
-  type: arxiv
-  url: https://export.arxiv.org/api/query?search_query=cat%3Acs.CL
+  type: rss
+  url: https://rss.arxiv.org/atom/cs.CL
   source_class: research
   discovery_mode: keyword
-  supports_range: true
+  supports_range: false
   trust: 4
   status: candidate
-  expected_cadence_days: 2
+  # The feed carries each weekday announcement and is empty on weekends.
+  expected_cadence_days: 3
   auth: none
-  terms_note: Public arXiv API metadata for the Computation and Language category.
+  terms_note: Public arXiv RSS feed of the daily cs.CL announcement. The export API answered 429 to every request from 2026-11-19.
 - id: huggingface-daily-papers
   name: Hugging Face Daily Papers
   org: Hugging Face
