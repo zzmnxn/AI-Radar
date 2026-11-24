@@ -1,32 +1,33 @@
 {
   "deadline_kst": "07:00",
   "last_run": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "failed_stage": null,
-    "finished_at": "2026-11-23T01:36:44.030223Z",
-    "message": "interest=10 impact=5 explore=0 star_growth=3 prefilter_excluded=no_repositoryx74,no_signalx67,personnelx1 not_worth_briefing=3 what_unsupported=7 why_unsupported=1 deferred=0",
+    "finished_at": "2026-11-24T00:33:59.477238Z",
+    "message": "interest=10 impact=5 explore=0 star_growth=0 prefilter_excluded=fundingx2,gossipx1,lawsuitx1,no_repositoryx55,no_signalx150,personnelx1 llm_errors=judge:schema_errorx1 not_worth_briefing=2 what_unsupported=7 why_unsupported=2 deferred=1",
     "outcome": "ok",
-    "run_id": "68b11318b51e4185ade42a334f40fa81",
+    "run_id": "50e451231f2b40c88be692a68e86f0ca",
     "sources": {
       "active": 20,
-      "complete": 18,
-      "failed": 2,
-      "partial": 0
+      "complete": 19,
+      "failed": 0,
+      "partial": 1
     },
-    "started_at": "2026-11-23T01:34:27.150412Z"
+    "started_at": "2026-11-24T00:32:00.092837Z"
   },
-  "last_success_at": "2026-11-23T01:34:27.150412Z",
+  "last_success_at": "2026-11-24T00:32:00.092837Z",
   "published": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "files": {
       "briefings/2026-11-20.json": "7373f1537869589faa0232c5a17356d232ea53bd260cbee5ee5228bef9605249",
       "briefings/2026-11-21.json": "3fa03f9adea13164b1b31576da4850ff6d633ad4ba03d8e893e2a1c023f1d489",
       "briefings/2026-11-22.json": "13accb5bf99b0296fdb22ebf4e4a2dc865a84a003ffce2153fa660f7f9b98c2f",
       "briefings/2026-11-23.json": "857e7e5f4e86c195cdbc9b8e1a9e13604d1fb7a941c10c06f8ea78fac47e933f",
-      "index/2026.json": "f21211bc5a24451e36fa928014e493d6add21da2f4c3aad7140eb238c35e1d66"
+      "briefings/2026-11-24.json": "fb2c293667fa408a9c76351b26b0bc4777a7a4cca696b40e21a88425f3a64b44",
+      "index/2026.json": "93810722e2ead04b09170b578a7e6a2632a3f1eafbf492c5d8748d66cd8c89bd"
     },
-    "generated_at": "2026-11-23T01:34:27.150412Z",
-    "run_id": "68b11318b51e4185ade42a334f40fa81"
+    "generated_at": "2026-11-24T00:32:00.092837Z",
+    "run_id": "50e451231f2b40c88be692a68e86f0ca"
   },
   "schema_version": "1.0.0"
 }

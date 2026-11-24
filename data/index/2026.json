@@ -162,5 +162,39 @@
       "Agent402 도구 모음 0.4.0, x402 결제용 MCP 포함",
       "AgentsChat 0.36.31: 공유 MCP 룸과 에이전트 협업 레이어"
     ]
+  },
+  "2026-11-24": {
+    "card_count": 3,
+    "categories": [
+      "AI 코딩 도구",
+      "MCP·도구 연결",
+      "에이전트 설계·스택"
+    ],
+    "headline_ko": "리눅스 보안과 RAG 일관성 강화",
+    "path": "briefings/2026-11-24.json",
+    "tags": [
+      "Bedrock",
+      "Cisco",
+      "Codex",
+      "Linux",
+      "MCP",
+      "OpenAI",
+      "RAG",
+      "TUI",
+      "consistency",
+      "eBPF",
+      "evaluation",
+      "open-source",
+      "reinforcement learning",
+      "retrieval",
+      "runtime protection",
+      "security",
+      "릴리스 노트"
+    ],
+    "titles": [
+      "OpenAI·Cisco, 리눅스 런타임 보호용 Shirudo 공개",
+      "Codex 0.172.0 릴리스",
+      "그룹 유사도 보상으로 RAG 일관성을 높이는 방법"
+    ]
   }
 }

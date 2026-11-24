@@ -1,0 +1,665 @@
+{
+  "active_sources": 20,
+  "date": "2026-11-24",
+  "rows": [
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "015e52a3e9f5ff745e361bdcd86608ecb50e3fafc47cdd00d6c37263236c533d"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent configuration"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "00d52199bef25f9eda98fa79c30b3c80d4e34af93f50b3c1b0911b599d05708b"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Hugging Face"
+      ],
+      "tag": "agentic evaluation"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "06e39acaa6b168d523db901babe31076fb29b21a37b10a9f6e5cf938407bb7ee",
+        "1b8dbec2b48dd0a147a84e80c40fd4b40c05d724a4d64510d9317c8ca2652bd7"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agentic rails"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "015e52a3e9f5ff745e361bdcd86608ecb50e3fafc47cdd00d6c37263236c533d",
+        "01766209ea925051e65773413aeea8e1b724e9c7706d1ea27d903d69240185b0",
+        "09c6b9c2981636ec11fa65a17ef8e7e052a4bde5ce365d76fedf5daa1146ad13",
+        "0c8d722e556afb7efa24194cd2adc055975dc5ab2f5aad302e16ac47699c0910",
+        "0ea47e300ffa519f6ad053079e3e736a5f0d01dff5341f70e551b893672b64bf",
+        "0fb7a19f6ce04e9a3992a2f8c2e62d4a4cc68375a47664b0dba0d030377bd7bc",
+        "10f72567a95eb49832f2acea8818cec7362311bc7ec3276db520598015667f8f",
+        "1b8dbec2b48dd0a147a84e80c40fd4b40c05d724a4d64510d9317c8ca2652bd7",
+        "203245f501ff8aa1ebdffe21afe129ab5fd12a419fb47da24395866bc3176a21",
+        "207ad98a3a68a37bdd84aaab8f2f407e85923886b7494301893415f8a83a1e3d",
+        "2136fe6abba7c9294953b0e055eddcd9876d8c77f47641a72a4f0e9d5dff5e1f",
+        "2159a271ddce9028d8a8ecb0f3d07b04d5fa5bf3af9a0c2bdd513edeeb1ee8f0",
+        "236eeb4f3150a6c91175bef2781172fef4b92481a0bdd836f5239562d550925d",
+        "264d1f47a08ee87bbbd9353c50f76ec47bd2a599c9fca543554e32c3f86dfeec",
+        "26ec14834b5f7422e44f684679d6f16daaa9ccb17fedf1606f71aa693b5e2de9",
+        "29a11c5e59eb0ffa932c56ddb431896073169e9f57f8e45a08ec443028129580",
+        "2a6aeb041c593764c27f1b04be2d494e434525b82bfe1ed5fafe7f14434e14f7",
+        "421bb6047352e1fbc17ee473cfde70d65a1849f98eede5b3eb7f0878dff0807a",
+        "46c62cf73ca9b4221176dbee6e807adc3c8bb6ddc510d96c4e9800b6f461587e",
+        "4c05b47a4c52ce358a46afe824806e5d68d5f2ad482926363f4b7f26f0235174",
+        "5836d36b0cc28e565f54bc861023c70c003ca613771568cd0c9093aaeabfaa31",
+        "6336cfd3186616239088359ce93b72c79c642f4c094f458575511141abee22c3",
+        "66a6271ca6ff59ce64cbf8cd38893d45048dcec223f758e8fe141ce40cba96e8",
+        "68956097a2eb43c54a13a6c8262701fdb6f668110b1f7adc05d53df954fb5c48",
+        "6ae7d6ad1d043a3d15ec6513a395a58c5c6fe4462426130c9488714cf4b8c81e",
+        "7285a218e33ec9b31eebcf21f5a820a9d8dca98b4928cb6588bd5a607de43f14",
+        "73ef86535ccd57fba998fb24387e8976fe368c3cdd417da462009184f8b9b2e7",
+        "7b9f774f76c01beb51829f552e237f133f5267efe3f4dbb3d438461148288f0d",
+        "7c7b0d02ca4d675bb826c515ff3a4fc749409021a5709d2c6529901a34d45b63",
+        "82a7d0ccc3149869e351c9eef86d51b186889259c2df4325728dbec14924ead2",
+        "843a5ec5eed5cbf201aacd68f757cee9a870ae8f75758ecad139982df352dbea",
+        "8942d618c9b8941a8bf6af8d638dd3fc525d0830a25fe9d40e266d8f78cc725a",
+        "8d40ab0bb65155e3c4984b9688c01abf40b1c10dd770c1780e0f321782243695",
+        "9727016a4ca8e93e9549e60fdfcdc9ad0d13beca68e26589c3ee44b3cae34633",
+        "9fd673f4f1d735394fc249616d5ec0cf3115858d7a8a91ccf691055a80b967ff",
+        "a01b73a4accaf20d8da11c1f7710f65649baf66c8a202e78ee2160873b7aaa74",
+        "a1b4357c36a680104a5333aa757793972c05c8e5a348d1b31bfdb4123cd93729",
+        "a6962e8f79a8342ba8f0b202de652dfc94757784c9bb1f1dd53f7e4bcc9abbff",
+        "ac17992db40c492c896e87deba47cbee493fe8ad6e612d9e6ce67d06778c6be2",
+        "adcaf669827425060362d1caceef340eabe544ded15285b39712b38128a2964a",
+        "b68995dd8332683a610d05c56e95f401f7ac23930051689b39a387581901360e",
+        "b6e5eb6dc83c6fa1d956635a60163c32eab2b7a3a95ccc1db9d7441ea2ddd85b",
+        "bd6e50f9b5926e64d2d8654f60bf43e6da75fbed153228abb892645f9b78b377",
+        "cd02a86f341630ad0633b1fb162c1c6988d86e573b6cafbc657103ce09be77f3",
+        "cd8d654651799d82344fbe06707233a95964b234fd66f63489d4acaa21fa516c",
+        "cf9a88cec2703ede06dd40e9b9d9ca2d6e591d29e7f537df8a40d5e493c5d2c1",
+        "d2261dfdcca092b9ebbdfffaeee22b5de7a60af4bb0944e5bf9353aec93ec22c",
+        "d3f0dafb77353ae1a9ab5fd2f6ae6c61e2f75301add90e331cb4573836a489b5",
+        "d919ad4a4085ae126d3a594e0677ffa32ef0a6c088f5e9f69ce98aed18d66c32",
+        "df4811993c7b853f873c4e25699bcd7aaad3b6c91e5289f7fa24f49bfe1d3c36",
+        "e74adcf680e834509ce8f241314d29e895bd40929bbceb4c06fb919aee23aef3",
+        "e957811ac5cf16ad9e8e23755a98c48ac8a4865d218ffaa6fe191139c89f0550",
+        "ec05f319e1eaf4e282fd269287803b16f1f8c61c6adb2feb7adc14fbebac8fd4",
+        "f3deae43622b05891805d9a3e530438c0c39196eb7d20004e61db8cc7ba1379b",
+        "f4cb06ce1d51cc690aa2b0c5d3f68897479e43e565d0f80f1b2bbb59feef430b",
+        "f4e9ae3ad7c40d9214383cb08b1de69b1b944ec1c99d857bb2b27d6279663448",
+        "fb642d0061b1f74bdf9d2e75b828fd19e2579cf4347c089f8fb6cc5cc79352c0",
+        "ff6aa7dbda24cb7e573f14319dbff293d3c61a016aecb6f1009f0a020f21f865"
+      ],
+      "events": 58,
+      "independent_orgs": 3,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "Model Context Protocol",
+        "arXiv"
+      ],
+      "tag": "ai-agent"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "01766209ea925051e65773413aeea8e1b724e9c7706d1ea27d903d69240185b0",
+        "02d764131bcbc19cf2541d9ec6622868421e685ddbf5cf191f649a03608c9c41",
+        "0c8d722e556afb7efa24194cd2adc055975dc5ab2f5aad302e16ac47699c0910",
+        "11a23d78c6ed8ecb72ab7cea20149097f22fe324a3ac5be1df98bda2b4cfab83",
+        "13d3d4d4d5d9715ba207e1f747d8bc49cea84e11cca546710b50d69a51e19cd7",
+        "13e18699cfae8a9e27fd64726b356b3804eba5d50e209c3619c3bf8d89d68f1a",
+        "14beffb876731c8edd2911c9c9c23d735ef6819854c7675892838774c8bdea7c",
+        "14dcac9f333a385ddc7db31f1de6fdcc9054659c5efcaa724be06a0d0c229eb6",
+        "167ce64cfa8375c3a3e00a3f5a06375c37ce88dabc9cf96a4a4dbf7a70caa041",
+        "1c3459be472ceb5f1152ea92b2857e332f4f918f10b15739b3efdb416f0ae6b0",
+        "21aa5c7b801f417baddf9b2a7919384bd01017d2fefab116fe2100a585f43ed2",
+        "21f0cec1cef69a4d798a8a8e91c597e408cf93b232ca9d4547364d3fbeae596d",
+        "236eeb4f3150a6c91175bef2781172fef4b92481a0bdd836f5239562d550925d",
+        "264d1f47a08ee87bbbd9353c50f76ec47bd2a599c9fca543554e32c3f86dfeec",
+        "26ec14834b5f7422e44f684679d6f16daaa9ccb17fedf1606f71aa693b5e2de9",
+        "27d1c52586bcdadd18ef681dd87b9106208aab662a2652b537cd13aded9ebde0",
+        "29a11c5e59eb0ffa932c56ddb431896073169e9f57f8e45a08ec443028129580",
+        "2bfa3b6ffeb3c98e1d49fb8d1cc72c945ebb258f73034d03e72474c3267b75ce",
+        "2f0c5439f4a4377458b51aa6cf930e26bd80f9c3345920b3cb45c2a7fb39a092",
+        "2fc3cd984881c5f377d4e3b8b7be7582e0c1df8c77b6b0cc00b9d447784fdbb3",
+        "2ffd747d4cc71821fc6ce12b192a3d1244708da8e550dedb00d31724e83e84db",
+        "3045f765621b56fbc04d8592ad8e7281c46f6d4501d29671ca603c812e3a9547",
+        "31fdc2b7d4df0e566ff0e6904aa53e168397c8d404c515e0e4ed910cf1b1e6f6",
+        "378f454d978fad8cd6abf6ea672e8c04709db9b1be689243938157cfe6f50bb6",
+        "3fb97c1ba519e6a4fdd038619959c2489dafc1bae3d008c397fc4b080482d283",
+        "413135b2b55fdc2b174be65b2a47c43c52922aa4227bc378bfa620802aeb70e4",
+        "4b65dbbba2b1ee6415ef8481694e6d726821b5e0435558b592f778b3fce7aaca",
+        "4c7218703c0c03db5ef17c07bfed8129b9f84b5804aabc0d5efe237e84488a21",
+        "51787b605ef449fe2e897babbf8c4de7e439c3575dc1a1a37e2d8c7a16f2d186",
+        "529cfa81c55062d265d43ed1245e719af2c9bb9b225a43df638e3390c2ef5835",
+        "566bb3bcc2730ebee381567e022927640644343eca0dc93e9f9c0cba565eab97",
+        "5836d36b0cc28e565f54bc861023c70c003ca613771568cd0c9093aaeabfaa31",
+        "5cce751f430462fc53cb1c1040986b3b46380ce0079dc53e07ff32c662b97c41",
+        "60494d58c36f24fbc4932bcf2571b2a554e22250a40d9c86cd7416b748b559d6",
+        "6ae7d6ad1d043a3d15ec6513a395a58c5c6fe4462426130c9488714cf4b8c81e",
+        "6ee8884c133e48bde0a7b117f524c6dbf9798b96b357d1dd327b24522d087ac6",
+        "702230363e3894a1c809ba53c2e28db801c927b3725cf58ffcab05f27ad1585f",
+        "7285a218e33ec9b31eebcf21f5a820a9d8dca98b4928cb6588bd5a607de43f14",
+        "7e28c534f085e109674a549ef2741e1ea444d173869ac9de6946fee7d0b72da5",
+        "80658ab453c827bcf0447d106eed3c8cdecbf12664eab06664e08c988fdc2209",
+        "85be60c2598acf064ee572278932b684a19612a19f92610b89026a81e54cdd1b",
+        "8b8936e029fd3c11e9f2e04e1cd26c1b4ad6166cbff9f155ac90832fd8aa2307",
+        "8bca130b06e438fe4c3948201a9ee065e3a178ba548cfaac5892397588c70a58",
+        "902a2dfd566a09331dd0e2071f07896632df989d871dac55e649bdfeec947914",
+        "9160252356aef51eaebd605a7be8c1b33b4acf0daccf667728dfb7de6d11d823",
+        "91636e0c606920ab02928d3ee40803d1b7bb5a9bcb5b35cb20f7c968174e05f9",
+        "9525109868228c18fa3b47f73be4e226f2cf9802dae58c815b107e94a8683285",
+        "967c7caa33397786aa17a26d654763c350b841754279b6feb506b5265270d79d",
+        "9727016a4ca8e93e9549e60fdfcdc9ad0d13beca68e26589c3ee44b3cae34633",
+        "98bfded9321f646280ad18d12603ed04a5812d837c8f5168f1c6e4a6d36d1c12",
+        "9a594fd90b594426f24cc97e3090e1b9332846dafe2f6abc9e3e5c0301c45030",
+        "9a88bb00c283b6a858f25f1a106616aef8fd496e3220085fe77a7f582d3ae7fb",
+        "9a9984f32c35ea11de035383c5e9dfc776a3a1173b09270ba0a351831efb1d9c",
+        "9b942abf4f267491a4cb4c29905ec8b798afa52dea243c98ce4761e0b2730c7d",
+        "9e2a3883dd77f7b5b00b3573eab7a4645807fd3063f6468284e482aeeb059257",
+        "9fd673f4f1d735394fc249616d5ec0cf3115858d7a8a91ccf691055a80b967ff",
+        "a01b73a4accaf20d8da11c1f7710f65649baf66c8a202e78ee2160873b7aaa74",
+        "a39a0fd1b50a4d11d71561b00216d3cdd1bf8855d09bed5b7bce073cb6e2a008",
+        "a3dc118b72949bb2ed52493cfac3f209808f1ff13fc271a3039b9a9ef675981a",
+        "a6962e8f79a8342ba8f0b202de652dfc94757784c9bb1f1dd53f7e4bcc9abbff",
+        "ac17992db40c492c896e87deba47cbee493fe8ad6e612d9e6ce67d06778c6be2",
+        "adcaf669827425060362d1caceef340eabe544ded15285b39712b38128a2964a",
+        "aed2f53e7f2a994229077503cfabc06f86dda9d2d42b8f86d7d445edd6e24526",
+        "b3dd5830b7fd0237d6410b0ee4dc840c7012424b205c84486013bf580a3155e6",
+        "b68995dd8332683a610d05c56e95f401f7ac23930051689b39a387581901360e",
+        "b6ce01c2f7cddc72c4b2688e9a44b2ecd5526a6da9f7730cb331d17e45427d4c",
+        "bd6e50f9b5926e64d2d8654f60bf43e6da75fbed153228abb892645f9b78b377",
+        "c1d2b7b3a4d9ea4f642d3f7c681efa4218b566bf14932fd8779ba78a0edc3bf7",
+        "c2849a2e0a0c5eaf39546bcd4a949898303064906c43cb1df744244271be05fa",
+        "c3fb0d1801a99eda73d0c1de62845f068cf3b17c35887b3d977966fcfda227b5",
+        "cab6575db949f805ebaf8e867b842c5ea0d2cf460fb3672b69e7f84c3361e105",
+        "cd02a86f341630ad0633b1fb162c1c6988d86e573b6cafbc657103ce09be77f3",
+        "cd8d654651799d82344fbe06707233a95964b234fd66f63489d4acaa21fa516c",
+        "cf9a88cec2703ede06dd40e9b9d9ca2d6e591d29e7f537df8a40d5e493c5d2c1",
+        "d24f611f2839a1d8be63b3f7911618bce7422a4a4444b26240b4a991c1d2333c",
+        "d701e78037e937fb3f74c0d457269145f00a952ec17e6b6e62381c7da166f53e",
+        "d7ecf6185decf8b6cf2ef7f8d74807de44db798f93d9c5ea2bc152410210ca4d",
+        "d95460d7c4e585aa10a788a9660cf56c8dce89a90f5175e018aff66cc6460df7",
+        "d9b3fac5c26bf5959ef885f8e6496332d61e48d5dd6c9ccc3c8f977560f36799",
+        "db23e78100320fa4fab8e823afee75c2549cce34c817f0ce274670148250b2ab",
+        "df4811993c7b853f873c4e25699bcd7aaad3b6c91e5289f7fa24f49bfe1d3c36",
+        "e0329f2020f2d2c3397fd9eea66c7cc0605aef893fa1a3cc6a609ff6dbfd2812",
+        "e06b3830ea454cb6c95ee230b9770aeee0960ace53b05504c3cff21a32704762",
+        "e1e41e45c4dbd0df8e4d8c059076b9dd02365e5ea2bcc0338ffb6a0f1a7b42e0",
+        "f143c58472b1ba648888132214a3192a1c9e90af3b1aaf73f2a85a366c75cf70",
+        "f166f9fe129c463e6a72a09b9ce2a57b8a1fde51356f1105cff167eb78eee338",
+        "f2337069a1e7bf91e4ef9d43f4c9cde8368d043c3cb5dafe6857660ec47569f5",
+        "f4cb06ce1d51cc690aa2b0c5d3f68897479e43e565d0f80f1b2bbb59feef430b",
+        "f7dfffc2e06f02a660ae7e4b4fd7b88a4a262c8f65d20a9427dbdf5a6599daee"
+      ],
+      "events": 89,
+      "independent_orgs": 4,
+      "kind": "taxonomy",
+      "orgs": [
+        "GitHub",
+        "Hacker News",
+        "Model Context Protocol",
+        "arXiv"
+      ],
+      "tag": "artificial-intelligence"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "a9972b90c90a6092227e4e0f516814192d93532067095ed211bdc795ae567de3"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Anthropic"
+      ],
+      "tag": "claude"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "1068a37e80c3909ed7da0a7de464d82a51ee600a2292c3ef47b5cb4c2b4487d3"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "copy proposals"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "00d52199bef25f9eda98fa79c30b3c80d4e34af93f50b3c1b0911b599d05708b",
+        "08d8cfa0d583fa88c1a10c287ff9fe59d3d5ed5400441d4ec718286bd2a0d9f1",
+        "1c0a2968cec3879ef7eb6e72ceca49cd71144c2203474da98d7f6670354ca3f8",
+        "21aa5c7b801f417baddf9b2a7919384bd01017d2fefab116fe2100a585f43ed2",
+        "4c7218703c0c03db5ef17c07bfed8129b9f84b5804aabc0d5efe237e84488a21",
+        "702230363e3894a1c809ba53c2e28db801c927b3725cf58ffcab05f27ad1585f",
+        "73ef86535ccd57fba998fb24387e8976fe368c3cdd417da462009184f8b9b2e7",
+        "8210de554c266149dafd3f9a147a3a459a1ecde714637d25672633c0bb477775",
+        "902a2dfd566a09331dd0e2071f07896632df989d871dac55e649bdfeec947914",
+        "9160252356aef51eaebd605a7be8c1b33b4acf0daccf667728dfb7de6d11d823",
+        "98bfded9321f646280ad18d12603ed04a5812d837c8f5168f1c6e4a6d36d1c12",
+        "9a594fd90b594426f24cc97e3090e1b9332846dafe2f6abc9e3e5c0301c45030",
+        "a39a0fd1b50a4d11d71561b00216d3cdd1bf8855d09bed5b7bce073cb6e2a008",
+        "ac17992db40c492c896e87deba47cbee493fe8ad6e612d9e6ce67d06778c6be2",
+        "bd6e50f9b5926e64d2d8654f60bf43e6da75fbed153228abb892645f9b78b377",
+        "bdfb006b223237c537ca8384caeda2d1d362c1680b7d40e2d2575c9305532103",
+        "e45d7741173387ab2855f27ef78126e162fc445e2caabef502c76a4da8534c21",
+        "f9765a41a4c800397a583fcc3745766d0c434a696c7725e03bb7a16ce1057dc4"
+      ],
+      "events": 18,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hugging Face",
+        "arXiv"
+      ],
+      "tag": "evaluation"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "0c8d722e556afb7efa24194cd2adc055975dc5ab2f5aad302e16ac47699c0910"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "failure diagnosis"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "015e52a3e9f5ff745e361bdcd86608ecb50e3fafc47cdd00d6c37263236c533d",
+        "09c6b9c2981636ec11fa65a17ef8e7e052a4bde5ce365d76fedf5daa1146ad13",
+        "0ea47e300ffa519f6ad053079e3e736a5f0d01dff5341f70e551b893672b64bf",
+        "10f72567a95eb49832f2acea8818cec7362311bc7ec3276db520598015667f8f",
+        "203245f501ff8aa1ebdffe21afe129ab5fd12a419fb47da24395866bc3176a21",
+        "207ad98a3a68a37bdd84aaab8f2f407e85923886b7494301893415f8a83a1e3d",
+        "2136fe6abba7c9294953b0e055eddcd9876d8c77f47641a72a4f0e9d5dff5e1f",
+        "29a11c5e59eb0ffa932c56ddb431896073169e9f57f8e45a08ec443028129580",
+        "2a6aeb041c593764c27f1b04be2d494e434525b82bfe1ed5fafe7f14434e14f7",
+        "2fc3cd984881c5f377d4e3b8b7be7582e0c1df8c77b6b0cc00b9d447784fdbb3",
+        "41b217ad442d09d262d9d6f1f6d56e33a75791b8c47be9dfd6bdecdc59cf5e02",
+        "421bb6047352e1fbc17ee473cfde70d65a1849f98eede5b3eb7f0878dff0807a",
+        "453719f6eb6ceaa79bd20dd03d95a9bbf952e35e820b42a0844675d59f43f9f2",
+        "4c05b47a4c52ce358a46afe824806e5d68d5f2ad482926363f4b7f26f0235174",
+        "5cce751f430462fc53cb1c1040986b3b46380ce0079dc53e07ff32c662b97c41",
+        "6336cfd3186616239088359ce93b72c79c642f4c094f458575511141abee22c3",
+        "65a83b527afd4e52f708728e0d92a0a42b7e8495d01aa20368685b1b066ecfb8",
+        "66a6271ca6ff59ce64cbf8cd38893d45048dcec223f758e8fe141ce40cba96e8",
+        "68956097a2eb43c54a13a6c8262701fdb6f668110b1f7adc05d53df954fb5c48",
+        "6d6b0f8273aa8f9168f2f75445112f0345cd4b35f54fbc4f60508f43c6dd5e08",
+        "73810142352180229f8ae3d61ccd8af0fade0fdfb3904bc567d2b11c7b147008",
+        "7b9f774f76c01beb51829f552e237f133f5267efe3f4dbb3d438461148288f0d",
+        "843a5ec5eed5cbf201aacd68f757cee9a870ae8f75758ecad139982df352dbea",
+        "8942d618c9b8941a8bf6af8d638dd3fc525d0830a25fe9d40e266d8f78cc725a",
+        "8a94b7b22ef59b9c8c0655be9b083a53737d6225cfa56164daefe0e74b0821a8",
+        "8d40ab0bb65155e3c4984b9688c01abf40b1c10dd770c1780e0f321782243695",
+        "97dfc534c62bfd86c5bb193076a3c22b5dee8b6dcf162dcd5849ebeda3804207",
+        "a1b4357c36a680104a5333aa757793972c05c8e5a348d1b31bfdb4123cd93729",
+        "adcaf669827425060362d1caceef340eabe544ded15285b39712b38128a2964a",
+        "b47862a4bc687e54b749f3a148a839c63c73a1f3486c7a4aa00fe95c28ba6090",
+        "b6e5eb6dc83c6fa1d956635a60163c32eab2b7a3a95ccc1db9d7441ea2ddd85b",
+        "c63583314ad6a456048192a3b536bcaa9186bba729a027a3eccca126c8f249dc",
+        "d2261dfdcca092b9ebbdfffaeee22b5de7a60af4bb0944e5bf9353aec93ec22c",
+        "de2f7568b2a3b72ee5f55152169bf26ebefde46439660b78bc44b86072a5a968",
+        "e957811ac5cf16ad9e8e23755a98c48ac8a4865d218ffaa6fe191139c89f0550",
+        "ee106f0d4072af4de6b804675ab1dfdd26ee7fa5717d375e21244187f7b452ce",
+        "f3deae43622b05891805d9a3e530438c0c39196eb7d20004e61db8cc7ba1379b",
+        "fb642d0061b1f74bdf9d2e75b828fd19e2579cf4347c089f8fb6cc5cc79352c0",
+        "ff6aa7dbda24cb7e573f14319dbff293d3c61a016aecb6f1009f0a020f21f865"
+      ],
+      "events": 39,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "github"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "167ce64cfa8375c3a3e00a3f5a06375c37ce88dabc9cf96a4a4dbf7a70caa041"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "group similarity rewards"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "11a23d78c6ed8ecb72ab7cea20149097f22fe324a3ac5be1df98bda2b4cfab83",
+        "14dcac9f333a385ddc7db31f1de6fdcc9054659c5efcaa724be06a0d0c229eb6",
+        "21f0cec1cef69a4d798a8a8e91c597e408cf93b232ca9d4547364d3fbeae596d",
+        "264d1f47a08ee87bbbd9353c50f76ec47bd2a599c9fca543554e32c3f86dfeec",
+        "26effbb74f8eb3ed6c57bcbb0a5fe68039eb0603ca509f77b727b0c37cda80d0",
+        "27d1c52586bcdadd18ef681dd87b9106208aab662a2652b537cd13aded9ebde0",
+        "31fdc2b7d4df0e566ff0e6904aa53e168397c8d404c515e0e4ed910cf1b1e6f6",
+        "34df0ecb6ca4f4385d811b2cc23c4aae89c498f6766fdf2f1e8794b4ca4208a0",
+        "34fe53695981d43a79c8ef25063f743f72139c3db654efd5d31c80873d4dc532",
+        "40a8bf20dbb6d132dd3262fd337bcc0958ad77fc4893de1425a202bd103f0939",
+        "413135b2b55fdc2b174be65b2a47c43c52922aa4227bc378bfa620802aeb70e4",
+        "4233bb8964c2ec5acaf51597774f6559fa428c74450d126caa9832b8ace1c06f",
+        "51787b605ef449fe2e897babbf8c4de7e439c3575dc1a1a37e2d8c7a16f2d186",
+        "6ee8884c133e48bde0a7b117f524c6dbf9798b96b357d1dd327b24522d087ac6",
+        "71dd2014c0716dc8063ccf8d54731ae9886c78cec62d5c59eb849e866ac151df",
+        "7285a218e33ec9b31eebcf21f5a820a9d8dca98b4928cb6588bd5a607de43f14",
+        "737a2388f7df5ea37ac799dbac4bf1672beeab30c736fd82137609d6dfae2f68",
+        "8210de554c266149dafd3f9a147a3a459a1ecde714637d25672633c0bb477775",
+        "9525109868228c18fa3b47f73be4e226f2cf9802dae58c815b107e94a8683285",
+        "98bfded9321f646280ad18d12603ed04a5812d837c8f5168f1c6e4a6d36d1c12",
+        "9af0575cdb5274cbe49d98f99994bf56ec3bb30bdf063640fdd000bae01c7cad",
+        "9ccb9bac72bf523f4becebf5e52badc92310fa9979812d542c44382e509ff433",
+        "a3dc118b72949bb2ed52493cfac3f209808f1ff13fc271a3039b9a9ef675981a",
+        "a8d184b3499edfa12803cdb51becdc3e564dc8e7e7b1031b18faabc28b188bfb",
+        "aed2f53e7f2a994229077503cfabc06f86dda9d2d42b8f86d7d445edd6e24526",
+        "b3dd5830b7fd0237d6410b0ee4dc840c7012424b205c84486013bf580a3155e6",
+        "c1d2b7b3a4d9ea4f642d3f7c681efa4218b566bf14932fd8779ba78a0edc3bf7",
+        "caefdb769a37f65b83ea93ef0e46b129a80d3cda3055aa3c56fbc0cd7f26a66b",
+        "cf9a88cec2703ede06dd40e9b9d9ca2d6e591d29e7f537df8a40d5e493c5d2c1",
+        "d701e78037e937fb3f74c0d457269145f00a952ec17e6b6e62381c7da166f53e",
+        "df4811993c7b853f873c4e25699bcd7aaad3b6c91e5289f7fa24f49bfe1d3c36",
+        "e1e41e45c4dbd0df8e4d8c059076b9dd02365e5ea2bcc0338ffb6a0f1a7b42e0",
+        "e3c5ce4e7bad957f5379f2dea489b05d510680a21d468f56632d6c612da02251",
+        "e9c8554a1b8ce08ba9cc6b4e82014c709e2917e76f4fd123b68b16279a735be8",
+        "f7dfffc2e06f02a660ae7e4b4fd7b88a4a262c8f65d20a9427dbdf5a6599daee"
+      ],
+      "events": 35,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "arXiv"
+      ],
+      "tag": "large-language-model"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "0da08403671b33ab19b8fbd37d6fa97c0b06c9e261dc2b77489f15934b5afdbd",
+        "14dcac9f333a385ddc7db31f1de6fdcc9054659c5efcaa724be06a0d0c229eb6",
+        "167ce64cfa8375c3a3e00a3f5a06375c37ce88dabc9cf96a4a4dbf7a70caa041",
+        "1b92a5c42d4a33420a53bd1d21da98dae2189ad602db8320847a09a445e2c3c2",
+        "21aa5c7b801f417baddf9b2a7919384bd01017d2fefab116fe2100a585f43ed2",
+        "21f0cec1cef69a4d798a8a8e91c597e408cf93b232ca9d4547364d3fbeae596d",
+        "241e9bd8a3c4288c48280dad28ddc071453222cc3bc90730f23e5b3104df3455",
+        "264d1f47a08ee87bbbd9353c50f76ec47bd2a599c9fca543554e32c3f86dfeec",
+        "2bfa3b6ffeb3c98e1d49fb8d1cc72c945ebb258f73034d03e72474c3267b75ce",
+        "2c0726cbadc066c749b09dbbbb030268e48863f2d06077d6520dd178823ac33a",
+        "2cd166bb396f67325c46ab983cf0a5a12e53e7f4c83ddbb3cf4001cae05eefea",
+        "2f77b78c69b2a525c7984988126793dec248e2f9b655384677ced40db2645d40",
+        "3a6bdcb72c48a73f7f6dec80037b4d9ba83b54ea8b2c0fae502fb11da951bea3",
+        "3ae6c1224e37766868ff94fdf7ce80bf7810bb3edea7f2cbc5a64e1f776ce4f9",
+        "3fb97c1ba519e6a4fdd038619959c2489dafc1bae3d008c397fc4b080482d283",
+        "4233bb8964c2ec5acaf51597774f6559fa428c74450d126caa9832b8ace1c06f",
+        "51787b605ef449fe2e897babbf8c4de7e439c3575dc1a1a37e2d8c7a16f2d186",
+        "566bb3bcc2730ebee381567e022927640644343eca0dc93e9f9c0cba565eab97",
+        "5a58da634f02cc894021184adca7af66414b5d66ef06439bb0e883d7b7f3ee32",
+        "6ee8884c133e48bde0a7b117f524c6dbf9798b96b357d1dd327b24522d087ac6",
+        "71dd2014c0716dc8063ccf8d54731ae9886c78cec62d5c59eb849e866ac151df",
+        "720c3020cb1a6c844b72f379a2f58993add117d7e39e2a27ec50c9cb519d52b2",
+        "73ef86535ccd57fba998fb24387e8976fe368c3cdd417da462009184f8b9b2e7",
+        "80658ab453c827bcf0447d106eed3c8cdecbf12664eab06664e08c988fdc2209",
+        "850c8fc3ffe0affe70a6ed9c2a6a13fbaa06ed4ac764e8f34d2898d02a6fb3b4",
+        "8bca130b06e438fe4c3948201a9ee065e3a178ba548cfaac5892397588c70a58",
+        "a39a0fd1b50a4d11d71561b00216d3cdd1bf8855d09bed5b7bce073cb6e2a008",
+        "aed2f53e7f2a994229077503cfabc06f86dda9d2d42b8f86d7d445edd6e24526",
+        "ba1b7e9501c137dd854d0ebf2023c17c443d367f652e44220f735bfe23800259",
+        "bdbd96f3d15eccf7244fe397f26de3ebf771ff7eac8d5d15de0cfba4a3f32d51",
+        "cf9a88cec2703ede06dd40e9b9d9ca2d6e591d29e7f537df8a40d5e493c5d2c1",
+        "d95460d7c4e585aa10a788a9660cf56c8dce89a90f5175e018aff66cc6460df7",
+        "daae53eab44964f2d1c448f22b4969b019f876266479b43bd9e867159f38b434",
+        "e001485465815cc375d483b4faee6c35b512600015ef64ed98c7d4eed107b83b",
+        "e0329f2020f2d2c3397fd9eea66c7cc0605aef893fa1a3cc6a609ff6dbfd2812",
+        "e1d3b979978824954c9af1ff1865580b4e079c5888f9b5997cd51b94139c7335",
+        "e1e41e45c4dbd0df8e4d8c059076b9dd02365e5ea2bcc0338ffb6a0f1a7b42e0",
+        "e3c5ce4e7bad957f5379f2dea489b05d510680a21d468f56632d6c612da02251",
+        "f46e042d0f23b6f7e3ea4f6d7e8483b9ca87946245a088d467c522da7bf42298",
+        "f9765a41a4c800397a583fcc3745766d0c434a696c7725e03bb7a16ce1057dc4"
+      ],
+      "events": 40,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "machine-learning"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "2136fe6abba7c9294953b0e055eddcd9876d8c77f47641a72a4f0e9d5dff5e1f",
+        "6336cfd3186616239088359ce93b72c79c642f4c094f458575511141abee22c3",
+        "97dfc534c62bfd86c5bb193076a3c22b5dee8b6dcf162dcd5849ebeda3804207",
+        "c63583314ad6a456048192a3b536bcaa9186bba729a027a3eccca126c8f249dc"
+      ],
+      "events": 4,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "mcp"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "75e464b17ca2b088c126f9d718ce0f19cd37334f1015a3abc6ebc4f4ef321ed0"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "microsoft"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "b0689cf87ab570a441c88635b910134907af4a34b0ffafe4d1af03d0273e75fa"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "OpenAI"
+      ],
+      "tag": "openai"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "08d8cfa0d583fa88c1a10c287ff9fe59d3d5ed5400441d4ec718286bd2a0d9f1"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "pre-execution prediction"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "26dc784538b62fa9550cf3944d7d1a67a47d0b4df61ee2801dddc294baa94fbf"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "prompt kv cache"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "1c3459be472ceb5f1152ea92b2857e332f4f918f10b15739b3efdb416f0ae6b0",
+        "1ea9b8bcaf731591b5364a0406f8372489eb3abcf48d14f0411d2df156233746",
+        "2cd166bb396f67325c46ab983cf0a5a12e53e7f4c83ddbb3cf4001cae05eefea",
+        "5ca356fd4958de28fb6da180aace86489f744a579f93d88753639915606abd88",
+        "86dbe53c8a302098699a6b2b3b8c57794a8fe86ace791e5bb675ff6a1de3d0e0",
+        "a39a0fd1b50a4d11d71561b00216d3cdd1bf8855d09bed5b7bce073cb6e2a008",
+        "d24f611f2839a1d8be63b3f7911618bce7422a4a4444b26240b4a991c1d2333c",
+        "d95460d7c4e585aa10a788a9660cf56c8dce89a90f5175e018aff66cc6460df7",
+        "e1d3b979978824954c9af1ff1865580b4e079c5888f9b5997cd51b94139c7335",
+        "f2337069a1e7bf91e4ef9d43f4c9cde8368d043c3cb5dafe6857660ec47569f5"
+      ],
+      "events": 10,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "GitHub",
+        "arXiv"
+      ],
+      "tag": "reasoning"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "0da08403671b33ab19b8fbd37d6fa97c0b06c9e261dc2b77489f15934b5afdbd"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "rollout reuse"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "08d8cfa0d583fa88c1a10c287ff9fe59d3d5ed5400441d4ec718286bd2a0d9f1"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "runtime prediction"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "34df0ecb6ca4f4385d811b2cc23c4aae89c498f6766fdf2f1e8794b4ca4208a0"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "short-horizon supervision"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "14dcac9f333a385ddc7db31f1de6fdcc9054659c5efcaa724be06a0d0c229eb6"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "streaming safety checks"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "241e9bd8a3c4288c48280dad28ddc071453222cc3bc90730f23e5b3104df3455",
+        "566bb3bcc2730ebee381567e022927640644343eca0dc93e9f9c0cba565eab97"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "test-time scaling"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "2bfa3b6ffeb3c98e1d49fb8d1cc72c945ebb258f73034d03e72474c3267b75ce"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "visual kv memory"
+    },
+    {
+      "active_sources": 20,
+      "date": "2026-11-24",
+      "event_ids": [
+        "2000fa5125646eec6995fddd6129980c7b15eb8f8e027281110b6199eed70114"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "weight-space programming"
+    }
+  ]
+}

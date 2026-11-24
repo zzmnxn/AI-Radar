@@ -1,0 +1,274 @@
+{
+  "cards": [
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "e7ca442b74d5ccf08d5720177b683ec1d43a5409bc9bdaaad86f407d5eef01bc",
+      "availability": "unknown",
+      "card_id": "card_e7ca442b74d5",
+      "category": "MCP·도구 연결",
+      "event_id": "b0689cf87ab570a441c88635b910134907af4a34b0ffafe4d1af03d0273e75fa",
+      "how": [],
+      "pool": "impact",
+      "published_at": "2026-11-23T21:20:00Z",
+      "revision": 1,
+      "score": 83.0,
+      "sources": [
+        {
+          "org": "OpenAI",
+          "source_class": "official",
+          "source_id": "openai-news",
+          "title": "OpenAI and Cisco introduce Shirudo",
+          "url": "https://openai.com/index/introducing-shirudo"
+        }
+      ],
+      "tags": [
+        "open-source",
+        "security",
+        "Linux",
+        "eBPF",
+        "runtime protection",
+        "OpenAI",
+        "Cisco"
+      ],
+      "title_ko": "OpenAI·Cisco, 리눅스 런타임 보호용 Shirudo 공개",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "OpenAI and Cisco are launching Shirudo, an open-source runtime that helps teams protect Linux systems while they roll out patches.",
+            "evidence_url": "https://openai.com/index/introducing-shirudo",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "OpenAI와 Cisco가 리눅스용 오픈소스 런타임 Shirudo를 공개했다."
+          },
+          {
+            "evidence_quote": "eBPF shields can block vulnerable code paths without restarting the system.",
+            "evidence_url": "https://openai.com/index/introducing-shirudo",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "재시작 없이 eBPF 보호막으로 실행 중인 서비스의 취약 경로를 막는다."
+          },
+          {
+            "evidence_quote": "Testing and deploying a patch can still take days or weeks. Protecting a service in the meantime can be challenging",
+            "evidence_url": "https://openai.com/index/introducing-shirudo",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "패치가 늦어도 운영 중인 시스템을 임시로 보호할 수 있다."
+          },
+          {
+            "evidence_quote": "give agents programmable controls to investigate vulnerabilities, develop targeted shields, and validate their effectiveness",
+            "evidence_url": "https://openai.com/index/introducing-shirudo",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "실서비스를 내리지 않고 취약점 대응을 자동화할 가능성이 크다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "OpenAI와 Cisco가 리눅스용 오픈소스 런타임 Shirudo를 공개했다.",
+        "재시작 없이 eBPF 보호막으로 실행 중인 서비스의 취약 경로를 막는다."
+      ],
+      "why": [
+        "패치가 늦어도 운영 중인 시스템을 임시로 보호할 수 있다.",
+        "실서비스를 내리지 않고 취약점 대응을 자동화할 가능성이 크다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "39bb52429f37a64fcdaba51f39fb07a4fa98aa0ed4b8f7123e4ea6f0e116dbc5",
+      "availability": "unknown",
+      "card_id": "card_39bb52429f37",
+      "category": "AI 코딩 도구",
+      "event_id": "824283cf95f0a1c656bb60f37b16aff1de556f61b36071898573a285c262385c",
+      "how": [
+        "`/mcp lo`를 입력해 `/mcp login` 자동완성을 써볼 수 있다.",
+        "`config.toml`에서 개별 연결 앱 도구의 approval reviewer를 설정한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-24T00:06:41Z",
+      "revision": 1,
+      "score": 72.0,
+      "sources": [
+        {
+          "org": "OpenAI",
+          "source_class": "official",
+          "source_id": "codex-releases",
+          "title": "Codex 0.172.0",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0"
+        }
+      ],
+      "tags": [
+        "Codex",
+        "릴리스 노트",
+        "MCP",
+        "TUI",
+        "Bedrock"
+      ],
+      "title_ko": "Codex 0.172.0 릴리스",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Follow thread links from search results and transcripts to open saved conversations and nested agents in the terminal. (#62332) - Press `Tab` to complete arguments for supported slash commands. For",
+            "evidence_url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "터미널에서 스레드 링크를 열고 탭으로 슬래시 명령 인자를 자동완성한다."
+          },
+          {
+            "evidence_quote": "Optional stdio MCP servers with cached tool lists now start on their first tool call by default. (#62366) - Set an approval reviewer for individual connected app tools in `config.toml`. (#62360) -",
+            "evidence_url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "MCP 서버 지연 시작, 개별 도구 승인 리뷰어, Bedrock Runtime 선택이 추가됐다."
+          },
+          {
+            "evidence_quote": "open saved conversations and nested agents in the terminal. (#62332) - Press `Tab` to complete arguments for supported slash commands.",
+            "evidence_url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "터미널 코딩 흐름에서 대화·명령·도구 접근이 더 빨라진다."
+          },
+          {
+            "evidence_quote": "Set an approval reviewer for individual connected app tools in `config.toml`. (#62360) - App-server clients can select Amazon Bedrock Runtime during setup or sign-in.",
+            "evidence_url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "MCP와 승인 정책, 실행 환경 선택을 더 세밀하게 다룰 수 있다."
+          },
+          {
+            "evidence_quote": "For example, `/mcp lo` completes to `/mcp login`. (#62343)",
+            "evidence_url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "`/mcp lo`를 입력해 `/mcp login` 자동완성을 써볼 수 있다."
+          },
+          {
+            "evidence_quote": "Set an approval reviewer for individual connected app tools in `config.toml`. (#62360)",
+            "evidence_url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "`config.toml`에서 개별 연결 앱 도구의 approval reviewer를 설정한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "터미널에서 스레드 링크를 열고 탭으로 슬래시 명령 인자를 자동완성한다.",
+        "MCP 서버 지연 시작, 개별 도구 승인 리뷰어, Bedrock Runtime 선택이 추가됐다."
+      ],
+      "why": [
+        "터미널 코딩 흐름에서 대화·명령·도구 접근이 더 빨라진다.",
+        "MCP와 승인 정책, 실행 환경 선택을 더 세밀하게 다룰 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "eb97e3072d57d1a7d6b18db40f9569baec97044523b78f7f018edc8676835af2",
+      "availability": "unknown",
+      "card_id": "card_eb97e3072d57",
+      "category": "에이전트 설계·스택",
+      "event_id": "167ce64cfa8375c3a3e00a3f5a06375c37ce88dabc9cf96a4a4dbf7a70caa041",
+      "how": [],
+      "pool": "interest",
+      "published_at": "2026-11-23T00:00:00-05:00",
+      "revision": 1,
+      "score": 55.0,
+      "sources": [
+        {
+          "org": "arXiv",
+          "source_class": "research",
+          "source_id": "arxiv-cs-cl",
+          "title": "Improving Consistency in Retrieval-Augmented Systems with Group Similarity Rewards",
+          "url": "https://arxiv.org/abs/2510.04392"
+        }
+      ],
+      "tags": [
+        "RAG",
+        "consistency",
+        "reinforcement learning",
+        "retrieval",
+        "evaluation"
+      ],
+      "title_ko": "그룹 유사도 보상으로 RAG 일관성을 높이는 방법",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "e introduce a principled evaluation framework that decomposes RAG consistency into retriever-level, generator-level, and end-to-end components",
+            "evidence_url": "https://arxiv.org/abs/2510.04392",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "RAG의 검색·생성 변동을 분해해 일관성을 평가하는 틀을 제안했다."
+          },
+          {
+            "evidence_quote": "e propose Paraphrased Set Group Relative Policy Optimization (PS-GRPO), an RL approach that leverages multiple rollouts across paraphrased set to assign group similarity rewards.",
+            "evidence_url": "https://arxiv.org/abs/2510.04392",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "파라프레이즈 묶음에 그룹 유사도 보상을 주는 PS-GRPO를 제시했다."
+          },
+          {
+            "evidence_quote": "Our work provides practical solutions for evaluating and building reliable RAG systems for safety-critical deployments.",
+            "evidence_url": "https://arxiv.org/abs/2510.04392",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "안전·신뢰가 중요한 RAG 시스템의 평가와 학습에 바로 참고할 수 있다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "RAG의 검색·생성 변동을 분해해 일관성을 평가하는 틀을 제안했다.",
+        "파라프레이즈 묶음에 그룹 유사도 보상을 주는 PS-GRPO를 제시했다."
+      ],
+      "why": [
+        "안전·신뢰가 중요한 RAG 시스템의 평가와 학습에 바로 참고할 수 있다."
+      ]
+    }
+  ],
+  "counts": {
+    "accepted": 3,
+    "analyzed": 14,
+    "candidates": 15,
+    "deferred": 1,
+    "events": 2320,
+    "raw": 536,
+    "selected": 3
+  },
+  "date": "2026-11-24",
+  "emerging": [
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 9건에서 처음 나타났습니다.",
+      "tag": "computer use"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 2곳의 사건 7건에서 처음 나타났습니다.",
+      "tag": "agent verification"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 6건에서 처음 나타났습니다.",
+      "tag": "context engineering"
+    }
+  ],
+  "generated_at": "2026-11-24T00:32:00.092837Z",
+  "headline_ko": "리눅스 보안과 RAG 일관성 강화",
+  "run_id": "50e451231f2b40c88be692a68e86f0ca",
+  "schema_version": "1.0.0"
+}
