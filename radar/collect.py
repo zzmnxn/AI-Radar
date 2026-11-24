@@ -27,6 +27,7 @@ from .enrich import ArticleParser
 from .github import search_rows
 from .http import FetchError, safe_get
 from .models import Contract, Rating, RawItem, SourceClass
+from .newsletters import editorial_rows, newsletter_rows
 from .normalize import canonical_url
 
 DATE = TypeAdapter(AwareDatetime)
@@ -42,7 +43,13 @@ class Source(Contract):
     name: str
     org: str
     type: Literal[
-        "rss", "hackernews", "github_search", "arxiv", "hf_papers", "mcp_registry"
+        "rss",
+        "tldr",
+        "hackernews",
+        "github_search",
+        "arxiv",
+        "hf_papers",
+        "mcp_registry",
     ]
     url: HttpUrl
     source_class: SourceClass
@@ -55,6 +62,7 @@ class Source(Contract):
     terms_note: str
     # Release feeds title entries with a bare version; prefix the tool name.
     title_prefix: str | None = None
+    editorial_ai: bool = False
     skip_prereleases: bool = False
     # GitHub release feeds have no <published>; their <updated> is the release time.
     published_from_updated: bool = False
@@ -123,12 +131,13 @@ def _item(
     points=None,
     stars=None,
     snippet=None,
+    canonical=None,
     source_tags=(),
 ):
     if not title or not url:
         return None
     url = URL.validate_python(url)
-    canonical = canonical_url(url)
+    canonical = canonical_url(canonical or (target if source.type == "tldr" else url))
     excerpt = ""
     if isinstance(snippet, str) and snippet:
         parser = ArticleParser()
@@ -179,7 +188,16 @@ def _feed_rows(root, base_url):
                 title=entry.findtext(f"{namespace}title"),
                 published=entry.findtext(f"{namespace}published"),
                 updated=entry.findtext(f"{namespace}updated"),
-                snippet=entry.findtext(f"{namespace}summary"),
+                snippet=entry.findtext(f"{namespace}summary")
+                or entry.findtext(f"{namespace}content"),
+                target=next(
+                    (
+                        urljoin(entry_base, n.get("href"))
+                        for n in entry.findall(f"{namespace}link")
+                        if n.get("rel") == "related" and n.get("href")
+                    ),
+                    None,
+                ),
                 source_tags=[
                     node.get("term") for node in entry.findall(f"{namespace}category")
                 ],
@@ -193,6 +211,9 @@ def _feed_rows(root, base_url):
                 title=entry.findtext("title"),
                 published=entry.findtext("pubDate"),
                 snippet=entry.findtext("description"),
+                content=entry.findtext(
+                    "{http://purl.org/rss/1.0/modules/content/}encoded"
+                ),
                 source_tags=[node.text for node in entry.findall("category")],
             )
     else:
@@ -241,7 +262,9 @@ def collect_source(source, now, *, since=None, until=None, fetch=None):
     try:
         if source.type == "rss":
             root = fromstring(fetch_page(url, accept=FEED_TYPES), forbid_dtd=True)
-            rows = _feed_rows(root, url)
+            rows = editorial_rows(_feed_rows(root, url), source.id)
+        elif source.type == "tldr":
+            rows = newsletter_rows(url, start, end, fetch_page)
         elif source.type == "hackernews":
             if source.supports_range and since is not None:
                 parts = urlsplit(url)

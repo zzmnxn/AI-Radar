@@ -323,8 +323,8 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <h1>AI Radar 작동 원리</h1>
   <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
   <div class="meta">
-    <span>최종 갱신 2026-11-22</span>
-    <span>마지막 반영: arXiv RSS 전환, 예약 시각 KST 01:07·04:37</span>
+    <span>최종 갱신 2026-11-24</span>
+    <span>마지막 반영: 편집 피드 원문 발견, 설명 기반 선별, 부분 확인 카드, PostgreSQL 수집 상태</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
     <span>예산 $0.25/일</span>
   </div>
@@ -332,7 +332,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
 
 <div class="pipeline">
   <a class="stage cat-run" href="#run"><span class="k">01 RUN</span><strong>실행·운영</strong><span class="n">1회/일</span><span class="u">GitHub Actions</span></a>
-  <a class="stage cat-collect" href="#collect"><span class="k">02 COLLECT</span><strong>수집</strong><span class="n">448</span><span class="u">원본 항목 · 소스 20곳</span><span class="chip free">비용 0</span></a>
+  <a class="stage cat-collect" href="#collect"><span class="k">02 COLLECT</span><strong>수집</strong><span class="n">448</span><span class="u">원본 항목 · 당시 소스 20곳</span><span class="chip free">비용 0</span></a>
   <a class="stage cat-organize" href="#organize"><span class="k">03 ORGANIZE</span><strong>정리</strong><span class="n">1,883</span><span class="u">누적 사건</span><span class="chip llm">LLM 개념 추출</span></a>
   <a class="stage cat-select" href="#select"><span class="k">04 SELECT</span><strong>후보 선별</strong><span class="n">15</span><span class="u">후보</span><span class="chip free">규칙만 · 비용 0</span></a>
   <a class="stage cat-analyze" href="#analyze"><span class="k">05 ANALYZE</span><strong>분석·검증</strong><span class="n">5</span><span class="u">검증 통과</span><span class="chip llm">LLM 평가·판정</span></a>
@@ -344,7 +344,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
 <!-- ============ 1 RUN ============ -->
 <section class="part cat-run" id="run">
   <div class="part-head"><span class="part-no">1</span><h2>실행·운영</h2></div>
-  <p class="part-summary">서버·DB 없이 Actions와 저장소 파일만으로 돈다. 실패해도 이전 브리핑은 지킨다.</p>
+  <p class="part-summary">Actions는 기본 파일 저장 또는 PostgreSQL 수집 저장을 사용한다. Pages는 검증된 JSON을 읽는다. 실패해도 이전 브리핑은 지킨다.</p>
 
   <article class="module" id="m-actions">
     <h3>하루 실행 흐름</h3>
@@ -416,7 +416,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <p class="part-summary">설정 파일 하나가 볼 곳을 정한다. 소스의 성격(class)·신뢰도(trust)·탐색 방식(mode)이 뒤에서 점수와 풀을 바꾼다.</p>
 
   <article class="module" id="m-sources">
-    <h3>소스 20곳</h3>
+    <h3>소스 22곳</h3><p>GeekNews Atom의 소개문과 TLDR AI의 개별 편집 기사를 수집한다. TLDR의 호 URL과 대상 원문을 함께 보존하고 Sponsor 표기와 유료 링크를 제외한다.</p>
     <p class="files"><code>config/sources.yaml</code> · <code>radar/collect.py</code> (<code>Source</code>)</p>
     <div class="legend" style="margin:0 0 10px"><span><span class="trust"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> trust 1~5 (사전 점수에 가산)</span><span><span class="mode">KW</span> keyword: 원래 AI 소식만</span><span><span class="mode open">OPEN</span> open: 아무 주제나, 탐색용</span></div>
     <div class="board">
@@ -452,6 +452,9 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
 
   <article class="module" id="m-collectors">
     <h3>수집기와 안전한 HTTP</h3>
+    <p class="files"><code>radar/newsletters.py</code> · <code>radar/ingest_store.py</code> · <code>radar/migrations/001_ingest.sql</code></p>
+    <p>Simon Willison·Latent Space·GeekNews의 소개 글과 본문에 명시된 저장소·릴리스·arXiv 링크를 별도 항목으로 보관한다. 원문 링크가 없는 GeekNews 항목은 소개 글을 보존한다.</p>
+    <p><code>RADAR_INGEST_BACKEND=postgres</code>로 설정하면 Actions의 수집 단계가 전용 DB에 발견 경로·사건과 커서를 함께 저장한다. TLDR AI는 기존 관심 용어가 없는 기사도 탐색 후보로 평가하며 한 번에 최대 2개를 후보에 넣는다. 실행당 최대 3개의 원문을 추가 조회하며 최근 7일간의 소개문·원문 발췌를 선별에 사용한다. 실패한 조회는 최대 3회 시도한다. 발행 결과와 예산은 기존 JSON 형식으로 보관한다.</p>
     <p class="files"><code>radar/collect.py</code> · <code>radar/github.py</code> · <code>radar/normalize.py</code> · <code>radar/http.py</code></p>
     <div class="flow">
       <div class="step"><b>소스 type별 파서</b><small>rss · hackernews · github_search · hf_papers · mcp_registry (arxiv API 파서는 남아 있으나 2026-11-23부터 미사용: API가 429 반환 → arXiv는 RSS로 수집)</small></div><span class="arrow">→</span>
@@ -551,7 +554,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
       <div class="gate"><span class="no">3</span><div><b>잡음</b><small>"Who is hiring" 류, 원문 없는 HN 토론</small></div><span class="gdrop zero">—</span></div>
       <div class="gate"><span class="no">4</span><div><b>저장소 없음</b><small>저장소 링크 없는 MCP 레지스트리 항목 (읽을 본문 없음)</small></div><span class="gdrop">−141</span></div>
       <div class="gate"><span class="no">5</span><div><b>제외어</b><small>인사 · 투자 · 가십 · 순위 · 홍보 · 소송 단어. 단 regulation·policy·AI Act 등 keep 단어가 있으면 통과</small></div><span class="gdrop">−3</span></div>
-      <div class="gate"><span class="no">6</span><div><b>AI 관련성</b><small>AI 태그 · 제목의 AI 용어 · (AI 전문 소스 + 관심 분류) 중 하나 필요</small></div><span class="gdrop zero">—</span></div>
+      <div class="gate"><span class="no">6</span><div><b>AI 관련성</b><small>AI 태그 · 제목과 소개문의 AI 용어 · (AI 전문 소스 + 관심 분류) 또는 편집된 AI 피드</small></div><span class="gdrop zero">—</span></div>
       <div class="gate"><span class="no">7</span><div><b>신호 부족</b><small>arXiv · HF Papers · MCP Registry만으로 된 사건은 관심 분류 · 2개 조직 · HN 25점↑ 중 하나 필요</small></div><span class="gdrop">−60</span></div>
     </div>
     <p class="files" style="margin-top:8px">빨간 숫자: 11-22 실행의 탈락 수(실행 요약 <code>prefilter_excluded</code>). 1·2·3·6번은 집계하지 않는다.</p>
@@ -596,7 +599,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
     <div style="font-size:12.5px">공식 블로그 글 — 41점</div>
     <div class="stack"><div style="width:23.8%;background:#2563eb">관심 30</div><div style="width:4%;background:#64748b"></div><div style="width:4%;background:#d97706"></div><div style="width:0.8%;background:#94a3b8"></div></div>
     <div class="stack-legend"><span><i style="background:#2563eb"></i>관심×10</span><span><i style="background:#64748b"></i>trust</span><span><i style="background:#d97706"></i>공식 +5</span><span><i style="background:#94a3b8"></i>조직 수</span><span>(두 막대 같은 축척)</span></div>
-    <div class="callout info">관심 분류 하나가 +30점이라 다른 신호(공식 +5, trust 최대 5)보다 훨씬 크다. 분류 별칭이 제목에 잘 들어가는 MCP·에이전트 저장소가 위로 올라오는 이유다.</div>
+    <div class="callout info">관심 분류 하나가 +30점이라 다른 신호(공식 +5, trust 최대 5)보다 훨씬 크다. 분류 별칭이 제목·소개문에 잘 들어가는 MCP·에이전트 저장소가 위로 올라오는 이유다.</div>
   </article>
 
   <article class="module" id="m-allocate">
@@ -689,8 +692,8 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
     <h4 style="margin:18px 0 6px;font-size:14px">카드 단위 결과</h4>
     <div class="outcomes">
       <div class="outcome keep"><b>verified · 게시</b>모든 문장이 supported</div>
-      <div class="outcome part"><b>partial · 게시</b>What 전부·Why 1개 이상 남음, 일부 삭제. "일부 내용은 근거가 충분하지 않아 제외했습니다" 표시. <code>judge_mode: strict</code>면 폐기</div>
-      <div class="outcome drop"><b>폐기</b>What 문장 중 하나라도 삭제 <code>what_unsupported</code> · Why 전부 삭제 <code>why_unsupported</code></div>
+      <div class="outcome part"><b>partial · 게시</b>What 전부 확인, Why 근거가 없으면 해당 설명을 생략. "일부 내용은 근거가 충분하지 않아 제외했습니다" 표시. <code>judge_mode: strict</code>면 폐기</div>
+      <div class="outcome drop"><b>폐기</b>What 문장 중 하나라도 삭제 <code>what_unsupported</code></div>
     </div>
     <div class="callout warn">11-22: 평가 15건 중 9건이 이 단계에서 폐기(<code>what_unsupported</code> 8). 서술형 긴 글일수록 What 문장 하나가 떨어져 통째로 빠지기 쉽다.</div>
   </article>
@@ -875,7 +878,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <div class="table-wrap"><table>
     <thead><tr><th>바꾸고 싶은 것</th><th>위치</th><th>현재 값</th></tr></thead>
     <tbody>
-      <tr><td>수집 소스</td><td><code>config/sources.yaml</code></td><td>20곳</td></tr>
+      <tr><td>수집 소스</td><td><code>config/sources.yaml</code></td><td>22곳</td></tr>
       <tr><td>관심 분류·별칭·가중치</td><td><code>config/interests.yaml</code></td><td>12개, ×3/×2</td></tr>
       <tr><td>interest 풀 기준</td><td><code>interests.yaml threshold</code></td><td>2</td></tr>
       <tr><td>후보 수</td><td><code>pipeline.yaml min/target/max</code></td><td>8 / 15 / 25</td></tr>

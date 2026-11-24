@@ -11,7 +11,7 @@ from pydantic import Field, model_validator
 from .collect import Source
 
 from .models import Contract, EventRecord, Pool
-from .normalize import external_key, hn_discussion_only, title_tokens
+from .normalize import canonical_url, external_key, hn_discussion_only, title_tokens
 
 from .queue import QUEUE as QUEUE
 from .queue import RETRY_WINDOW as RETRY_WINDOW
@@ -150,7 +150,7 @@ def interest_categories(title: str, interests: Interests) -> list[str]:
     ]
 
 
-def _eligible(events, sources, now, settings, queue, shown, excluded):
+def _eligible(events, sources, now, settings, queue, shown, excluded, descriptions):
     interests, pipeline = settings.interests, settings.pipeline
     latest = {}
     for event in events:
@@ -201,18 +201,21 @@ def _eligible(events, sources, now, settings, queue, shown, excluded):
             excluded[reason] += 1
             continue
         tags = set(event.rule_tags)
+        context = event.title + " " + descriptions.get(event.event_id, "")
+        context_tokens = " " + " ".join(title_tokens(context)) + " "
         if (
-            not tags.intersection(interests.ai_tags)
-            and not any(phrase in f" {title} " for phrase in ai_phrases)
+            not sources[ref.source_id].editorial_ai
+            and not tags.intersection(interests.ai_tags)
+            and not any(phrase in context_tokens for phrase in ai_phrases)
             and not (
                 any(m.ref.source_id in interests.ai_sources for m in event.members)
-                and interest_categories(event.title, interests)
+                and interest_categories(context, interests)
             )
         ):
             continue
         if (
             all(m.ref.source_id in pipeline.signal_sources for m in event.members)
-            and not interest_categories(event.title, interests)
+            and not interest_categories(context, interests)
             and len({m.ref.org for m in event.members}) < 2
             and max((m.ref.metrics.hn_points or 0 for m in event.members), default=0)
             < pipeline.hn_min_points
@@ -349,6 +352,7 @@ def build_candidates(
     emerging_terms: Iterable[str] = (),
     growth: Callable[[str], int | None] | None = None,
     current_stars: Mapping[str, int] | None = None,
+    descriptions: Mapping[str, str] | None = None,
     cached: set[str] | None = None,
 ) -> CandidatePlan:
     interests, pipeline = settings.interests, settings.pipeline
@@ -358,8 +362,18 @@ def build_candidates(
         0, min(call_slots, int((budget_left - headline_reserve) // estimate))
     )
     excluded = Counter()
+    descriptions = descriptions or {}
     eligible = list(
-        _eligible(events, sources, now, settings, queue or {}, shown or set(), excluded)
+        _eligible(
+            events,
+            sources,
+            now,
+            settings,
+            queue or {},
+            shown or set(),
+            excluded,
+            descriptions,
+        )
     )
     points, gains = _impact_signals(
         eligible, pipeline, growth if affordable else None, current_stars or {}
@@ -368,9 +382,20 @@ def build_candidates(
     emerging = set(emerging_terms)
     for event, source, tags, retry in eligible:
         weights = {category.id: category.weight for category in interests.categories}
-        matches = set(interest_categories(event.title, interests))
+        context = event.title + " " + descriptions.get(event.event_id, "")
+        matches = set(interest_categories(context, interests))
         interest = sum(weights[match] for match in matches)
-        independent = len({member.ref.org for member in event.members})
+        independent = min(
+            len({member.ref.org for member in event.members}),
+            len(
+                {
+                    canonical_url(
+                        member.ref.link_target_url or member.ref.canonical_url
+                    )
+                    for member in event.members
+                }
+            ),
+        )
         official = any(
             member.role in {"primary", "official"}
             and member.ref.source_class == "official"
@@ -398,7 +423,7 @@ def build_candidates(
             if official:
                 reasons.append("official")
             if independent >= 3:
-                reasons.append(f"independent_orgs:{independent}")
+                reasons.append(f"distinct_documents:{independent}")
             if hn:
                 reasons.append(f"hn_points:{hn}")
             if stars:
@@ -408,6 +433,7 @@ def build_candidates(
         if (
             "explore" in pools
             and not trending
+            and not source.editorial_ai
             and score < pipeline.explore_min_prescore
         ):
             # Outside-interest items need a new-trend concept or a strong signal.

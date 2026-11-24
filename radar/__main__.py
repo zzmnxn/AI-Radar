@@ -64,9 +64,31 @@ def _collect_events(
             concepts=concepts,
         )
 
+    from . import ingest_store
+
+    remote = os.environ.get("RADAR_INGEST_BACKEND") == "postgres"
+    if remote:
+        with ingest_store.connect() as db:
+            db.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ")
+            if (
+                not db.execute("SELECT EXISTS(SELECT 1 FROM ingest_event)").fetchone()[
+                    0
+                ]
+                and ingest_store.inventory(data)["events"]
+            ):
+                raise ValueError("Import existing events before remote collection")
+            ingest_store.export_state(db, data)
+            expected = ingest_store.health(data)
     results = collect_with_health(
         sources, now, data / "state/source_health.json", before_save=save_events
     )
+    if remote:
+        with ingest_store.connect() as db:
+            changes = grouped.new + grouped.revised + grouped.touched
+            ingest_store.save_batch(
+                db, results, changes, ingest_store.health(data), now, expected
+            )
+        ingest_store.fetch_descriptions(now)
     return results, grouped
 
 
@@ -166,6 +188,13 @@ def _run_command(arguments, data):
                         details=results,
                         concepts=evaluator.concepts,
                     )
+                    if os.environ.get("RADAR_INGEST_BACKEND") == "postgres":
+                        from . import ingest_store
+
+                        with ingest_store.connect() as db:
+                            options["saved_descriptions"] = (
+                                ingest_store.recent_descriptions(db, now)
+                            )
                     options.update(
                         evaluate=evaluator,
                         analyzer_version=evaluator.version,
@@ -260,6 +289,11 @@ def _run_command(arguments, data):
 def main() -> None:
     parser = argparse.ArgumentParser(prog="python -m radar")
     commands = parser.add_subparsers(dest="command", required=True)
+    ingest = commands.add_parser("ingest-db", help="Manage PostgreSQL collection state")
+    ingest.add_argument(
+        "mode", choices=["dry-run", "migrate", "import", "compare", "export", "stats"]
+    )
+    ingest.add_argument("--data", type=Path, default=Path("data"))
     export = commands.add_parser(
         "export-schema", help="Export the Radar JSON Schema contracts"
     )
@@ -294,6 +328,11 @@ def main() -> None:
     )
     arguments = parser.parse_args()
 
+    if arguments.command == "ingest-db":
+        from .ingest_store import command
+
+        command(arguments.mode, arguments.data)
+        return
     if arguments.command == "run":
         data = arguments.data or Path("data")
         if arguments.no_llm and (

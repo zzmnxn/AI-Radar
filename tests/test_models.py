@@ -45,9 +45,8 @@ def test_card_schema():
         "pool": "explore",
     }
     assert Card.model_validate(card).how == []
-    for role in ("what", "why"):
-        with pytest.raises(ValidationError, match=role):
-            Card.model_validate({**card, role: []})
+    with pytest.raises(ValidationError, match="what"):
+        Card.model_validate({**card, "what": []})
 
 
 def test_storage_contract_has_no_raw_body():
@@ -81,3 +80,15 @@ def test_export_schema_cli(tmp_path):
     schema = json.loads((tmp_path / "manifest.schema.json").read_text())
     assert schema["properties"]["schema_version"]["const"] == SCHEMA_VERSION
     assert (tmp_path / "card.schema.json").is_file()
+
+
+def test_fact_only_card_renders_no_why():
+    # Verify against the published card contract, including older snapshots.
+    from pathlib import Path
+
+    card = next(
+        card
+        for p in sorted(Path("data/briefings").glob("*.json"))
+        for card in json.loads(p.read_text()).get("cards", [])
+    )
+    assert Card.model_validate({**card, "why": []}).why == []

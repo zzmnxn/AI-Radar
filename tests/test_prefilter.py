@@ -478,3 +478,24 @@ def test_source_cap_keeps_only_the_newest_release():
     plan = select(events, {"claude-code-releases": feed}, "10")
     assert [c.event.title for c in plan.selected] == ["Claude Code v2.1.2"]
     assert plan.excluded == {"source_cap": 2}
+
+
+def test_description_rescues_opaque_release_title():
+    events, sources = sample(1, title="0.171.0")
+    assert not select(events, sources, "5").selected
+    plan = select(
+        events,
+        sources,
+        "5",
+        descriptions={events[0].event_id: "Codex CLI OpenAI model update"},
+    )
+    assert len(plan.selected) == 1
+
+
+def test_curated_ai_feed_can_discover_unfamiliar_workflow():
+    events, sources = sample(1, title="Nacre Loom", kind="aggregator")
+    sources = {
+        k: s.model_copy(update={"editorial_ai": True}) for k, s in sources.items()
+    }
+    plan = select(events, sources, "5")
+    assert [r.pool for r in plan.selected] == ["explore"]

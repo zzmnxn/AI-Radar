@@ -5,7 +5,7 @@ from .enrich import SourceDoc, claim_window
 from .http import FetchError
 from .models import EvalResult, Verification
 
-VERSION = "w06-v1"
+VERSION = "w06-v2"
 Support = Literal["supported", "partial", "unsupported", "nei"]
 JudgeMode = Literal["normal", "strict"]
 
@@ -95,14 +95,14 @@ def verify(evaluation, docs, judge, check_link, *, mode: JudgeMode = "normal"):
             sections[role].append(sentence)
         claims.append(claim)
     uncertain.difference_update(accepted)
+    if not sections["why"]:
+        uncertain.add(("why", None))
     level = "partial" if uncertain else "verified"
     reason = None
     if not link_ok:
         reason = "primary_link_failed"
     elif len(sections["what"]) != len(evaluation.what):
         reason = "what_unsupported"
-    elif not sections["why"]:
-        reason = "why_unsupported"
     elif mode == "strict" and uncertain:
         reason = "partial_verification"
     for role in ("what", "why"):
