@@ -41,13 +41,14 @@ function Sentences({ items }: { items: string[] }) {
 
 const no = (index: number) => String(index + 1);
 
-function Radar({ cards, emerging, active, onPick }: {
-  cards: Card[]; emerging: Briefing["emerging"]; active: string | null; onPick: (id: string) => void;
+export function Radar({ cards, emerging, active, onPick, compact = false }: {
+  cards: Card[]; emerging: Briefing["emerging"]; active?: string | null; onPick?: (id: string) => void; compact?: boolean;
 }) {
   const { blips, emerging: marks } = layout(cards, emerging.length);
   const { width, cx, cy, bands } = SIZE;
   return (
-    <svg className="radar" viewBox={`0 0 ${width} ${width}`} aria-hidden="true">
+    <svg className={compact ? "radar compact" : "radar"} viewBox={`-8 -8 ${width + 16} ${width + 16}`} aria-hidden="true">
+      <circle className="dial-rim" cx={cx} cy={cy} r={152} />
       {[...bands].reverse().map((r, i) => (
         <circle key={r} className={`band band-${2 - i}`} cx={cx} cy={cy} r={r} />
       ))}
@@ -63,7 +64,7 @@ function Radar({ cards, emerging, active, onPick }: {
       ))}
       {cards.map((card, i) => (
         <g key={card.card_id} className={`blip ring-${ringOf(card.score)}${active === card.card_id ? " active" : ""}`}
-          onClick={() => onPick(card.card_id)}>
+          onClick={onPick && (() => onPick(card.card_id))}>
           <circle cx={blips[i].x} cy={blips[i].y} r={active === card.card_id ? 11 : 9} />
           <text x={blips[i].x} y={blips[i].y + 3.5} textAnchor="middle">{no(i)}</text>
         </g>
@@ -132,7 +133,7 @@ function Item({ card, index, open, onToggle, onHover }: {
   );
 }
 
-export function Edition({ briefing, success }: { briefing: Briefing; success?: string }) {
+export function Edition({ briefing, success, archived = false }: { briefing: Briefing; success?: string; archived?: boolean }) {
   const cards = byImportance(briefing.cards);
   const [opened, setOpened] = useState<Set<string>>(() => new Set());
   const [hovered, setHovered] = useState<string | null>(null);
@@ -153,21 +154,32 @@ export function Edition({ briefing, success }: { briefing: Briefing; success?: s
 
   return (
     <section className="snapshot">
-      <div className="edition-line">
-        <time dateTime={briefing.date}>{briefing.date.replaceAll("-", ".")}</time>
-        <span className="issue">No.{issueNumber(briefing.date)}</span>
-        {success && <span>업데이트 {success}</span>}
-      </div>
-      <h1 className="headline">오늘의 AI 레이더</h1>
-      {!!cards.length && <div className="radar-panel"><div className="radar-heading"><span>◉ SIGNAL RADAR</span><span>{cards.length} SIGNALS</span></div><Radar cards={cards} emerging={briefing.emerging} active={active} onPick={pick} /><p>중심에 가까울수록 중요한 소식 · 번호를 눌러 자세히 보기</p></div>}
-      {!!cards.length && <div className="signals-heading"><div><span>DAILY SIGNALS</span><h2>오늘 포착된 소식</h2></div><span>{cards.length}건 · 중요도순</span></div>}
-      {!!cards.length && <ol className="items" aria-label="오늘의 기사">
-        {cards.map((card, i) => (
-          <Item key={card.card_id} card={card} index={i} open={opened.has(card.card_id)}
-            onToggle={(open) => toggle(card.card_id, open)}
-            onHover={(on) => setHovered(on ? card.card_id : null)} />
-        ))}
-      </ol>}
+      <header className="edition-cover">
+        <h1>{archived ? "지난 AI 레이더" : "오늘의 AI 레이더"}</h1>
+        <div className="edition-line">
+          <time dateTime={briefing.date}>{briefing.date.replaceAll("-", ".")}</time>
+          <span className="issue">No.{issueNumber(briefing.date)}</span>
+        </div>
+      </header>
+      <div className="reading-spread">
+        <aside className="scope-column" aria-label="브리핑 레이더">
+          <div className="cover-scope"><Radar cards={cards} emerging={briefing.emerging} active={active} onPick={pick} /></div>
+          <div className="scope-caption">
+            {!!cards.length && <p>중심에 가까울수록 중요한 소식입니다.<br />번호를 눌러 기사를 펼쳐보세요.</p>}
+            {success && <small>업데이트 {success}</small>}
+          </div>
+        </aside>
+        <div className="reading-column">
+      {!!cards.length && <section className="signal-list">
+        <div className="signals-heading"><div><span>DAILY SIGNALS</span><h2>{archived ? "이날 포착된 소식" : "오늘 포착된 소식"}</h2></div><span>{cards.length}건 · 중요도순</span></div>
+        <ol className="items" aria-label="브리핑 기사">
+          {cards.map((card, i) => (
+            <Item key={card.card_id} card={card} index={i} open={opened.has(card.card_id)}
+              onToggle={(open) => toggle(card.card_id, open)}
+              onHover={(on) => setHovered(on ? card.card_id : null)} />
+          ))}
+        </ol>
+      </section>}
       {!!briefing.emerging.length && <div className="concepts">
         <span className="concepts-label">▲ 떠오르는 개념</span>
         {briefing.emerging.map((item) => (
@@ -181,7 +193,9 @@ export function Edition({ briefing, success }: { briefing: Briefing; success?: s
           })}</ul> : <p className="muted">이 브리핑에는 관련 자료가 저장되어 있지 않습니다.</p>}
         </div>}
       </div>}
-      <p className="lead-note">원본 {counts.raw.toLocaleString("ko-KR")}건 중 {counts.analyzed.toLocaleString("ko-KR")}건을 평가해 {counts.selected}건을 골랐습니다.</p>
+        <p className="lead-note">원본 {counts.raw.toLocaleString("ko-KR")}건 중 {counts.analyzed.toLocaleString("ko-KR")}건을 평가해 {counts.selected}건을 골랐습니다.</p>
+        </div>
+      </div>
     </section>
   );
 }

@@ -324,7 +324,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
   <div class="meta">
     <span>최종 갱신 2026-11-25</span>
-    <span>마지막 반영: 기업 엔지니어링 블로그 10곳 수집과 판정 우대, 레이더·소식 나란한 배치, 밝은·어두운 테마 전환</span>
+    <span>마지막 반영: 브리핑·아카이브 좌우 판형 및 날짜별 레이더 미리보기</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
     <span>예산 $0.60/일</span>
   </div>
@@ -751,7 +751,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <article class="module" id="m-today">
     <h3>오늘 페이지 구성</h3>
     <p class="files"><code>web/src/briefing.tsx</code> (<code>Edition</code>) · <code>web/src/style.css</code></p>
-    <p>데스크톱에서는 레이더와 기사 목록을 나란히 배치하고, 모바일에서는 작은 레이더 아래에 간결한 목록을 배치한다. 화면 상단에서 밝은 테마와 어두운 테마를 전환할 수 있다. 최초 방문에는 기기 설정을 따르고, 선택한 테마는 브라우저에 저장한다. 브리핑과 아카이브에 같은 색상과 읽기 스타일을 적용한다.</p>
+    <p>오늘·지난 브리핑과 아카이브는 상단 제목 아래 왼쪽에 원형 레이더를, 오른쪽에 기사 또는 날짜 목록을 배치한다. 좁은 화면에서는 작은 레이더와 설명 아래 목록이 이어진다. 공유 이미지의 레이더 위에 해당 날짜의 기사 번호와 신흥 개념을 표시한다. 목록에는 분류·제목·요약을 순서대로 표시하고, 펼친 본문은 별도 배경으로 구분한다. 화면 상단에서 밝은 테마와 어두운 테마를 전환할 수 있다. 최초 방문에는 기기 설정을 따르고, 선택한 테마는 브라우저에 저장한다. 브리핑과 아카이브에 같은 색상과 읽기 스타일을 적용한다.</p>
     <div class="flow">
       <div class="step"><b>날짜 줄</b><small>날짜 · No.호수 · 업데이트 시각</small></div><span class="arrow">→</span>
       <div class="step"><b>제목</b><small>오늘의 AI 레이더</small></div><span class="arrow">→</span>
@@ -788,6 +788,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
 
   <article class="module" id="m-archive">
     <h3>아카이브</h3>
+    <p>아카이브 왼쪽은 검색 결과 첫 날짜의 레이더를 표시하고 목록에 마우스를 올리거나 키보드 초점을 옮기면 해당 날짜를 표시한다. 날짜 목록에는 각 브리핑의 기사·신흥 개념 위치를 보여주는 작은 레이더가 있다. 목록 항목이 화면에 가까워지면 그 날짜의 데이터를 읽으며, 날짜를 선택하면 전체 레이더와 기사를 볼 수 있다.</p>
     <p class="files"><code>web/src/archive-page.tsx</code> · <code>web/src/lib/archive.ts</code></p>
     <div class="flow">
       <div class="step"><b>#archive</b><small><code>index/YYYY.json</code>으로 날짜별 헤드라인 목록</small></div><span class="arrow">→</span>

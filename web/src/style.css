@@ -353,31 +353,78 @@ body { background: var(--paper); }
 .concept-details button { display:block; border:0; background:none; color:var(--accent); padding:.2rem 0; text-decoration:underline; cursor:pointer; }
 @media(max-width:35rem) { .item > details > summary { grid-template-columns:2rem minmax(0,1fr) auto; gap:.65rem; } .item-no,.ring-0 .item-no,.ring-1 .item-no { font-size:1.1rem; } .item-body { margin-left:2.65rem; } .snapshot { padding-top:1.5rem; } }
 
-.radar { max-width: 15rem; }
-.radar-panel { margin-bottom: 2rem; }
 
-/* Keep the overview and the reading list visible together. */
-.snapshot { max-width: 73.75rem; display:grid; grid-template-columns:minmax(15rem, 20rem) minmax(0, 1fr); column-gap:clamp(1.5rem, 4vw, 3.5rem); align-items:start; }
-.edition-line, .headline { grid-column:1 / -1; }
-.radar-panel { grid-column:1; grid-row:3 / span 2; margin:1.5rem 0 0; position:sticky; top:1rem; }
-.signals-heading { grid-column:2; grid-row:3; margin-top:1.5rem; }
-.items { grid-column:2; grid-row:4 / span 2; }
-.concepts { grid-column:1; grid-row:5; margin-top:1.25rem; }
-.lead-note { grid-column:1 / -1; }
-.item > details > summary { padding:.95rem .1rem; }
-.item-head { gap:.3rem; }
-.item-title,.ring-0 .item-title { font-size:1.05rem; line-height:1.45; }
-.item-what { font-size:.95rem; line-height:1.55; }
-.item-body { background:var(--surface); border-left:2px solid var(--line); margin:0 0 1rem 4.5rem; padding:1rem; }
-.item-why-full b,.more dt { font-size:.85rem; }
+/* The cover uses the original radar artwork, cropped to its circular face. */
+:root { --paper: #f8f3e8; --surface: #fffaf0; --line: #d5cfc0; }
+.snapshot { max-width: none; padding-top: 0; }
+/* The same ink, fine rules and tabular figures run from masthead to index. */
+:root { --accent: #16533b; --ink: #15271c; --muted: #546358; --line: #c9cec1; --code-bg: #e9eadf; }
+:root[data-theme="dark"] { --paper: #101914; --surface: #19251e; --accent: #a0d8af; --ink: #edf1e3; --line: #3c5042; --muted: #b2c1b4; }
+.masthead { background: var(--paper); border-top: .26rem solid var(--accent); }
+.wordmark { font: 700 2rem var(--serif); letter-spacing: -.06em; }
+.edition-cover { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .4rem 1rem; padding: clamp(1rem, 3vw, 2.2rem) 0 1rem; border-bottom: 3px double var(--accent); }
+.edition-cover h1 { margin: 0; color: var(--ink); font-size: clamp(1.8rem, 4.2vw, 3.6rem); line-height: 1.15; letter-spacing: -.07em; }
+.edition-line time, .edition-line .issue, .scope-caption time { font: 650 .9rem var(--mono); color: var(--accent); }
+.reading-spread { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: start; padding-top: 1.5rem; }
+.scope-column { position: sticky; top: 1.5rem; }
+.scope-column .cover-scope { display: block; width: 100%; }
+.scope-caption { margin-top: 1rem; border-block-start: 1px solid var(--line); padding-top: .75rem; color: var(--muted); font-size: .88rem; }
+.scope-caption p { margin: 0 0 .4rem; }
+.scope-caption a { display: block; font-weight: 650; }
+.reading-column { min-width: 0; border-inline-start: 1px solid var(--line); padding-inline-start: clamp(1rem, 2.5vw, 2.25rem); }
+.signals-heading > div > span, .item .item-no, .item-category { color: var(--accent); }
+.item:has(details[open]), .archive-row:hover, .archive-row:focus-visible { background: color-mix(in srgb, var(--accent) 5%, var(--paper)); }
+.cover-scope, .archive-dial {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #063e27 url("/og.png") 94.4% 44% / 267% auto no-repeat;
+}
+.cover-scope { width: min(100%, 28rem); justify-self: end; }
+.cover-scope .radar, .archive-dial .radar { display: block; width: 100%; max-width: none; margin: 0; }
+.band, .axis, .dial-rim { fill: none; stroke: #b8efc9; stroke-width: .65; opacity: .35; }
+.ring-label { fill: #e5f5e6; font-size: 9px; }
+.blip circle, .blip.ring-1 circle { fill: #e5ffda; stroke: #073b29; }
+.blip.ring-0 circle { fill: #c6f59d; }
+.blip.active circle { fill: white; stroke: #9bedaf; }
+.mark, .mark.discovery { fill: #f5d19a; }
+.signal-list, .concepts, .lead-note { max-width: 52rem; margin-inline: auto; }
+.signal-list { margin-top: 0; }
+
+.archive-row { grid-template-columns: 4.5rem minmax(0, 1fr) auto; align-items: center; }
+.archive-dial { width: 100%; grid-column: 1; grid-row: 1 / span 2; }
+.archive-row time { grid-column: 2; }
+.archive-row > div { grid-column: 2; }
+.archive-row .row-arrow { grid-column: 3; grid-row: 1 / span 2; }
+.compact .ring-label, .compact .blip text { display: none; }
 @media (max-width: 47rem) {
-  .snapshot { display:block; padding-top:1rem; }
-  .headline { font-size:1.5rem; margin-top:.35rem; }
-  .radar-panel { position:static; display:grid; grid-template-columns:minmax(0,1fr) 7rem; align-items:center; gap:.25rem 1rem; padding:.9rem 1rem; margin:1rem 0 1.25rem; }
-  .radar-heading { grid-column:1; flex-direction:column; gap:.35rem; }
-  .radar { grid-column:2; grid-row:1 / span 2; width:100%; margin:0; }
-  .radar-panel p { grid-column:1; text-align:left; margin:0; font-size:.78rem; }
-  .signals-heading { margin-top:0; padding-bottom:.65rem; }
-  .item > details > summary { padding:.8rem .1rem; }
-  .item-body { margin-left:2.65rem; }
+  .edition-cover { gap: .75rem; }
+  .cover-hint, .cover-meta { font-size: .78rem; }
+  .edition-cover h1 span { font-size: clamp(2.5rem, 9.5vw, 4.5rem); }
+  .archive-row { grid-template-columns: 3.5rem minmax(0,1fr) auto; }
+}
+.item > details > summary { grid-template-columns: 2.5rem minmax(0,1fr) 1.25rem; padding: 1.35rem 0; gap: .85rem; }
+.item-head { gap: .45rem; }
+.item-category { color: var(--muted); font-size: .8rem; }
+.item-title, .ring-0 .item-title { font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.45; letter-spacing: -.025em; }
+.item-what { line-height: 1.8; max-width: 64ch; }
+.item-body { margin: 0 0 1.4rem 3.35rem; padding: 1.2rem; background: var(--surface); border-inline-start: 2px solid var(--line); line-height: 1.85; }
+.item-why-full, .item-body .sources, .more { margin-top: 1rem; }
+.item-why-full b, .more dt { font-size: .88rem; }
+blockquote { padding: .25rem .8rem; font-size: .95rem; }
+@media (max-width: 47rem) {
+  .snapshot { display: block; padding-top: 1.5rem; }
+
+  .radar { max-width: 16rem; }
+  .items { margin-top: 0; }
+  .item > details > summary { grid-template-columns: 1.6rem minmax(0,1fr) 1rem; gap: .5rem; }
+  .item-body { margin-left: 0; }
+}
+
+@media (max-width: 43rem) {
+  .reading-spread { grid-template-columns: minmax(0,1fr); gap: 1rem; padding-top: 1rem; }
+  .scope-column { position: static; display: flex; gap: 1rem; align-items: center; }
+  .scope-column .cover-scope { width: clamp(7.5rem, 32vw, 12rem); flex-shrink: 0; }
+  .scope-caption { margin: 0; padding: 0; border: 0; }
+  .reading-column { padding: 0; border: 0; }
 }

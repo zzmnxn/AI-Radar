@@ -1,5 +1,6 @@
-import { useCallback, useState } from "react";
-import { Edition } from "./briefing";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Edition, Radar } from "./briefing";
+import { byImportance } from "./lib/radar";
 import { archiveYears, filterArchive } from "./lib/archive";
 import { loadArchive, loadBriefing, SchemaVersionError } from "./lib/data";
 import { useResource } from "./lib/resource";
@@ -20,16 +21,39 @@ function ArchivedEdition({ manifest, date }: { manifest: Manifest; date: string 
   return (
     <>
       <a className="back-link" href="#archive">← 아카이브</a>
-      {result && "data" in result ? <Edition briefing={result.data} />
+      {result && "data" in result ? <Edition briefing={result.data} archived />
         : <section className="lead"><h1>{date.replaceAll("-", ".")}</h1><DataMessage resource={result} /></section>}
     </>
   );
+}
+
+function ArchiveDial({ manifest, day, large = false }: { manifest: Manifest; day: string; large?: boolean }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisible(true);
+        observer.disconnect();
+      }
+    }, { rootMargin: "200px" });
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  const read = useCallback((signal: AbortSignal) => visible ? loadBriefing(manifest, day, signal) : Promise.resolve(null), [manifest, day, visible]);
+  const result = useResource(read);
+  const briefing = result && "data" in result && result.data;
+  return <span className={large ? "cover-scope" : "archive-dial"} ref={ref} aria-hidden="true">
+    {briefing && <Radar compact={!large} cards={byImportance(briefing.cards)} emerging={briefing.emerging} />}
+  </span>;
 }
 
 export function Archive({ manifest, date }: { manifest: Manifest; date: string | null }) {
   const years = archiveYears(manifest.published?.files ?? {});
   const initialYear = date?.slice(0, 4) ?? "";
   const [year, setYear] = useState(years.includes(initialYear) ? initialYear : years[0] ?? "");
+  const [previewDay, setPreviewDay] = useState("");
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [tag, setTag] = useState("");
@@ -48,9 +72,23 @@ export function Archive({ manifest, date }: { manifest: Manifest; date: string |
   const tags = sorted(entries.flatMap((entry) => entry.tags));
   const rows = index ? filterArchive(index, query, category, tag) : [];
 
+  const day = rows.find(([value]) => value === previewDay)?.[0] ?? rows[0]?.[0];
+
   return (
     <>
-      <section className="lead archive-lead"><h1>아카이브</h1></section>
+      <header className="edition-cover">
+        <h1>브리핑 아카이브</h1>
+      </header>
+      <div className="reading-spread">
+        <aside className="scope-column" aria-label="날짜별 레이더">
+          {day ? <>
+            <ArchiveDial manifest={manifest} day={day} large />
+            <div className="scope-caption"><time dateTime={day}>{day.replaceAll("-", ".")}</time>
+              <a href={`#archive/${day}`}>이날 브리핑 읽기 ↗</a>
+            </div>
+          </> : <div className="cover-scope" aria-hidden="true" />}
+        </aside>
+        <div className="reading-column">
       {years.length > 0 ? <>
         <form className="archive-filters" role="search" onSubmit={(event) => event.preventDefault()}>
           <label className="search-field">제목·키워드
@@ -83,8 +121,9 @@ export function Archive({ manifest, date }: { manifest: Manifest; date: string |
           <p className="result-count" role="status">{rows.length ? `브리핑 ${rows.length}건` : "검색 조건에 맞는 브리핑이 없습니다."}</p>
           <ol className="archive-list">
             {rows.map(([day, entry]) => (
-              <li key={day}>
+              <li key={day} onMouseEnter={() => setPreviewDay(day)} onFocus={() => setPreviewDay(day)}>
                 <a className="archive-row" href={`#archive/${day}`}>
+                  <ArchiveDial manifest={manifest} day={day} />
                   <time dateTime={day}>{day.replaceAll("-", ".")}</time>
                   <div>
                     <h2>{entry.headline_ko}</h2>
@@ -97,6 +136,8 @@ export function Archive({ manifest, date }: { manifest: Manifest; date: string |
           </ol>
         </>}
       </> : <p className="muted">아카이브에 등록된 브리핑이 없습니다.</p>}
+        </div>
+      </div>
     </>
   );
 }
