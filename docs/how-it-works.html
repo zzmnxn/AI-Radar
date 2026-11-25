@@ -326,7 +326,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
     <span>최종 갱신 2026-11-25</span>
     <span>마지막 반영: 후보 1차 판정(작은 모델)과 개수 비고정 선별, 하루 호출 한도 101</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
-    <span>예산 $0.25/일</span>
+    <span>예산 $0.60/일</span>
   </div>
 </header>
 
@@ -881,8 +881,8 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
       <tr><td>수집 소스</td><td><code>config/sources.yaml</code></td><td>22곳</td></tr>
       <tr><td>관심 분류·별칭·가중치</td><td><code>config/interests.yaml</code></td><td>12개, ×3/×2</td></tr>
       <tr><td>interest 풀 기준</td><td><code>interests.yaml threshold</code></td><td>2</td></tr>
-      <tr><td>후보 수</td><td><code>pipeline.yaml min/target/max</code></td><td>8 / 15 / 25</td></tr>
-      <tr><td>풀 비율</td><td><code>pipeline.yaml pool_percent</code></td><td>40 / 35 / 25</td></tr>
+      <tr><td>후보 수 (1차 판정 실패 시)</td><td><code>pipeline.yaml min/target/max</code></td><td>8 / 15 / 25</td></tr>
+      <tr><td>풀 비율 (1차 판정 실패 시)</td><td><code>pipeline.yaml pool_percent</code></td><td>40 / 35 / 25</td></tr>
       <tr><td>impact 기준</td><td><code>hn_min_points</code>, <code>impact_top</code></td><td>25점, 상위 10</td></tr>
       <tr><td>제외어·예외어</td><td><code>exclude</code>, <code>keep</code></td><td>6개 사유</td></tr>
       <tr><td>신호 필요 소스</td><td><code>signal_sources</code></td><td>arXiv, HF Papers, MCP Registry</td></tr>
@@ -891,7 +891,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
       <tr><td>검증 엄격도</td><td><code>judge_mode</code></td><td>normal</td></tr>
       <tr><td>점수 가중치</td><td><code>radar/analysis.py WEIGHTS</code></td><td>30/25/20/15/10</td></tr>
       <tr><td>평가 기준·제외 출구</td><td><code>prompts/evaluate.md</code></td><td>—</td></tr>
-      <tr><td>모델·예산</td><td>Actions 변수 <code>RADAR_*</code></td><td>gpt-5.4-mini, $0.25</td></tr>
+      <tr><td>모델·예산</td><td>Actions 변수 <code>RADAR_*</code></td><td>gpt-5.4-mini, $0.60</td></tr>
       <tr><td>예약 시각</td><td><code>daily.yml cron</code></td><td>16:07, 19:37 UTC (KST 01:07, 04:37)</td></tr>
       <tr><td>화면 마감</td><td>manifest <code>deadline_kst</code></td><td>07:00</td></tr>
       <tr><td>헤드라인 길이·문체</td><td><code>prompts/headline.md</code>, <code>radar/llm.py Headline</code></td><td>30자</td></tr>
