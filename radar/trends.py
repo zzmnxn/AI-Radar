@@ -7,7 +7,7 @@ from zoneinfo import ZoneInfo
 
 from pydantic import Field
 
-from .models import Contract, Count, EmergingItem, EventRecord
+from .models import Contract, Count, EmergingItem, EmergingSource, EventRecord
 from .storage import write_json_atomic
 
 KST = ZoneInfo("Asia/Seoul")
@@ -160,6 +160,7 @@ def record_trends(
     active_sources: int,
     taxonomy_tags: Iterable[str],
 ) -> list[EmergingItem]:
+    events = list(events)
     history = {}
     for path in sorted(directory.glob("*.json")):
         day = TrendDay.model_validate_json(path.read_bytes())
@@ -177,4 +178,40 @@ def record_trends(
         )
         write_json_atomic(directory / f"{day}.json", snapshot.model_dump(mode="json"))
         history[day] = snapshot
-    return emerging(history.values(), today)
+    results = emerging(history.values(), today)
+    by_id = {event.event_id: event for event in events}
+    for result in results:
+        window = 14 if result.kind == "discovery" else 7
+        ids = {
+            event_id
+            for day in history.values()
+            if 0 <= (today - day.date).days < window
+            for row in day.rows
+            if row.kind == "concept" and row.tag == result.tag
+            for event_id in row.event_ids
+        }
+        for event_id in sorted(ids):
+            event = by_id.get(event_id)
+            if not event:
+                continue
+            eligible = [
+                member.ref
+                for member in event.members
+                if member.ref.first_seen_at.astimezone(KST).date() <= today
+            ]
+            if not eligible:
+                continue
+            ref = next(
+                (ref for ref in eligible if ref.item_id == event.primary_item_id),
+                eligible[0],
+            )
+            result.sources.append(
+                EmergingSource(
+                    event_id=event_id,
+                    title=ref.title,
+                    org=ref.org,
+                    url=ref.url,
+                    published_at=ref.published_at,
+                )
+            )
+    return results

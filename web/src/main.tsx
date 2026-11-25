@@ -46,6 +46,17 @@ function Footer({ manifest, build }: Snapshot) {
 }
 
 function App() {
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    try {
+      const saved = localStorage.getItem("radar-theme");
+      if (saved === "light" || saved === "dark") return saved;
+    } catch { /* Use the system preference when storage is unavailable. */ }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem("radar-theme", theme); } catch { /* The theme still works for this session. */ }
+  }, [theme]);
   const [route, setRoute] = useState(() => readRoute(window.location.hash));
   const snapshot = useResource(loadSnapshot);
   const heading = route.page === "today" ? "오늘의 브리핑" : "아카이브";
@@ -69,6 +80,11 @@ function App() {
             <a href="#today" aria-current={route.page === "today" ? "page" : undefined}>오늘</a>
             <a href="#archive" aria-current={route.page === "archive" ? "page" : undefined}>아카이브</a>
           </nav>
+          <button className="theme-toggle" type="button" onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            aria-label={theme === "light" ? "어두운 테마로 전환" : "밝은 테마로 전환"}>
+            <span aria-hidden="true">{theme === "light" ? "☾" : "☀"}</span>
+            <span className="theme-label">{theme === "light" ? "다크" : "라이트"}</span>
+          </button>
         </div>
       </header>
       <main className="wrap" id="content" tabIndex={-1}>

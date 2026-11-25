@@ -267,10 +267,19 @@ class BriefingCounts(Contract):
     deferred: Count
 
 
+class EmergingSource(Contract):
+    event_id: str
+    title: str
+    org: str
+    url: HttpUrl
+    published_at: AwareDatetime | None = None
+
+
 class EmergingItem(Contract):
     tag: str
     kind: Literal["discovery", "watch"]
     reason_ko: str
+    sources: list[EmergingSource] = Field(default_factory=list)
 
 
 class Briefing(Contract):

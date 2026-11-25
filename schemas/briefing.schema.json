@@ -352,6 +352,13 @@
           "title": "Reason Ko",
           "type": "string"
         },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/EmergingSource"
+          },
+          "title": "Sources",
+          "type": "array"
+        },
         "tag": {
           "title": "Tag",
           "type": "string"
@@ -363,6 +370,51 @@
         "reason_ko"
       ],
       "title": "EmergingItem",
+      "type": "object"
+    },
+    "EmergingSource": {
+      "additionalProperties": false,
+      "properties": {
+        "event_id": {
+          "title": "Event Id",
+          "type": "string"
+        },
+        "org": {
+          "title": "Org",
+          "type": "string"
+        },
+        "published_at": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Published At"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "url": {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "event_id",
+        "title",
+        "org",
+        "url"
+      ],
+      "title": "EmergingSource",
       "type": "object"
     },
     "VerificationSummary": {

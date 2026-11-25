@@ -103,6 +103,12 @@ def test_discovery_requires_two_distinct_events_and_orgs(tmp_path):
     assert [(row.tag, row.kind) for row in result.emerging] == [
         ("novamesh", "discovery")
     ]
+    sources = result.emerging[0].sources
+    assert {str(source.url) for source in sources} == {
+        "https://example.org/a",
+        "https://other.org/c",
+    }
+    assert len({source.event_id for source in sources}) == 2
 
 
 def test_watch_requires_history_and_source_normalized_growth():

@@ -89,7 +89,16 @@ export type ClaimCheck = {
 export type EmergingItem = {
   "kind": "discovery" | "watch";
   "reason_ko": string;
+  "sources"?: Array<EmergingSource>;
   "tag": string;
+};
+
+export type EmergingSource = {
+  "event_id": string;
+  "org": string;
+  "published_at"?: string | null;
+  "title": string;
+  "url": string;
 };
 
 export type EvalResult = {

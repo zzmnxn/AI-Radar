@@ -47,13 +47,14 @@ function Radar({ cards, emerging, active, onPick }: {
   const { blips, emerging: marks } = layout(cards, emerging.length);
   const { width, cx, cy, bands } = SIZE;
   return (
-    <svg className="radar" viewBox={`0 0 ${width} ${cy + 14}`} aria-hidden="true">
+    <svg className="radar" viewBox={`0 0 ${width} ${width}`} aria-hidden="true">
       {[...bands].reverse().map((r, i) => (
-        <path key={r} className={`band band-${2 - i}`} d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy} Z`} />
+        <circle key={r} className={`band band-${2 - i}`} cx={cx} cy={cy} r={r} />
       ))}
       <line className="axis" x1={cx - bands[2]} y1={cy} x2={cx + bands[2]} y2={cy} />
+      <line className="axis" x1={cx} y1={cy - bands[2]} x2={cx} y2={cy + bands[2]} />
       {RING_LABELS.map((label, ring) => (
-        <text key={label} className="ring-label" x={cx - (ring ? (bands[ring - 1] + bands[ring]) / 2 : bands[0] / 2)} y={cy + 11} textAnchor="middle">{label}</text>
+        <text key={label} className="ring-label" x={cx} y={cy + (ring ? (bands[ring - 1] + bands[ring]) / 2 : bands[0] / 2)} textAnchor="middle">{label}</text>
       ))}
       {marks.map((p, i) => (
         <path key={emerging[i].tag} className={`mark ${emerging[i].kind}`} d={`M ${p.x} ${p.y - 6} l 6 10 h -12 z`}>
@@ -82,10 +83,12 @@ function Item({ card, index, open, onToggle, onHover }: {
       onMouseEnter={() => onHover(true)} onMouseLeave={() => onHover(false)}>
       <details open={open} onToggle={(event) => onToggle(event.currentTarget.open)}>
         <summary>
-          <span className="item-no">{no(index)}</span>
+          <span className="item-no">{String(index + 1).padStart(2, "0")}</span>
           <span className="item-head">
+            <span className="item-category">{card.category}</span>
             <span className="item-title">{card.title_ko}{card.update_of && <span className="update"> 업데이트</span>}</span>
-            {ring === 0 && why && <span className="item-why"><Text sentence={why} /></span>}
+            {card.what[0] && <span className="item-what"><Text sentence={card.what[0]} /></span>}
+
           </span>
         </summary>
         <div className="item-body">
@@ -96,10 +99,9 @@ function Item({ card, index, open, onToggle, onHover }: {
             {card.availability !== "unknown" && <span className="badge">{availability[card.availability]}</span>}
             {card.access.type !== "unknown" && <span className="badge access">{access[card.access.type]}</span>}
           </p>
-          {card.what[0] && <p className="item-what"><Text sentence={card.what[0]} /></p>}
-          {(ring === 0 ? moreWhy : card.why).length > 0 && <div className="item-why-full">
-            <b>{labels.why}</b>
-            <Sentences items={ring === 0 ? moreWhy : card.why} />
+          {card.what.length > 1 && <Sentences items={card.what.slice(1)} />}
+          {why && <div className="item-why-full">
+            <b>{labels.why}</b><Sentences items={[why, ...moreWhy]} />
           </div>}
           <p className="sources">
             {card.sources.map((source) => (
@@ -111,7 +113,6 @@ function Item({ card, index, open, onToggle, onHover }: {
           <details className="more">
             <summary>사용법 · 인용 근거 {claims.length}개</summary>
             <dl>
-              {card.what.length > 1 && <><dt>{labels.what}</dt><dd><Sentences items={card.what.slice(1)} /></dd></>}
               <dt>{labels.how}</dt>
               <dd>{card.how.length ? <Sentences items={card.how} /> : <p className="muted">사용법 근거 부족. 원문을 참고하세요.</p>}</dd>
               {!!claims.length && <><dt>인용 근거</dt><dd>
@@ -148,7 +149,7 @@ export function Edition({ briefing, success }: { briefing: Briefing; success?: s
     document.getElementById(id)?.scrollIntoView({ block: "nearest" });
   };
   const active = hovered ?? [...opened].at(-1) ?? null;
-  const reason = briefing.emerging.find((item) => item.tag === concept)?.reason_ko;
+  const selectedConcept = briefing.emerging.find((item) => item.tag === concept);
 
   return (
     <section className="snapshot">
@@ -157,8 +158,9 @@ export function Edition({ briefing, success }: { briefing: Briefing; success?: s
         <span className="issue">No.{issueNumber(briefing.date)}</span>
         {success && <span>업데이트 {success}</span>}
       </div>
-      <h1 className={briefing.headline_ko.length > 30 ? "headline long" : "headline"}>{briefing.headline_ko}</h1>
-      {!!cards.length && <Radar cards={cards} emerging={briefing.emerging} active={active} onPick={pick} />}
+      <h1 className="headline">오늘의 AI 레이더</h1>
+      {!!cards.length && <div className="radar-panel"><div className="radar-heading"><span>◉ SIGNAL RADAR</span><span>{cards.length} SIGNALS</span></div><Radar cards={cards} emerging={briefing.emerging} active={active} onPick={pick} /><p>중심에 가까울수록 중요한 소식 · 번호를 눌러 자세히 보기</p></div>}
+      {!!cards.length && <div className="signals-heading"><div><span>DAILY SIGNALS</span><h2>오늘 포착된 소식</h2></div><span>{cards.length}건 · 중요도순</span></div>}
       {!!cards.length && <ol className="items" aria-label="오늘의 기사">
         {cards.map((card, i) => (
           <Item key={card.card_id} card={card} index={i} open={opened.has(card.card_id)}
@@ -172,7 +174,12 @@ export function Edition({ briefing, success }: { briefing: Briefing; success?: s
           <button type="button" key={item.tag} className={`chip ${item.kind}`} aria-expanded={concept === item.tag}
             onClick={() => setConcept(concept === item.tag ? null : item.tag)}>{item.tag}</button>
         ))}
-        {reason && <p className="concept-reason">{reason}</p>}
+        {selectedConcept && <div className="concept-details"><p className="concept-reason">{selectedConcept.reason_ko}</p>
+          {selectedConcept.sources?.length ? <ul>{selectedConcept.sources.map((source) => {
+            const related = cards.find((card) => card.event_id === source.event_id);
+            return <li key={source.event_id}><a href={safeLink(source.url)} target="_blank" rel="noreferrer">{source.title} ↗</a><span> {source.org}{source.published_at ? ` · ${dateTime.format(new Date(source.published_at))}` : ""}</span>{related && <button type="button" onClick={() => pick(related.card_id)}>브리핑 보기</button>}</li>;
+          })}</ul> : <p className="muted">이 브리핑에는 관련 자료가 저장되어 있지 않습니다.</p>}
+        </div>}
       </div>}
       <p className="lead-note">원본 {counts.raw.toLocaleString("ko-KR")}건 중 {counts.analyzed.toLocaleString("ko-KR")}건을 평가해 {counts.selected}건을 골랐습니다.</p>
     </section>

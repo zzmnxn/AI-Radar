@@ -324,7 +324,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
   <div class="meta">
     <span>최종 갱신 2026-11-25</span>
-    <span>마지막 반영: 기업 엔지니어링 블로그 10곳 수집과 판정 우대, Anthropic 목록 페이지 수집</span>
+    <span>마지막 반영: 기업 엔지니어링 블로그 10곳 수집과 판정 우대, 레이더·소식 나란한 배치, 밝은·어두운 테마 전환</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
     <span>예산 $0.60/일</span>
   </div>
@@ -751,12 +751,13 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <article class="module" id="m-today">
     <h3>오늘 페이지 구성</h3>
     <p class="files"><code>web/src/briefing.tsx</code> (<code>Edition</code>) · <code>web/src/style.css</code></p>
+    <p>데스크톱에서는 레이더와 기사 목록을 나란히 배치하고, 모바일에서는 작은 레이더 아래에 간결한 목록을 배치한다. 화면 상단에서 밝은 테마와 어두운 테마를 전환할 수 있다. 최초 방문에는 기기 설정을 따르고, 선택한 테마는 브라우저에 저장한다. 브리핑과 아카이브에 같은 색상과 읽기 스타일을 적용한다.</p>
     <div class="flow">
       <div class="step"><b>날짜 줄</b><small>날짜 · No.호수 · 업데이트 시각</small></div><span class="arrow">→</span>
-      <div class="step"><b>헤드라인</b><small>30자 이내 흐름 요약 (예: "코딩 에이전트용 MCP 도구가 쏟아진 날")</small></div><span class="arrow">→</span>
-      <div class="step"><b>레이더</b><small>반원 위에 카드 번호 점과 신흥 개념 ▲</small></div><span class="arrow">→</span>
-      <div class="step"><b>항목 목록</b><small>점수 순, 접혀 있음</small></div><span class="arrow">→</span>
-      <div class="step"><b>떠오르는 개념</b><small>칩을 누르면 판정 이유</small></div><span class="arrow">→</span>
+      <div class="step"><b>제목</b><small>오늘의 AI 레이더</small></div><span class="arrow">→</span>
+      <div class="step"><b>레이더</b><small>원형 링 위에 카드 번호 점과 신흥 개념 ▲</small></div><span class="arrow">→</span>
+      <div class="step"><b>항목 목록</b><small>점수 순, 제목·핵심 내용·중요한 이유 표시</small></div><span class="arrow">→</span>
+      <div class="step"><b>떠오르는 개념</b><small>칩을 누르면 판정 이유와 저장된 관련 자료</small></div><span class="arrow">→</span>
       <div class="step"><b>건수 줄</b><small>"원본 N건 중 M건 평가해 K건"</small></div>
     </div>
   </article>
@@ -764,74 +765,14 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <article class="module" id="m-radar">
     <h3>레이더 — 중요도는 거리, 분류는 방향</h3>
     <p class="files"><code>web/src/lib/radar.ts</code> (<code>ringOf</code>, <code>layout</code>, <code>spread</code>, <code>byImportance</code>) · <code>web/src/briefing.tsx</code> (<code>Radar</code>)</p>
-    <div class="anatomy">
-      <figure style="margin:0">
-        <svg viewBox="0 0 300 166" role="img" aria-label="2026-11-22 레이더: 꼭 알기 1건, 알아두기 3건, 신흥 개념 3개" style="width:100%;max-width:520px;display:block">
-          <path d="M 5 150 A 145 145 0 0 1 295 150 Z" fill="var(--surface-2)"/>
-          <path d="M 50 150 A 100 100 0 0 1 250 150 Z" fill="var(--surface-3)"/>
-          <path d="M 100 150 A 50 50 0 0 1 200 150 Z" fill="color-mix(in srgb, var(--c-view) 28%, var(--surface))"/>
-          <line x1="5" y1="150" x2="295" y2="150" stroke="var(--line)"/>
-          <g font-size="8.5" fill="var(--muted)" text-anchor="middle" font-family="sans-serif">
-            <text x="150" y="161">꼭 알기</text><text x="75" y="161">알아두기</text><text x="27" y="161">관찰</text>
-          </g>
-          <g fill="var(--warn)"><path d="M 41.9 58.3 l 6 10 h -12 z"/><path d="M 150 6 l 6 10 h -12 z"/><path d="M 258.1 58.3 l 6 10 h -12 z"/></g>
-          <g font-size="7.5" fill="var(--muted)" text-anchor="middle" font-family="sans-serif">
-            <text x="41.9" y="80">computer use</text><text x="150" y="27">agent verification</text><text x="258.1" y="80">context engineering</text>
-          </g>
-          <g font-size="9" font-weight="700" text-anchor="middle" font-family="sans-serif">
-            <circle cx="123.7" cy="131.8" r="9" fill="var(--c-view)"/><text x="123.7" y="135.3" fill="#fff">1</text>
-            <circle cx="99.6" cy="93.1" r="9" fill="var(--c-select)"/><text x="99.6" y="96.6" fill="#fff">2</text>
-            <circle cx="75.8" cy="133.4" r="9" fill="var(--c-select)"/><text x="75.8" y="136.9" fill="#fff">3</text>
-            <circle cx="85.5" cy="109.9" r="9" fill="var(--c-select)"/><text x="85.5" y="113.4" fill="#fff">4</text>
-          </g>
-        </svg>
-        <figcaption class="files" style="margin-top:6px">2026-11-22 브리핑을 <code>layout()</code>으로 계산한 실제 좌표. ① 85점 MCP·도구 연결 ② 82점 에이전트 설계·스택 ③ 81점 AI 코딩 도구 ④ 73점 MCP·도구 연결</figcaption>
-      </figure>
-      <div>
-        <div class="table-wrap" style="margin-top:0"><table>
-          <thead><tr><th>링</th><th>점수</th><th>위치</th></tr></thead>
-          <tbody>
-            <tr><td><b>꼭 알기</b></td><td>≥ 85</td><td>중심</td></tr>
-            <tr><td><b>알아두기</b></td><td>70~84</td><td>가운데 띠</td></tr>
-            <tr><td><b>관찰</b></td><td>&lt; 70</td><td>바깥 띠</td></tr>
-          </tbody>
-        </table></div>
-        <ul style="font-size:13.5px;padding-left:18px;margin:6px 0">
-          <li><b>방향:</b> 관심 분류 12개 + 기타가 반원을 왼쪽→오른쪽 순서로 나눠 가진다(<code>interests.yaml</code> 순서).</li>
-          <li><b>겹침 방지:</b> 같은 링의 점은 최소 간격을 두고 밀어낸다(<code>spread</code>).</li>
-          <li><b>▲ 신흥 개념:</b> 바깥 호에 균등 배치, 마우스를 올리면 이름.</li>
-          <li><b>연동:</b> 점을 누르면 그 항목이 펼쳐지고, 항목에 마우스를 올리면 점이 커진다.</li>
-        </ul>
-      </div>
-    </div>
+    <p>원형 레이더의 중심에서 가까울수록 점수가 높다. 꼭 알기 85점 이상, 알아두기 70~84점, 관찰 70점 미만이다. 점의 방향은 관심 분류에 따라 반원 상단에 배치하며, 신흥 개념은 바깥쪽 삼각형으로 표시한다. 점을 누르면 해당 항목이 펼쳐진다.</p>
   </article>
 
   <article class="module" id="m-item">
     <h3>항목 해부도 — 세 단계로 펼친다</h3>
     <p class="files"><code>web/src/briefing.tsx</code> (<code>Item</code>, <code>Text</code>) · <code>web/src/lib/text.ts</code> (<code>splitCode</code>)</p>
-    <div class="anatomy">
-      <div class="mock" aria-label="항목 예시 (2026-11-22 1번)">
-        <div style="display:flex;gap:10px;align-items:flex-start"><span class="pin">1</span><div><b style="font-size:15px">1 · Mattermost Agents 플러그인 2.13.0</b><div class="meta-line">팀 채팅과 외부 도구 연결을 한 플러그인으로 묶어 바로 시험해볼 수 있습니다.</div></div></div>
-        <div style="border-top:1px dashed var(--line);margin-top:10px;padding-top:10px">
-          <div class="meta-line"><span class="pin">2</span>MCP·도구 연결 · Model Context Protocol · 11월 20일 03:11</div>
-          <p style="margin:6px 0">Mattermost용 에이전트 플러그인이 나왔고, 내장 MCP 서버를 함께 제공합니다.</p>
-          <div style="font-size:12.5px"><b>왜 중요한가</b> 자체 호스팅 LLM도 지원해 데이터 통제와 사내 도입 검토에 유리합니다.</div>
-          <div style="margin-top:6px"><span class="src-link">원문 보기 ↗</span></div>
-        </div>
-        <div style="border-top:1px dashed var(--line);margin-top:10px;padding-top:10px;font-size:12.5px">
-          <div><span class="pin">3</span><b>▸ 사용법 · 인용 근거 7개</b></div>
-          <div style="margin-top:4px"><b style="color:var(--accent)">어떻게 쓰나</b> 설치 후 System Console &gt; Plugins &gt; Agents에서 AI 서비스를 추가합니다.</div>
-          <div><b style="color:var(--accent)">인용 근거</b> 무엇이 바뀌었나 — "…plus a built-in Mattermost MCP server"</div>
-          <div class="meta-line">#Mattermost #MCP #plugin</div>
-        </div>
-      </div>
-      <ol class="callouts">
-        <li><span class="pin">1</span><div><b>접힌 상태</b> — 번호 · 한국어 제목 · 새 리비전이면 "업데이트" <small>꼭 알기 링이면 Why 첫 문장까지 보인다</small></div></li>
-        <li><span class="pin">2</span><div><b>한 번 펼침</b> — 분류 · 출처 · 발행 시각 · What 첫 문장 · Why · 원문 링크 <small>이용 단계·접근 조건 배지는 근거가 있을 때만</small></div></li>
-        <li><span class="pin">3</span><div><b>두 번 펼침</b> — 나머지 What · How · 문장별 원문 인용 · 태그 <small>How가 없으면 "사용법 근거 부족". partial이면 불확실 문구</small></div></li>
-        <li><span class="pin">·</span><div>문장 속 <code>`명령어`</code>는 코드 글꼴로 표시된다 <small><code>splitCode</code></small></div></li>
-      </ol>
-    </div>
+    <p>각 항목은 번호와 분류, 제목, 무엇이 바뀌었나 첫 문장을 기본으로 표시한다. 펼치면 출처·날짜, 이용 단계·접근 조건, 왜 중요한가와 나머지 설명, 원문 링크가 나오고, 사용법과 인용 근거는 한 번 더 펼쳐 확인한다. 백틱 안의 문장은 코드 글꼴로 표시한다.</p>
+    <p>떠오르는 개념은 선정 이유와 함께 집계에 사용된 사건의 원문을 표시한다. 신규 발견은 최근 14일, 관찰은 최근 7일의 사건 ID를 사용하며 사건마다 대표 출처 하나를 연결한다. 자료가 저장되지 않은 과거 브리핑은 안내 문구를 표시한다.</p>
   </article>
 
   <article class="module" id="m-status">
