@@ -324,7 +324,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
   <div class="meta">
     <span>최종 갱신 2026-11-25</span>
-    <span>마지막 반영: 후보 1차 판정(작은 모델)과 개수 비고정 선별, 하루 호출 한도 101</span>
+    <span>마지막 반영: 후보 1차 판정(작은 모델)과 개수 비고정 선별, 하루 호출 한도 101, Pages 배포 1회 재시도</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
     <span>예산 $0.60/일</span>
   </div>
@@ -353,8 +353,8 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
       <div class="job"><h4>pipeline <span class="chip">contents: write</span></h4>
         <ol><li><code>radar run</code> <span class="cond">실패해도 계속</span></li><li><code>radar validate-data</code></li><li>커밋·푸시 <span class="cond">검증 통과 + data/ 변경 시</span></li><li>로그 artifact 30일</li></ol></div>
       <div class="job"><h4>deploy <span class="chip">pages: write</span></h4>
-        <ol><li>그 HEAD checkout</li><li>다시 검증</li><li>웹 빌드</li><li>Pages 배포</li></ol>
-        <p class="cond">검증 통과면 커밋이 없어도 배포 → 전날 배포 실패를 자동 복구</p></div>
+        <ol><li>그 HEAD checkout</li><li>다시 검증</li><li>웹 빌드</li><li>Pages 배포 <span class="cond">실패하면 30초 뒤 한 번 더</span></li></ol>
+        <p class="cond">검증 통과면 커밋이 없어도 배포 → 전날 배포 실패를 자동 복구. 수동 복구는 실패한 job 재실행 대신 <code>deploy_only</code>로 새 실행(재실행하면 같은 run에 artifact가 중복돼 실패)</p></div>
       <div class="job"><h4>report</h4>
         <ol><li>data · commit · deploy 결과를 따로 표로</li><li>하나라도 실패면 exit 1 → 알림</li></ol></div>
     </div>
