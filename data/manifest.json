@@ -3,19 +3,19 @@
   "last_run": {
     "date": "2026-11-25",
     "failed_stage": null,
-    "finished_at": "2026-11-25T01:14:40.580828Z",
-    "message": "interest=25 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx314,personnelx1,rankingx1,screened_outx28,source_capx7 screened_out=Grok Bot to Get Local Computer Use (2 mi (가십성 소개글); GPT 6.2 Astra Solves a Historical Myster (사례담·담론성 글); Jevons Paradox in AI: Cheaper Tokens Won (AI 경제 담론); Three LLM inflection points in twelve mo (연설 요약글); GPT-6 models demonstrate intrinsic prote (모델 성능 가십성 소식); Show HN: Mason – A lightweight Postgres  (AI와 무관한 일반 기술); All Quiet on the Neural Front: Language  (모델의 고통 상태 보고 담론); Can Open LLMs Clear Sanctions-Screening  (규제 스크리닝 적용 사례); Living off the Local Model: Abusing Brow (보안 악용 사례 중심); Show HN: ModelXare – Decentralized AI Mo (홍보성 AI 플랫폼 소식) not_worth_briefing=10 what_unsupported=7 deferred=2",
+    "finished_at": "2026-11-25T01:21:03.506433Z",
+    "message": "interest=31 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx313,personnelx1,rankingx1,screened_outx21,source_capx9 must_read=Compiling web applications into verified; io.github.instinctagentai/mcp-api-router; Direct Feedback Policy Optimization for ; CompSkill: Compiling Execution Experienc; RoboUniverse-10K: Toward the Scaling Era; CivWorldBench: Evaluating Language World; Tool-to-Self: Internalizing Visual Tool ; The Price of Scale in Proactive Memory R; Grammar-as-a-Draft: More Tokens per Spec; CogRAG: Tackling Heterogeneous Cognitive; io.github.Lefgk/agent-dapps-mcp 1.0.0; From Reward Engineering to Data-Centric ; RL infrastructure at Microsoft AI (15 mi; io.github.agent402-dev/a402-check-mcp 0.; From Point Clouds to Engineering Models: screened_out=GPT 6.2 Astra Solves a Historical Myster (사례형 글, 개발도구 아님); Jevons Paradox in AI: Cheaper Tokens Won (AI 경제담론 글); LLM-Based Assistant for Dog Care Guidanc (도메인 안내 RAG 사례); Can Language Models Learn to Forecast St (금융예측 일반 논문); GPT-6 models demonstrate intrinsic prote (AI가 아닌 과장된 가십성 소식); Show HN: Mason – A lightweight Postgres  (일반 DB/시스템 소개글); All Quiet on the Neural Front: Language  (AI의 인식·의식 담론); Can Open LLMs Clear Sanctions-Screening  (감시·규제 사례 연구); Tidal bans AI-generated music (AI와 무관한 음악 서비스 정책); Dario Amodei suggests video games could  (사회·정치 담론 중심) llm_errors=budgetx1 not_worth_briefing=12 what_unsupported=7 deferred=2",
     "outcome": "ok",
-    "run_id": "b34b0e6440544ce79196a6f46b965219",
+    "run_id": "a8b9422345a54920a2187b0b34ab88cd",
     "sources": {
       "active": 22,
       "complete": 21,
       "failed": 1,
       "partial": 0
     },
-    "started_at": "2026-11-25T01:11:53.573548Z"
+    "started_at": "2026-11-25T01:20:17.268838Z"
   },
-  "last_success_at": "2026-11-25T01:11:53.573548Z",
+  "last_success_at": "2026-11-25T01:20:17.268838Z",
   "published": {
     "date": "2026-11-25",
     "files": {
@@ -24,11 +24,11 @@
       "briefings/2026-11-22.json": "13accb5bf99b0296fdb22ebf4e4a2dc865a84a003ffce2153fa660f7f9b98c2f",
       "briefings/2026-11-23.json": "857e7e5f4e86c195cdbc9b8e1a9e13604d1fb7a941c10c06f8ea78fac47e933f",
       "briefings/2026-11-24.json": "fb2c293667fa408a9c76351b26b0bc4777a7a4cca696b40e21a88425f3a64b44",
-      "briefings/2026-11-25.json": "bf014f67adf75b0b5fd3ce01b42f1059902bdfc4b8be34e0f97d32d1c1d248d8",
-      "index/2026.json": "feddbecd8908d7bea6d6f40b6a9806e867d78150e0e658125a0463f6e24dcdd0"
+      "briefings/2026-11-25.json": "10950198de5762199a4d3ff4ca1d7d68bb67343c4a793a7405e48e9f75e9d78c",
+      "index/2026.json": "da771aaa3593b86b992d398d1234d9a0da352a52d3b8d0d68b96c4f12aeec49c"
     },
-    "generated_at": "2026-11-25T01:11:53.573548Z",
-    "run_id": "b34b0e6440544ce79196a6f46b965219"
+    "generated_at": "2026-11-25T01:20:17.268838Z",
+    "run_id": "a8b9422345a54920a2187b0b34ab88cd"
   },
   "schema_version": "1.0.0"
 }

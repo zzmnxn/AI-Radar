@@ -650,6 +650,7 @@
       "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
+        "0499abb8c5416c346f2d830df1e1e1f0265c32331566ea247d405292200777ca",
         "067413556d0973dd69d428cbde1ea5a854b3a0b6ba88c09fa80e424281f95121",
         "28f9acc04f3c0ee8395cda93c59236b46d443b8addacc40de2f2409de4548f15",
         "327e9a13f2ff9c8d5e7d72c114d4522b82b79f853cbc0d8c04f9a2bd9ee39827",
@@ -690,7 +691,7 @@
         "eb0b1f436fbc9791594331b995b9e3dac60594c003556480a5a0df197f081a8e",
         "f8eb42ace893340e2e904a0d987e8bdf7b6affdaa13ba6674cd863411fcebe59"
       ],
-      "events": 39,
+      "events": 40,
       "independent_orgs": 2,
       "kind": "taxonomy",
       "orgs": [
@@ -1026,6 +1027,7 @@
       "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
+        "0499abb8c5416c346f2d830df1e1e1f0265c32331566ea247d405292200777ca",
         "28f9acc04f3c0ee8395cda93c59236b46d443b8addacc40de2f2409de4548f15",
         "4d1d658f3033d523a6f6c7866e1e715dd6e9584495108ec22b359d018b6b2c82",
         "4da530b0866146206f178a56d5dbed81992a10cc4f8373129cf4f28783f71263",
@@ -1039,7 +1041,7 @@
         "ef3112105c83fbb2bb488800dd0258ab3dd4008abc5a13d59415f27b32caa083",
         "f13f50765ddb35d9b0c1471c768ecd1182a5f803913ddb76a94da9d6219fe3db"
       ],
-      "events": 12,
+      "events": 13,
       "independent_orgs": 2,
       "kind": "taxonomy",
       "orgs": [
@@ -1047,6 +1049,20 @@
         "Model Context Protocol"
       ],
       "tag": "mcp"
+    },
+    {
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "0499abb8c5416c346f2d830df1e1e1f0265c32331566ea247d405292200777ca"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "mcp api router"
     },
     {
       "active_sources": 22,
