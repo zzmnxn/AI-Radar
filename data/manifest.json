@@ -2,18 +2,18 @@
   "deadline_kst": "07:00",
   "last_run": {
     "date": "2026-11-25",
-    "failed_stage": null,
-    "finished_at": "2026-11-25T01:21:03.506433Z",
-    "message": "interest=31 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx313,personnelx1,rankingx1,screened_outx21,source_capx9 must_read=Compiling web applications into verified; io.github.instinctagentai/mcp-api-router; Direct Feedback Policy Optimization for ; CompSkill: Compiling Execution Experienc; RoboUniverse-10K: Toward the Scaling Era; CivWorldBench: Evaluating Language World; Tool-to-Self: Internalizing Visual Tool ; The Price of Scale in Proactive Memory R; Grammar-as-a-Draft: More Tokens per Spec; CogRAG: Tackling Heterogeneous Cognitive; io.github.Lefgk/agent-dapps-mcp 1.0.0; From Reward Engineering to Data-Centric ; RL infrastructure at Microsoft AI (15 mi; io.github.agent402-dev/a402-check-mcp 0.; From Point Clouds to Engineering Models: screened_out=GPT 6.2 Astra Solves a Historical Myster (사례형 글, 개발도구 아님); Jevons Paradox in AI: Cheaper Tokens Won (AI 경제담론 글); LLM-Based Assistant for Dog Care Guidanc (도메인 안내 RAG 사례); Can Language Models Learn to Forecast St (금융예측 일반 논문); GPT-6 models demonstrate intrinsic prote (AI가 아닌 과장된 가십성 소식); Show HN: Mason – A lightweight Postgres  (일반 DB/시스템 소개글); All Quiet on the Neural Front: Language  (AI의 인식·의식 담론); Can Open LLMs Clear Sanctions-Screening  (감시·규제 사례 연구); Tidal bans AI-generated music (AI와 무관한 음악 서비스 정책); Dario Amodei suggests video games could  (사회·정치 담론 중심) llm_errors=budgetx1 not_worth_briefing=12 what_unsupported=7 deferred=2",
-    "outcome": "ok",
-    "run_id": "a8b9422345a54920a2187b0b34ab88cd",
+    "failed_stage": "collect",
+    "finished_at": "2026-11-25T04:25:48.934829Z",
+    "message": "OperationalError",
+    "outcome": "failed",
+    "run_id": "0b17b4de5589443dab6eb1d7e67e84e8",
     "sources": {
-      "active": 22,
-      "complete": 21,
-      "failed": 1,
+      "active": 0,
+      "complete": 0,
+      "failed": 0,
       "partial": 0
     },
-    "started_at": "2026-11-25T01:20:17.268838Z"
+    "started_at": "2026-11-25T04:25:48.459397Z"
   },
   "last_success_at": "2026-11-25T01:20:17.268838Z",
   "published": {
