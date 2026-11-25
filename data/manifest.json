@@ -3,17 +3,17 @@
   "last_run": {
     "date": "2026-11-25",
     "failed_stage": "collect",
-    "finished_at": "2026-11-25T04:25:48.934829Z",
+    "finished_at": "2026-11-25T04:28:10.703691Z",
     "message": "OperationalError",
     "outcome": "failed",
-    "run_id": "0b17b4de5589443dab6eb1d7e67e84e8",
+    "run_id": "7c6d6e6563dc4147bed9740e72e9b668",
     "sources": {
       "active": 0,
       "complete": 0,
       "failed": 0,
       "partial": 0
     },
-    "started_at": "2026-11-25T04:25:48.459397Z"
+    "started_at": "2026-11-25T04:28:10.098421Z"
   },
   "last_success_at": "2026-11-25T01:20:17.268838Z",
   "published": {
