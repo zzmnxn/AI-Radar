@@ -2,20 +2,20 @@
   "deadline_kst": "07:00",
   "last_run": {
     "date": "2026-11-25",
-    "failed_stage": "collect",
-    "finished_at": "2026-11-25T04:29:16.842005Z",
-    "message": "OperationalError",
-    "outcome": "failed",
-    "run_id": "786e82cacaaa43b391e712d9e910d465",
+    "failed_stage": null,
+    "finished_at": "2026-11-25T04:31:22.344792Z",
+    "message": "interest=15 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx315,personnelx1,rankingx1,source_capx16 not_worth_briefing=4 what_unsupported=4 deferred=15",
+    "outcome": "ok",
+    "run_id": "46be7681c9a14a59a2d9096d08979458",
     "sources": {
-      "active": 0,
-      "complete": 0,
+      "active": 32,
+      "complete": 32,
       "failed": 0,
       "partial": 0
     },
-    "started_at": "2026-11-25T04:29:16.134821Z"
+    "started_at": "2026-11-25T04:30:50.134594Z"
   },
-  "last_success_at": "2026-11-25T01:20:17.268838Z",
+  "last_success_at": "2026-11-25T04:30:50.134594Z",
   "published": {
     "date": "2026-11-25",
     "files": {
@@ -24,11 +24,11 @@
       "briefings/2026-11-22.json": "13accb5bf99b0296fdb22ebf4e4a2dc865a84a003ffce2153fa660f7f9b98c2f",
       "briefings/2026-11-23.json": "857e7e5f4e86c195cdbc9b8e1a9e13604d1fb7a941c10c06f8ea78fac47e933f",
       "briefings/2026-11-24.json": "fb2c293667fa408a9c76351b26b0bc4777a7a4cca696b40e21a88425f3a64b44",
-      "briefings/2026-11-25.json": "10950198de5762199a4d3ff4ca1d7d68bb67343c4a793a7405e48e9f75e9d78c",
-      "index/2026.json": "da771aaa3593b86b992d398d1234d9a0da352a52d3b8d0d68b96c4f12aeec49c"
+      "briefings/2026-11-25.json": "62468e0f126b27d7310388dfa006193e0c544e34c8af0d56ee18f0d282c44717",
+      "index/2026.json": "6a59d7e4c8977bcfc9bbaca7c68907153ffbcd523db255e910e11b44277903a7"
     },
-    "generated_at": "2026-11-25T01:20:17.268838Z",
-    "run_id": "a8b9422345a54920a2187b0b34ab88cd"
+    "generated_at": "2026-11-25T04:30:50.134594Z",
+    "run_id": "46be7681c9a14a59a2d9096d08979458"
   },
   "schema_version": "1.0.0"
 }

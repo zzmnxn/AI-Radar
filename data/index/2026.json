@@ -202,16 +202,14 @@
     "categories": [
       "MCP·도구 연결",
       "에이전트 설계·스택",
-      "에이전트 작업 환경"
+      "에이전트 작업 환경",
+      "컨텍스트·메모리"
     ],
-    "headline_ko": "에이전트·로보틱스용 실세계 데이터·도구 확산",
+    "headline_ko": "오늘의 AI 브리핑",
     "path": "briefings/2026-11-25.json",
     "tags": [
-      "3D reconstruction",
       "API router",
       "Android",
-      "BIM",
-      "CAD",
       "Claude Code",
       "Codex",
       "F-Droid",
@@ -220,28 +218,31 @@
       "OpenCode",
       "PRoot",
       "SQLite",
-      "Scan-to-BIM",
+      "SWE-Bench",
       "agentic robotics",
       "benchmark",
       "coding agents",
+      "coding-agent",
+      "context-pruning",
       "docs search",
       "drift detection",
       "json repair",
+      "long-context",
       "markdown extraction",
       "memory",
-      "parallel async collaboration",
       "provider comparison",
       "real-to-sim",
       "reinforcement-learning",
       "remote MCP",
-      "robotics"
+      "robotics",
+      "token-efficiency"
     ],
     "titles": [
       "에이전트용 로컬 메모리·문서 검색 MCP 서버 0.19.1",
       "실세계 영상으로 만든 1만개 로보틱스 실-투-심 환경",
       "무료 API·MCP 라우터 0.2.2, 제공자 비교와 유틸리티 추가",
       "오래된 안드로이드 폰을 코딩 에이전트 작업함으로 바꾸는 Horus",
-      "점군에서 엔지니어링 모델로: 건설 환경용 에이전트 3D 재구성 벤치마크"
+      "코더 LLM 내부 표현으로 툴 출력 프루닝하는 SWE-Pruner Pro"
     ]
   }
 }
