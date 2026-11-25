@@ -453,7 +453,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <article class="module" id="m-collectors">
     <h3>수집기와 안전한 HTTP</h3>
     <p class="files"><code>radar/newsletters.py</code> · <code>radar/ingest_store.py</code> · <code>radar/migrations/001_ingest.sql</code></p>
-    <p>Simon Willison·Latent Space·GeekNews의 소개 글과 본문에 명시된 저장소·릴리스·arXiv 링크를 별도 항목으로 보관한다. 원문 링크가 없는 GeekNews 항목은 소개 글을 보존한다. 원격 DB 연결이 실패하면 DSN·호스트를 숨긴 채 원인 범주(auth·tls·dns·timeout·other)만 로그에 남긴다.</p>
+    <p>Simon Willison·Latent Space·GeekNews의 소개 글과 본문에 명시된 저장소·릴리스·arXiv 링크를 별도 항목으로 보관한다. 원문 링크가 없는 GeekNews 항목은 소개 글을 보존한다. 원격 DB 연결이 실패하면 DSN·호스트를 숨긴 채 원인 범주(auth·tls·dns·timeout·other)만 로그에 남긴다. TLS는 verify-full이며 신뢰 저장소는 파이썬이 아는 CA 번들 파일 경로로 지정한다(없으면 <code>system</code>).</p>
     <p><code>RADAR_INGEST_BACKEND=postgres</code>로 설정하면 Actions의 수집 단계가 전용 DB에 발견 경로·사건과 커서를 함께 저장한다. TLDR AI는 기존 관심 용어가 없는 기사도 탐색 후보로 평가하며 한 번에 최대 2개를 후보에 넣는다. 실행당 최대 3개의 원문을 추가 조회하며 최근 7일간의 소개문·원문 발췌를 선별에 사용한다. 실패한 조회는 최대 3회 시도한다. 발행 결과와 예산은 기존 JSON 형식으로 보관한다.</p>
     <p class="files"><code>radar/collect.py</code> · <code>radar/github.py</code> · <code>radar/normalize.py</code> · <code>radar/http.py</code></p>
     <div class="flow">

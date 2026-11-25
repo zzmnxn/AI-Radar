@@ -17,6 +17,22 @@ from .normalize import canonical_url
 from .storage import write_json_atomic, write_jsonl_atomic
 
 
+def _root_certificates():
+    """Bundled libpq builds may not find the OS trust store; name the file."""
+    import ssl
+
+    paths = ssl.get_default_verify_paths()
+    for candidate in (
+        paths.cafile,
+        paths.openssl_cafile,
+        "/etc/ssl/certs/ca-certificates.crt",
+        "/etc/ssl/cert.pem",
+    ):
+        if candidate and os.path.isfile(candidate):
+            return candidate
+    return "system"
+
+
 def connect():
     import psycopg
 
@@ -27,7 +43,7 @@ def connect():
     options = (
         {}
         if host in {"localhost", "127.0.0.1", "::1"} or host.startswith("/")
-        else {"sslmode": "verify-full", "sslrootcert": "system"}
+        else {"sslmode": "verify-full", "sslrootcert": _root_certificates()}
     )
     try:
         return psycopg.connect(dsn, connect_timeout=10, **options)
