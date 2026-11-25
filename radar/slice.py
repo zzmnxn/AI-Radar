@@ -95,7 +95,7 @@ def _card_from_analysis(item, source, record, event, pool):
         published_at=item.published_at,
         sources=sources,
         what=evaluation.what,
-        why=evaluation.why,
+        why=evaluation.why if any(c.role == "why" for c in evaluation.claims) else [],
         how=evaluation.how,
         availability=evaluation.availability,
         access=evaluation.access,
@@ -214,6 +214,7 @@ def run_slice(
     link_check=None,
     force=False,
     stats=None,
+    saved_descriptions=None,
 ):
     if limit < 1:
         raise ValueError("The candidate limit must be positive")
@@ -253,6 +254,7 @@ def run_slice(
             link_check=link_check,
             force=force,
             stats=stats,
+            saved_descriptions=saved_descriptions,
         )
 
 
@@ -271,6 +273,7 @@ def _run_slice(
     link_check,
     force,
     stats,
+    saved_descriptions,
 ):
     def enter(name):
         if stats is not None:
@@ -322,10 +325,12 @@ def _run_slice(
         return finish("failed", "collect")
 
     enter("group")
+    if stats is not None:
+        stats["observed_ids"] = sorted(e.event_id for e in events)
+    if candidate_settings and (events or saved_descriptions):
+        events = load_events(data) or events
     if not events:
         return finish("failed", "group")
-    if candidate_settings:
-        events = load_events(data) or events
 
     enter("prefilter")
     shown = recent_shown(data, day, published)
@@ -362,11 +367,19 @@ def _run_slice(
                 if not (entry.status == "done" and key in cached)
             }
         remaining, estimate, reserve, calls = evaluate.candidate_budget()
+        snippets = {key: item.snippet for key, item in collected.items()}
+        snippets.update(saved_descriptions or {})
         plan = build_candidates(
             events,
             sources,
             now,
             candidate_settings,
+            descriptions={
+                event.event_id: " ".join(
+                    snippets.get(m.ref.item_id, "") for m in event.members
+                )
+                for event in events
+            },
             budget_left=remaining,
             estimate=estimate,
             headline_reserve=reserve,
@@ -379,6 +392,7 @@ def _run_slice(
             ),
             current_stars=github_stars(results),
             cached=set(cached),
+            screen=getattr(evaluate, "screen", None),
         )
         for candidate in plan.deferred:
             update_queue(candidate.event, "budget")
@@ -398,6 +412,12 @@ def _run_slice(
                 f"{reason}x{count}" for reason, count in sorted(plan.excluded.items())
             )
             summary += f" prefilter_excluded={dropped}"
+        if plan.screen_drops:
+            titles = {e.event_id: e.title for e in events}
+            summary += " screened_out=" + "; ".join(
+                f"{titles.get(key, key)[:40]} ({why})"
+                for key, why in list(plan.screen_drops.items())[:10]
+            )
     else:
         mode = "normal"
         # The offline preview uses synthetic evidence and judgment.
@@ -414,6 +434,7 @@ def _run_slice(
         )
         candidates = [(event, None) for event in ranked[:limit]]
     if stats is not None:
+        stats["candidate_ids"] = [e.event_id for e, _ in candidates]
         stats["candidates"] = len(candidates)
         stats["pools"] = dict(Counter(pool or "impact" for _, pool in candidates))
         stats["deferred"] = sum(row.status == "deferred" for row in queue.values())

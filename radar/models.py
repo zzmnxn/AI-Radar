@@ -248,7 +248,7 @@ class Card(Contract):
     published_at: AwareDatetime | None = None
     sources: list[CardSource]
     what: list[Sentence] = Field(min_length=1)
-    why: list[Sentence] = Field(min_length=1)
+    why: list[Sentence]
     how: list[Sentence] = Field(max_length=3)
     availability: Availability
     access: Access

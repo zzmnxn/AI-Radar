@@ -49,12 +49,14 @@ def test_fuzzy_quote_and_numbers_near_match():
 
 
 @pytest.mark.parametrize("support", ["partial", "nei", "unsupported"])
-def test_why_all_removed_rejected(support):
+def test_why_removed_keeps_supported_what(support):
     doc, result = sample()
     outcome = verify(
         result, [doc], lambda rows: ["supported", support], lambda url: True
     )
-    assert outcome.rejection_reason == "why_unsupported"
+    assert outcome.rejection_reason is None
+    assert outcome.verification.level == "partial"
+    assert result.why[0] not in outcome.evaluation.why
     assert outcome.verification.claims[1].support == support
 
 
@@ -159,5 +161,56 @@ def test_failed_source_link_disables_its_claims():
 
     outcome = verify(result, [doc, corroboration], lambda rows: ["supported"], check)
     assert seen == [str(doc.evidence.url), str(source_url)]
-    assert outcome.rejection_reason == "why_unsupported"
+    assert outcome.rejection_reason is None
+    assert outcome.verification.level == "partial"
+    assert result.why[0] not in outcome.evaluation.why
     assert outcome.docs == [doc]
+
+
+def test_recorded_codex_rejection_replays_as_a_partial_card():
+    import json
+    from datetime import datetime
+    from pathlib import Path
+    from radar.analysis import analyze
+    from radar.collect import load_sources
+    from radar.deduplicate import load_events
+    from radar.enrich import SourceDoc
+    from radar.models import AnalysisRecord
+    from radar.prefilter import primary_ref
+    from radar.slice import _card_from_analysis, _raw_from_ref
+
+    case = json.loads(
+        Path("tests/fixtures/briefing_comparison/november.json").read_text()
+    )["cases"][0]
+    saved = AnalysisRecord.model_validate_json(
+        Path("tests/fixtures/briefing_comparison/codex-analysis.json").read_text()
+    )
+    event = next(
+        e
+        for e in load_events(Path("tests/fixtures/briefing_comparison"))
+        if e.event_id == case["event_id"]
+    )
+    assert saved.rejection_reason == case["baseline"]
+    doc = SourceDoc(
+        " ".join(c.evidence_quote for c in saved.eval.claims), saved.evidence[0]
+    )
+    checked = verify(
+        saved.eval,
+        [doc],
+        lambda rows: [c.support for c in saved.verification.claims],
+        lambda _: True,
+    )
+    record = analyze(
+        event,
+        "replay",
+        checked,
+        saved.usage,
+        datetime.fromisoformat(case["analysis_date"]),
+    )
+    item = _raw_from_ref(primary_ref(event), {})
+    src = next(
+        s for s in load_sources(Path("config/sources.yaml")) if s.id == item.source_id
+    )
+    card = _card_from_analysis(item, src, record, event, "interest")
+    assert card.what == saved.eval.what
+    assert card.why == [] and card.verification_summary.level == "partial"

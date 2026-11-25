@@ -478,3 +478,74 @@ def test_source_cap_keeps_only_the_newest_release():
     plan = select(events, {"claude-code-releases": feed}, "10")
     assert [c.event.title for c in plan.selected] == ["Claude Code v2.1.2"]
     assert plan.excluded == {"source_cap": 2}
+
+
+def test_description_rescues_opaque_release_title():
+    events, sources = sample(1, title="0.171.0")
+    assert not select(events, sources, "5").selected
+    plan = select(
+        events,
+        sources,
+        "5",
+        descriptions={events[0].event_id: "Codex CLI OpenAI model update"},
+    )
+    assert len(plan.selected) == 1
+
+
+def test_curated_ai_feed_can_discover_unfamiliar_workflow():
+    events, sources = sample(1, title="Nacre Loom", kind="aggregator")
+    sources = {
+        k: s.model_copy(update={"editorial_ai": True}) for k, s in sources.items()
+    }
+    plan = select(events, sources, "5")
+    assert [r.pool for r in plan.selected] == ["explore"]
+
+
+def test_screen_drops_discourse_and_lifts_the_count_cap():
+    events, sources = sample(
+        24, title="Agent harness for coding agents", kind="aggregator"
+    )
+    for number, event in enumerate(events):
+        event.title = f"Agent harness {number} for coding agents"
+    drop = events[0].event_id
+
+    def screen(rows):
+        return {
+            event_id: "discourse" for event_id, _ in rows if event_id == drop
+        }, set()
+
+    plan = select(events, sources, "40", screen=screen)
+    ids = {row.event_id for row in plan.selected}
+    assert drop not in ids
+    assert len(ids) == 23  # no 15-slot cap once screened
+    assert plan.excluded["screened_out"] == 1
+    assert plan.screen_drops == {drop: "discourse"}
+
+
+def test_screen_failure_keeps_the_old_selection():
+    events, sources = sample(24, kind="aggregator", title="Agent harness tool")
+    assert len(select(events, sources, "20", screen=lambda rows: None).selected) == 15
+    plain, sources = sample(
+        3, title="Anthropic releases new benchmark", kind="aggregator"
+    )
+    assert select(plain, sources, "30", screen=lambda rows: None).selected == []
+
+
+def test_official_events_skip_the_screen():
+    events, sources = sample(3)
+    seen = []
+
+    def screen(rows):
+        seen.extend(event_id for event_id, _ in rows)
+        return {event_id: "drop" for event_id, _ in rows}, set()
+
+    plan = select(events, sources, "10", screen=screen)
+    assert not seen
+    assert len(plan.selected) == 3
+
+
+def test_must_read_outranks_the_keyword_score():
+    events, sources = sample(6, kind="aggregator", title="Agent harness tool")
+    last = events[-1].event_id
+    plan = select(events, sources, "2", screen=lambda rows: ({}, {last}))
+    assert last in {row.event_id for row in plan.selected}

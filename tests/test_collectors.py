@@ -110,3 +110,37 @@ def test_release_feed_prefixes_titles_skips_prereleases_and_dates_by_update():
     assert item.title == "Gemini CLI v0.69.0"
     assert item.published_at == NOW - timedelta(hours=14)
     assert result.completeness == "complete"
+
+
+def test_tldr_articles_keep_issue_credit_and_ignore_sponsors():
+    archive = b'<a href="/ai/2026-11-17">issue</a>'
+    issue = b'<article><a href="https://code.org/new"><h3>Tool</h3></a>Agents in a terminal</article><article><a href="https://ad.org"><h3>Offer (Sponsor)</h3></a></article>'
+    src = source("tldr-ai", "tldr").model_copy(
+        update={"url": "https://tldr.tech/ai/archives"}
+    )
+    (result,) = collect(
+        [src],
+        NOW,
+        fetch=lambda url, **k: archive if url.endswith("archives") else issue,
+    )
+    assert result.completeness == "complete"
+    (item,) = result.items
+    assert str(item.url) == "https://tldr.tech/ai/2026-11-17"
+    assert str(item.link_target_url) == "https://code.org/new"
+    assert "Agents in a terminal" in item.snippet
+
+
+def test_linked_project_and_authored_post_are_distinct():
+    body = b"""<rss><channel><item><guid>original</guid><title>Trying a new tool</title>
+    <link>https://latent.space/p/trial</link><description><![CDATA[
+    <a href="https://github.com/person/tool">Tool repository</a>
+    <a href="https://github.com/person/tool?utm_source=post">Tool repository</a>
+    ]]></description></item></channel></rss>"""
+    (result,) = collect(
+        [source("latent-space", "rss")], NOW, fetch=lambda *a, **k: body
+    )
+    assert len(result.items) == 2
+    original, referral = result.items
+    assert original.link_target_url is None
+    assert original.url == referral.url
+    assert str(referral.canonical_url) == "https://github.com/person/tool"

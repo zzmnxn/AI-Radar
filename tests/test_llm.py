@@ -286,3 +286,23 @@ def test_headline_is_capped_at_30_characters():
     with pytest.raises(ValidationError):
         Headline(headline_ko="가" * 31)
     assert "30자" in Path("prompts/headline.md").read_text(encoding="utf-8")
+
+
+def test_screen_returns_reasons_and_none_on_failure(tmp_path):
+    rows = [("e1", "Climate harm of AI"), ("e2", "Agent harness"), ("e3", "Other")]
+    body = json.dumps(
+        {
+            "drop": [
+                {"number": 1, "reason_ko": "담론"},
+                {"number": 9, "reason_ko": "x"},
+            ],
+            "must_read": [2, 1],
+        }
+    )
+    found = _adapter(tmp_path, _respond(body)).screen(rows)
+    assert found == ({"e1": "담론"}, {"e2"})
+
+    def bad(payload, key):
+        return _respond("not json")(payload, key)
+
+    assert _adapter(tmp_path, bad).screen(rows) is None

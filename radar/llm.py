@@ -29,7 +29,7 @@ class ModelConfig(Contract):
     daily_budget_usd: Decimal = Field(ge=0, allow_inf_nan=False)
     input_usd_per_million: Decimal = Field(gt=0, allow_inf_nan=False)
     output_usd_per_million: Decimal = Field(gt=0, allow_inf_nan=False)
-    max_calls: int = Field(default=51, ge=1, le=51)
+    max_calls: int = Field(default=101, ge=1, le=101)
     max_input_tokens: int = Field(default=20_000, ge=1)
 
 
@@ -51,6 +51,21 @@ CONCEPT_TITLES = 300
 CONCEPT_BATCHES = 5
 CONCEPT_TITLE_CHARS = 120
 CONCEPT_OUTPUT_TOKENS = 1_500
+
+
+class Drop(Contract):
+    number: int
+    reason_ko: str = Field(max_length=60)
+
+
+class Screened(Contract):
+    drop: list[Drop] = Field(max_length=100)
+    must_read: list[int] = Field(max_length=30)
+
+
+SCREEN_BATCH = 60
+SCREEN_TEXT_CHARS = 220
+SCREEN_OUTPUT_TOKENS = 2_000
 
 
 class Headline(Contract):
@@ -169,6 +184,7 @@ class OpenAIEvaluator:
         self.judge_prompt = (prompt_dir / "judge.md").read_text(encoding="utf-8")
         self.headline_prompt = (prompt_dir / "headline.md").read_text(encoding="utf-8")
         self.concept_prompt = (prompt_dir / "concepts.md").read_text(encoding="utf-8")
+        self.screen_prompt = (prompt_dir / "screen.md").read_text(encoding="utf-8")
         self.schema = _structured_schema(EvalResult.model_json_schema())
         self.judge_schema = _structured_schema(Judgment.model_json_schema())
         version_inputs = [
@@ -316,6 +332,38 @@ class OpenAIEvaluator:
                     if name not in tags:
                         tags.append(name)
         return found
+
+    def screen(self, rows):
+        """Return (event_id -> drop reason, must-read event_ids) for the rows.
+
+        None when any batch fails, so the caller can keep the keyword rules.
+        """
+        dropped, must = {}, set()
+        for start in range(0, len(rows), SCREEN_BATCH):
+            batch = rows[start : start + SCREEN_BATCH]
+            texts = [
+                f"{number}. {' '.join(text.split())[:SCREEN_TEXT_CHARS]}"
+                for number, (_, text) in enumerate(batch, start=1)
+            ]
+            result = self._request(
+                self.screen_prompt,
+                _structured_schema(Screened.model_json_schema()),
+                Screened,
+                "radar_screen",
+                self._untrusted(texts),
+                SCREEN_OUTPUT_TOKENS,
+            )
+            if result is None:
+                return None
+            for drop in result.drop:
+                if 1 <= drop.number <= len(batch):
+                    dropped[batch[drop.number - 1][0]] = drop.reason_ko
+            must.update(
+                batch[n - 1][0]
+                for n in result.must_read
+                if 1 <= n <= len(batch) and batch[n - 1][0] not in dropped
+            )
+        return dropped, must
 
     def headline(self, cards):
         result = self._request(

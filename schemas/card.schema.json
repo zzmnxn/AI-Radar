@@ -299,7 +299,6 @@
         "minLength": 1,
         "type": "string"
       },
-      "minItems": 1,
       "title": "Why",
       "type": "array"
     }
