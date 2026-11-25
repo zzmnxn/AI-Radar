@@ -98,6 +98,7 @@ class CandidatePlan:
     deferred: list[Candidate]
     excluded: dict[str, int] = field(default_factory=dict)
     screen_drops: dict[str, str] = field(default_factory=dict)
+    must_read: tuple[str, ...] = ()
 
 
 def load_candidate_settings(directory: Path) -> CandidateSettings:
@@ -464,6 +465,7 @@ def build_candidates(
         key=lambda c: (-c.prescore, -freshness(c.event).timestamp(), c.event_id)
     )
     drops = {}
+    must = ()
     if screen is not None:
         # Official releases skip the screen; a failed screen keeps the old rules.
         rows = [
@@ -484,6 +486,7 @@ def build_candidates(
                 if "screen_only" not in c.reasons or c.pool_tags != ("explore",)
             ]
         else:
+            must = tuple(sorted(verdicts[1] - set(verdicts[0])))
             known = {r[0] for r in rows}
             drops = {k: v for k, v in verdicts[0].items() if k in known}
             ranked = [
@@ -531,9 +534,9 @@ def build_candidates(
     else:
         selected = _allocate(ranked, n, pipeline.pool_percent, cached, affordable)
     if affordable:
-        return CandidatePlan(selected, [], dict(excluded), drops)
+        return CandidatePlan(selected, [], dict(excluded), drops, must)
     new = [c for c in ranked if not c.retry and c.event_id not in cached]
     waiting = sum(entry.status == "deferred" for entry in (queue or {}).values())
     return CandidatePlan(
-        selected, new[: max(0, target - waiting)], dict(excluded), drops
+        selected, new[: max(0, target - waiting)], dict(excluded), drops, must
     )

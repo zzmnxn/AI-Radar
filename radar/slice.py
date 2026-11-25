@@ -412,6 +412,11 @@ def _run_slice(
                 f"{reason}x{count}" for reason, count in sorted(plan.excluded.items())
             )
             summary += f" prefilter_excluded={dropped}"
+        if plan.must_read:
+            titles = {e.event_id: e.title for e in events}
+            summary += " must_read=" + "; ".join(
+                titles.get(key, key)[:40] for key in plan.must_read[:15]
+            )
         if plan.screen_drops:
             titles = {e.event_id: e.title for e in events}
             summary += " screened_out=" + "; ".join(
