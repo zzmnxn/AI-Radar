@@ -510,7 +510,9 @@ def test_screen_drops_discourse_and_lifts_the_count_cap():
     drop = events[0].event_id
 
     def screen(rows):
-        return {event_id: "discourse" for event_id, _ in rows if event_id == drop}
+        return {
+            event_id: "discourse" for event_id, _ in rows if event_id == drop
+        }, set()
 
     plan = select(events, sources, "40", screen=screen)
     ids = {row.event_id for row in plan.selected}
@@ -535,8 +537,15 @@ def test_official_events_skip_the_screen():
 
     def screen(rows):
         seen.extend(event_id for event_id, _ in rows)
-        return {event_id: "drop" for event_id, _ in rows}
+        return {event_id: "drop" for event_id, _ in rows}, set()
 
     plan = select(events, sources, "10", screen=screen)
     assert not seen
     assert len(plan.selected) == 3
+
+
+def test_must_read_outranks_the_keyword_score():
+    events, sources = sample(6, kind="aggregator", title="Agent harness tool")
+    last = events[-1].event_id
+    plan = select(events, sources, "2", screen=lambda rows: ({}, {last}))
+    assert last in {row.event_id for row in plan.selected}

@@ -267,6 +267,10 @@ def github_stars(results):
     return stars
 
 
+# A must-read verdict from the screen outranks any keyword score.
+MUST_READ_BONUS = 100
+
+
 def _allocate(ranked, n, percentages, cached, paid_limit):
     quotas = {pool: n * percentages[pool] // 100 for pool in POOLS}
     leftovers = sorted(POOLS, key=lambda pool: -(n * percentages[pool] % 100))
@@ -355,7 +359,7 @@ def build_candidates(
     current_stars: Mapping[str, int] | None = None,
     descriptions: Mapping[str, str] | None = None,
     cached: set[str] | None = None,
-    screen: Callable[[list[tuple[str, str]]], dict[str, str] | None] | None = None,
+    screen: Callable[[list[tuple[str, str]]], tuple[dict, set] | None] | None = None,
 ) -> CandidatePlan:
     interests, pipeline = settings.interests, settings.pipeline
     if estimate <= 0:
@@ -471,7 +475,7 @@ def build_candidates(
             for c in ranked
             if "official" not in c.reasons
         ]
-        verdicts = screen(rows) if rows else {}
+        verdicts = screen(rows) if rows else ({}, set())
         if verdicts is None:
             screen = None
             ranked = [
@@ -480,8 +484,22 @@ def build_candidates(
                 if "screen_only" not in c.reasons or c.pool_tags != ("explore",)
             ]
         else:
-            drops = {k: v for k, v in verdicts.items() if k in {r[0] for r in rows}}
-            ranked = [c for c in ranked if c.event_id not in drops]
+            known = {r[0] for r in rows}
+            drops = {k: v for k, v in verdicts[0].items() if k in known}
+            ranked = [
+                replace(c, prescore=c.prescore + MUST_READ_BONUS)
+                if c.event_id in verdicts[1]
+                else c
+                for c in ranked
+                if c.event_id not in drops
+            ]
+            ranked.sort(
+                key=lambda c: (
+                    -c.prescore,
+                    -freshness(c.event).timestamp(),
+                    c.event_id,
+                )
+            )
             excluded["screened_out"] = len(drops)
     per_source = Counter()
     capped = []

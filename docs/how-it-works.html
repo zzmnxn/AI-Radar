@@ -606,7 +606,7 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
     <h3>배분 · 예산 · 재시도 큐</h3>
     <p class="files"><code>radar/prefilter.py</code> (<code>_allocate</code>) · <code>radar/queue.py</code> · <code>data/state/analysis_queue.json</code></p>
     <div class="flow">
-      <div class="step"><b>① 1차 판정·정렬·상한</b><small>공식 이벤트 외 후보를 <code>prompts/screen.md</code>로 60건씩 판정해 담론·무관 글을 drop(이유는 실행 요약 <code>screened_out</code>). 실패하면 아래 기존 규칙. 사전 점수 → 신선도, 소스별 <code>max_candidates</code> 초과 제외</small></div><span class="arrow">→</span>
+      <div class="step"><b>① 1차 판정·정렬·상한</b><small>공식 이벤트 외 후보를 <code>prompts/screen.md</code>로 60건씩 판정해 담론·무관 글을 drop(이유는 실행 요약 <code>screened_out</code>). <code>must_read</code>로 고른 글은 사전 점수 +100으로 맨 위. 실패하면 아래 기존 규칙. 사전 점수 → 신선도, 소스별 <code>max_candidates</code> 초과 제외</small></div><span class="arrow">→</span>
       <div class="step"><b>② 건수 결정</b><small>1차 판정이 성공하면 풀 비율·15건 상한 없이 min(남은 후보 수, 예산으로 가능한 수 + 캐시). 실패 시 min(목표 15, …)</small></div><span class="arrow">→</span>
       <div class="step"><b>③ 재시도 우선</b><small>대기 후보가 슬롯의 1/3까지 먼저</small></div><span class="arrow">→</span>
       <div class="step"><b>④ 풀 채우기</b><small>1차 판정 실패 시에만: 풀마다 최소 1→2건, 나머지는 40/35/25. explore는 소스당 1건. 판정 성공 시 점수 순으로 예산 한도까지</small></div>

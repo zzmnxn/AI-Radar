@@ -60,6 +60,7 @@ class Drop(Contract):
 
 class Screened(Contract):
     drop: list[Drop] = Field(max_length=100)
+    must_read: list[int] = Field(max_length=30)
 
 
 SCREEN_BATCH = 60
@@ -333,11 +334,11 @@ class OpenAIEvaluator:
         return found
 
     def screen(self, rows):
-        """Return event_id -> reason for rows the reader would not want.
+        """Return (event_id -> drop reason, must-read event_ids) for the rows.
 
         None when any batch fails, so the caller can keep the keyword rules.
         """
-        dropped = {}
+        dropped, must = {}, set()
         for start in range(0, len(rows), SCREEN_BATCH):
             batch = rows[start : start + SCREEN_BATCH]
             texts = [
@@ -357,7 +358,12 @@ class OpenAIEvaluator:
             for drop in result.drop:
                 if 1 <= drop.number <= len(batch):
                     dropped[batch[drop.number - 1][0]] = drop.reason_ko
-        return dropped
+            must.update(
+                batch[n - 1][0]
+                for n in result.must_read
+                if 1 <= n <= len(batch) and batch[n - 1][0] not in dropped
+            )
+        return dropped, must
 
     def headline(self, cards):
         result = self._request(
