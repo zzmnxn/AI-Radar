@@ -97,6 +97,7 @@ class CandidatePlan:
     selected: list[Candidate]
     deferred: list[Candidate]
     excluded: dict[str, int] = field(default_factory=dict)
+    screen_drops: dict[str, str] = field(default_factory=dict)
 
 
 def load_candidate_settings(directory: Path) -> CandidateSettings:
@@ -354,6 +355,7 @@ def build_candidates(
     current_stars: Mapping[str, int] | None = None,
     descriptions: Mapping[str, str] | None = None,
     cached: set[str] | None = None,
+    screen: Callable[[list[tuple[str, str]]], dict[str, str] | None] | None = None,
 ) -> CandidatePlan:
     interests, pipeline = settings.interests, settings.pipeline
     if estimate <= 0:
@@ -410,7 +412,14 @@ def build_candidates(
             pools.append("interest")
             reasons.extend(f"interest:{tag}" for tag in sorted(matches))
         else:
-            if trending or not matches or source.discovery_mode == "open":
+            if (
+                trending
+                or not matches
+                or source.discovery_mode == "open"
+                or screen is not None
+            ):
+                if not (trending or not matches or source.discovery_mode == "open"):
+                    reasons.append("screen_only")
                 pools.append("explore")
                 reasons.extend(f"emerging:{tag}" for tag in sorted(trending))
                 reasons.append(
@@ -436,8 +445,12 @@ def build_candidates(
             and not source.editorial_ai
             and score < pipeline.explore_min_prescore
         ):
-            # Outside-interest items need a new-trend concept or a strong signal.
-            pools.remove("explore")
+            # Outside-interest items need a new-trend concept or a strong signal,
+            # unless the model screen is there to judge them.
+            if screen is None:
+                pools.remove("explore")
+            else:
+                reasons.append("screen_only")
         if pools:
             ranked.append(
                 Candidate(event, pools[0], tuple(pools), score, tuple(reasons), retry)
@@ -446,6 +459,30 @@ def build_candidates(
     ranked.sort(
         key=lambda c: (-c.prescore, -freshness(c.event).timestamp(), c.event_id)
     )
+    drops = {}
+    if screen is not None:
+        # Official releases skip the screen; a failed screen keeps the old rules.
+        rows = [
+            (
+                c.event_id,
+                f"[{primary_ref(c.event).org}] {c.event.title} "
+                + descriptions.get(c.event_id, ""),
+            )
+            for c in ranked
+            if "official" not in c.reasons
+        ]
+        verdicts = screen(rows) if rows else {}
+        if verdicts is None:
+            screen = None
+            ranked = [
+                c
+                for c in ranked
+                if "screen_only" not in c.reasons or c.pool_tags != ("explore",)
+            ]
+        else:
+            drops = {k: v for k, v in verdicts.items() if k in {r[0] for r in rows}}
+            ranked = [c for c in ranked if c.event_id not in drops]
+            excluded["screened_out"] = len(drops)
     per_source = Counter()
     capped = []
     for candidate in ranked:
@@ -456,13 +493,29 @@ def build_candidates(
         per_source[source.id] += 1
         capped.append(candidate)
     ranked = capped
-    target = min(pipeline.target, pipeline.max, len(ranked))
+    target = (
+        len(ranked)
+        if screen is not None
+        else min(pipeline.target, pipeline.max, len(ranked))
+    )
     cached = cached or set()
     free = sum(candidate.event_id in cached for candidate in ranked)
     n = min(target, affordable + free)
-    selected = _allocate(ranked, n, pipeline.pool_percent, cached, affordable)
+    if screen is not None:
+        # Screened candidates are all worth evaluating; only the budget limits them.
+        selected, paid = [], 0
+        for candidate in ranked:
+            fresh = candidate.event_id not in cached
+            if len(selected) == n or (fresh and paid >= affordable):
+                continue
+            paid += fresh
+            selected.append(replace(candidate, pool=candidate.pool))
+    else:
+        selected = _allocate(ranked, n, pipeline.pool_percent, cached, affordable)
     if affordable:
-        return CandidatePlan(selected, [], dict(excluded))
+        return CandidatePlan(selected, [], dict(excluded), drops)
     new = [c for c in ranked if not c.retry and c.event_id not in cached]
     waiting = sum(entry.status == "deferred" for entry in (queue or {}).values())
-    return CandidatePlan(selected, new[: max(0, target - waiting)], dict(excluded))
+    return CandidatePlan(
+        selected, new[: max(0, target - waiting)], dict(excluded), drops
+    )

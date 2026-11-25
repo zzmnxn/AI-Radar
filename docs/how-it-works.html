@@ -323,8 +323,8 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
   <h1>AI Radar 작동 원리</h1>
   <p class="lede">넓게 모으고 → 규칙으로 싸게 줄이고 → 남은 후보에만 LLM을 쓰고 → 원문 인용으로 확인된 것만 보여준다.</p>
   <div class="meta">
-    <span>최종 갱신 2026-11-24</span>
-    <span>마지막 반영: 편집 피드 원문 발견, 설명 기반 선별, 부분 확인 카드, PostgreSQL 수집 상태</span>
+    <span>최종 갱신 2026-11-25</span>
+    <span>마지막 반영: 후보 1차 판정(작은 모델)과 개수 비고정 선별, 하루 호출 한도 101</span>
     <span>모델 <code>gpt-5.4-mini</code></span>
     <span>예산 $0.25/일</span>
   </div>
@@ -606,10 +606,10 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
     <h3>배분 · 예산 · 재시도 큐</h3>
     <p class="files"><code>radar/prefilter.py</code> (<code>_allocate</code>) · <code>radar/queue.py</code> · <code>data/state/analysis_queue.json</code></p>
     <div class="flow">
-      <div class="step"><b>① 정렬·상한</b><small>사전 점수 → 신선도. 소스별 <code>max_candidates</code> 초과 제외</small></div><span class="arrow">→</span>
-      <div class="step"><b>② 건수 결정</b><small>min(목표 15, 후보 수, 예산으로 가능한 수 + 캐시)</small></div><span class="arrow">→</span>
+      <div class="step"><b>① 1차 판정·정렬·상한</b><small>공식 이벤트 외 후보를 <code>prompts/screen.md</code>로 60건씩 판정해 담론·무관 글을 drop(이유는 실행 요약 <code>screened_out</code>). 실패하면 아래 기존 규칙. 사전 점수 → 신선도, 소스별 <code>max_candidates</code> 초과 제외</small></div><span class="arrow">→</span>
+      <div class="step"><b>② 건수 결정</b><small>1차 판정이 성공하면 풀 비율·15건 상한 없이 min(남은 후보 수, 예산으로 가능한 수 + 캐시). 실패 시 min(목표 15, …)</small></div><span class="arrow">→</span>
       <div class="step"><b>③ 재시도 우선</b><small>대기 후보가 슬롯의 1/3까지 먼저</small></div><span class="arrow">→</span>
-      <div class="step"><b>④ 풀 채우기</b><small>풀마다 최소 1→2건, 나머지는 40/35/25. explore는 소스당 1건</small></div>
+      <div class="step"><b>④ 풀 채우기</b><small>1차 판정 실패 시에만: 풀마다 최소 1→2건, 나머지는 40/35/25. explore는 소스당 1건. 판정 성공 시 점수 순으로 예산 한도까지</small></div>
     </div>
     <div class="table-wrap"><table>
       <thead><tr><th>큐 상태</th><th>언제</th><th>다음</th></tr></thead>
@@ -702,8 +702,8 @@ footer { margin-top: 64px; font-size: 12.5px; color: var(--muted); border-top: 1
     <h3>재사용과 예산</h3>
     <p class="files"><code>radar/analysis.py</code> (<code>save_analysis</code>, <code>recent_analyses</code>) · <code>radar/llm.py</code> (<code>_request</code>, <code>candidate_budget</code>) · Actions 변수 <code>RADAR_*</code></p>
     <div class="grid">
-      <div class="tile"><span class="big">$0.25</span><h4>일 예산</h4><p>호출 전 예약, 끝나면 실제 토큰으로 정산</p></div>
-      <div class="tile"><span class="big">51</span><h4>하루 최대 호출</h4><p>후보 1건 = 평가 + 판정 2회, 헤드라인 1회분 예약</p></div>
+      <div class="tile"><span class="big">$0.60</span><h4>일 예산</h4><p>호출 전 예약, 끝나면 실제 토큰으로 정산</p></div>
+      <div class="tile"><span class="big">101</span><h4>하루 최대 호출</h4><p>후보 1건 = 평가 + 판정 2회, 헤드라인 1회분 예약, 1차 판정은 60건당 1회</p></div>
       <div class="tile"><span class="big">32</span><h4>11-22 호출</h4><p>입력 88k · 출력 12k 토큰, 약 $0.12</p></div>
       <div class="tile"><span class="big">캐시</span><h4>재평가 안 함</h4><p>(사건, 리비전, 분석기 버전)이 같으면 저장된 결과 재사용</p></div>
     </div>

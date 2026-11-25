@@ -392,6 +392,7 @@ def _run_slice(
             ),
             current_stars=github_stars(results),
             cached=set(cached),
+            screen=getattr(evaluate, "screen", None),
         )
         for candidate in plan.deferred:
             update_queue(candidate.event, "budget")
@@ -411,6 +412,12 @@ def _run_slice(
                 f"{reason}x{count}" for reason, count in sorted(plan.excluded.items())
             )
             summary += f" prefilter_excluded={dropped}"
+        if plan.screen_drops:
+            titles = {e.event_id: e.title for e in events}
+            summary += " screened_out=" + "; ".join(
+                f"{titles.get(key, key)[:40]} ({why})"
+                for key, why in list(plan.screen_drops.items())[:10]
+            )
     else:
         mode = "normal"
         # The offline preview uses synthetic evidence and judgment.
