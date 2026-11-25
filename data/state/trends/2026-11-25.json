@@ -1,9 +1,9 @@
 {
-  "active_sources": 20,
+  "active_sources": 22,
   "date": "2026-11-25",
   "rows": [
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "eef4bc8f87c162f3126f2983a1d6a5645e32d0f0102045d0c134941fdaa9e304"
@@ -17,7 +17,7 @@
       "tag": "activation steering"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "56d6e4c61e9846b3e1ca2394f72028b0c64a12332611a1f041c0514dd7796336",
@@ -32,7 +32,35 @@
       "tag": "agent harnesses"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "327e9a13f2ff9c8d5e7d72c114d4522b82b79f853cbc0d8c04f9a2bd9ee39827"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol"
+      ],
+      "tag": "agent-first browsing"
+    },
+    {
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "798f8ab971b18dba4d60fcc987c0100317c9133cc2544e3784a76ea879aabbc3"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "GeekNews"
+      ],
+      "tag": "agentic coding"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "9bff9d517e7e3899c7d17a42c87ef21c877d429a389407e2264fa052ddf8efc5",
@@ -47,7 +75,7 @@
       "tag": "agentic retrieval"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "0454d274d52a51b7140fb7b5fd78d5113ccaddb00f8be3f521ab5583f76dd4ba",
@@ -65,11 +93,13 @@
         "221034d6b04eb668c04cb92287634b31b3b3e63387e223f5bde53637d6768ee9",
         "25dfea600b2793b4d4366300351421664ec78000156d7998a0fe44831250ee08",
         "26daa5047481cf5c0543f58959fedba1b5b63f70b2aaacfb952e349e9df803c1",
+        "327e9a13f2ff9c8d5e7d72c114d4522b82b79f853cbc0d8c04f9a2bd9ee39827",
         "34a9044ee52f5d2914887cf559f3010abf4b93642071381a726b5d03508d9e9a",
         "35412726269f69c68cf8fb3b98d1d11078398c390b6ce07a62b9db76601edb35",
         "36c440defe6b837be453f0289b16edf83763d853516cab9d280347025245e833",
         "3d7f354a2e6caae221e3110f580d0b3a65d9062234d4a3e4cc1965b9e1824e6e",
         "3e3fa762d210e05ed7c11d6ece4f2b97b7719533747b8e313e9e987eacb1c444",
+        "3ffa5c39e01e3431aafb68b86f47a423cad3918397f531b6569292d3719a69a5",
         "40e861d6f8617ebdcaf07213ed579caf967aefd4168be8bf6978de35117a2dac",
         "43d9590e2cce67c03df4ebe441048a5c9a7006c943ece000513e5be4ec5e9a39",
         "474ae07dea859c9005819e26e55713c45e2dcc04788d8f0a4464150a8c0dc160",
@@ -86,8 +116,11 @@
         "5a180ad079445863cf7faeadf86dc63b08d54defad3f01f1fd872305289ae4c6",
         "5ac35b92769bf8dd0b39281d6e90ca09baf1c4330e1be23543d5e0563a52040f",
         "5b9d4262877db38745e1f5249079fc77a0a2e0e4ebff2a51aafbca91b6cf5f69",
+        "5ba242844ae4eefc60d27e901115f3738f8ea3bfbefeb7b0e1d0b712c76af777",
+        "5d30f74fafd9733771ac19496c17939ccae6e074644b746791628308d5f594f1",
         "5e14e76abd891c244ae1e45bc3d919fb9855e644b8bd3181fa0bc9db26d256ed",
         "609d1cc13cd295adb217bbee8a391c9ac56ee807c8745f1e469314ed0cb0316e",
+        "62218c83417b1c08842e6cf2463ef2f62e5685af6b95cf2d637b9aab1a0c4ecb",
         "637fcc8098fce9ebe8a663d7b3ae4f5d477f65e413354c9fb2495b4bf4a4b802",
         "63cfe01ce70033d5fe36c10d55171e8bf3ee7f8ad9a6e5bd1c44dfda9fd68d15",
         "68a968ea225ff7600c2d9bfd7be9855fea1037230c360bbb8e9a8b02e10bae2d",
@@ -139,8 +172,8 @@
         "ff10d130ecbab268f9bcd9d5cc7c709c978ef88be73eb91fc32c3829fa2e73f7",
         "ff3b370ff0d73899a4dfc9bee3fb0f561a4f86a7426d3af569be1dd5305812aa"
       ],
-      "events": 88,
-      "independent_orgs": 7,
+      "events": 93,
+      "independent_orgs": 8,
       "kind": "taxonomy",
       "orgs": [
         "GitHub",
@@ -149,28 +182,34 @@
         "Model Context Protocol",
         "OpenAI",
         "Simon Willison",
+        "TLDR AI",
         "arXiv"
       ],
       "tag": "ai-agent"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
+        "0c49d8af4fd8d7749df8a3c32770ca44f26847bc43343e7f24c888143820f6e4",
+        "1071f70f3219bb313bfa8b77f6d22f3c100b4754607a8758b3c81c03a95dd4ff",
         "4a14f77322e7c66a28648829cd61de4351edb66ecaf2d22e9d38330d7e6d5af9",
         "9d8ef44660a0fb71a30f861a213602b3dd9225337f2bc7ce361a50e048586bf0",
+        "af23f7103e7407fd7d6844a205990bbe5ec606c05f29a997af7698f9f158b4db",
         "c2cffa2db66579cae8dfea3bd0c7cf1c87dbabc7219d9991ba32771af9bb3aa8"
       ],
-      "events": 3,
-      "independent_orgs": 1,
+      "events": 6,
+      "independent_orgs": 3,
       "kind": "taxonomy",
       "orgs": [
-        "Hacker News"
+        "GeekNews",
+        "Hacker News",
+        "TLDR AI"
       ],
       "tag": "anthropic"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "02caf4bafd65bead0c32a78192de795c835037d066523903fb4d5ce5b8e738f8",
@@ -205,8 +244,10 @@
         "253bbe91100905f3c3b448697408cf9def4ff9179c0f54976fc653741d320def",
         "25dfea600b2793b4d4366300351421664ec78000156d7998a0fe44831250ee08",
         "262a87fe436cdac4e2517a395464022a325aec6463ad22a08779016e9ed47d46",
+        "26c09a42818413276e65f0a76dd2b62268e1d7ba32997717d08b785bf9875689",
         "2b81ba50453e64a67e0d1f28d1d07c64d91eaf4c9cdd2a9e9e9640cba798b734",
         "2be7bc91219f105e1c5a81aa8c9e7ca26f8e7a31184808af5ff2099611abd6ee",
+        "2d9d59ad5651156d0170c3cf1ffe3c4eea06a1ca2face66479acfa2c90920c57",
         "2e38a12c5c074bb773246dea12da0cb0d132ea7c276abdab686d93403dd27e38",
         "2e654188d25ea200b2fe89e7bc2743388ae6e65bd3f78ca02ac3cdd765159a75",
         "2ebaaa0f2ac10f66f5c9f4618bc522a99524e5c7fc884a65dc904c9cf033de92",
@@ -256,12 +297,14 @@
         "65ee0d458cb80e7bdc100ddc8620c351d12752be531ca487cdcf352f1cbd55f0",
         "667d73d03e763aea225b89390487f63a466b18711ac74a2fde9275e9ddf73c1b",
         "6908f666697d198105c062926fb63d66435f9484d48ed9f9956c5316aa211daf",
+        "6a6b5fb7dc2764560b97041becba816a5793155fbb67d16e57bbdb05c47170e7",
         "6b99075f0a078f5a69cc88561faca43b4df155fc0dc4d7aceb003d94bb4e49d7",
         "6cf3c95631448ee58e03924a0cdf8f08eadfd39898ef9ace1c9712ce979052fc",
         "6e2d7afaec680fc6cdd26a4e7afee3bc257cb4b86c273e7469fd931620735dd7",
         "70f1621b9f246cd8ce2a5697adc1af56afc07938be514ed4420bfea6edd1f1da",
         "72dd1a4bc127aa164fb0f0f6697c9373f48c2ac60bf811ddaf5d6397db2f5f4a",
         "7727c9eeed94b0b5f4107f7008e87cc969a1b4f909e5580ab539e5242daf838b",
+        "798f8ab971b18dba4d60fcc987c0100317c9133cc2544e3784a76ea879aabbc3",
         "7c4aec239d9fdd911fbf2d16366df88c5408cb9c5bca9e62b5ecd905913e1013",
         "7d6073c011edb6404528a4e274f60bdf4063360bbd686543ea7391fdf7e057b1",
         "7efc6692faae977ea937cb16cb0dc060ce57088f49346af396a1484da5e18367",
@@ -281,6 +324,7 @@
         "8c21885a65f4f49bf2179b17c3e132d114f1180e8db9f29f31d3006ee7d027fa",
         "903c72733b2ca5e3b9cdee2b0076e181f12d692f068fd53666c6442a4b9d5936",
         "9186f9efe7b3fd4ba3a547c12796f7603311b80164e6fbf5bad02940345abda2",
+        "91b982c7c20be523e089a94f0c9006c66c82bf843ab123034b9dc32d84b7cd5b",
         "91d1d652b4b3c2c1099b8f8c6c7f2e406ad9911b75921944aecbad473ab10ce5",
         "923450132bfd1a384d19465d7cba3644e24405b7e4623453c39686ddbe002705",
         "92c3a1c471fea4a565fabddd9bf707f8a045d1e2041c76f42bea66bdc95a3dde",
@@ -288,6 +332,7 @@
         "9936cfef39212e87054d64d6182a55ca441d5e84b0c0b83eaa19e4f1dfe69c76",
         "9a0580facb983972bff1b8ad53c000a6ab5f6ddf7aa4227fbc055609164406f2",
         "9dde63de4422002cb25570b2f8eb99e47081c08df58c11ea82b2672eb0d994b6",
+        "9e07b8c2cf04bf6d98eb269498ad8026c4c1bf8ae3a4513b573105b944f444d9",
         "a026cb43906e24e6ea362630b53ca56936d26fdc74ce40aaf6de36759a8131a9",
         "a058635b90f78cfa33b3c7afa0932c3d8c0b1e886fbfa2e2484f5367ca987730",
         "a07276e7e4fd0ac056bb9515d782dd4b55412a8d5e15e8ce816c1a86db8f7fbb",
@@ -295,6 +340,8 @@
         "a51f65d72c1790c1679eb699319cb16ce338af27ebd6b3a2b1881ac86e9e62d0",
         "a7a631b6dc275f798045d086bdbf3fa00bd3cd067e5bb1345caf4ce19edd15b2",
         "a7ac35725c539982b8087214775bcdfc9247202564b074bf1d668cb51dd9937a",
+        "a88505e29e2a65c37009ab0f5c0046e36d4b01add60aed2e6a44c507a58eb833",
+        "aa457c83637cdab767b0f4bc95ee08542edcbe407476c3518bcccc92b5726fb8",
         "aabba291e5d4ec611e7f4eb49969e93eb625f9a8a8d0b9a5397d8a49d3faf959",
         "ac17992db40c492c896e87deba47cbee493fe8ad6e612d9e6ce67d06778c6be2",
         "ac64a3fde082e22a8cc6a41e7dad2327f0c3df9327946236358af5f80e2a7758",
@@ -317,6 +364,7 @@
         "d48f00c9e28086e97a7871fe67ea02443cc0d5c0a3ed0dde7d54fcb172cdb6a8",
         "d518ce7d4f175fde687c1ff23a98a7096ed624e3d3cd60fe9c70d74257999c94",
         "d5ab6451a2157c1793437405544a0da0566b68d57d9f5d929232f3ba3833e1a0",
+        "d5e1e45f9628bdefb3160269088650e47f29245306ae5a620329b75900de4752",
         "d70b3aae5bffdb0829087a67de2ef6854238cd742fefecff33fe24ea3f7e76b5",
         "d73cbc448deeea79aee9567a064c4bff373b1f74035e425ab37247c79e44ae63",
         "d740404e27f79d3cdccc2fbfa0497e2b91a6551213f9931ebc380270861b74a9",
@@ -352,20 +400,22 @@
         "ffc7f10ffb6eb11f1d39fd52791fcf45a92c7509196e510af6cedd57ae1a7b63",
         "ffec77af391cad190248b797c2d59456d398d8298cecb0d94aad8516d0fcd560"
       ],
-      "events": 178,
-      "independent_orgs": 5,
+      "events": 187,
+      "independent_orgs": 7,
       "kind": "taxonomy",
       "orgs": [
+        "GeekNews",
         "GitHub",
         "Hacker News",
         "Hugging Face",
         "Model Context Protocol",
+        "TLDR AI",
         "arXiv"
       ],
       "tag": "artificial-intelligence"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "9d722543a45dda09ef06323d6f5b85a7a0d22fa8c5571ecbfd35a2e495066b2f"
@@ -379,7 +429,7 @@
       "tag": "attention patching"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "532dfc300a75df3e73df7216f17101a8264da188ee09c91209131635a1da60fc",
@@ -396,24 +446,40 @@
       "tag": "background agents"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "a9691c707392f7bedd83d3999f84e742a856cf5529ae3acf85363aa1305ea64b"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "GeekNews"
+      ],
+      "tag": "background learning"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "474ae07dea859c9005819e26e55713c45e2dcc04788d8f0a4464150a8c0dc160",
         "551ace39e6dd6bb565a8992a873470cb7df75ee0cfb9fe6bfc5f5798a83fd9c0",
+        "cf460986536c2faafad7704f3e73992fc1a9fe45c06610df2f3887572a43aec2",
         "e7bda718da3dd72cd5ed1a31edf2f11e9c330c6a9eb65e410259c9d45e3e19aa"
       ],
-      "events": 3,
-      "independent_orgs": 2,
+      "events": 4,
+      "independent_orgs": 3,
       "kind": "taxonomy",
       "orgs": [
         "Hacker News",
-        "Model Context Protocol"
+        "Model Context Protocol",
+        "TLDR AI"
       ],
       "tag": "claude"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "0454d274d52a51b7140fb7b5fd78d5113ccaddb00f8be3f521ab5583f76dd4ba",
@@ -431,7 +497,22 @@
       "tag": "computer-use agents"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "701a571706ec6c00de8bbc6af8a9bc31d2eec98a2272e87a59a9e6a4a97a82f1"
+      ],
+      "events": 1,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hugging Face",
+        "TLDR AI"
+      ],
+      "tag": "context engineering"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "a058635b90f78cfa33b3c7afa0932c3d8c0b1e886fbfa2e2484f5367ca987730",
@@ -447,7 +528,21 @@
       "tag": "context extension"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "fa77bee13b40da52cd1942269e26e405a795115ffa1f3e81c0375d34f69989f2"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "TLDR AI"
+      ],
+      "tag": "continuous diffusion language model"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "022eb30a81c8269468b35348334f0a446ac6249ba6dfbef95b07476b892c9903",
@@ -519,26 +614,45 @@
       "tag": "evaluation"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "3ffa5c39e01e3431aafb68b86f47a423cad3918397f531b6569292d3719a69a5",
+        "7ad44f990f0c53ef2e2a537716dcd0f4d19ea5c4fbcd3c1cf3877b1b8eae8965"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "OpenAI",
+        "TLDR AI"
+      ],
+      "tag": "formal verification"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "20e80028cf9841fc3a198ce5bcd464dbfd25e5b6e5cd19057e8727baf93adc18",
-        "45a96695d7c0e997c9878e56627047609d38ee6c81e3eae1a55635db9b269e86"
+        "45a96695d7c0e997c9878e56627047609d38ee6c81e3eae1a55635db9b269e86",
+        "c48f1c2cb5bd0c5910f84703932749302b5a5035eca7629fbc26fcf4a758b227"
       ],
-      "events": 2,
-      "independent_orgs": 1,
+      "events": 3,
+      "independent_orgs": 2,
       "kind": "taxonomy",
       "orgs": [
-        "Google"
+        "Google",
+        "TLDR AI"
       ],
       "tag": "gemini"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "067413556d0973dd69d428cbde1ea5a854b3a0b6ba88c09fa80e424281f95121",
         "28f9acc04f3c0ee8395cda93c59236b46d443b8addacc40de2f2409de4548f15",
+        "327e9a13f2ff9c8d5e7d72c114d4522b82b79f853cbc0d8c04f9a2bd9ee39827",
         "3e3fa762d210e05ed7c11d6ece4f2b97b7719533747b8e313e9e987eacb1c444",
         "43d5af33bbf69eb18dbdeca3e9772d8c3d17b98c72bc67aab46189c0ce49b859",
         "474ae07dea859c9005819e26e55713c45e2dcc04788d8f0a4464150a8c0dc160",
@@ -549,6 +663,7 @@
         "5a180ad079445863cf7faeadf86dc63b08d54defad3f01f1fd872305289ae4c6",
         "5ac35b92769bf8dd0b39281d6e90ca09baf1c4330e1be23543d5e0563a52040f",
         "5b9d4262877db38745e1f5249079fc77a0a2e0e4ebff2a51aafbca91b6cf5f69",
+        "62218c83417b1c08842e6cf2463ef2f62e5685af6b95cf2d637b9aab1a0c4ecb",
         "654fa31d1430cc2f8aab1eee1fbe98030ea81ad38b9f8e38b6aa3861ae34832e",
         "674f8a4c7a8fdcceafb9e4463d29dc9eff1dd3be112a8e305e1f1ffa8d51fefe",
         "68a968ea225ff7600c2d9bfd7be9855fea1037230c360bbb8e9a8b02e10bae2d",
@@ -575,7 +690,7 @@
         "eb0b1f436fbc9791594331b995b9e3dac60594c003556480a5a0df197f081a8e",
         "f8eb42ace893340e2e904a0d987e8bdf7b6affdaa13ba6674cd863411fcebe59"
       ],
-      "events": 37,
+      "events": 39,
       "independent_orgs": 2,
       "kind": "taxonomy",
       "orgs": [
@@ -585,7 +700,7 @@
       "tag": "github"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "2d9b2b8de4028adf7548f3ab15a3284521fb2c43924e5480ec6e515b2799cc58",
@@ -606,7 +721,22 @@
       "tag": "gpt"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "701a571706ec6c00de8bbc6af8a9bc31d2eec98a2272e87a59a9e6a4a97a82f1"
+      ],
+      "events": 1,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Hugging Face",
+        "TLDR AI"
+      ],
+      "tag": "harness adapters"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "3f90f8b4c8aab6e07e35a5d5fb6994b1a3ff762ae4c95bed49a9769e2d1cc190"
@@ -620,7 +750,7 @@
       "tag": "interface composition"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "a026cb43906e24e6ea362630b53ca56936d26fdc74ce40aaf6de36759a8131a9",
@@ -635,7 +765,7 @@
       "tag": "judge evaluation"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "02caf4bafd65bead0c32a78192de795c835037d066523903fb4d5ce5b8e738f8"
@@ -649,7 +779,7 @@
       "tag": "knowledge graph constrained reasoning"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "008691bc6c4e820b8882b2b18b92d68408c7cd5f510878368de78d40b1999146",
@@ -740,18 +870,33 @@
         "fe6727bf216bf151e819b376189d17d92cd91b18e5bf3f93d3b4f36a0e73bd68"
       ],
       "events": 86,
-      "independent_orgs": 4,
+      "independent_orgs": 5,
       "kind": "taxonomy",
       "orgs": [
         "Hacker News",
         "Hugging Face",
         "Simon Willison",
+        "TLDR AI",
         "arXiv"
       ],
       "tag": "large-language-model"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "3122d8b93102b5f040198439008c491a9ed2dfa8fd8be12135ef932d69f0fcab"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "TLDR AI"
+      ],
+      "tag": "local computer use"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "a2e38bc0879095999850c668abd62ecf9195748f4eae96b3a6c90ad644d89595",
@@ -766,7 +911,7 @@
       "tag": "looped transformers"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "022eb30a81c8269468b35348334f0a446ac6249ba6dfbef95b07476b892c9903",
@@ -867,17 +1012,18 @@
         "ffc7f10ffb6eb11f1d39fd52791fcf45a92c7509196e510af6cedd57ae1a7b63"
       ],
       "events": 96,
-      "independent_orgs": 3,
+      "independent_orgs": 4,
       "kind": "taxonomy",
       "orgs": [
         "Hacker News",
         "Hugging Face",
+        "TLDR AI",
         "arXiv"
       ],
       "tag": "machine-learning"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "28f9acc04f3c0ee8395cda93c59236b46d443b8addacc40de2f2409de4548f15",
@@ -903,7 +1049,7 @@
       "tag": "mcp"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "ac1968491886e740b5d1effed3322c537a1bf8b505809c17caa083efa3b8b273",
@@ -919,7 +1065,7 @@
       "tag": "memory compression"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "a026cb43906e24e6ea362630b53ca56936d26fdc74ce40aaf6de36759a8131a9"
@@ -933,21 +1079,39 @@
       "tag": "meta"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
-        "89be47622d1f215519f33c46b84767cac4723ba5ab9ae1f21ab693edd47fa03f"
+        "26c09a42818413276e65f0a76dd2b62268e1d7ba32997717d08b785bf9875689",
+        "89be47622d1f215519f33c46b84767cac4723ba5ab9ae1f21ab693edd47fa03f",
+        "a452f9dcb56b5acc9cc4b10ec61e5885f483ce6587adaf9e6bf49a701bd35185"
       ],
-      "events": 1,
-      "independent_orgs": 1,
+      "events": 3,
+      "independent_orgs": 3,
       "kind": "taxonomy",
       "orgs": [
-        "Latent Space"
+        "GeekNews",
+        "Latent Space",
+        "TLDR AI"
       ],
       "tag": "microsoft"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "f2fa4f4d666a1f43fcc887df9cd920ded5e8116a2f8e3f5f67e4f49a32cefd9e"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "TLDR AI"
+      ],
+      "tag": "million-token context"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "9f6bdad4e63c4b1619e9353e228865a2127dc33715861ea5736a5352ddef61d9",
@@ -964,7 +1128,7 @@
       "tag": "multi-agent memory"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "9dde63de4422002cb25570b2f8eb99e47081c08df58c11ea82b2672eb0d994b6"
@@ -978,23 +1142,53 @@
       "tag": "multimodal spatial reasoning"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
+        "83b9621afef40ae2c113f2658cee6d6b456cc7e87fad0dd3f817f03d3874e7a5",
         "89be47622d1f215519f33c46b84767cac4723ba5ab9ae1f21ab693edd47fa03f",
         "c2cffa2db66579cae8dfea3bd0c7cf1c87dbabc7219d9991ba32771af9bb3aa8"
       ],
-      "events": 2,
-      "independent_orgs": 2,
+      "events": 3,
+      "independent_orgs": 3,
       "kind": "taxonomy",
       "orgs": [
         "Hacker News",
-        "Latent Space"
+        "Latent Space",
+        "TLDR AI"
       ],
       "tag": "openai"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "5d30f74fafd9733771ac19496c17939ccae6e074644b746791628308d5f594f1"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "TLDR AI"
+      ],
+      "tag": "orchestrator orchestration"
+    },
+    {
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "6f570ca53963f6d74e9bc541849cc92cd7418099de7e97f1337173b6f7707e74"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "TLDR AI"
+      ],
+      "tag": "post-training evasion"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "5731aa798025b19aeac76c322ee915045ee3c15367a77487fe857ea5797a7628"
@@ -1008,7 +1202,7 @@
       "tag": "prompt-independent word store"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "095b5e0e5283742ca687801270f771399ba658867ed03a16056411d19905437d",
@@ -1024,7 +1218,7 @@
       "tag": "real-to-sim training"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "02caf4bafd65bead0c32a78192de795c835037d066523903fb4d5ce5b8e738f8",
@@ -1063,7 +1257,21 @@
       "tag": "reasoning"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
+      "date": "2026-11-25",
+      "event_ids": [
+        "990f58ceeb055fd185ae5dcf35b73238b71631e8127518237ce1a837e94e898b"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "TLDR AI"
+      ],
+      "tag": "residual connection scaling"
+    },
+    {
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "f0dba3a6097fcd9082ae38fca556d423e0a98a41030d888a0a05d62cfffbb6a4"
@@ -1077,7 +1285,7 @@
       "tag": "reward hacking"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "25dfea600b2793b4d4366300351421664ec78000156d7998a0fe44831250ee08"
@@ -1091,7 +1299,7 @@
       "tag": "role-level policy grafting"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "9d9655b18ecf8e9870d26cff82f60f24a55575dfd6b19b54b5dbcb45533876d6"
@@ -1105,7 +1313,7 @@
       "tag": "sandbox deployment"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "b67f6c4f6e7252da4dd89df8915e5ad607d917cbc2645d677ca6d3e41837d56e",
@@ -1120,7 +1328,7 @@
       "tag": "self-distillation"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "322ef4f140b31c4cddbfdd27c6c5e754c25514a9f870c13693e9417a7186f2a9",
@@ -1129,15 +1337,16 @@
         "8a1c222c2e75ab21b45fbf04d23f5fc55ecbab486b3f7e69c63c8dee96964dbf"
       ],
       "events": 4,
-      "independent_orgs": 1,
+      "independent_orgs": 2,
       "kind": "concept",
       "orgs": [
+        "TLDR AI",
         "arXiv"
       ],
       "tag": "self-improvement loops"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "022eb30a81c8269468b35348334f0a446ac6249ba6dfbef95b07476b892c9903"
@@ -1151,7 +1360,7 @@
       "tag": "shared tool experience"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "0783b4d4be1025aa6e631b40bc381c623821fbf935c3b16cebf4120c9f4994dd",
@@ -1166,7 +1375,7 @@
       "tag": "skill retrieval"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "0fe1ada3528a46a6af67d8faa67810cde65188223811ee1b4ae3ad632654dfc2",
@@ -1183,7 +1392,7 @@
       "tag": "speculative decoding"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "fa58ef34914a72bd55e7f913401f8e0c92bb885e092cddfeea31fef6491d9474"
@@ -1197,7 +1406,7 @@
       "tag": "test-time adaptation"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "322ef4f140b31c4cddbfdd27c6c5e754c25514a9f870c13693e9417a7186f2a9",
@@ -1212,7 +1421,7 @@
       "tag": "test-time scaling"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "cd220cd4fc6c348433ab54070db42374553c2f14ad9693429bf7e15958c3be97",
@@ -1227,7 +1436,7 @@
       "tag": "tool failure"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "02caf4bafd65bead0c32a78192de795c835037d066523903fb4d5ce5b8e738f8",
@@ -1244,7 +1453,7 @@
       "tag": "trajectory reasoning"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "3f417dfc9139a465ea8b3070bf814fbd66ee257b56e6f4296ba3ff5f3c54790d"
@@ -1258,7 +1467,7 @@
       "tag": "verifiable reasoning traces"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "cd220cd4fc6c348433ab54070db42374553c2f14ad9693429bf7e15958c3be97",
@@ -1273,7 +1482,7 @@
       "tag": "verification-first oversight"
     },
     {
-      "active_sources": 20,
+      "active_sources": 22,
       "date": "2026-11-25",
       "event_ids": [
         "2000fa5125646eec6995fddd6129980c7b15eb8f8e027281110b6199eed70114"

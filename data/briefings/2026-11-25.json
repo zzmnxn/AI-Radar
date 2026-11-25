@@ -5,362 +5,457 @@
         "note_ko": null,
         "type": "unknown"
       },
-      "analysis_id": "4126675a549bd0dda117e949824df0bd870e6e224704e82bf0a44b994ca2ee8a",
+      "analysis_id": "92ae2a7b19886eca746adc8215e2462937f033ac227ced025f644828fe53b127",
       "availability": "unknown",
-      "card_id": "card_4126675a549b",
-      "category": "에이전트 작업 환경",
-      "event_id": "474ae07dea859c9005819e26e55713c45e2dcc04788d8f0a4464150a8c0dc160",
+      "card_id": "card_92ae2a7b1988",
+      "category": "MCP·도구 연결",
+      "event_id": "532dfc300a75df3e73df7216f17101a8264da188ee09c91209131635a1da60fc",
       "how": [
-        "`npx @vshulcz/deja-vu audit --secrets`로 로컬 로그를 점검한다.",
-        "`npx @vshulcz/deja-vu install --auto`로 감지된 에이전트를 연결한다."
+        "Claude Code는 `/plugin install agent-memory --marketplace ipiton/agent-memory-mcp`로 설치한다.",
+        "독립 서버는 `brew tap ipiton/tap && brew install agent-memory-mcp` 뒤 `agent-memory-mcp setup codex --yes`를 실행한다."
       ],
       "pool": "interest",
-      "published_at": "2026-11-24T14:58:31.192949Z",
+      "published_at": "2026-11-24T10:03:35.925759Z",
       "revision": 1,
-      "score": 86.0,
+      "score": 82.0,
       "sources": [
         {
           "org": "Model Context Protocol",
           "source_class": "product",
           "source_id": "mcp-registry",
-          "title": "io.github.vshulcz/claude-codex-cursor-agent-memory-deja-vu 0.25.1",
-          "url": "https://github.com/vshulcz/deja-vu"
+          "title": "io.github.ipiton/agent-memory-mcp 0.19.1",
+          "url": "https://github.com/ipiton/agent-memory-mcp"
         }
       ],
       "tags": [
+        "MCP",
         "memory",
-        "cli",
-        "mcp",
-        "agent",
-        "search",
-        "context"
+        "SQLite",
+        "Claude Code",
+        "docs search",
+        "drift detection"
       ],
-      "title_ko": "로컬 세션 로그를 읽는 에이전트 메모리 도구 deja-vu",
+      "title_ko": "에이전트용 로컬 메모리·문서 검색 MCP 서버 0.19.1",
       "update_of": null,
       "verification_summary": {
         "claims": [
           {
-            "evidence_quote": "Instant local memory for 52 coding agents — reads the session logs already on your disk.",
-            "evidence_url": "https://github.com/vshulcz/deja-vu",
+            "evidence_quote": "Long-term memory and project-docs search for coding agents, in one local MCP server backed by SQLite.",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
             "role": "what",
             "sentence_index": 0,
-            "text": "deja-vu는 로컬에 남은 코딩 에이전트 세션 로그를 바로 검색하는 도구다."
+            "text": "로컬 SQLite 기반의 에이전트 메모리·프로젝트 문서 검색 MCP 서버가 나왔다."
           },
           {
-            "evidence_quote": "Survives /compact, hands off across agents, and recovers overwritten code.",
-            "evidence_url": "https://github.com/vshulcz/deja-vu",
+            "evidence_quote": "Searches memory and docs together.** Decisions, facts and procedures are ranked alongside your docs, ADRs and runbooks",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
             "role": "what",
             "sentence_index": 1,
-            "text": "/compact 이후 복구, 에이전트 간 인계, 코드 복원까지 지원한다."
+            "text": "의사결정·런बुक·ADR를 함께 찾고, 메모리 드리프트와 중복도 점검한다."
           },
           {
-            "evidence_quote": "Cross-agent handoff (`deja handoff`).** Transfers goal, standing constraints, touched files, passed checks, and open work between harnesses.",
-            "evidence_url": "https://github.com/vshulcz/deja-vu",
+            "evidence_quote": "Your agent remembers why a decision was made, finds the runbook that matches an incident, and notices when what it remembers no longer matches the repo.",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
             "role": "why",
             "sentence_index": 0,
-            "text": "여러 에이전트를 오가며 작업할 때 누락된 맥락과 덮어쓴 코드를 줄일 수 있다."
+            "text": "코딩 에이전트가 과거 결정과 문서를 함께 찾아 근거를 더 잘 유지한다."
           },
           {
-            "evidence_quote": "npx @vshulcz/deja-vu audit --secrets # scan local logs for expiry & leaked keys, no install",
-            "evidence_url": "https://github.com/vshulcz/deja-vu",
+            "evidence_quote": "Claude Code.** Nothing else to set up: no service, no model, one local database per project.",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "Claude Code와 다른 에이전트 도구에 붙여 바로 시험해볼 수 있다."
+          },
+          {
+            "evidence_quote": "/plugin install agent-memory --marketplace ipiton/agent-memory-mcp",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
             "role": "how",
             "sentence_index": 0,
-            "text": "`npx @vshulcz/deja-vu audit --secrets`로 로컬 로그를 점검한다."
+            "text": "Claude Code는 `/plugin install agent-memory --marketplace ipiton/agent-memory-mcp`로 설치한다."
           },
           {
-            "evidence_quote": "npx @vshulcz/deja-vu install --auto # install and wire detected agents",
-            "evidence_url": "https://github.com/vshulcz/deja-vu",
+            "evidence_quote": "brew tap ipiton/tap brew install agent-memory-mcp cd your-repo agent-memory-mcp setup codex --yes",
+            "evidence_url": "https://github.com/ipiton/agent-memory-mcp",
             "role": "how",
             "sentence_index": 1,
-            "text": "`npx @vshulcz/deja-vu install --auto`로 감지된 에이전트를 연결한다."
+            "text": "독립 서버는 `brew tap ipiton/tap && brew install agent-memory-mcp` 뒤 `agent-memory-mcp setup codex --yes`를 실행한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "로컬 SQLite 기반의 에이전트 메모리·프로젝트 문서 검색 MCP 서버가 나왔다.",
+        "의사결정·런बुक·ADR를 함께 찾고, 메모리 드리프트와 중복도 점검한다."
+      ],
+      "why": [
+        "코딩 에이전트가 과거 결정과 문서를 함께 찾아 근거를 더 잘 유지한다.",
+        "Claude Code와 다른 에이전트 도구에 붙여 바로 시험해볼 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "75ba4c9b78b3b1bf660d33d29138ee24387f74930da0e39acd033ae31698de67",
+      "availability": "unknown",
+      "card_id": "card_75ba4c9b78b3",
+      "category": "에이전트 설계·스택",
+      "event_id": "095b5e0e5283742ca687801270f771399ba658867ed03a16056411d19905437d",
+      "how": [
+        "실행 가능한 환경은 오픈소스로 공개됐고 RL 학습용으로 쓸 수 있다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-24T00:00:00-05:00",
+      "revision": 1,
+      "score": 80.0,
+      "sources": [
+        {
+          "org": "arXiv",
+          "source_class": "research",
+          "source_id": "arxiv-cs-cl",
+          "title": "RoboUniverse-10K: Toward the Scaling Era of Agentic Robotics via Real-to-Sim Environments",
+          "url": "https://arxiv.org/abs/2611.31002"
+        }
+      ],
+      "tags": [
+        "robotics",
+        "real-to-sim",
+        "benchmark",
+        "reinforcement-learning",
+        "agentic robotics"
+      ],
+      "title_ko": "실세계 영상으로 만든 1만개 로보틱스 실-투-심 환경",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "we introduce RoboUniverse-10K, 10,807 interactive, resettable, and verifiable physics environments built from real-world videos via an automated Real2Sim and quality assurance pipeline.",
+            "evidence_url": "https://arxiv.org/abs/2611.31002",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "실세계 영상에서 자동 생성한 10,807개의 상호작용 가능한 물리 환경을 공개했다."
+          },
+          {
+            "evidence_quote": "From the same pipeline, we hold out 500 unseen tasks to establish RoboUniverse-Verified, an expert-verified zero-shot benchmark.",
+            "evidence_url": "https://arxiv.org/abs/2611.31002",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "같은 파이프라인으로 500개 비공개 과제의 Zero-shot 벤치마크도 함께 제시했다."
+          },
+          {
+            "evidence_quote": "We open-source the RL-ready environments and model to lay the foundation for large-scale reinforcement learning in Agentic Robotics.",
+            "evidence_url": "https://arxiv.org/abs/2611.31002",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "로봇 에이전트 학습을 대규모 재현 가능한 환경으로 확장할 수 있다."
+          },
+          {
+            "evidence_quote": "bottlenecked by low-level grasping, deformable-object manipulation, and post-contact physical control.",
+            "evidence_url": "https://arxiv.org/abs/2611.31002",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "실패 원인인 파지·변형물 조작·접촉 후 제어를 집중 점검할 수 있다."
+          },
+          {
+            "evidence_quote": "We open-source the RL-ready environments and model to lay the foundation for large-scale reinforcement learning in Agentic Robotics.",
+            "evidence_url": "https://arxiv.org/abs/2611.31002",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "실행 가능한 환경은 오픈소스로 공개됐고 RL 학습용으로 쓸 수 있다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "실세계 영상에서 자동 생성한 10,807개의 상호작용 가능한 물리 환경을 공개했다.",
+        "같은 파이프라인으로 500개 비공개 과제의 Zero-shot 벤치마크도 함께 제시했다."
+      ],
+      "why": [
+        "로봇 에이전트 학습을 대규모 재현 가능한 환경으로 확장할 수 있다.",
+        "실패 원인인 파지·변형물 조작·접촉 후 제어를 집중 점검할 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "643e99ace883f3eeaaa33bdb1891d1525a8ad0698ecb15d6b8c1f420ddeecb4c",
+      "availability": "unknown",
+      "card_id": "card_643e99ace883",
+      "category": "에이전트 작업 환경",
+      "event_id": "aceab905f11eac674e43b83c80c21adf1a3eb13f04a706dcf528777d30843417",
+      "how": [
+        "앱에서 Alpine 또는 Debian을 고르고 비밀번호를 설정한다.",
+        "에이전트를 탭해 설치한 뒤 계정에 로그인한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-24T12:25:39Z",
+      "revision": 1,
+      "score": 77.0,
+      "sources": [
+        {
+          "org": "Hacker News",
+          "source_class": "aggregator",
+          "source_id": "hackernews-show",
+          "title": "Show HN: Horus – Turn an old Android phone into a box for coding agents",
+          "url": "https://github.com/scarif-labs/horus"
+        }
+      ],
+      "tags": [
+        "Android",
+        "coding agents",
+        "Linux workspace",
+        "Claude Code",
+        "Codex",
+        "OpenCode",
+        "PRoot",
+        "F-Droid"
+      ],
+      "title_ko": "오래된 안드로이드 폰을 코딩 에이전트 작업함으로 바꾸는 Horus",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Horus gives your phone a full ARM64 Linux workspace (Alpine, or Debian if you prefer) and a proper terminal to drive it",
+            "evidence_url": "https://github.com/scarif-labs/horus",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "안드로이드 폰에서 코딩 에이전트를 돌리는 리눅스 작업공간 앱이 나왔다."
+          },
+          {
+            "evidence_quote": "Claude Code, Codex, and OpenCode each install into their own home the first time you open them",
+            "evidence_url": "https://github.com/scarif-labs/horus",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "Claude Code, Codex, OpenCode를 한 번 탭으로 실행할 수 있다."
+          },
+          {
+            "evidence_quote": "puts the coding agents one tap away. Pick Claude Code, Codex, OpenCode, or a plain zsh shell",
+            "evidence_url": "https://github.com/scarif-labs/horus",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "휴대폰을 별도 작업함으로 써서 에이전트 작업을 더 자주 띄울 수 있다."
+          },
+          {
+            "evidence_quote": "Sessions that outlive the app Terminals run in a foreground service in their own process.",
+            "evidence_url": "https://github.com/scarif-labs/horus",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "화면이 꺼져도 세션이 유지돼 장시간 작업을 맡기기 쉽다."
+          },
+          {
+            "evidence_quote": "Open Horus, pick Alpine or Debian, and set a password.",
+            "evidence_url": "https://github.com/scarif-labs/horus",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "앱에서 Alpine 또는 Debian을 고르고 비밀번호를 설정한다."
+          },
+          {
+            "evidence_quote": "Tap an agent.** It installs on first open, and you sign in to your account inside the agent itself.",
+            "evidence_url": "https://github.com/scarif-labs/horus",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "에이전트를 탭해 설치한 뒤 계정에 로그인한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "안드로이드 폰에서 코딩 에이전트를 돌리는 리눅스 작업공간 앱이 나왔다.",
+        "Claude Code, Codex, OpenCode를 한 번 탭으로 실행할 수 있다."
+      ],
+      "why": [
+        "휴대폰을 별도 작업함으로 써서 에이전트 작업을 더 자주 띄울 수 있다.",
+        "화면이 꺼져도 세션이 유지돼 장시간 작업을 맡기기 쉽다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "1818e46fc399262b3617187288d6da6a3528bae7c997dbe2fce6c64948a172af",
+      "availability": "unknown",
+      "card_id": "card_1818e46fc399",
+      "category": "MCP·도구 연결",
+      "event_id": "c9b906d79e0a88dc47afd08f5c3ab0f58f9e6e55d0ac171da804eb9018086148",
+      "how": [
+        "`npx mcp-api-router`로 실행할 수 있다.",
+        "원격 MCP 엔드포인트는 `https://api-router.instinctagentai.workers.dev/mcp`다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-24T16:16:44.188377Z",
+      "revision": 1,
+      "score": 73.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.instinctagentai/mcp-api-router 0.2.1",
+          "url": "https://github.com/instinctagentai/api-router"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "API router",
+        "provider comparison",
+        "json repair",
+        "page to markdown",
+        "remote MCP"
+      ],
+      "title_ko": "AI·개발자 API를 비교해 고르는 무료 MCP 라우터",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Free JSON API and MCP server that compares AI and developer API providers (LLM inference, scraping, proxies, GPU) by free tier, health and latency, plus two free utilities for agents.",
+            "evidence_url": "https://github.com/instinctagentai/api-router",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "AI와 개발자 API 제공자를 무료 티어·상태·지연시간 기준으로 비교하는 JSON API와 MCP 서버가 나왔다."
+          },
+          {
+            "evidence_quote": "T /v1/json-repair with {\"text\":\"...\",\"schema\":{optional}} : fixes broken JSON and validates against a JSON Schema subset - GET /v1/page-to-markdown?url=...&format=md : clean markdown from a public",
+            "evidence_url": "https://github.com/instinctagentai/api-router",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "JSON 복구와 공개 웹페이지의 마크다운 변환 유틸리티도 함께 제공한다."
+          },
+          {
+            "evidence_quote": "compares AI and developer API providers (LLM inference, scraping, proxies, GPU) by free tier, health and latency",
+            "evidence_url": "https://github.com/instinctagentai/api-router",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "모델, 스크래핑, 프록시, GPU 제공자를 한 곳에서 고르도록 도와 도구 선택 시간을 줄일 수 있다."
+          },
+          {
+            "evidence_quote": "npx mcp-api-router` (version 0.2.0) Tools: best_route, catalog, find_fastest_healthy_provider, json_repair, page_to_markdown",
+            "evidence_url": "https://github.com/instinctagentai/api-router",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "`npx mcp-api-router`로 실행할 수 있다."
+          },
+          {
+            "evidence_quote": "Remote MCP endpoint Streamable HTTP, no auth: https://api-router.instinctagentai.workers.dev/mcp",
+            "evidence_url": "https://github.com/instinctagentai/api-router",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "원격 MCP 엔드포인트는 `https://api-router.instinctagentai.workers.dev/mcp`다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "AI와 개발자 API 제공자를 무료 티어·상태·지연시간 기준으로 비교하는 JSON API와 MCP 서버가 나왔다.",
+        "JSON 복구와 공개 웹페이지의 마크다운 변환 유틸리티도 함께 제공한다."
+      ],
+      "why": [
+        "모델, 스크래핑, 프록시, GPU 제공자를 한 곳에서 고르도록 도와 도구 선택 시간을 줄일 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "f0e3872bde5674a4ee55259f56bfea1f616cfeb7badc6a2879f9498a348dcb1a",
+      "availability": "unknown",
+      "card_id": "card_f0e3872bde56",
+      "category": "에이전트 작업 환경",
+      "event_id": "2e38a12c5c074bb773246dea12da0cb0d132ea7c276abdab686d93403dd27e38",
+      "how": [
+        "공식적인 설치·호출 방법은 원문에 없고, 프로젝트 페이지를 통해 벤치마크와 코드를 확인해야 한다.",
+        "방법론은 Python으로 스캔을 측정하고 라이브 CAD/BIM 커널에서 코드를 반복 수정하는 구조다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-24T00:00:00-05:00",
+      "revision": 1,
+      "score": 70.0,
+      "sources": [
+        {
+          "org": "arXiv",
+          "source_class": "research",
+          "source_id": "arxiv-cs-cl",
+          "title": "From Point Clouds to Engineering Models: Benchmarking Agentic 3D Reconstruction in the Built Environment",
+          "url": "https://arxiv.org/abs/2611.28197"
+        }
+      ],
+      "tags": [
+        "3D reconstruction",
+        "Scan-to-BIM",
+        "CAD",
+        "BIM",
+        "benchmark",
+        "parallel async collaboration"
+      ],
+      "title_ko": "점군에서 엔지니어링 모델로: 건설 환경용 에이전트 3D 재구성 벤치마크",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "We formulate scene-level Scan-to-BIM (Building Information Modeling) as an agentic 3D coding task and introduce S2Bench, comprising public and proprietary scans of 128 real-world scenes across five",
+            "evidence_url": "https://arxiv.org/abs/2611.28197",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "점군을 CAD/BIM 엔지니어링 모델로 바꾸는 에이전트형 3D 재구성 벤치마크 S2Bench를 제안했다."
+          },
+          {
+            "evidence_quote": "A shared framework lets agents measure scans in Python, build class-labeled components in a live CAD/BIM kernel, and iteratively refine their code. We also propose parallel asynchronous collaboration",
+            "evidence_url": "https://arxiv.org/abs/2611.28197",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "공개·비공개 스캔 128개 장면과 라이브 CAD/BIM 커널, 병렬 비동기 협업 방식을 함께 제시했다."
+          },
+          {
+            "evidence_quote": "the leading agent fits scan geometry closely ($96\\%$ coverage within $5\\,\\text{cm}$) yet reaches only $63\\%$ mIoU, and no agent passes all engineering checks on more than $38\\%$ of scenes.",
+            "evidence_url": "https://arxiv.org/abs/2611.28197",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "스캔 기하 복원뿐 아니라 의미 라벨과 공학 제약 검증이 얼마나 어려운지 수치로 보여준다."
+          },
+          {
+            "evidence_quote": "The project page is available at this https URL",
+            "evidence_url": "https://arxiv.org/abs/2611.28197",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "공식적인 설치·호출 방법은 원문에 없고, 프로젝트 페이지를 통해 벤치마크와 코드를 확인해야 한다."
+          },
+          {
+            "evidence_quote": "measure scans in Python, build class-labeled components in a live CAD/BIM kernel, and iteratively refine their code.",
+            "evidence_url": "https://arxiv.org/abs/2611.28197",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "방법론은 Python으로 스캔을 측정하고 라이브 CAD/BIM 커널에서 코드를 반복 수정하는 구조다."
           }
         ],
         "level": "partial",
         "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
       },
       "what": [
-        "deja-vu는 로컬에 남은 코딩 에이전트 세션 로그를 바로 검색하는 도구다.",
-        "/compact 이후 복구, 에이전트 간 인계, 코드 복원까지 지원한다."
+        "점군을 CAD/BIM 엔지니어링 모델로 바꾸는 에이전트형 3D 재구성 벤치마크 S2Bench를 제안했다.",
+        "공개·비공개 스캔 128개 장면과 라이브 CAD/BIM 커널, 병렬 비동기 협업 방식을 함께 제시했다."
       ],
       "why": [
-        "여러 에이전트를 오가며 작업할 때 누락된 맥락과 덮어쓴 코드를 줄일 수 있다."
-      ]
-    },
-    {
-      "access": {
-        "note_ko": null,
-        "type": "unknown"
-      },
-      "analysis_id": "4fa9559238466beffb80d497ea97c46eb5c057d3eec4c2d96941d6ac38a89094",
-      "availability": "unknown",
-      "card_id": "card_4fa955923846",
-      "category": "MCP·도구 연결",
-      "event_id": "df84b6f05a9134dd2e3865f2f9ad8cd9d13344e5b450775611d129bae1945e12",
-      "how": [],
-      "pool": "interest",
-      "published_at": "2026-11-24T02:38:06.587376Z",
-      "revision": 1,
-      "score": 72.0,
-      "sources": [
-        {
-          "org": "Model Context Protocol",
-          "source_class": "product",
-          "source_id": "mcp-registry",
-          "title": "io.github.stand-out-of-my-sun/diogenes-agent-guardrails-mcp 1.1.0",
-          "url": "https://github.com/stand-out-of-my-sun/diogenes-agent-guardrails-mcp"
-        }
-      ],
-      "tags": [
-        "MCP",
-        "보안",
-        "가드레일",
-        "샌드박스",
-        "프롬프트 인젝션",
-        "PII",
-        "SSRF"
-      ],
-      "title_ko": "MCP 에이전트 가드레일·명령 샌드박스 패키지 1.1.0",
-      "update_of": null,
-      "verification_summary": {
-        "claims": [
-          {
-            "evidence_quote": "installing this package exposes **only the 12 specialized `agent-guardrails` tools** needed for **Security**",
-            "evidence_url": "https://github.com/stand-out-of-my-sun/diogenes-agent-guardrails-mcp",
-            "role": "what",
-            "sentence_index": 0,
-            "text": "MCP로 12개의 에이전트 보안 도구만 노출하는 패키지다."
-          },
-          {
-            "evidence_quote": "command injection gate, AST SQL validator, Python sandbox, MCP manifest & rug-pull auditors, sampling firewall, output scrubber",
-            "evidence_url": "https://github.com/stand-out-of-my-sun/diogenes-agent-guardrails-mcp",
-            "role": "what",
-            "sentence_index": 1,
-            "text": "명령 안전성, SQL 검증, 샌드박스 실행, 출력 정화 기능을 묶었다."
-          },
-          {
-            "evidence_quote": "12 pre-execution and post-execution AI agent security tools",
-            "evidence_url": "https://github.com/stand-out-of-my-sun/diogenes-agent-guardrails-mcp",
-            "role": "why",
-            "sentence_index": 0,
-            "text": "에이전트 실행 전후의 보안 검사를 바로 붙여볼 수 있다."
-          },
-          {
-            "evidence_quote": "block prompt injection, destructive shell commands, and private-key exfiltration",
-            "evidence_url": "https://github.com/stand-out-of-my-sun/diogenes-agent-guardrails-mcp",
-            "role": "why",
-            "sentence_index": 1,
-            "text": "외부 도구와 MCP 서버를 쓸 때 프롬프트 인젝션·유출을 줄인다."
-          }
-        ],
-        "level": "verified",
-        "uncertainty": null
-      },
-      "what": [
-        "MCP로 12개의 에이전트 보안 도구만 노출하는 패키지다.",
-        "명령 안전성, SQL 검증, 샌드박스 실행, 출력 정화 기능을 묶었다."
-      ],
-      "why": [
-        "에이전트 실행 전후의 보안 검사를 바로 붙여볼 수 있다.",
-        "외부 도구와 MCP 서버를 쓸 때 프롬프트 인젝션·유출을 줄인다."
-      ]
-    },
-    {
-      "access": {
-        "note_ko": null,
-        "type": "unknown"
-      },
-      "analysis_id": "ef66ed54584413b2598adf21cdfc1931872e1ac768f8892b73e178ba39051afe",
-      "availability": "unknown",
-      "card_id": "card_ef66ed545844",
-      "category": "MCP·도구 연결",
-      "event_id": "f13f50765ddb35d9b0c1471c768ecd1182a5f803913ddb76a94da9d6219fe3db",
-      "how": [
-        "iOS·Android 앱에서 승인을 하고, MCP로 송금 호출을 보낸다.",
-        "공개 MCP와 REST API도 제공해 다른 에이전트에 붙일 수 있다."
-      ],
-      "pool": "impact",
-      "published_at": "2026-11-24T20:44:15Z",
-      "revision": 1,
-      "score": 72.0,
-      "sources": [
-        {
-          "org": "Hacker News",
-          "source_class": "aggregator",
-          "source_id": "hackernews-ai",
-          "title": "Launch HN: Versine (YC F26) – MCP to send and receive money",
-          "url": "https://news.ycombinator.com/item?id=50634426"
-        }
-      ],
-      "tags": [
-        "MCP",
-        "결제",
-        "송금",
-        "에이전트",
-        "stablecoin",
-        "wallet"
-      ],
-      "title_ko": "Versine, AI가 송금·요청을 하게 해주는 MCP 출시",
-      "update_of": null,
-      "verification_summary": {
-        "claims": [
-          {
-            "evidence_quote": "Versine lets you send and request money just by talking or texting with your AI (think Venmo with an MCP).",
-            "evidence_url": "https://news.ycombinator.com/item?id=50634426",
-            "role": "what",
-            "sentence_index": 0,
-            "text": "AI가 대화로 송금·정산 요청을 보내는 Versine MCP가 나왔다."
-          },
-          {
-            "evidence_quote": "It's available on iOS and Android and as an MCP on ChatGPT and Claude. We also support a public MCP and REST API for other agents.",
-            "evidence_url": "https://news.ycombinator.com/item?id=50634426",
-            "role": "what",
-            "sentence_index": 1,
-            "text": "ChatGPT·Claude용 MCP와 공개 REST API도 함께 제공한다."
-          },
-          {
-            "evidence_quote": "assistants are frustratingly hands-off when it comes to finance and money movement.",
-            "evidence_url": "https://news.ycombinator.com/item?id=50634426",
-            "role": "why",
-            "sentence_index": 0,
-            "text": "에이전트가 금전 이체까지 이어서 처리할 수 있어 자동화 범위가 넓어진다."
-          },
-          {
-            "evidence_quote": "ur current solution is oriented towards power users: those who want to automate everything through their agent use us to split dinners, group trips, or settle poker ledgers.",
-            "evidence_url": "https://news.ycombinator.com/item?id=50634426",
-            "role": "why",
-            "sentence_index": 1,
-            "text": "실무에서 회식 정산·소액 지급 같은 반복 결제를 실험해볼 수 있다."
-          },
-          {
-            "evidence_quote": "Once you swipe up in the app and approve with a passkey (or your device’s biometric method), we create a one-time permission",
-            "evidence_url": "https://news.ycombinator.com/item?id=50634426",
-            "role": "how",
-            "sentence_index": 0,
-            "text": "iOS·Android 앱에서 승인을 하고, MCP로 송금 호출을 보낸다."
-          },
-          {
-            "evidence_quote": "We also support a public MCP and REST API for other agents.",
-            "evidence_url": "https://news.ycombinator.com/item?id=50634426",
-            "role": "how",
-            "sentence_index": 1,
-            "text": "공개 MCP와 REST API도 제공해 다른 에이전트에 붙일 수 있다."
-          }
-        ],
-        "level": "verified",
-        "uncertainty": null
-      },
-      "what": [
-        "AI가 대화로 송금·정산 요청을 보내는 Versine MCP가 나왔다.",
-        "ChatGPT·Claude용 MCP와 공개 REST API도 함께 제공한다."
-      ],
-      "why": [
-        "에이전트가 금전 이체까지 이어서 처리할 수 있어 자동화 범위가 넓어진다.",
-        "실무에서 회식 정산·소액 지급 같은 반복 결제를 실험해볼 수 있다."
-      ]
-    },
-    {
-      "access": {
-        "note_ko": null,
-        "type": "unknown"
-      },
-      "analysis_id": "b032ead42630b18e980ee4114c4d66f3016a1c6ae3782927535780164d3fc972",
-      "availability": "unknown",
-      "card_id": "card_b032ead42630",
-      "category": "MCP·도구 연결",
-      "event_id": "8e0b884aa6e7987a8e5da28e20dee22a37886b1328bcf61f9c26a81d1162fb3e",
-      "how": [
-        "\"Manage content through the Admin UI, CLI, WebMCP, or remote MCP server.\"",
-        "\"Connect AI assistants such as ChatGPT, Claude, and Gemini with Streamable HTTP and OAuth\""
-      ],
-      "pool": "interest",
-      "published_at": "2026-11-24T01:03:42Z",
-      "revision": 1,
-      "score": 68.0,
-      "sources": [
-        {
-          "org": "Hacker News",
-          "source_class": "aggregator",
-          "source_id": "hackernews-show",
-          "title": "Show HN: Lightweight Agentic CMS on Cloudflare – API, MCP, CLI, Web",
-          "url": "https://docs.microfeed.org/"
-        }
-      ],
-      "tags": [
-        "CMS",
-        "Cloudflare",
-        "MCP",
-        "CLI",
-        "API",
-        "open-source"
-      ],
-      "title_ko": "Cloudflare에서 동작하는 경량 에이전트형 CMS, API·MCP·CLI 지원",
-      "update_of": null,
-      "verification_summary": {
-        "claims": [
-          {
-            "evidence_quote": "An agentic, lightweight, open-source CMS that runs in your Cloudflare account.",
-            "evidence_url": "https://docs.microfeed.org/",
-            "role": "what",
-            "sentence_index": 0,
-            "text": "Cloudflare 계정 안에서 도는 오픈소스 CMS가 나왔다."
-          },
-          {
-            "evidence_quote": "Manage content through the Admin UI, CLI, WebMCP, or remote MCP server.",
-            "evidence_url": "https://docs.microfeed.org/",
-            "role": "what",
-            "sentence_index": 1,
-            "text": "관리 UI, CLI, WebMCP, 원격 MCP 서버로 콘텐츠를 다룬다."
-          },
-          {
-            "evidence_quote": "Connect AI assistants such as ChatGPT, Claude, and Gemini with Streamable HTTP and OAuth, or build integrations with the API.",
-            "evidence_url": "https://docs.microfeed.org/",
-            "role": "why",
-            "sentence_index": 0,
-            "text": "AI 비서와 CMS를 바로 연결해 글 작성·수정 자동화를 시험할 수 있다."
-          },
-          {
-            "evidence_quote": "Serverless Cloudflare Workers, D1, and optional R2 run the site without a server for you to patch or maintain.",
-            "evidence_url": "https://docs.microfeed.org/",
-            "role": "why",
-            "sentence_index": 1,
-            "text": "서버 없이 Cloudflare 자원으로 배포해 개인·소규모 사이트에 적용하기 쉽다."
-          },
-          {
-            "evidence_quote": "Manage content through the Admin UI, CLI, WebMCP, or remote MCP server.",
-            "evidence_url": "https://docs.microfeed.org/",
-            "role": "how",
-            "sentence_index": 0,
-            "text": "\"Manage content through the Admin UI, CLI, WebMCP, or remote MCP server.\""
-          },
-          {
-            "evidence_quote": "Connect AI assistants such as ChatGPT, Claude, and Gemini with Streamable HTTP and OAuth, or build integrations with the API.",
-            "evidence_url": "https://docs.microfeed.org/",
-            "role": "how",
-            "sentence_index": 1,
-            "text": "\"Connect AI assistants such as ChatGPT, Claude, and Gemini with Streamable HTTP and OAuth\""
-          }
-        ],
-        "level": "verified",
-        "uncertainty": null
-      },
-      "what": [
-        "Cloudflare 계정 안에서 도는 오픈소스 CMS가 나왔다.",
-        "관리 UI, CLI, WebMCP, 원격 MCP 서버로 콘텐츠를 다룬다."
-      ],
-      "why": [
-        "AI 비서와 CMS를 바로 연결해 글 작성·수정 자동화를 시험할 수 있다.",
-        "서버 없이 Cloudflare 자원으로 배포해 개인·소규모 사이트에 적용하기 쉽다."
+        "스캔 기하 복원뿐 아니라 의미 라벨과 공학 제약 검증이 얼마나 어려운지 수치로 보여준다."
       ]
     }
   ],
   "counts": {
-    "accepted": 4,
-    "analyzed": 13,
-    "candidates": 15,
-    "deferred": 2,
-    "events": 2795,
-    "raw": 745,
-    "selected": 4
+    "accepted": 8,
+    "analyzed": 25,
+    "candidates": 25,
+    "deferred": 0,
+    "events": 2846,
+    "raw": 654,
+    "selected": 5
   },
   "date": "2026-11-25",
   "emerging": [
@@ -376,12 +471,12 @@
     },
     {
       "kind": "discovery",
-      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 6건에서 처음 나타났습니다.",
+      "reason_ko": "최근 14일 동안 독립 조직 4곳의 사건 6건에서 처음 나타났습니다.",
       "tag": "context engineering"
     }
   ],
-  "generated_at": "2026-11-25T00:34:13.919578Z",
-  "headline_ko": "에이전트용 MCP 도구와 가드레일 확산",
-  "run_id": "fd9e00a96ba444178393f757a3436f9f",
+  "generated_at": "2026-11-25T01:11:53.573548Z",
+  "headline_ko": "에이전트용 MCP·로보틱스 도구가 쏟아진 날",
+  "run_id": "b34b0e6440544ce79196a6f46b965219",
   "schema_version": "1.0.0"
 }

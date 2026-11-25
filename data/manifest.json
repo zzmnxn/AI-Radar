@@ -3,19 +3,19 @@
   "last_run": {
     "date": "2026-11-25",
     "failed_stage": null,
-    "finished_at": "2026-11-25T00:36:00.016179Z",
-    "message": "interest=10 impact=5 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx1,lawsuitx2,no_repositoryx64,no_signalx338,personnelx1,rankingx1,source_capx1 llm_errors=judge:schema_errorx1 not_worth_briefing=3 what_unsupported=5 why_unsupported=1 deferred=3",
+    "finished_at": "2026-11-25T01:14:40.580828Z",
+    "message": "interest=25 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx314,personnelx1,rankingx1,screened_outx28,source_capx7 screened_out=Grok Bot to Get Local Computer Use (2 mi (가십성 소개글); GPT 6.2 Astra Solves a Historical Myster (사례담·담론성 글); Jevons Paradox in AI: Cheaper Tokens Won (AI 경제 담론); Three LLM inflection points in twelve mo (연설 요약글); GPT-6 models demonstrate intrinsic prote (모델 성능 가십성 소식); Show HN: Mason – A lightweight Postgres  (AI와 무관한 일반 기술); All Quiet on the Neural Front: Language  (모델의 고통 상태 보고 담론); Can Open LLMs Clear Sanctions-Screening  (규제 스크리닝 적용 사례); Living off the Local Model: Abusing Brow (보안 악용 사례 중심); Show HN: ModelXare – Decentralized AI Mo (홍보성 AI 플랫폼 소식) not_worth_briefing=10 what_unsupported=7 deferred=2",
     "outcome": "ok",
-    "run_id": "fd9e00a96ba444178393f757a3436f9f",
+    "run_id": "b34b0e6440544ce79196a6f46b965219",
     "sources": {
-      "active": 20,
-      "complete": 19,
-      "failed": 0,
-      "partial": 1
+      "active": 22,
+      "complete": 21,
+      "failed": 1,
+      "partial": 0
     },
-    "started_at": "2026-11-25T00:34:13.919578Z"
+    "started_at": "2026-11-25T01:11:53.573548Z"
   },
-  "last_success_at": "2026-11-25T00:34:13.919578Z",
+  "last_success_at": "2026-11-25T01:11:53.573548Z",
   "published": {
     "date": "2026-11-25",
     "files": {
@@ -24,11 +24,11 @@
       "briefings/2026-11-22.json": "13accb5bf99b0296fdb22ebf4e4a2dc865a84a003ffce2153fa660f7f9b98c2f",
       "briefings/2026-11-23.json": "857e7e5f4e86c195cdbc9b8e1a9e13604d1fb7a941c10c06f8ea78fac47e933f",
       "briefings/2026-11-24.json": "fb2c293667fa408a9c76351b26b0bc4777a7a4cca696b40e21a88425f3a64b44",
-      "briefings/2026-11-25.json": "da5a5ef3f23f6a44e6b40a4f4e5b80f380eddf18f5e5b0a8516c45570b0da8b9",
-      "index/2026.json": "29bdd4c0ed666bdd9b600a6a4f404a07f4da5a9be264caa7c8bbc2e4abc4e4d2"
+      "briefings/2026-11-25.json": "bf014f67adf75b0b5fd3ce01b42f1059902bdfc4b8be34e0f97d32d1c1d248d8",
+      "index/2026.json": "feddbecd8908d7bea6d6f40b6a9806e867d78150e0e658125a0463f6e24dcdd0"
     },
-    "generated_at": "2026-11-25T00:34:13.919578Z",
-    "run_id": "fd9e00a96ba444178393f757a3436f9f"
+    "generated_at": "2026-11-25T01:11:53.573548Z",
+    "run_id": "b34b0e6440544ce79196a6f46b965219"
   },
   "schema_version": "1.0.0"
 }
