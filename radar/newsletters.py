@@ -137,3 +137,58 @@ def editorial_rows(rows, source_id):
                     "canonical": target,
                     "snippet": title,
                 }
+
+
+class IndexCards(HTMLParser):
+    """Article cards of a blog index page that has no feed: headline link and date."""
+
+    def __init__(self, base):
+        super().__init__()
+        self.base = base
+        self.rows = []
+        self.card = None
+        self.area = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "article":
+            self.card = {"href": None, "title": [], "date": []}
+        elif self.card is not None and tag == "h3":
+            self.area = "title"
+        elif self.card is not None and tag == "a" and self.area == "title":
+            self.card["href"] = self.card["href"] or dict(attrs).get("href")
+        elif self.card is not None and tag == "time":
+            self.area = "date"
+
+    def handle_data(self, text):
+        if self.card is not None and self.area:
+            self.card[self.area].append(text)
+
+    def handle_endtag(self, tag):
+        if tag in {"h3", "time"}:
+            self.area = None
+        if tag == "article" and self.card is not None:
+            card, self.card = self.card, None
+            title = " ".join(" ".join(card["title"]).split())
+            stamp = " ".join(" ".join(card["date"]).split())
+            if not (title and card["href"] and stamp):
+                return
+            try:
+                day = datetime.strptime(stamp, "%b %d, %Y").date()
+            except ValueError:
+                return
+            self.rows.append((title, urljoin(self.base, card["href"]), day))
+
+
+def index_rows(url, fetch):
+    parser = IndexCards(url)
+    parser.feed(fetch(url, accept={"text/html"}).decode("utf-8"))
+    parser.close()
+    if not parser.rows:
+        raise ValueError("Blog index structure changed")
+    for title, link, day in parser.rows:
+        yield dict(
+            id=canonical_url(link),
+            title=title,
+            url=link,
+            published=datetime.combine(day, time(), timezone.utc),
+        )

@@ -77,7 +77,13 @@ ai_tags:
    openai, gpt, anthropic, claude, gemini, llama, hugging-face, langchain, mcp]
 ai_terms:
   [foundation model, generative ai, inference, fine-tuning, multimodal, vision-language,
-   neural network, reinforcement learning, diffusion model, model weights, open-weight]
+   neural network, reinforcement learning, diffusion model, model weights, open-weight,
+   LLM, RAG, 에이전트, 인공지능, 생성형, 프롬프트, 하네스, 거대언어모델, 임베딩]
+# Words that make a company engineering-blog post a candidate; the model screen
+# then drops the ones that are not about AI-assisted development.
+engineering_terms:
+  [agent, agents, agentic, coding agent, harness, context, skills, subagent, sandbox,
+   브레인, 에이전트, 컨텍스트, 자율, 오케스트레이션, 샌드박스]
 # AI-native sources: an item without AI words still passes when it also matches an
 # interest category (e.g. "Inside the Codex sandbox"). Membership alone is not enough.
 ai_sources:

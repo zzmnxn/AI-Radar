@@ -27,7 +27,7 @@ from .enrich import ArticleParser
 from .github import search_rows
 from .http import FetchError, safe_get
 from .models import Contract, Rating, RawItem, SourceClass
-from .newsletters import editorial_rows, newsletter_rows
+from .newsletters import editorial_rows, index_rows, newsletter_rows
 from .normalize import canonical_url
 
 DATE = TypeAdapter(AwareDatetime)
@@ -45,6 +45,7 @@ class Source(Contract):
     type: Literal[
         "rss",
         "tldr",
+        "html_index",
         "hackernews",
         "github_search",
         "arxiv",
@@ -63,6 +64,8 @@ class Source(Contract):
     # Release feeds title entries with a bare version; prefix the tool name.
     title_prefix: str | None = None
     editorial_ai: bool = False
+    # Company engineering blog: its posts are screened but preferred as must-reads.
+    engineering: bool = False
     skip_prereleases: bool = False
     # GitHub release feeds have no <published>; their <updated> is the release time.
     published_from_updated: bool = False
@@ -265,6 +268,8 @@ def collect_source(source, now, *, since=None, until=None, fetch=None):
             rows = editorial_rows(_feed_rows(root, url), source.id)
         elif source.type == "tldr":
             rows = newsletter_rows(url, start, end, fetch_page)
+        elif source.type == "html_index":
+            rows = index_rows(url, fetch_page)
         elif source.type == "hackernews":
             if source.supports_range and since is not None:
                 parts = urlsplit(url)

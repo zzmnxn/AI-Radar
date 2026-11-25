@@ -144,3 +144,43 @@ def test_linked_project_and_authored_post_are_distinct():
     assert original.link_target_url is None
     assert original.url == referral.url
     assert str(referral.canonical_url) == "https://github.com/person/tool"
+
+
+INDEX = b"""<html><body>
+<article><h3><a href="/research/components-of-agent-memory">The components of agent memory</a></h3>
+<time>Nov 6, 2026</time></article>
+<article><h3><a href="https://www.anthropic.com/engineering/new-harness">  A new harness </a></h3>
+<time>Nov 17, 2026</time></article>
+<article><h3><a href="/engineering/no-date">No date here</a></h3></article>
+</body></html>"""
+
+
+def test_article_index_page_reads_cards_with_dates():
+    from radar.collect import collect_source
+
+    src = source("anthropic-eng", "html_index")
+    result = collect_source(
+        src,
+        NOW,
+        since=NOW - timedelta(days=30),
+        fetch=lambda url, **kwargs: INDEX,
+    )
+    assert result.completeness == "complete"
+    titles = {item.title: item.url.unicode_string() for item in result.items}
+    assert (
+        titles["A new harness"] == "https://www.anthropic.com/engineering/new-harness"
+    )
+    assert titles["The components of agent memory"].endswith(
+        "/research/components-of-agent-memory"
+    )
+    assert "No date here" not in titles
+
+
+def test_article_index_structure_change_is_a_failure_not_empty():
+    from radar.collect import collect_source
+
+    src = source("anthropic-eng", "html_index")
+    result = collect_source(
+        src, NOW, fetch=lambda url, **kwargs: b"<html><body>redesign</body></html>"
+    )
+    assert result.completeness == "failed"

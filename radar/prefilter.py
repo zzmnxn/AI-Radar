@@ -36,6 +36,8 @@ class Interests(Contract):
     ai_tags: set[str]
     ai_terms: list[str]
     ai_sources: set[str] = Field(default_factory=set)
+    # Extra AI words that count only for company engineering blogs.
+    engineering_terms: list[str] = Field(default_factory=list)
 
 
 class Pipeline(Contract):
@@ -161,6 +163,7 @@ def _eligible(events, sources, now, settings, queue, shown, excluded, descriptio
             latest[event.event_id] = event
     # AI tag names count as title words too, so the gate does not depend on taxonomy.
     ai_phrases = _phrases([*interests.ai_terms, *interests.ai_tags])
+    blog_phrases = _phrases(interests.engineering_terms)
     for event in latest.values():
         ref = primary_ref(event)
         entry = queue.get(event.event_id)
@@ -209,6 +212,10 @@ def _eligible(events, sources, now, settings, queue, shown, excluded, descriptio
             not sources[ref.source_id].editorial_ai
             and not tags.intersection(interests.ai_tags)
             and not any(phrase in context_tokens for phrase in ai_phrases)
+            and not (
+                sources[ref.source_id].engineering
+                and any(phrase in context_tokens for phrase in blog_phrases)
+            )
             and not (
                 any(m.ref.source_id in interests.ai_sources for m in event.members)
                 and interest_categories(context, interests)
@@ -267,6 +274,9 @@ def github_stars(results):
                 stars[key[1]] = item.metrics.gh_stars
     return stars
 
+
+# Company engineering blogs are where new practices appear first.
+ENGINEERING_BONUS = 15
 
 # A must-read verdict from the screen outranks any keyword score.
 MUST_READ_BONUS = 100
@@ -443,6 +453,9 @@ def build_candidates(
             if stars:
                 reasons.append(f"star_growth_7d:{stars}")
         score = interest * 10 + source.trust + 5 * bool(trending) + 5 * official
+        if source.engineering:
+            reasons.append("engineering")
+            score += ENGINEERING_BONUS
         score += min(independent, 5) + min(hn // 25, 10) + min(stars, 10)
         if (
             "explore" in pools
@@ -471,7 +484,8 @@ def build_candidates(
         rows = [
             (
                 c.event_id,
-                f"[{primary_ref(c.event).org}] {c.event.title} "
+                ("[engineering blog] " if "engineering" in c.reasons else "")
+                + f"[{primary_ref(c.event).org}] {c.event.title} "
                 + descriptions.get(c.event_id, ""),
             )
             for c in ranked

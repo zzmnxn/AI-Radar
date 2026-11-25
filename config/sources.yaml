@@ -299,3 +299,153 @@
   expected_cadence_days: 3
   auth: none
   terms_note: Public editorial feed or archive.
+- id: anthropic-engineering
+  name: Anthropic Engineering
+  org: Anthropic
+  type: html_index
+  url: https://www.anthropic.com/engineering
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 5
+  status: candidate
+  expected_cadence_days: 7
+  auth: none
+  terms_note: Public index page; no feed exists, so the card list is read as HTML.
+  engineering: true
+  max_candidates: 3
+- id: cloudflare-blog
+  name: Cloudflare Blog
+  org: Cloudflare
+  type: rss
+  url: https://blog.cloudflare.com/rss/
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 2
+  auth: none
+  terms_note: Public RSS feed.
+  engineering: true
+  max_candidates: 3
+- id: flyio-blog
+  name: Fly.io Blog
+  org: Fly.io
+  type: rss
+  url: https://fly.io/blog/feed.xml
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 3
+  auth: none
+  terms_note: Public Atom feed.
+  engineering: true
+  max_candidates: 3
+- id: github-engineering
+  name: GitHub Engineering
+  org: GitHub
+  type: rss
+  url: https://github.blog/engineering/feed/
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 5
+  auth: none
+  terms_note: Public RSS feed.
+  engineering: true
+  max_candidates: 3
+- id: sourcegraph-blog
+  name: Sourcegraph Blog
+  org: Sourcegraph
+  type: rss
+  url: https://sourcegraph.com/blog/rss.xml
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 4
+  auth: none
+  terms_note: Public RSS feed.
+  engineering: true
+  max_candidates: 3
+- id: openai-developers
+  name: OpenAI Developers
+  org: OpenAI
+  type: rss
+  url: https://developers.openai.com/rss.xml
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 5
+  auth: none
+  terms_note: Public RSS feed.
+  engineering: true
+  max_candidates: 3
+- id: openai-engineering
+  name: OpenAI Engineering
+  org: OpenAI
+  type: rss
+  url: https://openai.com/news/engineering/rss.xml
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 5
+  auth: none
+  terms_note: Public RSS feed.
+  engineering: true
+  max_candidates: 3
+- id: line-tech-kr
+  name: LINE Engineering (KR)
+  org: LY Corporation
+  type: rss
+  url: https://techblog.lycorp.co.jp/ko/feed/index.xml
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 3
+  auth: none
+  terms_note: Public RSS feed.
+  engineering: true
+  max_candidates: 3
+- id: naver-d2
+  name: Naver D2
+  org: Naver
+  type: rss
+  url: https://d2.naver.com/d2.atom
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 2
+  auth: none
+  terms_note: Public Atom feed.
+  engineering: true
+  max_candidates: 3
+- id: kakao-tech
+  name: Kakao Tech
+  org: Kakao
+  type: rss
+  url: https://tech.kakao.com/feed/
+  source_class: community
+  discovery_mode: keyword
+  supports_range: false
+  trust: 4
+  status: candidate
+  expected_cadence_days: 5
+  auth: none
+  terms_note: Public RSS feed.
+  engineering: true
+  max_candidates: 3

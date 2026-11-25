@@ -549,3 +549,37 @@ def test_must_read_outranks_the_keyword_score():
     last = events[-1].event_id
     plan = select(events, sources, "2", screen=lambda rows: ({}, {last}))
     assert last in {row.event_id for row in plan.selected}
+
+
+def test_engineering_blog_ranks_above_equal_sources():
+    events, sources = sample(4, kind="aggregator", title="Agent harness tool")
+    blog = events[-1]
+    sources[blog.members[0].ref.source_id] = sources[
+        blog.members[0].ref.source_id
+    ].model_copy(update={"engineering": True})
+    plan = select(events, sources, "1")
+    assert [row.event_id for row in plan.selected] == [blog.event_id]
+    assert "engineering" in plan.selected[0].reasons
+
+
+def test_screen_rows_label_engineering_blog_posts():
+    events, sources = sample(2, kind="aggregator", title="Agent harness tool")
+    key = events[0].members[0].ref.source_id
+    sources[key] = sources[key].model_copy(update={"engineering": True})
+    seen = {}
+
+    def screen(rows):
+        seen.update(dict(rows))
+        return {}, set()
+
+    select(events, sources, "10", screen=screen)
+    assert seen[events[0].event_id].startswith("[engineering blog]")
+
+
+def test_engineering_blog_agent_post_passes_the_ai_gate_only_for_blogs():
+    events, sources = sample(2, kind="aggregator", title="Holding the door for agents")
+    plain = select(events, sources, "10")
+    assert not plain.selected
+    key = events[0].members[0].ref.source_id
+    sources[key] = sources[key].model_copy(update={"engineering": True})
+    assert select(events, sources, "10").selected
