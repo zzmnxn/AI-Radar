@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import sys
 import os
 from collections import defaultdict
 from datetime import timedelta
@@ -28,7 +29,26 @@ def connect():
         if host in {"localhost", "127.0.0.1", "::1"} or host.startswith("/")
         else {"sslmode": "verify-full", "sslrootcert": "system"}
     )
-    return psycopg.connect(dsn, connect_timeout=10, **options)
+    try:
+        return psycopg.connect(dsn, connect_timeout=10, **options)
+    except psycopg.OperationalError as exc:
+        # The message can carry the host or user, so only a category is printed.
+        text = str(exc).lower()
+        category = next(
+            (
+                name
+                for name, words in (
+                    ("auth", ("password", "authentication", "role")),
+                    ("tls", ("ssl", "certificate", "tls")),
+                    ("dns", ("translate host", "name or service", "resolve")),
+                    ("timeout", ("timeout", "timed out")),
+                )
+                if any(word in text for word in words)
+            ),
+            "other",
+        )
+        print(f"ingest-db connect failed: {category}", file=sys.stderr)
+        raise
 
 
 def migrate(db):
