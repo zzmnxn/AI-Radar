@@ -29,7 +29,7 @@ class ModelConfig(Contract):
     daily_budget_usd: Decimal = Field(ge=0, allow_inf_nan=False)
     input_usd_per_million: Decimal = Field(gt=0, allow_inf_nan=False)
     output_usd_per_million: Decimal = Field(gt=0, allow_inf_nan=False)
-    max_calls: int = Field(default=201, ge=1, le=201)
+    max_calls: int = Field(default=101, ge=1, le=101)
     max_input_tokens: int = Field(default=20_000, ge=1)
 
 
