@@ -3,19 +3,19 @@
   "last_run": {
     "date": "2026-11-25",
     "failed_stage": null,
-    "finished_at": "2026-11-25T04:31:22.344792Z",
-    "message": "interest=15 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx315,personnelx1,rankingx1,source_capx16 not_worth_briefing=4 what_unsupported=4 deferred=15",
+    "finished_at": "2026-11-25T04:48:05.984534Z",
+    "message": "interest=46 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx315,personnelx1,rankingx1,screened_outx55,source_capx10 must_read=뇌를 닮은 세컨드 브레인: 토큰 낭비 없는 RAG; Compiling web applications into verified; com.copado/agentia-cli 1.16.0; Direct Feedback Policy Optimization for ; Show HN: Mole – research agent that trac; CompSkill: Compiling Execution Experienc; Image AI 서빙 최적화: CPU와 GPU의 빈 시간을 줄여 H100; 흩어진 행동을 연결하다: 네이버 전 지면의 사용자 행동을 학습하는 추천 ; Models Can Communicate via Inference Ser; Tool-to-Self: Internalizing Visual Tool ; OmniEvaluator: AI 모델과 에이전트를 위한 통합 평가 프레임; Grammar-as-a-Draft: More Tokens per Spec; AI 신입사원을 뉴스 데이터 시니어로 키우는 레포, news-data; From Reward Engineering to Data-Centric ; RL infrastructure at Microsoft AI (15 mi screened_out=Jevons Paradox in AI: Cheaper Tokens Won (AI 경제 담론); LLM-Based Assistant for Dog Care Guidanc (도메인 일반 RAG); Fine-Tuning Large Language Models for Re (일반 IE/RAG); Token Noise and the Illusion of Preferen (일반 LLM 편향 감사 연구); When Does Optical Context Compression Pa (VLM 압축 성능 분석); RealICU: Do LLM Agents Understand Long-C (의료 벤치마크로 실무성 낮음); Explicit Boundary Markers for Subword Vo (토크나이저 구조 연구); Digital Twins for Multi-Agent Systems: W (다중에이전트 일반 분석); MAS-BIT: A Multi-Agent System for End-to (BCI 변환 연구로 무관); The Linguistic Structure of Dependency-C (언어학적 임베딩 연구) llm_errors=judge:schema_errorx1 not_worth_briefing=17 what_unsupported=9 deferred=16",
     "outcome": "ok",
-    "run_id": "46be7681c9a14a59a2d9096d08979458",
+    "run_id": "22273de61d664a17ba771456f614e31e",
     "sources": {
       "active": 32,
       "complete": 32,
       "failed": 0,
       "partial": 0
     },
-    "started_at": "2026-11-25T04:30:50.134594Z"
+    "started_at": "2026-11-25T04:45:49.272551Z"
   },
-  "last_success_at": "2026-11-25T04:30:50.134594Z",
+  "last_success_at": "2026-11-25T04:45:49.272551Z",
   "published": {
     "date": "2026-11-25",
     "files": {
@@ -24,11 +24,11 @@
       "briefings/2026-11-22.json": "13accb5bf99b0296fdb22ebf4e4a2dc865a84a003ffce2153fa660f7f9b98c2f",
       "briefings/2026-11-23.json": "857e7e5f4e86c195cdbc9b8e1a9e13604d1fb7a941c10c06f8ea78fac47e933f",
       "briefings/2026-11-24.json": "fb2c293667fa408a9c76351b26b0bc4777a7a4cca696b40e21a88425f3a64b44",
-      "briefings/2026-11-25.json": "62468e0f126b27d7310388dfa006193e0c544e34c8af0d56ee18f0d282c44717",
-      "index/2026.json": "6a59d7e4c8977bcfc9bbaca7c68907153ffbcd523db255e910e11b44277903a7"
+      "briefings/2026-11-25.json": "99db82952b6274dc64dc8b8ae86b39f21ee4107d733783e797d97921cff28d68",
+      "index/2026.json": "1c07aaf25c8ee1f1e7cfba6e31b438b576bb91ce9aca4522d9f25936b3977e4d"
     },
-    "generated_at": "2026-11-25T04:30:50.134594Z",
-    "run_id": "46be7681c9a14a59a2d9096d08979458"
+    "generated_at": "2026-11-25T04:45:49.272551Z",
+    "run_id": "22273de61d664a17ba771456f614e31e"
   },
   "schema_version": "1.0.0"
 }

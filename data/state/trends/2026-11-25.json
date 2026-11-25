@@ -240,6 +240,7 @@
         "16802700bec7e80df74347c45aec37132bdf555f7e29f34882007238e45e2319",
         "16ab619a81bb52642bd3a0fd6dbcd735ef8ca5954eb61b18a9c4333afd86b274",
         "17ed7cb1736772abafe250942a18ccb63829f02ef3c20840884296207dc6e82c",
+        "1802317d576a813e5052eadf7ee754a39e5ea02db7a555d8e30dc81c5b51da19",
         "18533d0f6961fad9717ec0f5089aebbc34a264bf676bacccb7c71cb0d2296dad",
         "19ba43cda56664fdba05fd8cd1ea03c46b6eb2404829df1e8fbac69de642e6f4",
         "19e9ca7cc65eca9a78bb2e10d7887e2a4c85294e90bf8b48744dd3c189ebd65a",
@@ -415,7 +416,7 @@
         "ffc7f10ffb6eb11f1d39fd52791fcf45a92c7509196e510af6cedd57ae1a7b63",
         "ffec77af391cad190248b797c2d59456d398d8298cecb0d94aad8516d0fcd560"
       ],
-      "events": 196,
+      "events": 197,
       "independent_orgs": 8,
       "kind": "taxonomy",
       "orgs": [
@@ -635,6 +636,20 @@
       "active_sources": 32,
       "date": "2026-11-25",
       "event_ids": [
+        "1802317d576a813e5052eadf7ee754a39e5ea02db7a555d8e30dc81c5b51da19"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "Naver"
+      ],
+      "tag": "evaluation framework"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-25",
+      "event_ids": [
         "3ffa5c39e01e3431aafb68b86f47a423cad3918397f531b6569292d3719a69a5",
         "7ad44f990f0c53ef2e2a537716dcd0f4d19ea5c4fbcd3c1cf3877b1b8eae8965"
       ],
@@ -687,6 +702,7 @@
         "5a180ad079445863cf7faeadf86dc63b08d54defad3f01f1fd872305289ae4c6",
         "5ac35b92769bf8dd0b39281d6e90ca09baf1c4330e1be23543d5e0563a52040f",
         "5b9d4262877db38745e1f5249079fc77a0a2e0e4ebff2a51aafbca91b6cf5f69",
+        "5efb4bc25829faa61e7f9a79bcfb6367ef603a4cf45d6a6a244071860e356814",
         "62218c83417b1c08842e6cf2463ef2f62e5685af6b95cf2d637b9aab1a0c4ecb",
         "654fa31d1430cc2f8aab1eee1fbe98030ea81ad38b9f8e38b6aa3861ae34832e",
         "674f8a4c7a8fdcceafb9e4463d29dc9eff1dd3be112a8e305e1f1ffa8d51fefe",
@@ -717,7 +733,7 @@
         "eb0b1f436fbc9791594331b995b9e3dac60594c003556480a5a0df197f081a8e",
         "f8eb42ace893340e2e904a0d987e8bdf7b6affdaa13ba6674cd863411fcebe59"
       ],
-      "events": 46,
+      "events": 47,
       "independent_orgs": 3,
       "kind": "taxonomy",
       "orgs": [
@@ -1063,6 +1079,7 @@
         "4da530b0866146206f178a56d5dbed81992a10cc4f8373129cf4f28783f71263",
         "532dfc300a75df3e73df7216f17101a8264da188ee09c91209131635a1da60fc",
         "579c277be392fb083cc4cbf2d586af816b1cd28ce0e06bbb28725259e0b98f69",
+        "5efb4bc25829faa61e7f9a79bcfb6367ef603a4cf45d6a6a244071860e356814",
         "77ec8f7b4f1d9e9d1c3ec8319688246e600b19db96b9a6975b21cc93d14f36e1",
         "8081d8bedecfa5cd7256cd0baf490f157f643f013b2585511f074d100154cd39",
         "8e0b884aa6e7987a8e5da28e20dee22a37886b1328bcf61f9c26a81d1162fb3e",
@@ -1073,7 +1090,7 @@
         "ef3112105c83fbb2bb488800dd0258ab3dd4008abc5a13d59415f27b32caa083",
         "f13f50765ddb35d9b0c1471c768ecd1182a5f803913ddb76a94da9d6219fe3db"
       ],
-      "events": 15,
+      "events": 16,
       "independent_orgs": 2,
       "kind": "taxonomy",
       "orgs": [

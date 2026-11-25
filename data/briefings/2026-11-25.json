@@ -278,6 +278,99 @@
         "note_ko": null,
         "type": "unknown"
       },
+      "analysis_id": "ed9c4251f4a4465941d2ec87333a5dea2f9b0a9d07e0b4583676255985a8cbf8",
+      "availability": "unknown",
+      "card_id": "card_ed9c4251f4a4",
+      "category": "에이전트 설계·스택",
+      "event_id": "1802317d576a813e5052eadf7ee754a39e5ea02db7a555d8e30dc81c5b51da19",
+      "how": [
+        "공개 저장소에서 프레임워크를 확인할 수 있다.",
+        "옵션 두 개만 붙여 기존 벤치마크를 Agent 평가로 바꿀 수 있다."
+      ],
+      "pool": "interest",
+      "published_at": null,
+      "revision": 1,
+      "score": 78.0,
+      "sources": [
+        {
+          "org": "Naver",
+          "source_class": "community",
+          "source_id": "naver-d2",
+          "title": "OmniEvaluator: AI 모델과 에이전트를 위한 통합 평가 프레임워크",
+          "url": "https://d2.naver.com/helloworld/4331341"
+        }
+      ],
+      "tags": [
+        "평가 프레임워크",
+        "멀티모달",
+        "에이전트 평가",
+        "재현성",
+        "벤치마크"
+      ],
+      "title_ko": "OmniEvaluator: AI 모델과 에이전트를 위한 통합 평가 프레임워크",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "OmniEvaluator는 이 문제를 구조적으로 푸는 통합 평가 프레임워크입니다.",
+            "evidence_url": "https://d2.naver.com/helloworld/4331341",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "OmniEvaluator는 모델·에이전트 평가를 하나의 프레임워크로 묶는다."
+          },
+          {
+            "evidence_quote": "2026년에는 Agent Harness가 추가되어 기존 벤치마크에 옵션 두 개만 붙이면 툴 호출 궤적까지 채점하는 Agent 평가로 전환되며",
+            "evidence_url": "https://d2.naver.com/helloworld/4331341",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "2026년 Agent Harness로 툴 호출 궤적 평가도 지원한다."
+          },
+          {
+            "evidence_quote": "추론 엔진 4종(HF Transformers·vLLM·SGLang·상용 API)과 평가 프레임워크 4종(lm-eval-harness·lmms-eval·VLMEvalKit·built-in)을 하나의 중간 스키마로 연결해",
+            "evidence_url": "https://d2.naver.com/helloworld/4331341",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "여러 모델·서빙엔진·벤치마크를 같은 방식으로 비교할 수 있다."
+          },
+          {
+            "evidence_quote": "모든 실행은 설정·예측·점수를 담은 아티팩트로 남아 그대로 재현할 수 있고,",
+            "evidence_url": "https://d2.naver.com/helloworld/4331341",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "도입 전후 성능 차이와 재현성을 한곳에서 확인할 수 있다."
+          },
+          {
+            "evidence_quote": "공개 저장소 : https://github.com/naver-ai/omni-evaluator",
+            "evidence_url": "https://d2.naver.com/helloworld/4331341",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "공개 저장소에서 프레임워크를 확인할 수 있다."
+          },
+          {
+            "evidence_quote": "옵션 두 개만 붙이면 툴 호출 궤적까지 채점하는 Agent 평가로 전환되며",
+            "evidence_url": "https://d2.naver.com/helloworld/4331341",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "옵션 두 개만 붙여 기존 벤치마크를 Agent 평가로 바꿀 수 있다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "OmniEvaluator는 모델·에이전트 평가를 하나의 프레임워크로 묶는다.",
+        "2026년 Agent Harness로 툴 호출 궤적 평가도 지원한다."
+      ],
+      "why": [
+        "여러 모델·서빙엔진·벤치마크를 같은 방식으로 비교할 수 있다.",
+        "도입 전후 성능 차이와 재현성을 한곳에서 확인할 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
       "analysis_id": "643e99ace883f3eeaaa33bdb1891d1525a8ad0698ecb15d6b8c1f420ddeecb4c",
       "availability": "unknown",
       "card_id": "card_643e99ace883",
@@ -368,108 +461,15 @@
         "휴대폰을 별도 작업함으로 써서 에이전트 작업을 더 자주 띄울 수 있다.",
         "화면이 꺼져도 세션이 유지돼 장시간 작업을 맡기기 쉽다."
       ]
-    },
-    {
-      "access": {
-        "note_ko": null,
-        "type": "unknown"
-      },
-      "analysis_id": "dafc917c9780485f86af4ebaaefc0317122e99a823f68a15b7fe5542e5cd5719",
-      "availability": "unknown",
-      "card_id": "card_dafc917c9780",
-      "category": "컨텍스트·메모리",
-      "event_id": "e394c4fc7099ce93bbc33bc1d1aca413d51b73ff3ee1e1d7fe068950083c12a7",
-      "how": [
-        "별도 코드 분류기를 붙이지 않고 에이전트 내부 헤드로 프루닝합니다.",
-        "논문은 두 개의 오픈웨이트 백본과 네 개의 멀티턴 벤치마크에서 평가했습니다."
-      ],
-      "pool": "interest",
-      "published_at": "2026-11-24T00:00:00-05:00",
-      "revision": 1,
-      "score": 63.0,
-      "sources": [
-        {
-          "org": "arXiv",
-          "source_class": "research",
-          "source_id": "arxiv-cs-cl",
-          "title": "SWE-Pruner Pro: The Coder LLM Already Knows What to Prune",
-          "url": "https://arxiv.org/abs/2607.18213"
-        }
-      ],
-      "tags": [
-        "long-context",
-        "context-pruning",
-        "coding-agent",
-        "token-efficiency",
-        "SWE-Bench"
-      ],
-      "title_ko": "코더 LLM 내부 표현으로 툴 출력 프루닝하는 SWE-Pruner Pro",
-      "update_of": null,
-      "verification_summary": {
-        "claims": [
-          {
-            "evidence_quote": "we propose SWE-Pruner Pro, which prunes tool outputs directly inside the agent. Concretely, a small head turns the agent's own internal representations into a keep-or-prune label for each line",
-            "evidence_url": "https://arxiv.org/abs/2607.18213",
-            "role": "what",
-            "sentence_index": 0,
-            "text": "SWE-Pruner Pro는 코더 LLM 내부 표현만으로 각 줄을 keep/prune로 분류해 툴 출력을 직접 줄입니다."
-          },
-          {
-            "evidence_quote": "with a length-aware embedding keyed to each tool output's line count. Across two open-weight backbones and four multi-turn benchmarks",
-            "evidence_url": "https://arxiv.org/abs/2607.18213",
-            "role": "what",
-            "sentence_index": 1,
-            "text": "길이 인식 임베딩을 더해 툴 출력의 줄 수까지 반영하도록 설계했습니다."
-          },
-          {
-            "evidence_quote": "saves up to 39% of prompt and completion tokens while preserving task quality, with bounded inference overhead.",
-            "evidence_url": "https://arxiv.org/abs/2607.18213",
-            "role": "why",
-            "sentence_index": 0,
-            "text": "긴 컨텍스트를 다루는 에이전트의 토큰 사용을 줄여 비용과 지연을 낮출 수 있습니다."
-          },
-          {
-            "evidence_quote": "raises the SWE-Bench Verified resolve rate by +3.8% and the long-context Oolong accuracy by +2.2 points.",
-            "evidence_url": "https://arxiv.org/abs/2607.18213",
-            "role": "why",
-            "sentence_index": 1,
-            "text": "검증된 벤치마크에서 품질을 유지하며 일부 설정에선 정확도도 올렸습니다."
-          },
-          {
-            "evidence_quote": "existing context pruning methods such as SWE-Pruner realize this by attaching a separate code classifier",
-            "evidence_url": "https://arxiv.org/abs/2607.18213",
-            "role": "how",
-            "sentence_index": 0,
-            "text": "별도 코드 분류기를 붙이지 않고 에이전트 내부 헤드로 프루닝합니다."
-          },
-          {
-            "evidence_quote": "Across two open-weight backbones and four multi-turn benchmarks, SWE-Pruner Pro saves up to 39%",
-            "evidence_url": "https://arxiv.org/abs/2607.18213",
-            "role": "how",
-            "sentence_index": 1,
-            "text": "논문은 두 개의 오픈웨이트 백본과 네 개의 멀티턴 벤치마크에서 평가했습니다."
-          }
-        ],
-        "level": "verified",
-        "uncertainty": null
-      },
-      "what": [
-        "SWE-Pruner Pro는 코더 LLM 내부 표현만으로 각 줄을 keep/prune로 분류해 툴 출력을 직접 줄입니다.",
-        "길이 인식 임베딩을 더해 툴 출력의 줄 수까지 반영하도록 설계했습니다."
-      ],
-      "why": [
-        "긴 컨텍스트를 다루는 에이전트의 토큰 사용을 줄여 비용과 지연을 낮출 수 있습니다.",
-        "검증된 벤치마크에서 품질을 유지하며 일부 설정에선 정확도도 올렸습니다."
-      ]
     }
   ],
   "counts": {
-    "accepted": 7,
-    "analyzed": 15,
-    "candidates": 15,
-    "deferred": 13,
-    "events": 2910,
-    "raw": 653,
+    "accepted": 19,
+    "analyzed": 45,
+    "candidates": 46,
+    "deferred": 1,
+    "events": 2915,
+    "raw": 640,
     "selected": 5
   },
   "date": "2026-11-25",
@@ -650,8 +650,8 @@
       "tag": "context engineering"
     }
   ],
-  "generated_at": "2026-11-25T04:30:50.134594Z",
-  "headline_ko": "오늘의 AI 브리핑",
-  "run_id": "46be7681c9a14a59a2d9096d08979458",
+  "generated_at": "2026-11-25T04:45:49.272551Z",
+  "headline_ko": "에이전트·로보틱스용 도구와 평가가 확장된 날",
+  "run_id": "22273de61d664a17ba771456f614e31e",
   "schema_version": "1.0.0"
 }
