@@ -11,7 +11,7 @@ dev = ["pytest>=9,<10", "ruff>=0.15,<1"]
 packages = ["radar"]
 
 [project.optional-dependencies]
-postgres = ["psycopg[binary]>=3.2,<4"]
+postgres = ["psycopg[binary]>=3.3.9,<4"]
 
 [tool.setuptools.package-data]
 radar = ["migrations/*.sql"]
