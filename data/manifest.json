@@ -1,23 +1,23 @@
 {
   "deadline_kst": "07:00",
   "last_run": {
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "failed_stage": null,
-    "finished_at": "2026-11-25T04:48:05.984534Z",
-    "message": "interest=46 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx3,gossipx2,lawsuitx2,no_repositoryx63,no_signalx315,personnelx1,rankingx1,screened_outx55,source_capx10 must_read=뇌를 닮은 세컨드 브레인: 토큰 낭비 없는 RAG; Compiling web applications into verified; com.copado/agentia-cli 1.16.0; Direct Feedback Policy Optimization for ; Show HN: Mole – research agent that trac; CompSkill: Compiling Execution Experienc; Image AI 서빙 최적화: CPU와 GPU의 빈 시간을 줄여 H100; 흩어진 행동을 연결하다: 네이버 전 지면의 사용자 행동을 학습하는 추천 ; Models Can Communicate via Inference Ser; Tool-to-Self: Internalizing Visual Tool ; OmniEvaluator: AI 모델과 에이전트를 위한 통합 평가 프레임; Grammar-as-a-Draft: More Tokens per Spec; AI 신입사원을 뉴스 데이터 시니어로 키우는 레포, news-data; From Reward Engineering to Data-Centric ; RL infrastructure at Microsoft AI (15 mi screened_out=Jevons Paradox in AI: Cheaper Tokens Won (AI 경제 담론); LLM-Based Assistant for Dog Care Guidanc (도메인 일반 RAG); Fine-Tuning Large Language Models for Re (일반 IE/RAG); Token Noise and the Illusion of Preferen (일반 LLM 편향 감사 연구); When Does Optical Context Compression Pa (VLM 압축 성능 분석); RealICU: Do LLM Agents Understand Long-C (의료 벤치마크로 실무성 낮음); Explicit Boundary Markers for Subword Vo (토크나이저 구조 연구); Digital Twins for Multi-Agent Systems: W (다중에이전트 일반 분석); MAS-BIT: A Multi-Agent System for End-to (BCI 변환 연구로 무관); The Linguistic Structure of Dependency-C (언어학적 임베딩 연구) llm_errors=judge:schema_errorx1 not_worth_briefing=17 what_unsupported=9 deferred=16",
+    "finished_at": "2026-11-26T00:13:40.971388Z",
+    "message": "interest=25 impact=0 explore=0 star_growth=0 prefilter_excluded=fundingx1,gossipx1,lawsuitx2,no_repositoryx68,no_signalx330,personnelx1,rankingx1,screened_outx59,source_capx14 must_read=Compiling web applications into verified; 운영자의 시간을 아끼는 AI 에이전트 2부 - MCP 부터 Agent 설; Show HN: Carry – Save every AI conversat; Show HN: Mole – research agent that trac; Show HN: Lightscale AI – A language for ; Sparse Readout Prism: Explaining Logit-L; io.github.instinctagentai/mcp-api-router; io.github.super-agent-os/super-artifacts; SAG-Mem-1.0 Technical Report; io.github.agent402-dev/a402-check-mcp 0.; AI 신입사원을 뉴스 데이터 시니어로 키우는 레포, news-data; Steerable by Design: Conditional Pretrai; On the Recall Scaling Laws in Mamba: A T; Learning What vs. Learning How: Decompos; io.github.agent402-dev/a402-check-mcp 0. screened_out=Grok Bot to Get Local Computer Use (2 mi (컴퓨터 사용 소식이지만 요약 기사); MargEmbed-Akan: Bridging Twi Questions a (저자원 언어 분류 논문); GPT 6.2 Astra Solves a Historical Myster (사례 소개글, 실무 변화 아님); Spending 35B Opus 5.5 Tokens to Write a  (일반 HN 잡담); ToneMamaba: Learning Contextualized Tona (일반 음성인식 논문); ARS-VLM: Visually Aligned Augmented Rand (비전-언어 최적화 논문); Grounding Text Embeddings in Stakeholder (일반 임베딩 분석 논문); SPARQL-Planned Single-Hop Traversal over (일반 QA용 지식그래프 논문); Unjamming Deferrals: Supporting Students (교육 행정용 RAG 사례); Reliability of Language-Model Judges for (과학 QA 평가 논문) llm_errors=judge:schema_errorx1,schema_error[how.0:string_too_short]x1 not_worth_briefing=6 what_unsupported=10 deferred=14",
     "outcome": "ok",
-    "run_id": "22273de61d664a17ba771456f614e31e",
+    "run_id": "bcec7a2263da469881d333fe53de2bb0",
     "sources": {
       "active": 32,
-      "complete": 32,
+      "complete": 31,
       "failed": 0,
-      "partial": 0
+      "partial": 1
     },
-    "started_at": "2026-11-25T04:45:49.272551Z"
+    "started_at": "2026-11-26T00:11:18.592936Z"
   },
-  "last_success_at": "2026-11-25T04:45:49.272551Z",
+  "last_success_at": "2026-11-26T00:11:18.592936Z",
   "published": {
-    "date": "2026-11-25",
+    "date": "2026-11-26",
     "files": {
       "briefings/2026-11-20.json": "7373f1537869589faa0232c5a17356d232ea53bd260cbee5ee5228bef9605249",
       "briefings/2026-11-21.json": "3fa03f9adea13164b1b31576da4850ff6d633ad4ba03d8e893e2a1c023f1d489",
@@ -25,10 +25,11 @@
       "briefings/2026-11-23.json": "857e7e5f4e86c195cdbc9b8e1a9e13604d1fb7a941c10c06f8ea78fac47e933f",
       "briefings/2026-11-24.json": "fb2c293667fa408a9c76351b26b0bc4777a7a4cca696b40e21a88425f3a64b44",
       "briefings/2026-11-25.json": "99db82952b6274dc64dc8b8ae86b39f21ee4107d733783e797d97921cff28d68",
-      "index/2026.json": "1c07aaf25c8ee1f1e7cfba6e31b438b576bb91ce9aca4522d9f25936b3977e4d"
+      "briefings/2026-11-26.json": "32ef28a3c20b306737e6e3736e5e9047b3ebad5d1eec57ca8ad804f4ee8554db",
+      "index/2026.json": "80256d647abed6145a4d27386d9982787212a976a91ae98f5d33ee7a6ed8a267"
     },
-    "generated_at": "2026-11-25T04:45:49.272551Z",
-    "run_id": "22273de61d664a17ba771456f614e31e"
+    "generated_at": "2026-11-26T00:11:18.592936Z",
+    "run_id": "bcec7a2263da469881d333fe53de2bb0"
   },
   "schema_version": "1.0.0"
 }

@@ -1,0 +1,398 @@
+{
+  "cards": [
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "ca52e9b0cc85acaae6ccafc0f466d3b6da0e8a786ba0d3208a01450520bf5fc7",
+      "availability": "unknown",
+      "card_id": "card_ca52e9b0cc85",
+      "category": "MCP·도구 연결",
+      "event_id": "bfb37b8719ef1cf9bd1c0cb31ae57c809e2b52b27e7a33253d8d41d89dd0b516",
+      "how": [
+        "설치 예시는 `claude mcp add codex-subagent -- npx -y codex-subagent-mcp`다.",
+        "Node.js 22+와 Codex CLI 설치, PATH 등록, 로그인 상태가 필요하다.",
+        "문제가 있으면 `codex_doctor`를 실행하라고 안내한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-25T20:18:09.765746Z",
+      "revision": 1,
+      "score": 78.0,
+      "sources": [
+        {
+          "org": "Model Context Protocol",
+          "source_class": "product",
+          "source_id": "mcp-registry",
+          "title": "io.github.parisbs/codex-subagent-mcp 0.6.1",
+          "url": "https://github.com/parisbs/codex-subagent-mcp"
+        }
+      ],
+      "tags": [
+        "MCP",
+        "Claude Code",
+        "Codex CLI",
+        "subagent",
+        "delegation",
+        "sandbox",
+        "worktree"
+      ],
+      "title_ko": "Claude Code가 Codex CLI에 코딩 작업을 위임하는 MCP 서버 0.6.1",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "An MCP server that lets **Claude Code delegate coding tasks to OpenAI's Codex CLI** running on the same machine, with the model and reasoning depth chosen per task.",
+            "evidence_url": "https://github.com/parisbs/codex-subagent-mcp",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "Claude Code가 같은 머신의 Codex CLI에 코딩 작업을 위임하는 MCP 서버가 나왔다."
+          },
+          {
+            "evidence_quote": "You pick the model and the reasoning effort per task, from the catalog your Codex CLI reports live. - Read-only by default, with a sandbox ceiling no tool call can exceed.",
+            "evidence_url": "https://github.com/parisbs/codex-subagent-mcp",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "모델과 reasoning effort를 작업별로 고르고, 기본은 읽기 전용으로 동작한다."
+          },
+          {
+            "evidence_quote": "Delegating the investigation returns the answer instead of the forty files. **One model has one set of blind spots.** A second opinion is worth most when it comes from a different model family",
+            "evidence_url": "https://github.com/parisbs/codex-subagent-mcp",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "긴 탐색이나 리뷰를 컨텍스트를 덜 쓰며 외부 에이전트에 맡길 수 있다."
+          },
+          {
+            "evidence_quote": "The value here is not a second run — it is a different set of blind spots. > Ask Codex to review `src/server.ts` for correctness problems, focusing on error paths.",
+            "evidence_url": "https://github.com/parisbs/codex-subagent-mcp",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "하나의 모델이 아닌 다른 모델 패밀리로 재검토를 시켜 blind spot을 줄일 수 있다."
+          },
+          {
+            "evidence_quote": "```bash claude mcp add codex-subagent -- npx -y codex-subagent-mcp ```",
+            "evidence_url": "https://github.com/parisbs/codex-subagent-mcp",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "설치 예시는 `claude mcp add codex-subagent -- npx -y codex-subagent-mcp`다."
+          },
+          {
+            "evidence_quote": "Requires **Node.js 22+** and the **[Codex CLI](https://developers.openai.com/codex/cli)** installed, on `PATH`, and signed in.",
+            "evidence_url": "https://github.com/parisbs/codex-subagent-mcp",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "Node.js 22+와 Codex CLI 설치, PATH 등록, 로그인 상태가 필요하다."
+          },
+          {
+            "evidence_quote": "Ask Claude to run `codex_doctor` if anything is missing.",
+            "evidence_url": "https://github.com/parisbs/codex-subagent-mcp",
+            "role": "how",
+            "sentence_index": 2,
+            "text": "문제가 있으면 `codex_doctor`를 실행하라고 안내한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "Claude Code가 같은 머신의 Codex CLI에 코딩 작업을 위임하는 MCP 서버가 나왔다.",
+        "모델과 reasoning effort를 작업별로 고르고, 기본은 읽기 전용으로 동작한다."
+      ],
+      "why": [
+        "긴 탐색이나 리뷰를 컨텍스트를 덜 쓰며 외부 에이전트에 맡길 수 있다.",
+        "하나의 모델이 아닌 다른 모델 패밀리로 재검토를 시켜 blind spot을 줄일 수 있다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "3a361332020b377afb6c2a983531cf243d95c1835d1d0c4bcf547a0afa204821",
+      "availability": "unknown",
+      "card_id": "card_3a361332020b",
+      "category": "에이전트 설계·스택",
+      "event_id": "5b5230fa758613ade1099ff5751ac1018d7b293b9f1af02bc379ce933f2c9985",
+      "how": [
+        "Qwen3.5-4B로 실험했고, 요약 생성과 후속 행동을 함께 감독한다.",
+        "행동 왜곡 목적과 self-distillation 신호를 결합해 학습한다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-25T00:00:00-05:00",
+      "revision": 1,
+      "score": 61.0,
+      "sources": [
+        {
+          "org": "arXiv",
+          "source_class": "research",
+          "source_id": "arxiv-cs-cl",
+          "title": "RECAP: Training Long-horizon LLM Agents with Context Compaction",
+          "url": "https://arxiv.org/abs/2611.31258"
+        }
+      ],
+      "tags": [
+        "context-compaction",
+        "long-horizon-agents",
+        "reinforcement-learning",
+        "self-distillation",
+        "swe-bench"
+      ],
+      "title_ko": "RECAP: 긴 호흡 에이전트를 위한 컨텍스트 압축 학습",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "We introduce RECAP, a reinforcement learning (RL) framework based on the principle that a summary should preserve the behavior induced by the original interaction history.",
+            "evidence_url": "https://arxiv.org/abs/2611.31258",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "RECAP는 긴 작업용 LLM 에이전트의 컨텍스트 압축을 함께 학습하는 RL 프레임워크를 제안한다."
+          },
+          {
+            "evidence_quote": "We formalize this principle with a behavior distortion objective that measures the divergence between the agent's subsequent behavior under compressed and original contexts.",
+            "evidence_url": "https://arxiv.org/abs/2611.31258",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "요약이 원래 대화의 행동을 얼마나 보존하는지에 따라 학습 신호를 주는 방식이다."
+          },
+          {
+            "evidence_quote": "Context compaction enables large language model agents to tackle long-horizon tasks within limited context budgets by replacing interaction histories with compressed summaries.",
+            "evidence_url": "https://arxiv.org/abs/2611.31258",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "긴 작업에서 요약 품질이 성능을 좌우하는 에이전트에 바로 참고할 수 있다."
+          },
+          {
+            "evidence_quote": "leading to an absolute improvement of 4.6% and 4.3% on BrowseComp-plus and SWE-bench Verified, respectively.",
+            "evidence_url": "https://arxiv.org/abs/2611.31258",
+            "role": "why",
+            "sentence_index": 1,
+            "text": "SWE-bench Verified와 BrowseComp-plus에서 기존 보상만 쓰는 RL보다 성능이 올랐다."
+          },
+          {
+            "evidence_quote": "Experiments on Qwen3.5-4B show that RECAP consistently outperforms the task-reward-only RL baselines on both environments",
+            "evidence_url": "https://arxiv.org/abs/2611.31258",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "Qwen3.5-4B로 실험했고, 요약 생성과 후속 행동을 함께 감독한다."
+          },
+          {
+            "evidence_quote": "the gradient of the distortion objective decomposes into two complementary learning signals: distortion-based reward for summary generation and self-distillation for subsequent actions.",
+            "evidence_url": "https://arxiv.org/abs/2611.31258",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "행동 왜곡 목적과 self-distillation 신호를 결합해 학습한다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "RECAP는 긴 작업용 LLM 에이전트의 컨텍스트 압축을 함께 학습하는 RL 프레임워크를 제안한다.",
+        "요약이 원래 대화의 행동을 얼마나 보존하는지에 따라 학습 신호를 주는 방식이다."
+      ],
+      "why": [
+        "긴 작업에서 요약 품질이 성능을 좌우하는 에이전트에 바로 참고할 수 있다.",
+        "SWE-bench Verified와 BrowseComp-plus에서 기존 보상만 쓰는 RL보다 성능이 올랐다."
+      ]
+    }
+  ],
+  "counts": {
+    "accepted": 7,
+    "analyzed": 23,
+    "candidates": 25,
+    "deferred": 2,
+    "events": 3286,
+    "raw": 662,
+    "selected": 2
+  },
+  "date": "2026-11-26",
+  "emerging": [
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 3곳의 사건 9건에서 처음 나타났습니다.",
+      "sources": [
+        {
+          "event_id": "443b4a9124028617311a81bed67441640d7ed9b367df69fcb6632d2c75e53e1f",
+          "org": "Hacker News",
+          "published_at": "2026-11-20T20:19:56Z",
+          "title": "Show HN: OpenComputer – an open source alternative to Devin",
+          "url": "https://news.ycombinator.com/item?id=50581403"
+        },
+        {
+          "event_id": "44b118d337500cd77b4b8c72cd6564e3036b84bd55ab494a97bffa303129e1c8",
+          "org": "Hacker News",
+          "published_at": "2026-11-19T00:32:32Z",
+          "title": "Show HN: I built a harness that turns floor plans into 360° tours using AI",
+          "url": "https://news.ycombinator.com/item?id=50554399"
+        },
+        {
+          "event_id": "72c76f2afad93e188fd221cc8c9bfd6e8fc138fd45231ef1ac27d460b4e9f165",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T06:35:17.730482Z",
+          "title": "io.github.learn-automated-testing/selenium-ai-agent 3.5.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.learn-automated-testing%2Fselenium-ai-agent/versions/3.5.0"
+        },
+        {
+          "event_id": "8dbf1de7d23a4ffda2574c5dfb4a04481237d7a3b259cad6b2e0b4fabcd44f92",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T18:57:27.239704Z",
+          "title": "io.github.callstack/agent-device 0.21.41",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.callstack%2Fagent-device/versions/0.21.41"
+        },
+        {
+          "event_id": "c5c2f959d4911a43dd4caaf3498d12765bbbf1f65d18d67bead205a66e94cd48",
+          "org": "Hacker News",
+          "published_at": "2026-11-21T05:38:01Z",
+          "title": "ClawDOS – An AI coding agent for DOS",
+          "url": "https://news.ycombinator.com/item?id=50586292"
+        },
+        {
+          "event_id": "cd70929385af12f200c3e140f70115bd2a7c2732bf24f8c113d41e5ee2e861f0",
+          "org": "Hacker News",
+          "published_at": "2026-11-20T06:06:42Z",
+          "title": "Show HN: BSWorld – AI agents can now test Bluetooth code without hardware",
+          "url": "https://news.ycombinator.com/item?id=50570766"
+        },
+        {
+          "event_id": "d6c833850db9f8cfc86a2b19fb40266bdb24417039dd938aef3eb5d2588f6f4d",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T13:14:47.128943Z",
+          "title": "io.github.learn-automated-testing/selenium-ai-agent 3.4.1",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.learn-automated-testing%2Fselenium-ai-agent/versions/3.4.1"
+        },
+        {
+          "event_id": "f51a635cc22157a1a7c6fa623662824ea525c615cbd46b3a107460cc37f1f0a4",
+          "org": "Hacker News",
+          "published_at": "2026-11-21T03:24:13Z",
+          "title": "Show HN: Tab – a browser engine from scratch in Rust, with a demo to install",
+          "url": "https://news.ycombinator.com/item?id=50585601"
+        },
+        {
+          "event_id": "fc6e9233f9cb2ed29d5105bd49a1ea4a8898e58c4a174a069d5e9d15309a9d23",
+          "org": "Hugging Face",
+          "published_at": "2026-11-18T00:00:00Z",
+          "title": "IDEA: Intent-Dominance Evidence Audit for Inference-Time Backdoor Detection in GUI Agents",
+          "url": "https://huggingface.co/papers/2611.24102"
+        }
+      ],
+      "tag": "computer use"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 2곳의 사건 7건에서 처음 나타났습니다.",
+      "sources": [
+        {
+          "event_id": "1c5fd9f9a1bd3780163e14968ca3199f969e49da5fc38bbea57cd254d97f5724",
+          "org": "arXiv",
+          "published_at": "2026-11-25T00:00:00-05:00",
+          "title": "SAG-Mem-1.0 Technical Report",
+          "url": "https://arxiv.org/abs/2611.33124"
+        },
+        {
+          "event_id": "2a85b25d805083c3f37733b6ffacc2d0b483c75b3d3c7150e979225f37b5f229",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T08:33:31.100479Z",
+          "title": "io.github.bencium/agent-therapy 0.2.1",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.bencium%2Fagent-therapy/versions/0.2.1"
+        },
+        {
+          "event_id": "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T12:52:37.904924Z",
+          "title": "io.github.vshulcz/claude-codex-cursor-agent-memory-deja-vu 0.24.3",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.vshulcz%2Fclaude-codex-cursor-agent-memory-deja-vu/versions/0.24.3"
+        },
+        {
+          "event_id": "9f66da250c5b90a137e148aea8b9b16d41b3da10132688f64b5d9d369401549d",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T21:48:07.811332Z",
+          "title": "io.github.vshulcz/claude-codex-cursor-agent-memory-deja-vu 0.25.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.vshulcz%2Fclaude-codex-cursor-agent-memory-deja-vu/versions/0.25.0"
+        },
+        {
+          "event_id": "bb96065f8b2c746b35d9c2a9747738877ef2247276544a646e48733de0c4f386",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-25T19:46:07.252482Z",
+          "title": "io.github.vbcherepanov/total-agent-memory 15.0.1",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.vbcherepanov%2Ftotal-agent-memory/versions/15.0.1"
+        },
+        {
+          "event_id": "c2f8857c12a9a24c5afb32a92953f95f3c3bfa4787d327010689c907c7c162c4",
+          "org": "arXiv",
+          "published_at": "2026-11-25T00:00:00-05:00",
+          "title": "Leto: Utility-Centric Agent Memory",
+          "url": "https://arxiv.org/abs/2611.33005"
+        },
+        {
+          "event_id": "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T10:41:05.890067Z",
+          "title": "io.github.ipiton/agent-memory-mcp 0.19.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.ipiton%2Fagent-memory-mcp/versions/0.19.0"
+        }
+      ],
+      "tag": "agent memory"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 2곳의 사건 7건에서 처음 나타났습니다.",
+      "sources": [
+        {
+          "event_id": "4f1b469dd840efb447e75f8df4ad58029dafc7c20345f231e92b72583ba23630",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T19:33:42.465143Z",
+          "title": "ai.erc8126scan/agent-verification 1.0.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/ai.erc8126scan%2Fagent-verification/versions/1.0.0"
+        },
+        {
+          "event_id": "66aa923c021c1b869a2ab3546e3a45e44c06e65ad35491b3c205bd033bb18c9d",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T17:49:29.016641Z",
+          "title": "io.github.probityai/agent-evidence-mcp 0.2.7",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.probityai%2Fagent-evidence-mcp/versions/0.2.7"
+        },
+        {
+          "event_id": "6fb4cbfb0055e4da6684c17a1612dde2b93f1d2a0b1aabd23d7001c04a9c92d6",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T11:21:35.913778Z",
+          "title": "io.github.zenoix888/agent-verifier 0.5.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.zenoix888%2Fagent-verifier/versions/0.5.0"
+        },
+        {
+          "event_id": "918e099bffd0b69499400af29aff543ac6794aa69b23671dfedd67a71c45b2ac",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T22:38:48.635960Z",
+          "title": "io.github.defcron/agent-evidence-utility 0.8.230",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.defcron%2Fagent-evidence-utility/versions/0.8.230"
+        },
+        {
+          "event_id": "9ba4c94253fd281af3673a3906b83bfa98eda439a6c517292c79540b815f8b2e",
+          "org": "Hacker News",
+          "published_at": "2026-11-20T21:49:42Z",
+          "title": "Prompt Canaries Detect Prompt Leaks at AI Providers",
+          "url": "https://news.ycombinator.com/item?id=50582734"
+        },
+        {
+          "event_id": "b01806c4abdacdee60c6343dc7cf31644ec07b2195a70d1f5e98fbfd9a425267",
+          "org": "Hacker News",
+          "published_at": "2026-11-21T09:40:06Z",
+          "title": "Show HN: ClawVet – Offline AST scanner and rug-pull diff for AI agent skills",
+          "url": "https://news.ycombinator.com/item?id=50587571"
+        },
+        {
+          "event_id": "fa942e7e84fe33edb14e899a141b2325af2e23851be0e274f8be05b0fa1eccf3",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T04:34:07.577478Z",
+          "title": "dev.workers.b2bintel-edge.agent-spend-guard/zk-provenance-web-bot-auth-kyb-escrow-mcp 2.4.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/dev.workers.b2bintel-edge.agent-spend-guard%2Fzk-provenance-web-bot-auth-kyb-escrow-mcp/versions/2.4.0"
+        }
+      ],
+      "tag": "agent verification"
+    }
+  ],
+  "generated_at": "2026-11-26T00:11:18.592936Z",
+  "headline_ko": "에이전트용 컨텍스트 압축과 위임 확산",
+  "run_id": "bcec7a2263da469881d333fe53de2bb0",
+  "schema_version": "1.0.0"
+}

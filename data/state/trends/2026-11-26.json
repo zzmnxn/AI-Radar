@@ -1,0 +1,1092 @@
+{
+  "active_sources": 32,
+  "date": "2026-11-26",
+  "rows": [
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "d8d76384cb0eaa62c804e125bd99f03cfd24c5c3360b05131beeda53022d1e9f"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "activation steering"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "1c5fd9f9a1bd3780163e14968ca3199f969e49da5fc38bbea57cd254d97f5724",
+        "bb96065f8b2c746b35d9c2a9747738877ef2247276544a646e48733de0c4f386",
+        "c2f8857c12a9a24c5afb32a92953f95f3c3bfa4787d327010689c907c7c162c4"
+      ],
+      "events": 3,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol",
+        "arXiv"
+      ],
+      "tag": "agent memory"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "a9bc069d7df2112171f7d581825bc11505d2b27a06782707707dc394915d0333",
+        "abfcd83b98657f14e87e66c5746660d741db4b8e2370c6f68de36159fcf2cd5b",
+        "b3696362a4a42ceb5f27caf3089e9de5aab9904c6aad1481350b83e75102e908"
+      ],
+      "events": 3,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Cloudflare",
+        "arXiv"
+      ],
+      "tag": "agentic search"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "0077e07924e43bf73f6b214e80c2636fd705749c1e6b72af3b822ac4ce5e9fb4",
+        "01731a638883fb726c575d1c7874e81d4031607a8862fd8d62b064d51beca6e8",
+        "04e5bb9e09f20bf67b875af1a297d4211b2733329268f4da33b7dac503a5f140",
+        "082859aa2efdeb0168d51d2aaf77b7abad9ad551306b8165e28692a295dd24d2",
+        "18dfd7a17b01cc0615432946c5a664e18f67c0113dacf5a36783119ab85de65a",
+        "1c4e417fb0a43b5f6fa01dba8b281a03545912b6dc0c2a2f017c4019aaf3af82",
+        "23041466a5bd2fc2d0a957c8e101246c55ddea20a655e9e059e8ca524d9be9b3",
+        "270a05f5395853f4fb5825decb351644074e27a51c1d7e197316f2e959ed7c89",
+        "298a96bde57cf50967cd788fc53c7f1503b508c15a9399901ad6b383e4cb1786",
+        "2a3880fda1a1d13e8138b219320f79cbcd6c26ccdb5c631527c7a3fbb328e39e",
+        "2a4718eaf298a1e1e9d8cd9860cedba765c19fc27e62351fcae42581a46f60e7",
+        "2b6258563847ef5d64ff4c27a81c56d36d8030156534432fedd970d59443107d",
+        "2bcb4878f77098948d69862b3099769a865c10f35d19d21a0122538fb220ca40",
+        "33141ad55443d1a175eab86d347ef558250e8bddae2b95ccc1a5133b6ababd9a",
+        "34666603c47ae047089f40488d2c4acddc660b776716768030c0d0a87a176641",
+        "3743d03cd9bd27de2a5c5e320d3750459769d7a9d452f8cc5eb6ad13c6d63cdb",
+        "3c65356da3de00439c534d920739b5f3dd0912b23f73e1010b8e3fe6bddf6dbe",
+        "4d751da36420117dc7e577bd72b3300ee34b468ab2f1c7e04f19aa04a580b73c",
+        "5ae95ce05b6e556e881df140fda5ec6789441b25194ec0a519f13ea95066a96b",
+        "5b5230fa758613ade1099ff5751ac1018d7b293b9f1af02bc379ce933f2c9985",
+        "5eb54cce8c710a423ac132be7a80bccdcc004f7e4d784aa321a18795e1b82117",
+        "66430a2760d7c36c3a2aa0958e5f458368ef67c12aa3080b50fbff582e7db6b6",
+        "71b676268cf03f387b63ab261a4653fc35cc7624d7b4ad2add659ac2f442f068",
+        "72afbf1460b80e37d127e27dee3ba0f3f2984774cf7fbc74eba050b7bb110d5e",
+        "7306e1ad7ddef66c6df394fcc789b8f6543bf76dfa2b691f5eb65248e7a66626",
+        "74475c3002ba6b6de1343537b65a131e57cf870cc7597fa6e73cf8ba7642a7bb",
+        "795d1d4958e536abaef69096d0170ae66c2c5c5099db104bc69e9d03c3798cde",
+        "836ad8e36d14083dd0e373404d65adeb973b4457f5f7c1cf669ea6e0e2bb0212",
+        "85c30573fa54ad3d695743d532d2dc3823f113cb84edcb626309aec84455abc7",
+        "88bd06d7e0e9b82f43a3c7b49740216e6a1dfae7affc60d91ec0a4415c5ccb91",
+        "89a65d42d64c907aa972ef14561013c25687400b057c370d89a2089f1b24a07a",
+        "8a2c61d65f65f7e229faaf030804a77b49d26241b7fb424dc5875650e8e8443a",
+        "8adffd23f94b0993b0b7d0df27b0d70e07fea2c516818bd810f5978638d66850",
+        "8b3afedc919fa6a00a38c1387ca21afe261624bb8ac71ba51f49e7a669378e42",
+        "8bc42aa131665555daa98ff911395c946e145359ec72100939c9eba4682ae46e",
+        "8d816ef3bb682e5a2ed2029ab4b68c33791f316963e5106485034b9f2e080f9a",
+        "8eb4a3acf03deae3d22276e00ed148b74c109ca387e8cab23e5de2c73d682647",
+        "8ede9dd16e4d71d6d2c8327df8ad1baeb4940d23bf9ab614ecae0859c82d06f0",
+        "926d28a4eb28b9f6fc8d3022d9b3c2d4e6abdbee62f6a5f728ec3b7feb3440d4",
+        "93053b7a7117066526cd66ff0621547dd009cce16d6bd5a5f51d593d3d7cd78e",
+        "9f1f0c525338833f6ac2ac764e3d1dc47f45aacf228d28dd14ddf40357f10293",
+        "a06604cbfa63119a7f5c18b8cbc441250aebff2d0020c44359923a47c79cb841",
+        "a9bc069d7df2112171f7d581825bc11505d2b27a06782707707dc394915d0333",
+        "aa38fab25164e4f56fff0f4cba76e826d2cea577825e3001641b419330ccf20d",
+        "abfcd83b98657f14e87e66c5746660d741db4b8e2370c6f68de36159fcf2cd5b",
+        "af3dbea6627ef86af125fe55944db4b99c4a99dacb5420e4d39deceec078219c",
+        "b06f898e9161a827a4b08c386f066a1dddabac4d2efa7d5580478f2a8ad1cf64",
+        "b7a2385d096325b0e3fec9e3bd41c0af6f335f79012f8501da0bbe1143aa0717",
+        "bb96065f8b2c746b35d9c2a9747738877ef2247276544a646e48733de0c4f386",
+        "bd8e73c637538075965ca0d240a40664a40fd5ce145591ffec9e1cb2c9bfefbc",
+        "c2f8857c12a9a24c5afb32a92953f95f3c3bfa4787d327010689c907c7c162c4",
+        "cabd39398b466dfb51ce2efcd7dfe06c36e49b4f6483ae80b05ee253dad25d3c",
+        "ce5c5f24d47abb1a78909db5ef7a928ba2e5c99ee8a141080d737a6b10872433",
+        "cfc0c17e559b786c915364c9c1eeed6d30c021655fa7a95859cf536121d53054",
+        "d4acfed506adfa309fb2f0f91eda934731acf0a1eb7aa865d8ca667c613aa416",
+        "d52350680e31287db233e715956fcaff7ffeb05d269972f6c577ebef9f350ea9",
+        "d59f1ddcb4b89280ea6c568664c4438808bdea454a2c853277f79b0188ab9deb",
+        "d72a4c164509f036fcc808f43cf39e57b1dccd73c3b00d59be8f6d53721da610",
+        "d840ae6c58f296efc035b3af04c573b8ac2bcf88b67e5c9795b7c937dbdcc2f9",
+        "dbfe077e3286b1e9bd8e35b98cc57d0694ce904b206a7a1d16ad3d389aff863c",
+        "e50eaacf4b4fced04fc16aba24d5f6571e478577cfa5253c0b2443bbb53a3b91",
+        "e97dd56116f464d70dd3a6d36cd82ed0d6ef6cd50a019277b1c13a5791059ac0",
+        "eaea8e5e6fd780f2ae1d7c778285e63439b8f73801061c1732d838f4d2035fd0",
+        "eca9df6d3b00215a9b26a859744e2d77be853133f6445fde1cc09dc925cfbc2c",
+        "ed0c3a1b25d933712659a22f8a621b2f17b3c4d0fb8de513fbae34c98305f651",
+        "ef2c86b498c6d20fd1e4af2539cf49133f61222d210710837e4e15bb06861a91",
+        "f3e956a5545698e0f5481953f9bf0e1c569143cfa1bdc8e65d16def565bd8b03"
+      ],
+      "events": 67,
+      "independent_orgs": 7,
+      "kind": "taxonomy",
+      "orgs": [
+        "Cloudflare",
+        "Hacker News",
+        "Hugging Face",
+        "Model Context Protocol",
+        "Naver",
+        "TLDR AI",
+        "arXiv"
+      ],
+      "tag": "ai-agent"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "e693770d14feef87a6157847347489abe9ba49a847f75bab5bd08b310c749860"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "anthropic"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "04e5bb9e09f20bf67b875af1a297d4211b2733329268f4da33b7dac503a5f140",
+        "04fb07b474322a99595c01ced1b825b4551537deda8a827532d1fb7769877dfe",
+        "07faf2fc1a583cf3c2b7e32e48753423806269e18f66930d680d3af301ed44d6",
+        "08531c3121128979bfda903c9a41872d218eedc456cace76a871fc03c13d9b9f",
+        "08a6094b9f24b3f9375f2a62fb734510cc9d116a0c15264db50bbc98157191ff",
+        "08b0584fa55e9c4d851e90d310af4c8a2004a42af5d7470ab7aaaba9d037aca6",
+        "0ec95a62d80af626ad2bdc43cd47484ee8b5bd8d3939a62c61542a778a8d8de2",
+        "0f52c5ebc81e7cd4abf4476deb218d5e9bcb6f46fb61eb690e16a26cf95bfc0c",
+        "1271a8eaece8f1231c96ef25015e7b58667da61af8bcc4d75a683e56d2373398",
+        "14a80823cfec88512edd8a3ad13d6a705433f7b0237f4cc5ed74bbc71a1c77a4",
+        "19e9ca7cc65eca9a78bb2e10d7887e2a4c85294e90bf8b48744dd3c189ebd65a",
+        "1edadb33eea57c9cd15c7e83b675f503fde7c0b9d2ff8cc8870898f159420aa9",
+        "270a05f5395853f4fb5825decb351644074e27a51c1d7e197316f2e959ed7c89",
+        "27454ecd3dc1f8708bb96008b09bc6f9769556636aceddfa0d4330c889f7efaa",
+        "291f37319b992d624e19eb3c249214dae38a6b7650ce2bf3a2ae291f9905e1dd",
+        "2a3880fda1a1d13e8138b219320f79cbcd6c26ccdb5c631527c7a3fbb328e39e",
+        "2b470493eb7d82a61eef446856d165ae86eef2609c2ec4052254dd8a89fbf9da",
+        "2b6258563847ef5d64ff4c27a81c56d36d8030156534432fedd970d59443107d",
+        "2ef307988fb32cfb263c56fc49defebae42768ba28860cdc652321cf2f9236c9",
+        "2fb15b153ea28acf964bd18b128ef29f48c058aba7bdeccec0fc2190ed0691c7",
+        "351262fb555b8f64b06e627a9ca8d4d42cb098b9dd38b897a735a1c0d0b4bc1c",
+        "369f73942dbea0500d8210fc2d75248374acbf97148647e52e61dc609219abe4",
+        "37600c725c16054f5e09994beeeecf163b985a24575437b3141811dca201e0ed",
+        "3a0559c0d55b2ef3ac713ed37289b03d188754887952b104d1cb412ff2369c9b",
+        "452a3f3e1d663f19e297000d626e0f86d40e300c7bcee7ba5b297890f52716de",
+        "4555543cc338eb7f4609c3ec4f533ed9d3afbf3e7710dff1491859eb5f5bef57",
+        "45e6e7b35e60fdab0adcb88f9993a5ab728cd317002ea46c8ffe6da7a1af09eb",
+        "47d04d206e588eb3691361de78bae039b13f9407f7a922cebf3b2d2a7b4762a9",
+        "4b1c5b5316e2251699670d1d6e4a6fb21b6f039ab06b1dc4df27fd17d8735ff1",
+        "4e0653d413f526d43f2064e05706c12abfbf8ee4f56f5781904b128a9dd36486",
+        "4e3a430deada88737bf840a77c372d3262e6fc6d16a47824b81fe3cb4b96ae02",
+        "5185bc6fbac99fee9077a756ebf248d690def48886b41e783c3881c330fbed6f",
+        "53e80e3c1e84a143305da525ec5fb322f8c30a678d9c914ec78a32d4f8a1335e",
+        "59cbeea893f028ac444d1425d54c2483ca60f3938960366c347a4b31783cc087",
+        "5ae95ce05b6e556e881df140fda5ec6789441b25194ec0a519f13ea95066a96b",
+        "5b5048658005ec79510f25effe5896b516b59ae9b1ab4f85e7791404d727c68a",
+        "5b5230fa758613ade1099ff5751ac1018d7b293b9f1af02bc379ce933f2c9985",
+        "5bae4a31eb1bbba460a40360ab337a90c2cbbbf573d981a1a0d43ded7e7ac700",
+        "5bf861412d1161d8aed61badf3447dd107f2bd3c377233bb2749e76c5659bf20",
+        "5eb54cce8c710a423ac132be7a80bccdcc004f7e4d784aa321a18795e1b82117",
+        "61b85716b84a57223c7d2540f1e4e8a6c308651c450b5508aab216490a57d2c6",
+        "623b1bef73b8e57e59f17690b31f94cb1cac6bd136549b514c50d1da84e1c1aa",
+        "65f1d761616e043b026ebcad427efca0e681e9cd30a186b4a0b56e61a35d08e1",
+        "66c0140f14b7b3db6271203fedc5f0fa42c6e78bc75520cc4e781e5e20c15598",
+        "69497f68925148ebd854bc2ac80dba4c0ec63c0b5ea0450be7baae3bf7705bf4",
+        "6b0545a6001e44042bf0be310b0d48791ef57b2ebe3b5664c9f046ce9f7372e0",
+        "6c6217992729e8a8881f12fd9e434006e0c8e4926ff08ea61d8365a93d176f43",
+        "6d4fb1088d1d071cfa28ad90cba7901bc808d7477b786cd61d6de4b475598f01",
+        "6f79c72e30881feb21ba3b85ea4298804fdd0c801910a2b5bda363eba01359b5",
+        "70e16e2c4419aaa396722f8fab9c4735bb6b55947249d0953cb503504388578d",
+        "71b676268cf03f387b63ab261a4653fc35cc7624d7b4ad2add659ac2f442f068",
+        "7274e5f544b2867a67962f9aa334a5ed45489a805e75b3b10a886d983960e3d9",
+        "72ba2cc2dace22af497d0fb60684211f4152fc066ca4ce802bfbbd4cc321a39f",
+        "7306e1ad7ddef66c6df394fcc789b8f6543bf76dfa2b691f5eb65248e7a66626",
+        "782e936fc00b02dab22a63fa5e5a8b9f22383f3483f292333bcb6ffa8ea20fc9",
+        "7909799cbc1538f04381c9b57cfa0cf00123cc1f5e09d59a842344be7e200506",
+        "791304ab6a22dd58670e893d7b5acc039411112856abf807ffdde75120d8fb4a",
+        "7bb391b5e8058774ceaa2b5de98826ccca1b17f990197c4916b25000ed9636ed",
+        "7cf93924b128fbe0ec87a30aa1cd3cf856773fa9e1feb432656693f3466a88e4",
+        "836eb4feaabd9249860ade504e8ef5c8c2e3328b2be78e702bbdfb8a4f8c83ba",
+        "85cbfaa568c148f229b4b4d9fe75df127c737ddca077ae95b14a067b2a8d530a",
+        "88bd06d7e0e9b82f43a3c7b49740216e6a1dfae7affc60d91ec0a4415c5ccb91",
+        "8b3afedc919fa6a00a38c1387ca21afe261624bb8ac71ba51f49e7a669378e42",
+        "8be86a0b0af72b483a25ca2ac0f89a85bfbae0a711902496e84967821b84b088",
+        "95c05e70a21b4a0a1e0836c159f2719c46ea0f4f373050e5468aee5046e52bce",
+        "971b4dd6cdc751accfa116639f5f53308ad4c7627939ec87c89485a71637a4de",
+        "9c2744008d2b3bcc58f32a564b186423a4f422594759e21f2ec443a732d2e1fa",
+        "9cc3e707e9e0081b8f9c704fccfb46bd48fecf6005503a7265c8cf8682b405b5",
+        "9e840374ac06a44337b88690f851770ead09c12485c12226c8cecc93a8956ee3",
+        "a082ca37d28d233fe9cbdf208146c92dd83a7ae7d607e9038fe9af78bfc4ac18",
+        "a71ece9bab8af7e4fd07262153cf8bfc1f3b1423d87a1c89afedad7d5786973b",
+        "aa38fab25164e4f56fff0f4cba76e826d2cea577825e3001641b419330ccf20d",
+        "aab2b620e4d421ea3c1b0984ce5e8fdce20c7fa69188161b650f3a5f92ba1760",
+        "abfcd83b98657f14e87e66c5746660d741db4b8e2370c6f68de36159fcf2cd5b",
+        "adc6f97e36d6bbb4e0010c92578bb2950bb3ae8d9dd9d55ed193ec1569ad4422",
+        "af3dbea6627ef86af125fe55944db4b99c4a99dacb5420e4d39deceec078219c",
+        "b06f898e9161a827a4b08c386f066a1dddabac4d2efa7d5580478f2a8ad1cf64",
+        "b5614bccdb7000a90f04357bdd9531943fa4301861e2406f6fbb6f83aa466589",
+        "b82694bc2191de9e361d6e38a7f80be06f00e5be2cc6942823a9dc9790cbaf31",
+        "b8ce2eca5751d54c2278f721837fe1512292e3482bab1f8deb77e5e36ddf818c",
+        "bab0f4dab0fb36ff76b7dc3a3bff68bf042c836f351c9f91ebbfc0d789ccb86b",
+        "bbc79524d0a1c14f5b2e21904fa825c4924f4677696fcdabf407bb65104dbd54",
+        "bd6829a3808e38386ff674aff9402957af125ad5aa61c23044d424b6c1695989",
+        "bebd3911a5b88be6a0ac7e7422e21d64fa79d8d4a0e02ce8ca4ad0bdcba767ba",
+        "c12df918688dab022d02ee8b526cc58c75449ca3e50492b2e3a0ed93b566cb99",
+        "c3e9e5c56aa9ee3582d063b82fbe7fc1a197df77ad1692a7db6d320de4a8a58a",
+        "c40e6a3c5a23897f3e6f94bd1881ecd5ecef63ef3d9c9943431ddf335a18caa9",
+        "c8a4a73edfbd258a9f6f541800682349f631d029e60604ec8a02ce2a7319ec69",
+        "ce5c5f24d47abb1a78909db5ef7a928ba2e5c99ee8a141080d737a6b10872433",
+        "cf9f4fd6674e23e8b79943e316c9aae31ac3d93518f1d473ff0a2504a9ed26e0",
+        "d516e4733a4443e3feee2ec135a41139d7970ccd9fe6c0e15568a8d6a1b961e9",
+        "d59f1ddcb4b89280ea6c568664c4438808bdea454a2c853277f79b0188ab9deb",
+        "d5e1e45f9628bdefb3160269088650e47f29245306ae5a620329b75900de4752",
+        "d6824605b86531a7d8ea49dcf3b96bd0a024b432276aa3b118054cd814cea22a",
+        "d7d9c686fcc5ca0020b535ba1a8a7a87314456244c0c69703b5575b7f4dfd515",
+        "d7ee9b556a5dbc058adf3694fecf9ce9ee79f39a2aed1bd857a5ec1a39648238",
+        "d840ae6c58f296efc035b3af04c573b8ac2bcf88b67e5c9795b7c937dbdcc2f9",
+        "dbfe077e3286b1e9bd8e35b98cc57d0694ce904b206a7a1d16ad3d389aff863c",
+        "e072f1c4f1d29a882e8fef0025005135759d8d0bde0c06b35436156071998896",
+        "e43bf47548b2b688421936199bfb26ba418e13ed9e88f9c3a7c643f7ca2bd152",
+        "e904fb64479fa99c0080cc8e05409048911f5c6bca1f5ed6277d3ef3237c256c",
+        "e908db6a942106277769a9494963cfe8ddc0a7193c2cbbdabba30e9935056e41",
+        "e97dd56116f464d70dd3a6d36cd82ed0d6ef6cd50a019277b1c13a5791059ac0",
+        "ed185bb5c4bc03f0db738d809d772d3c423a00cddb00848f5671513e50ed37a0",
+        "ed1ae2db8aebce576a5e09d81a9856e25701a92a8c1dbbc311def3fb1d96dd4b",
+        "ed803917d6e0040991ddffe8637a62302a84a5e57a4837b0dcf6897373f156d2",
+        "ee55b3bdb0a59b61586e78d72028bf2d49c41b4ec65ba08c0c22110ad55faada",
+        "efa0c956eb745f6e864cdfee40a3e9cd171557769072bdadef737481c326e799",
+        "efccbd2c50bd72cf49f5feb5c9a194b9cb527d0dfb8087f47c1569091c383324",
+        "f1e6c148587615d7f9f3cfedb1dd713442b00001791ba08f211beb97906a0b94",
+        "f275784a25ba0e60d867de43a0fa9d1668007b366bf781695d143707e54ee647",
+        "f3e956a5545698e0f5481953f9bf0e1c569143cfa1bdc8e65d16def565bd8b03",
+        "f6c8e8f417d354e5aeb6dc45c0d84a4843ef66e9bdf1af707b1d2772f3905ffe",
+        "f7985a8b049aa9a8af389d5e74ead71dbee79edd94f4bfa48a5b50bf79b18977",
+        "fb2699a7376a0c6dd9a7f2d8be15312f5a5d377f4fcd9723014d0259a8b2e7cf"
+      ],
+      "events": 115,
+      "independent_orgs": 8,
+      "kind": "taxonomy",
+      "orgs": [
+        "GeekNews",
+        "GitHub",
+        "Hacker News",
+        "Hugging Face",
+        "Model Context Protocol",
+        "Naver",
+        "TLDR AI",
+        "arXiv"
+      ],
+      "tag": "artificial-intelligence"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "680141b899341e58cc0071badfb5038676a37de34ec990d841288a0eb99d6524",
+        "b3db646d86cce70fafc8b4dd1e9bdf3dec99882cc3fb01d42f24187a48909126"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "TLDR AI"
+      ],
+      "tag": "claude"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "f7985a8b049aa9a8af389d5e74ead71dbee79edd94f4bfa48a5b50bf79b18977"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "concept bottlenecks"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "5b5230fa758613ade1099ff5751ac1018d7b293b9f1af02bc379ce933f2c9985",
+        "cfc0c17e559b786c915364c9c1eeed6d30c021655fa7a95859cf536121d53054"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "context compaction"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "f62d7c76b1d9d3d2baa7da87909ac20913ab849f0d2d6939ffabec4a8222a5bf"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "context compression"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "d6824605b86531a7d8ea49dcf3b96bd0a024b432276aa3b118054cd814cea22a"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "context perturbation"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "1edadb33eea57c9cd15c7e83b675f503fde7c0b9d2ff8cc8870898f159420aa9",
+        "4e3a430deada88737bf840a77c372d3262e6fc6d16a47824b81fe3cb4b96ae02",
+        "c3e9e5c56aa9ee3582d063b82fbe7fc1a197df77ad1692a7db6d320de4a8a58a"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "contextual adaptation"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "69c0601d70f93f1e53f8616ba484ac3a4c105d6fa324e7e4e37ccd8f11b97f14"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "GitHub"
+      ],
+      "tag": "copilot"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "efccbd2c50bd72cf49f5feb5c9a194b9cb527d0dfb8087f47c1569091c383324"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "cross-session disclosure"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "255feaccb29faf6cd6a6951c98bb7d162e103afbc6c7c6ced85028c5d570e1b8",
+        "291f37319b992d624e19eb3c249214dae38a6b7650ce2bf3a2ae291f9905e1dd",
+        "2b470493eb7d82a61eef446856d165ae86eef2609c2ec4052254dd8a89fbf9da",
+        "2b6258563847ef5d64ff4c27a81c56d36d8030156534432fedd970d59443107d",
+        "3a0559c0d55b2ef3ac713ed37289b03d188754887952b104d1cb412ff2369c9b",
+        "47c80c1f28c77d829166e8e2283672748baf5d9f5d40fb92f17e23f91d22ccbb",
+        "5ae95ce05b6e556e881df140fda5ec6789441b25194ec0a519f13ea95066a96b",
+        "6a9ceb82c6b3973871245fe2e43631af99ac32c4f407cbf306f6138efa833427",
+        "72ba2cc2dace22af497d0fb60684211f4152fc066ca4ce802bfbbd4cc321a39f",
+        "7306e1ad7ddef66c6df394fcc789b8f6543bf76dfa2b691f5eb65248e7a66626",
+        "836eb4feaabd9249860ade504e8ef5c8c2e3328b2be78e702bbdfb8a4f8c83ba",
+        "8eb4a3acf03deae3d22276e00ed148b74c109ca387e8cab23e5de2c73d682647",
+        "9126ccd66148c662b27ebaad60287f40fde2ab902f6517f39cfcd51995f8abbf",
+        "94692647a7f410ebc383128a9a2188526c634d07ab5ffbe69c455d3efc894bf4",
+        "9e840374ac06a44337b88690f851770ead09c12485c12226c8cecc93a8956ee3",
+        "aab2b620e4d421ea3c1b0984ce5e8fdce20c7fa69188161b650f3a5f92ba1760",
+        "ae71e8af42e3ef7f24bfe617cb32340bded575464d1a309dd5903e41a7c4bd5b",
+        "b82694bc2191de9e361d6e38a7f80be06f00e5be2cc6942823a9dc9790cbaf31",
+        "c323625765ef76b593447c39533e35bf886824a593316201148dfa7519f55d4a",
+        "c3e9e5c56aa9ee3582d063b82fbe7fc1a197df77ad1692a7db6d320de4a8a58a",
+        "ce5c5f24d47abb1a78909db5ef7a928ba2e5c99ee8a141080d737a6b10872433",
+        "d516e4733a4443e3feee2ec135a41139d7970ccd9fe6c0e15568a8d6a1b961e9",
+        "d628322fc53b1dcb16d8a52ac93a73a5bfc1ce0705c1148d2279ba225170fd73",
+        "ed803917d6e0040991ddffe8637a62302a84a5e57a4837b0dcf6897373f156d2",
+        "efa0c956eb745f6e864cdfee40a3e9cd171557769072bdadef737481c326e799",
+        "f1e6c148587615d7f9f3cfedb1dd713442b00001791ba08f211beb97906a0b94",
+        "fb2699a7376a0c6dd9a7f2d8be15312f5a5d377f4fcd9723014d0259a8b2e7cf"
+      ],
+      "events": 27,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "evaluation"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "291f37319b992d624e19eb3c249214dae38a6b7650ce2bf3a2ae291f9905e1dd",
+        "5aad8129409ac1b37d8a985df535df9412330a482a6a823b2320a8fc8ee7c6aa",
+        "9126ccd66148c662b27ebaad60287f40fde2ab902f6517f39cfcd51995f8abbf",
+        "ce5c5f24d47abb1a78909db5ef7a928ba2e5c99ee8a141080d737a6b10872433"
+      ],
+      "events": 4,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "evaluation process supervision"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "930a77388faf477da22d75f3251d066b46c71f952a55f12a8c222a82238df934",
+        "9838f9a33461acdc6171c8dbd7220c17c5ed4aedaa303c92cca714d635bec060"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "GeekNews",
+        "Hacker News"
+      ],
+      "tag": "gemini"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "f6c8e8f417d354e5aeb6dc45c0d84a4843ef66e9bdf1af707b1d2772f3905ffe"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "generative embedding"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "01731a638883fb726c575d1c7874e81d4031607a8862fd8d62b064d51beca6e8",
+        "0366df25a611693edeb903f0459691098f208a7d15524bbf5d5a5cf6410dc7c8",
+        "0d0545649e4723a84e0cce562629748996bde086781e2e21dd94382ec74f9cd4",
+        "1a3b1e9e56558c8705cc9508d487e856a9b7beb72d9a6812012dc16f580417e9",
+        "1c4e417fb0a43b5f6fa01dba8b281a03545912b6dc0c2a2f017c4019aaf3af82",
+        "1cc673fa7e7693b49cd744a7771fa1f7e8a61e7eab41ed93f35bcfc89e80d5b7",
+        "298a96bde57cf50967cd788fc53c7f1503b508c15a9399901ad6b383e4cb1786",
+        "2a4718eaf298a1e1e9d8cd9860cedba765c19fc27e62351fcae42581a46f60e7",
+        "2d3a0ec7678ddda7805e684eee777f97098a943557e41e0834ac896bb2f3be76",
+        "33141ad55443d1a175eab86d347ef558250e8bddae2b95ccc1a5133b6ababd9a",
+        "34666603c47ae047089f40488d2c4acddc660b776716768030c0d0a87a176641",
+        "3743d03cd9bd27de2a5c5e320d3750459769d7a9d452f8cc5eb6ad13c6d63cdb",
+        "397634c580e88ebbad4f6ac8fd9fd486c8f2403c52693b62f7bea38b1b314879",
+        "3c65356da3de00439c534d920739b5f3dd0912b23f73e1010b8e3fe6bddf6dbe",
+        "48cfd96a5ef3a19d7963f1b24a919ad2133d148aaea1061c7cacf876c5c9c46e",
+        "5968a67b7c14cfedd9a5e87f3e55e479ba43e0ea49acc0a456052c4da3b1660c",
+        "5eb54cce8c710a423ac132be7a80bccdcc004f7e4d784aa321a18795e1b82117",
+        "74475c3002ba6b6de1343537b65a131e57cf870cc7597fa6e73cf8ba7642a7bb",
+        "76334f0d3ca42707c66db6e677caa80c8ca2bf6b124deddac79efb6ef3456940",
+        "78417b7bc8f9de1280d0cc9aa732cd7582cb51a8c046e9c05c2c665b0582c518",
+        "795d1d4958e536abaef69096d0170ae66c2c5c5099db104bc69e9d03c3798cde",
+        "89a65d42d64c907aa972ef14561013c25687400b057c370d89a2089f1b24a07a",
+        "8a2c61d65f65f7e229faaf030804a77b49d26241b7fb424dc5875650e8e8443a",
+        "8bc42aa131665555daa98ff911395c946e145359ec72100939c9eba4682ae46e",
+        "8ede9dd16e4d71d6d2c8327df8ad1baeb4940d23bf9ab614ecae0859c82d06f0",
+        "982774778f96c1e57ea262322a5f34fc5078670a2fe4d1a39c9c0e81a84003bf",
+        "9f1f0c525338833f6ac2ac764e3d1dc47f45aacf228d28dd14ddf40357f10293",
+        "a53884c7803d96bbdf8709d28029f60a3759db4d151327d952382cee07eac4a2",
+        "a74701580afbf95e59906719212751296d907994756e6034ec607249c096b528",
+        "aa38fab25164e4f56fff0f4cba76e826d2cea577825e3001641b419330ccf20d",
+        "aaec4b8fa3239536ecb42ae9f8724e8a99e579dd59c5c5b48d8eb98a40ef2ab5",
+        "b7a2385d096325b0e3fec9e3bd41c0af6f335f79012f8501da0bbe1143aa0717",
+        "b92f6d5626b04401f1ccf5a661a36cba162b1c81a99aba71d28862bdeff71366",
+        "ba3f8ca360bc6bb9e50d0e560f720b99063343e2de2e37d35f677ecd1785f5d4",
+        "bb96065f8b2c746b35d9c2a9747738877ef2247276544a646e48733de0c4f386",
+        "bfb37b8719ef1cf9bd1c0cb31ae57c809e2b52b27e7a33253d8d41d89dd0b516",
+        "cabd39398b466dfb51ce2efcd7dfe06c36e49b4f6483ae80b05ee253dad25d3c",
+        "d44bf9fcf1573d55e1d5912a051b19ffd303a69218638d8a11d4f3d8a377cab0",
+        "d4acfed506adfa309fb2f0f91eda934731acf0a1eb7aa865d8ca667c613aa416",
+        "d72a4c164509f036fcc808f43cf39e57b1dccd73c3b00d59be8f6d53721da610",
+        "deba7c1ed05e998aa1a4a76b90b88c4a2a07559ca4a5bf8d0fb3f01a270fa7f6",
+        "e225d6e3a9800dd5f80a4d3cee2933e20ec116dc231da1acf31d33eabac068bd",
+        "eaea8e5e6fd780f2ae1d7c778285e63439b8f73801061c1732d838f4d2035fd0",
+        "eca9df6d3b00215a9b26a859744e2d77be853133f6445fde1cc09dc925cfbc2c",
+        "ed0c3a1b25d933712659a22f8a621b2f17b3c4d0fb8de513fbae34c98305f651",
+        "fec3639ffbb772c0af5381dc2d6cd84e2e8aee4e26c3e033d5e29ddd611502d3"
+      ],
+      "events": 46,
+      "independent_orgs": 3,
+      "kind": "taxonomy",
+      "orgs": [
+        "GeekNews",
+        "Latent Space",
+        "Model Context Protocol"
+      ],
+      "tag": "github"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "85cbfaa568c148f229b4b4d9fe75df127c737ddca077ae95b14a067b2a8d530a",
+        "8c197a84401a16f167c515253b03c2ce0abff799098507102c2d03a29511b711",
+        "95c05e70a21b4a0a1e0836c159f2719c46ea0f4f373050e5468aee5046e52bce",
+        "c6c4be49d65363f22c3803035013afa930aa63964182ce099b855eb326e18837",
+        "d13bf27f19735a6badf489bf404a527195a31139031a4e68c56bae4c99e1e400",
+        "dd40959b489199d6382e454bd12635fe2d7c03865285cb6f3104675c393e575c"
+      ],
+      "events": 6,
+      "independent_orgs": 4,
+      "kind": "taxonomy",
+      "orgs": [
+        "GeekNews",
+        "Hacker News",
+        "Model Context Protocol",
+        "TLDR AI"
+      ],
+      "tag": "google"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "1d875a402ead4c4451a1ec7e27cd7c447ffefe0c9817eb1f22ea40c482e17d35",
+        "9838f9a33461acdc6171c8dbd7220c17c5ed4aedaa303c92cca714d635bec060",
+        "cda17a535355751fcac534273309b3fad8cf9a5f0328a3bb9a47676c1a3e8f0f"
+      ],
+      "events": 3,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "TLDR AI"
+      ],
+      "tag": "gpt"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "f798778eba8b50c6e98d7f65a3b94519c9ea367a2373dde566af8b4051167b77"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "hidden-state refinement"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "4e0653d413f526d43f2064e05706c12abfbf8ee4f56f5781904b128a9dd36486"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "instruction replay"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "0519b8fa6d0c3743abd360f7e8b59c87cd41f1b7e888072eb7ddda4d2adad2b2",
+        "07faf2fc1a583cf3c2b7e32e48753423806269e18f66930d680d3af301ed44d6",
+        "08b0584fa55e9c4d851e90d310af4c8a2004a42af5d7470ab7aaaba9d037aca6",
+        "09a378ac9bda8efaacf6383e00a4dada3cd86ff90431eb33c8cc1d745e700e10",
+        "0b759eff2ac373ad0419904385c0ea22051b1bd349e74ce600fb4c0dab614e44",
+        "1271a8eaece8f1231c96ef25015e7b58667da61af8bcc4d75a683e56d2373398",
+        "13c1aa57cf10fd1927dc43448cb0d66c7c982f5eb804426d3697169996ec2d85",
+        "1c91405ee9825c1b3d8281d8080b696cced1407912e9ec11ab1ab3dffb57f47e",
+        "23041466a5bd2fc2d0a957c8e101246c55ddea20a655e9e059e8ca524d9be9b3",
+        "255feaccb29faf6cd6a6951c98bb7d162e103afbc6c7c6ced85028c5d570e1b8",
+        "2b470493eb7d82a61eef446856d165ae86eef2609c2ec4052254dd8a89fbf9da",
+        "2b6258563847ef5d64ff4c27a81c56d36d8030156534432fedd970d59443107d",
+        "369f73942dbea0500d8210fc2d75248374acbf97148647e52e61dc609219abe4",
+        "3a1897a8bdff8fadc6cb1791d7331379a4da0c0a18105c4486afb1bac5cfcdbe",
+        "45e6e7b35e60fdab0adcb88f9993a5ab728cd317002ea46c8ffe6da7a1af09eb",
+        "47c80c1f28c77d829166e8e2283672748baf5d9f5d40fb92f17e23f91d22ccbb",
+        "494a7fd316b94635a2361ac21ce648e55abfc86ab0e9c728d6c2daa7cd87d2a9",
+        "5b5230fa758613ade1099ff5751ac1018d7b293b9f1af02bc379ce933f2c9985",
+        "5c81b8f1429b4d05e00b3ff321eb7416bbf3ea5cd2cd8c5d1b15994b7c5bd1b7",
+        "623b1bef73b8e57e59f17690b31f94cb1cac6bd136549b514c50d1da84e1c1aa",
+        "66c0140f14b7b3db6271203fedc5f0fa42c6e78bc75520cc4e781e5e20c15598",
+        "6d091c8785a97415d1f67d9521a48c69e1da1ea4315151b48bc90d12a7e1c243",
+        "72ba2cc2dace22af497d0fb60684211f4152fc066ca4ce802bfbbd4cc321a39f",
+        "73dfcd883979af7cf9773391a3d6d25a3d5e509f699623c30d4a9db9b3ce504f",
+        "7cf93924b128fbe0ec87a30aa1cd3cf856773fa9e1feb432656693f3466a88e4",
+        "836eb4feaabd9249860ade504e8ef5c8c2e3328b2be78e702bbdfb8a4f8c83ba",
+        "8eb4a3acf03deae3d22276e00ed148b74c109ca387e8cab23e5de2c73d682647",
+        "942c3496ca115c867018d96947437e8cd99c3ad8b6fc52bd3ff3a17b6b5b60bf",
+        "9e840374ac06a44337b88690f851770ead09c12485c12226c8cecc93a8956ee3",
+        "a2e38bc0879095999850c668abd62ecf9195748f4eae96b3a6c90ad644d89595",
+        "ae71e8af42e3ef7f24bfe617cb32340bded575464d1a309dd5903e41a7c4bd5b",
+        "b66efdcfa7613e43bf1f8707b4c243444e166a53157c4f88be4b0f0a1da9c617",
+        "b8b22ef0b6f5a2fed78a9f34865f075e1e879573a4c77f92de52b7bfbd1a1d86",
+        "bab0f4dab0fb36ff76b7dc3a3bff68bf042c836f351c9f91ebbfc0d789ccb86b",
+        "bbc79524d0a1c14f5b2e21904fa825c4924f4677696fcdabf407bb65104dbd54",
+        "bd8e73c637538075965ca0d240a40664a40fd5ce145591ffec9e1cb2c9bfefbc",
+        "bebd3911a5b88be6a0ac7e7422e21d64fa79d8d4a0e02ce8ca4ad0bdcba767ba",
+        "c323625765ef76b593447c39533e35bf886824a593316201148dfa7519f55d4a",
+        "c3e9e5c56aa9ee3582d063b82fbe7fc1a197df77ad1692a7db6d320de4a8a58a",
+        "caefdb769a37f65b83ea93ef0e46b129a80d3cda3055aa3c56fbc0cd7f26a66b",
+        "cfc0c17e559b786c915364c9c1eeed6d30c021655fa7a95859cf536121d53054",
+        "d516e4733a4443e3feee2ec135a41139d7970ccd9fe6c0e15568a8d6a1b961e9",
+        "d628322fc53b1dcb16d8a52ac93a73a5bfc1ce0705c1148d2279ba225170fd73",
+        "d7d9c686fcc5ca0020b535ba1a8a7a87314456244c0c69703b5575b7f4dfd515",
+        "d92bed4b899e372ada355a4ad6ceefd51d4a7ad8f5e3e396baa273fb3df75866",
+        "dbfe077e3286b1e9bd8e35b98cc57d0694ce904b206a7a1d16ad3d389aff863c",
+        "e072f1c4f1d29a882e8fef0025005135759d8d0bde0c06b35436156071998896",
+        "e43bf47548b2b688421936199bfb26ba418e13ed9e88f9c3a7c643f7ca2bd152",
+        "e4dc16d559f165551cd5dfc04e22e9f256eca846a0ade32d7771ffc1e2f74be0",
+        "ed803917d6e0040991ddffe8637a62302a84a5e57a4837b0dcf6897373f156d2",
+        "ee55b3bdb0a59b61586e78d72028bf2d49c41b4ec65ba08c0c22110ad55faada",
+        "efccbd2c50bd72cf49f5feb5c9a194b9cb527d0dfb8087f47c1569091c383324",
+        "fbeef85332b05427a21a92f32aa24a7279dda5141050be274cd505926beb0bb6"
+      ],
+      "events": 53,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "arXiv"
+      ],
+      "tag": "large-language-model"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "d840ae6c58f296efc035b3af04c573b8ac2bcf88b67e5c9795b7c937dbdcc2f9"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "latent interface"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "074545dfb6930b891e63d6cb5c653eab093f4c29021eabc96807c59a7e76a35e",
+        "cfc0c17e559b786c915364c9c1eeed6d30c021655fa7a95859cf536121d53054"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "long-session degradation"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "a2e38bc0879095999850c668abd62ecf9195748f4eae96b3a6c90ad644d89595"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "looped transformers"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "00d3db5c989a663a4552057f272517054d4f6b888d143f6f218bffb236c4bb36",
+        "02363f14086271531b6b53642060214170aa5962fd5e02d613b39286baa322da",
+        "029d870fca9116a7904542c0817a4760f1f94673c3069151bf57b526b6941de3",
+        "07faf2fc1a583cf3c2b7e32e48753423806269e18f66930d680d3af301ed44d6",
+        "0840f4cff26bf320cd513e3d55c506989b55b32ac43a4952c61f562e070285bc",
+        "13c1aa57cf10fd1927dc43448cb0d66c7c982f5eb804426d3697169996ec2d85",
+        "1c91405ee9825c1b3d8281d8080b696cced1407912e9ec11ab1ab3dffb57f47e",
+        "1edadb33eea57c9cd15c7e83b675f503fde7c0b9d2ff8cc8870898f159420aa9",
+        "228cc6641d1a2ce8fe6d5c1e45d9da19bdf78bb05f5f605bf2ece79b6cbcca46",
+        "27454ecd3dc1f8708bb96008b09bc6f9769556636aceddfa0d4330c889f7efaa",
+        "351262fb555b8f64b06e627a9ca8d4d42cb098b9dd38b897a735a1c0d0b4bc1c",
+        "3a6bdcb72c48a73f7f6dec80037b4d9ba83b54ea8b2c0fae502fb11da951bea3",
+        "450a69c83167a85c781fa4755cfc39326f610e8ca76c505b519069bbacd1d3ff",
+        "45e6e7b35e60fdab0adcb88f9993a5ab728cd317002ea46c8ffe6da7a1af09eb",
+        "47c80c1f28c77d829166e8e2283672748baf5d9f5d40fb92f17e23f91d22ccbb",
+        "47d04d206e588eb3691361de78bae039b13f9407f7a922cebf3b2d2a7b4762a9",
+        "4e3a430deada88737bf840a77c372d3262e6fc6d16a47824b81fe3cb4b96ae02",
+        "4fb72c3ac8ed9908bd92551096db04ed2bd4365f939ef3395811f519180358de",
+        "545b0ab930727575bbecab9a308a977159876f007c3d0d14b8d65a4406b5ce16",
+        "550a5faba564be9b65ba35776e30bf08a35721f29e04bd9e421f1eb38c7f12f3",
+        "59cbeea893f028ac444d1425d54c2483ca60f3938960366c347a4b31783cc087",
+        "5c62a1e1f7943aca9887fd99db16a615ab1cce8c4d14fc88507fcb4c32206ea8",
+        "61003439b7285b6616baea70e648526afd10ec7aceb7c41ad63cef94fa896a94",
+        "62a34e7dfd74af7f48bafa85da029f66b1e4d2fd44dae19af03107b92011951c",
+        "65f1d761616e043b026ebcad427efca0e681e9cd30a186b4a0b56e61a35d08e1",
+        "66c0140f14b7b3db6271203fedc5f0fa42c6e78bc75520cc4e781e5e20c15598",
+        "695496c662768fe1942658c8cba2ec493b9f0754f653eb557fb83c05c84f9219",
+        "6c6217992729e8a8881f12fd9e434006e0c8e4926ff08ea61d8365a93d176f43",
+        "6d4fb1088d1d071cfa28ad90cba7901bc808d7477b786cd61d6de4b475598f01",
+        "71b676268cf03f387b63ab261a4653fc35cc7624d7b4ad2add659ac2f442f068",
+        "73dfcd883979af7cf9773391a3d6d25a3d5e509f699623c30d4a9db9b3ce504f",
+        "757c6c680e731f2999e2a253a937c02caaafea8af9ab67e71e1d2c1b5a9ed440",
+        "7bb391b5e8058774ceaa2b5de98826ccca1b17f990197c4916b25000ed9636ed",
+        "7cf93924b128fbe0ec87a30aa1cd3cf856773fa9e1feb432656693f3466a88e4",
+        "88f5361b2648e483b05a1cb25883d29c950eebfff2bace1ddbed6644948fb3dd",
+        "951fb15ec16fb1979761488e915acd9e3ffd349fc64d59b1fb86a4567d30a64f",
+        "98ac4195a56c40d71fab1a6a0ff128f164583d6f9440ec2b67467888aa2470e6",
+        "a2e38bc0879095999850c668abd62ecf9195748f4eae96b3a6c90ad644d89595",
+        "a71ece9bab8af7e4fd07262153cf8bfc1f3b1423d87a1c89afedad7d5786973b",
+        "aab2b620e4d421ea3c1b0984ce5e8fdce20c7fa69188161b650f3a5f92ba1760",
+        "b8ce2eca5751d54c2278f721837fe1512292e3482bab1f8deb77e5e36ddf818c",
+        "bebd3911a5b88be6a0ac7e7422e21d64fa79d8d4a0e02ce8ca4ad0bdcba767ba",
+        "c134ffd8b8f7463020a5e4b9bd6010afa264835da99cc0ce63d72efbf51c457f",
+        "c323625765ef76b593447c39533e35bf886824a593316201148dfa7519f55d4a",
+        "c40e6a3c5a23897f3e6f94bd1881ecd5ecef63ef3d9c9943431ddf335a18caa9",
+        "cfc0c17e559b786c915364c9c1eeed6d30c021655fa7a95859cf536121d53054",
+        "d095e5713c780d74f2d5aff729623f8365db07c1b68e4904901efb57472e3412",
+        "d628322fc53b1dcb16d8a52ac93a73a5bfc1ce0705c1148d2279ba225170fd73",
+        "d7d9c686fcc5ca0020b535ba1a8a7a87314456244c0c69703b5575b7f4dfd515",
+        "d840ae6c58f296efc035b3af04c573b8ac2bcf88b67e5c9795b7c937dbdcc2f9",
+        "dbfe077e3286b1e9bd8e35b98cc57d0694ce904b206a7a1d16ad3d389aff863c",
+        "e8c2d7d43332efbbadc0e2529a340badf8992c56289a810349b0c4db796a47ec",
+        "e908db6a942106277769a9494963cfe8ddc0a7193c2cbbdabba30e9935056e41",
+        "ed185bb5c4bc03f0db738d809d772d3c423a00cddb00848f5671513e50ed37a0",
+        "f275784a25ba0e60d867de43a0fa9d1668007b366bf781695d143707e54ee647",
+        "f3a7395893a4f27dfe8ca387230dff422a015bebf50f05ff067c4eb9ca0b814c",
+        "f758901273fae72536204a8cdf930836bab239a1c2d9ce642337fe5feeafe6f7",
+        "f7985a8b049aa9a8af389d5e74ead71dbee79edd94f4bfa48a5b50bf79b18977"
+      ],
+      "events": 58,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "TLDR AI",
+        "arXiv"
+      ],
+      "tag": "machine-learning"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "04e5bb9e09f20bf67b875af1a297d4211b2733329268f4da33b7dac503a5f140",
+        "1a3b1e9e56558c8705cc9508d487e856a9b7beb72d9a6812012dc16f580417e9",
+        "1cc673fa7e7693b49cd744a7771fa1f7e8a61e7eab41ed93f35bcfc89e80d5b7",
+        "270a05f5395853f4fb5825decb351644074e27a51c1d7e197316f2e959ed7c89",
+        "33141ad55443d1a175eab86d347ef558250e8bddae2b95ccc1a5133b6ababd9a",
+        "356dd02faec6aa28d92110bc13e425d51c1bceff928c7178b85623131d82528c",
+        "397634c580e88ebbad4f6ac8fd9fd486c8f2403c52693b62f7bea38b1b314879",
+        "77a8fcb20062c28a61ec2bc4611c889fe585f71a5d10e49c9e7869e93a15ffcf",
+        "795d1d4958e536abaef69096d0170ae66c2c5c5099db104bc69e9d03c3798cde",
+        "85cbfaa568c148f229b4b4d9fe75df127c737ddca077ae95b14a067b2a8d530a",
+        "95c05e70a21b4a0a1e0836c159f2719c46ea0f4f373050e5468aee5046e52bce",
+        "982774778f96c1e57ea262322a5f34fc5078670a2fe4d1a39c9c0e81a84003bf",
+        "b92f6d5626b04401f1ccf5a661a36cba162b1c81a99aba71d28862bdeff71366",
+        "bfb37b8719ef1cf9bd1c0cb31ae57c809e2b52b27e7a33253d8d41d89dd0b516",
+        "cabd39398b466dfb51ce2efcd7dfe06c36e49b4f6483ae80b05ee253dad25d3c",
+        "ed0c3a1b25d933712659a22f8a621b2f17b3c4d0fb8de513fbae34c98305f651"
+      ],
+      "events": 16,
+      "independent_orgs": 2,
+      "kind": "taxonomy",
+      "orgs": [
+        "Model Context Protocol",
+        "Naver"
+      ],
+      "tag": "mcp"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "04e5bb9e09f20bf67b875af1a297d4211b2733329268f4da33b7dac503a5f140",
+        "1a3b1e9e56558c8705cc9508d487e856a9b7beb72d9a6812012dc16f580417e9",
+        "270a05f5395853f4fb5825decb351644074e27a51c1d7e197316f2e959ed7c89",
+        "77a8fcb20062c28a61ec2bc4611c889fe585f71a5d10e49c9e7869e93a15ffcf",
+        "85cbfaa568c148f229b4b4d9fe75df127c737ddca077ae95b14a067b2a8d530a",
+        "95c05e70a21b4a0a1e0836c159f2719c46ea0f4f373050e5468aee5046e52bce"
+      ],
+      "events": 6,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "Model Context Protocol",
+        "Naver"
+      ],
+      "tag": "mcp router"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "08a6094b9f24b3f9375f2a62fb734510cc9d116a0c15264db50bbc98157191ff"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "TLDR AI"
+      ],
+      "tag": "meta"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "622b4b54b2150bb793ce270df484a74518bbf7f79aafc575ed33ca45365028a8"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News"
+      ],
+      "tag": "microsoft"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "ed993fd9aee393df240156bc74c9a258f203b2c26a728a80f5470c03a336fcc6"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "multi-party conversation"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "029d870fca9116a7904542c0817a4760f1f94673c3069151bf57b526b6941de3",
+        "07faf2fc1a583cf3c2b7e32e48753423806269e18f66930d680d3af301ed44d6",
+        "7909799cbc1538f04381c9b57cfa0cf00123cc1f5e09d59a842344be7e200506",
+        "aab2b620e4d421ea3c1b0984ce5e8fdce20c7fa69188161b650f3a5f92ba1760"
+      ],
+      "events": 4,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "multimodal grounding"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "1d875a402ead4c4451a1ec7e27cd7c447ffefe0c9817eb1f22ea40c482e17d35",
+        "680141b899341e58cc0071badfb5038676a37de34ec990d841288a0eb99d6524",
+        "b294701165e549f680daede1d85c63eaec3c0d8b5282ed41ee7db6834e4ca398"
+      ],
+      "events": 3,
+      "independent_orgs": 3,
+      "kind": "taxonomy",
+      "orgs": [
+        "Hacker News",
+        "Latent Space",
+        "TLDR AI"
+      ],
+      "tag": "openai"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "08b0584fa55e9c4d851e90d310af4c8a2004a42af5d7470ab7aaaba9d037aca6",
+        "5185bc6fbac99fee9077a756ebf248d690def48886b41e783c3881c330fbed6f",
+        "b82694bc2191de9e361d6e38a7f80be06f00e5be2cc6942823a9dc9790cbaf31"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "persona steering"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "255feaccb29faf6cd6a6951c98bb7d162e103afbc6c7c6ced85028c5d570e1b8",
+        "494a7fd316b94635a2361ac21ce648e55abfc86ab0e9c728d6c2daa7cd87d2a9",
+        "bd8e73c637538075965ca0d240a40664a40fd5ce145591ffec9e1cb2c9bfefbc"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "privacy leakage"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "5bae4a31eb1bbba460a40360ab337a90c2cbbbf573d981a1a0d43ded7e7ac700",
+        "a71ece9bab8af7e4fd07262153cf8bfc1f3b1423d87a1c89afedad7d5786973b"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "prompt chaining"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "09a378ac9bda8efaacf6383e00a4dada3cd86ff90431eb33c8cc1d745e700e10",
+        "228cc6641d1a2ce8fe6d5c1e45d9da19bdf78bb05f5f605bf2ece79b6cbcca46",
+        "2b470493eb7d82a61eef446856d165ae86eef2609c2ec4052254dd8a89fbf9da",
+        "47c80c1f28c77d829166e8e2283672748baf5d9f5d40fb92f17e23f91d22ccbb",
+        "59cbeea893f028ac444d1425d54c2483ca60f3938960366c347a4b31783cc087",
+        "cf9f4fd6674e23e8b79943e316c9aae31ac3d93518f1d473ff0a2504a9ed26e0",
+        "ed803917d6e0040991ddffe8637a62302a84a5e57a4837b0dcf6897373f156d2",
+        "f62d7c76b1d9d3d2baa7da87909ac20913ab849f0d2d6939ffabec4a8222a5bf",
+        "f6c8e8f417d354e5aeb6dc45c0d84a4843ef66e9bdf1af707b1d2772f3905ffe"
+      ],
+      "events": 9,
+      "independent_orgs": 1,
+      "kind": "taxonomy",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "reasoning"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "00d3db5c989a663a4552057f272517054d4f6b888d143f6f218bffb236c4bb36",
+        "19e9ca7cc65eca9a78bb2e10d7887e2a4c85294e90bf8b48744dd3c189ebd65a",
+        "4fb72c3ac8ed9908bd92551096db04ed2bd4365f939ef3395811f519180358de",
+        "951fb15ec16fb1979761488e915acd9e3ffd349fc64d59b1fb86a4567d30a64f",
+        "b5614bccdb7000a90f04357bdd9531943fa4301861e2406f6fbb6f83aa466589"
+      ],
+      "events": 5,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "speculative decoding"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "dbfe077e3286b1e9bd8e35b98cc57d0694ce904b206a7a1d16ad3d389aff863c"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "state abstractions"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "f62d7c76b1d9d3d2baa7da87909ac20913ab849f0d2d6939ffabec4a8222a5bf"
+      ],
+      "events": 1,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "structured prompting"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "23a463fc817ff83d926252a13c2c7e1eabf12c8f941f9935719a583025a6485b",
+        "8be86a0b0af72b483a25ca2ac0f89a85bfbae0a711902496e84967821b84b088",
+        "b06f898e9161a827a4b08c386f066a1dddabac4d2efa7d5580478f2a8ad1cf64"
+      ],
+      "events": 3,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "synthetic dialogue generation"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "782e936fc00b02dab22a63fa5e5a8b9f22383f3483f292333bcb6ffa8ea20fc9",
+        "bebd3911a5b88be6a0ac7e7422e21d64fa79d8d4a0e02ce8ca4ad0bdcba767ba"
+      ],
+      "events": 2,
+      "independent_orgs": 1,
+      "kind": "concept",
+      "orgs": [
+        "arXiv"
+      ],
+      "tag": "tool-free weight editing"
+    },
+    {
+      "active_sources": 32,
+      "date": "2026-11-26",
+      "event_ids": [
+        "d59f1ddcb4b89280ea6c568664c4438808bdea454a2c853277f79b0188ab9deb",
+        "e97dd56116f464d70dd3a6d36cd82ed0d6ef6cd50a019277b1c13a5791059ac0"
+      ],
+      "events": 2,
+      "independent_orgs": 2,
+      "kind": "concept",
+      "orgs": [
+        "TLDR AI",
+        "arXiv"
+      ],
+      "tag": "tool-use agents"
+    }
+  ]
+}
