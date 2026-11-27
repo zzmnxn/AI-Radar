@@ -270,5 +270,40 @@
       "Claude Code가 Codex CLI에 코딩 작업을 위임하는 MCP 서버 0.6.1",
       "RECAP: 긴 호흡 에이전트를 위한 컨텍스트 압축 학습"
     ]
+  },
+  "2026-11-27": {
+    "card_count": 3,
+    "categories": [
+      "AI 코딩 도구",
+      "MCP·도구 연결",
+      "에이전트 설계·스택"
+    ],
+    "headline_ko": "멀티에이전트 개발 보안과 AI 작업흐름 변화",
+    "path": "briefings/2026-11-27.json",
+    "tags": [
+      "AI agent",
+      "API terms",
+      "Drive",
+      "GitHub Copilot",
+      "Gmail",
+      "Google Workspace",
+      "MCP",
+      "OAuth",
+      "code completion",
+      "diff patch",
+      "inline code editing",
+      "model unification",
+      "quotas",
+      "공격",
+      "멀티에이전트",
+      "방어",
+      "보안",
+      "코드 생성"
+    ],
+    "titles": [
+      "LLM 기반 멀티에이전트 소프트웨어 개발의 보안 위험과 방어",
+      "구글, Workspace AI 에이전트를 MCP 서버로 유도하고 Gmail 일부 기능을 제한",
+      "GitHub Copilot용 통합 인라인 코드 편집 모델"
+    ]
   }
 }

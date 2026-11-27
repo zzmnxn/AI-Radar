@@ -1,0 +1,492 @@
+{
+  "cards": [
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "3c0d32aed74536fb04c952bbac32568f230ba73f10c7083363809e9f73a9bc98",
+      "availability": "unknown",
+      "card_id": "card_3c0d32aed745",
+      "category": "에이전트 설계·스택",
+      "event_id": "52dc8bc6f460d799ad823c3a92edf8846f0227c2a57ce36f272e95851935828c",
+      "how": [
+        "ChatDev, MetaGPT, AgentVerse 평가 결과를 참고해 방어를 설계할 수 있다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-26T00:00:00-05:00",
+      "revision": 1,
+      "score": 82.0,
+      "sources": [
+        {
+          "org": "arXiv",
+          "source_class": "research",
+          "source_id": "arxiv-cs-cl",
+          "title": "Shadows in the Code: Exploring the Risks and Defenses of LLM-based Multi-Agent Software Development Systems",
+          "url": "https://arxiv.org/abs/2511.18467"
+        }
+      ],
+      "tags": [
+        "보안",
+        "멀티에이전트",
+        "코드 생성",
+        "공격",
+        "방어"
+      ],
+      "title_ko": "LLM 기반 멀티에이전트 소프트웨어 개발의 보안 위험과 방어",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "Abstract:The rapid advancement of Large Language Model (LLM)-driven multi-agent systems has significantly streamlined software developing tasks, enabling users with little technical expertise to",
+            "evidence_url": "https://arxiv.org/abs/2511.18467",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "LLM 기반 멀티에이전트 개발 시스템의 보안 위험과 방어를 다룬 논문이다."
+          },
+          {
+            "evidence_quote": "We introduce the Implicit Malicious Behavior Injection Attack (IMBIA), demonstrating how multi-agent systems can be manipulated to generate software with concealed malicious capabilities beneath",
+            "evidence_url": "https://arxiv.org/abs/2511.18467",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "악성 주입 공격 IMBIA와 방어 기법 Adv-IMBIA를 제안했다."
+          },
+          {
+            "evidence_quote": "Evaluations across ChatDev, MetaGPT, and AgentVerse frameworks reveal varying vulnerability patterns, with IMBIA achieving attack success rates of 93%, 45%, and 71% in MU-BA scenarios, and 71%, 84%,",
+            "evidence_url": "https://arxiv.org/abs/2511.18467",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "ChatDev, MetaGPT, AgentVerse 같은 프레임워크의 취약점 양상을 직접 보여준다."
+          },
+          {
+            "evidence_quote": "provide practical guidelines for implementing targeted, resource-efficient defensive strategies.",
+            "evidence_url": "https://arxiv.org/abs/2511.18467",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "ChatDev, MetaGPT, AgentVerse 평가 결과를 참고해 방어를 설계할 수 있다."
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "LLM 기반 멀티에이전트 개발 시스템의 보안 위험과 방어를 다룬 논문이다.",
+        "악성 주입 공격 IMBIA와 방어 기법 Adv-IMBIA를 제안했다."
+      ],
+      "why": [
+        "ChatDev, MetaGPT, AgentVerse 같은 프레임워크의 취약점 양상을 직접 보여준다."
+      ]
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "f1464b60202c66c34d0a17885d97b7d0df2ef9b8795abe65de74d72073260deb",
+      "availability": "unknown",
+      "card_id": "card_f1464b60202c",
+      "category": "MCP·도구 연결",
+      "event_id": "ea1348c2855120ec208c0a9746560fdc33f41b305cc540550ca4de17e7c2d410",
+      "how": [
+        "\"Create an OAuth client marked as agentic and move to the MCP servers.\"",
+        "\"Admin console → Security → API Controls.\""
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-26T09:44:23Z",
+      "revision": 1,
+      "score": 74.0,
+      "sources": [
+        {
+          "org": "Hacker News",
+          "source_class": "aggregator",
+          "source_id": "hackernews-front-page",
+          "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+          "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/"
+        }
+      ],
+      "tags": [
+        "Google Workspace",
+        "MCP",
+        "OAuth",
+        "AI agent",
+        "Gmail",
+        "Drive",
+        "API terms",
+        "quotas"
+      ],
+      "title_ko": "구글, Workspace AI 에이전트를 MCP 서버로 유도하고 Gmail 일부 기능을 제한",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "On 24 November, Google made its eight Workspace MCP servers generally available and published a new clause in its API terms. From 1 February 2027, any tool that \"is or is driven by an AI Agent\" must",
+            "evidence_url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "구글이 Workspace용 MCP 서버를 일반 공개하고, AI 에이전트는 이를 통해 Gmail·Drive 등을 다루게 한다."
+          },
+          {
+            "evidence_quote": "Read the Gmail server's tool list and you'll find that it can search your mail, read threads, create a draft and file things under labels. It can't send a message, reply, forward, or change a draft",
+            "evidence_url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "공개 Gmail 서버는 보내기·회신·전달은 막고, 드래프트 작성·검색·읽기만 허용한다."
+          },
+          {
+            "evidence_quote": "Create an OAuth client marked as agentic and move to the MCP servers.",
+            "evidence_url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "\"Create an OAuth client marked as agentic and move to the MCP servers.\""
+          },
+          {
+            "evidence_quote": "Admin console → Security → API Controls.",
+            "evidence_url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "\"Admin console → Security → API Controls.\""
+          }
+        ],
+        "level": "partial",
+        "uncertainty": "일부 내용은 근거가 충분하지 않아 제외했습니다."
+      },
+      "what": [
+        "구글이 Workspace용 MCP 서버를 일반 공개하고, AI 에이전트는 이를 통해 Gmail·Drive 등을 다루게 한다.",
+        "공개 Gmail 서버는 보내기·회신·전달은 막고, 드래프트 작성·검색·읽기만 허용한다."
+      ],
+      "why": []
+    },
+    {
+      "access": {
+        "note_ko": null,
+        "type": "unknown"
+      },
+      "analysis_id": "31f6d34a92ab8208a9d6239fcc2d6987d871b6e8c2438d6be126f8fc887b1d89",
+      "availability": "unknown",
+      "card_id": "card_31f6d34a92ab",
+      "category": "AI 코딩 도구",
+      "event_id": "9639e66f3d7ad8a97d209afdbc6eb8f2b4f8c538abcc22b7aac1ede82eae2a69",
+      "how": [
+        "앵커된 diff 패치 형식으로 위치·삭제·추가 라인을 출력한다.",
+        "Phase 2에서는 클라이언트의 출력 처리와 표시 방식도 함께 바꾼다."
+      ],
+      "pool": "interest",
+      "published_at": "2026-11-26T00:00:00-05:00",
+      "revision": 1,
+      "score": 70.0,
+      "sources": [
+        {
+          "org": "arXiv",
+          "source_class": "research",
+          "source_id": "arxiv-cs-cl",
+          "title": "Building a Unified Inline Code Editing Model for GitHub Copilot",
+          "url": "https://arxiv.org/abs/2611.33314"
+        }
+      ],
+      "tags": [
+        "GitHub Copilot",
+        "inline code editing",
+        "code completion",
+        "diff patch",
+        "model unification"
+      ],
+      "title_ko": "GitHub Copilot용 통합 인라인 코드 편집 모델",
+      "update_of": null,
+      "verification_summary": {
+        "claims": [
+          {
+            "evidence_quote": "We present a unified model that predicts all three edit types in one output space: a sequence of anchored diff patches specifying locations, deleted lines, and added lines.",
+            "evidence_url": "https://arxiv.org/abs/2611.33314",
+            "role": "what",
+            "sentence_index": 0,
+            "text": "GitHub Copilot의 인라인 코드 편집을 하나의 통합 모델로 묶었다."
+          },
+          {
+            "evidence_quote": "Inline suggestions require predicting a developer's most likely next edit from an editing session. The next edit may lie at the cursor, in nearby lines, or farther away",
+            "evidence_url": "https://arxiv.org/abs/2611.33314",
+            "role": "what",
+            "sentence_index": 1,
+            "text": "완성, 근거리 수정, 원거리 수정을 하나의 패치 출력 공간으로 예측한다."
+          },
+          {
+            "evidence_quote": "the 3-in-1 model and client adaptations reduce dismissed suggestions per user by 10.06% relative to the 2-in-1 model paired with the completion model.",
+            "evidence_url": "https://arxiv.org/abs/2611.33314",
+            "role": "why",
+            "sentence_index": 0,
+            "text": "편집 의도를 한 번에 더 잘 담아 개발자가 제안 거부를 줄일 수 있다."
+          },
+          {
+            "evidence_quote": "a sequence of anchored diff patches specifying locations, deleted lines, and added lines.",
+            "evidence_url": "https://arxiv.org/abs/2611.33314",
+            "role": "how",
+            "sentence_index": 0,
+            "text": "앵커된 diff 패치 형식으로 위치·삭제·추가 라인을 출력한다."
+          },
+          {
+            "evidence_quote": "Phase 2 also adapts how the client processes and presents model outputs.",
+            "evidence_url": "https://arxiv.org/abs/2611.33314",
+            "role": "how",
+            "sentence_index": 1,
+            "text": "Phase 2에서는 클라이언트의 출력 처리와 표시 방식도 함께 바꾼다."
+          }
+        ],
+        "level": "verified",
+        "uncertainty": null
+      },
+      "what": [
+        "GitHub Copilot의 인라인 코드 편집을 하나의 통합 모델로 묶었다.",
+        "완성, 근거리 수정, 원거리 수정을 하나의 패치 출력 공간으로 예측한다."
+      ],
+      "why": [
+        "편집 의도를 한 번에 더 잘 담아 개발자가 제안 거부를 줄일 수 있다."
+      ]
+    }
+  ],
+  "counts": {
+    "accepted": 13,
+    "analyzed": 22,
+    "candidates": 25,
+    "deferred": 3,
+    "events": 3678,
+    "raw": 710,
+    "selected": 3
+  },
+  "date": "2026-11-27",
+  "emerging": [
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 4곳의 사건 11건에서 처음 나타났습니다.",
+      "sources": [
+        {
+          "event_id": "1c5fd9f9a1bd3780163e14968ca3199f969e49da5fc38bbea57cd254d97f5724",
+          "org": "arXiv",
+          "published_at": "2026-11-25T00:00:00-05:00",
+          "title": "SAG-Mem-1.0 Technical Report",
+          "url": "https://arxiv.org/abs/2611.33124"
+        },
+        {
+          "event_id": "2a85b25d805083c3f37733b6ffacc2d0b483c75b3d3c7150e979225f37b5f229",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T08:33:31.100479Z",
+          "title": "io.github.bencium/agent-therapy 0.2.1",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.bencium%2Fagent-therapy/versions/0.2.1"
+        },
+        {
+          "event_id": "41cb14a43f10106d9b03728300d5f4ff7563eb85d04d64637d57d9cbc18f8653",
+          "org": "arXiv",
+          "published_at": "2026-11-26T00:00:00-05:00",
+          "title": "MGMem: An Efficient, Deterministic, and Provenance-Preserving Framework for Long-Horizon Agent Memory",
+          "url": "https://arxiv.org/abs/2611.33174"
+        },
+        {
+          "event_id": "4e34e907864db02a1dfe9f4516e84b4c946c8b31eba807147cfb479615dce420",
+          "org": "GitHub",
+          "published_at": "2025-10-19T16:12:49Z",
+          "title": "CaviraOSS/LongMemory",
+          "url": "https://github.com/CaviraOSS/LongMemory"
+        },
+        {
+          "event_id": "77afb9189bf0c090b7a280045cd1518e955654f92c37098c2825ece614b6d58a",
+          "org": "Hugging Face",
+          "published_at": "2026-11-25T00:00:00Z",
+          "title": "Agentic LongLive: Asynchronous Agentic Memory for Long Video Generation",
+          "url": "https://huggingface.co/papers/2611.34907"
+        },
+        {
+          "event_id": "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T12:52:37.904924Z",
+          "title": "io.github.vshulcz/claude-codex-cursor-agent-memory-deja-vu 0.24.3",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.vshulcz%2Fclaude-codex-cursor-agent-memory-deja-vu/versions/0.24.3"
+        },
+        {
+          "event_id": "9f66da250c5b90a137e148aea8b9b16d41b3da10132688f64b5d9d369401549d",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T21:48:07.811332Z",
+          "title": "io.github.vshulcz/claude-codex-cursor-agent-memory-deja-vu 0.25.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.vshulcz%2Fclaude-codex-cursor-agent-memory-deja-vu/versions/0.25.0"
+        },
+        {
+          "event_id": "a8004f5e7c90f63fcfd69731b530349c183fca3579cd554d1816408cc2b82092",
+          "org": "arXiv",
+          "published_at": "2026-11-26T00:00:00-05:00",
+          "title": "Semantic Density Does Not Predict Agent-Memory Collapse",
+          "url": "https://arxiv.org/abs/2611.33184"
+        },
+        {
+          "event_id": "bb96065f8b2c746b35d9c2a9747738877ef2247276544a646e48733de0c4f386",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-25T19:46:07.252482Z",
+          "title": "io.github.vbcherepanov/total-agent-memory 15.0.1",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.vbcherepanov%2Ftotal-agent-memory/versions/15.0.1"
+        },
+        {
+          "event_id": "c2f8857c12a9a24c5afb32a92953f95f3c3bfa4787d327010689c907c7c162c4",
+          "org": "arXiv",
+          "published_at": "2026-11-25T00:00:00-05:00",
+          "title": "Leto: Utility-Centric Agent Memory",
+          "url": "https://arxiv.org/abs/2611.33005"
+        },
+        {
+          "event_id": "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T10:41:05.890067Z",
+          "title": "io.github.ipiton/agent-memory-mcp 0.19.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.ipiton%2Fagent-memory-mcp/versions/0.19.0"
+        }
+      ],
+      "tag": "agent memory"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 4곳의 사건 11건에서 처음 나타났습니다.",
+      "sources": [
+        {
+          "event_id": "1345460066df49530ca1bddad595ba37aba698e59a79cad250558ce9b4da8319",
+          "org": "Hacker News",
+          "published_at": "2026-11-26T12:42:43Z",
+          "title": "Show HN: Selenia – Plain-English Selenium locators from a 24 MB model, no LLM",
+          "url": "https://news.ycombinator.com/item?id=50654686"
+        },
+        {
+          "event_id": "443b4a9124028617311a81bed67441640d7ed9b367df69fcb6632d2c75e53e1f",
+          "org": "Hacker News",
+          "published_at": "2026-11-20T20:19:56Z",
+          "title": "Show HN: OpenComputer – an open source alternative to Devin",
+          "url": "https://news.ycombinator.com/item?id=50581403"
+        },
+        {
+          "event_id": "44b118d337500cd77b4b8c72cd6564e3036b84bd55ab494a97bffa303129e1c8",
+          "org": "Hacker News",
+          "published_at": "2026-11-19T00:32:32Z",
+          "title": "Show HN: I built a harness that turns floor plans into 360° tours using AI",
+          "url": "https://news.ycombinator.com/item?id=50554399"
+        },
+        {
+          "event_id": "72c76f2afad93e188fd221cc8c9bfd6e8fc138fd45231ef1ac27d460b4e9f165",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T06:35:17.730482Z",
+          "title": "io.github.learn-automated-testing/selenium-ai-agent 3.5.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.learn-automated-testing%2Fselenium-ai-agent/versions/3.5.0"
+        },
+        {
+          "event_id": "8dbf1de7d23a4ffda2574c5dfb4a04481237d7a3b259cad6b2e0b4fabcd44f92",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T18:57:27.239704Z",
+          "title": "io.github.callstack/agent-device 0.21.41",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.callstack%2Fagent-device/versions/0.21.41"
+        },
+        {
+          "event_id": "b1130f5e6631928c8affa9e9b79647566d7f8c8e23b87e0e55daf617341270a8",
+          "org": "arXiv",
+          "published_at": "2026-11-26T00:00:00-05:00",
+          "title": "A History-Aware Visually Grounded Critic for Computer Use Agents",
+          "url": "https://arxiv.org/abs/2606.11078"
+        },
+        {
+          "event_id": "c5c2f959d4911a43dd4caaf3498d12765bbbf1f65d18d67bead205a66e94cd48",
+          "org": "Hacker News",
+          "published_at": "2026-11-21T05:38:01Z",
+          "title": "ClawDOS – An AI coding agent for DOS",
+          "url": "https://news.ycombinator.com/item?id=50586292"
+        },
+        {
+          "event_id": "cd70929385af12f200c3e140f70115bd2a7c2732bf24f8c113d41e5ee2e861f0",
+          "org": "Hacker News",
+          "published_at": "2026-11-20T06:06:42Z",
+          "title": "Show HN: BSWorld – AI agents can now test Bluetooth code without hardware",
+          "url": "https://news.ycombinator.com/item?id=50570766"
+        },
+        {
+          "event_id": "d6c833850db9f8cfc86a2b19fb40266bdb24417039dd938aef3eb5d2588f6f4d",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T13:14:47.128943Z",
+          "title": "io.github.learn-automated-testing/selenium-ai-agent 3.4.1",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.learn-automated-testing%2Fselenium-ai-agent/versions/3.4.1"
+        },
+        {
+          "event_id": "f51a635cc22157a1a7c6fa623662824ea525c615cbd46b3a107460cc37f1f0a4",
+          "org": "Hacker News",
+          "published_at": "2026-11-21T03:24:13Z",
+          "title": "Show HN: Tab – a browser engine from scratch in Rust, with a demo to install",
+          "url": "https://news.ycombinator.com/item?id=50585601"
+        },
+        {
+          "event_id": "fc6e9233f9cb2ed29d5105bd49a1ea4a8898e58c4a174a069d5e9d15309a9d23",
+          "org": "Hugging Face",
+          "published_at": "2026-11-18T00:00:00Z",
+          "title": "IDEA: Intent-Dominance Evidence Audit for Inference-Time Backdoor Detection in GUI Agents",
+          "url": "https://huggingface.co/papers/2611.24102"
+        }
+      ],
+      "tag": "computer use"
+    },
+    {
+      "kind": "discovery",
+      "reason_ko": "최근 14일 동안 독립 조직 4곳의 사건 8건에서 처음 나타났습니다.",
+      "sources": [
+        {
+          "event_id": "3fc68dfee9f5c7e65a9fb51dddf9e5b8ffd9526409f7706aee04bda4c8cbc789",
+          "org": "Hacker News",
+          "published_at": "2026-11-19T05:17:36Z",
+          "title": "Will Wright's next simulation will use AI to mine content from your memories",
+          "url": "https://news.ycombinator.com/item?id=50556339"
+        },
+        {
+          "event_id": "426e8f60ce7782915f6d9539834dd7ac31a98e304e21329ff03d0708a3757187",
+          "org": "Hugging Face",
+          "published_at": "2026-11-18T00:00:00Z",
+          "title": "PReMind: When Personal Memory Meets Visual Hazards",
+          "url": "https://huggingface.co/papers/2611.23808"
+        },
+        {
+          "event_id": "701a571706ec6c00de8bbc6af8a9bc31d2eec98a2272e87a59a9e6a4a97a82f1",
+          "org": "Hugging Face",
+          "published_at": "2026-11-20T00:00:00Z",
+          "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
+          "url": "https://huggingface.co/blog/harness-adapters-at-scale"
+        },
+        {
+          "event_id": "92de0ca7494acee25f0348fa5e5550ba85da1c2b68bfda11d24c6e84a562302a",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T12:52:37.904924Z",
+          "title": "io.github.vshulcz/claude-codex-cursor-agent-memory-deja-vu 0.24.3",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.vshulcz%2Fclaude-codex-cursor-agent-memory-deja-vu/versions/0.24.3"
+        },
+        {
+          "event_id": "c36039d5180cec61c4aaea0e9eb4b7263f05b3d70104217c2b4394bd2808e377",
+          "org": "Hugging Face",
+          "published_at": "2026-11-25T00:00:00Z",
+          "title": "Letting Models Manage Their Own Context: Where We Stand",
+          "url": "https://huggingface.co/papers/2611.34147"
+        },
+        {
+          "event_id": "e20c033d833fda22f4f9683efa9d53bda9fc16210347d45c7f852df1e95878f1",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-21T00:56:17.285015Z",
+          "title": "io.github.keshrath/agent-knowledge 3.1.1",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.keshrath%2Fagent-knowledge/versions/3.1.1"
+        },
+        {
+          "event_id": "f20a55d31d2e8ef49ceb29b38f225eca32c821270ab28e2907827aa772e4b339",
+          "org": "Model Context Protocol",
+          "published_at": "2026-11-19T10:41:05.890067Z",
+          "title": "io.github.ipiton/agent-memory-mcp 0.19.0",
+          "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.ipiton%2Fagent-memory-mcp/versions/0.19.0"
+        },
+        {
+          "event_id": "f511dd8afc2c8b5d704da46171ea7da272ad0e4e016aa17d21f867a93bb0addb",
+          "org": "TLDR AI",
+          "published_at": "2026-11-26T00:00:00Z",
+          "title": "How my context engineering changed for Gemini 4 Neon (8 minute read)",
+          "url": "https://tldr.tech/ai/2026-11-26"
+        }
+      ],
+      "tag": "context engineering"
+    }
+  ],
+  "generated_at": "2026-11-27T00:30:01.972117Z",
+  "headline_ko": "멀티에이전트 개발 보안과 AI 작업흐름 변화",
+  "run_id": "d45da5db7392446f99a5915a7b6b1c48",
+  "schema_version": "1.0.0"
+}
