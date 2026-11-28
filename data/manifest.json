@@ -1,23 +1,23 @@
 {
   "deadline_kst": "07:00",
   "last_run": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "failed_stage": null,
-    "finished_at": "2026-11-27T00:33:04.212694Z",
-    "message": "interest=25 impact=0 explore=0 star_growth=0 prefilter_excluded=lawsuitx1,no_repositoryx67,no_signalx252,screened_outx60,source_capx15 must_read=Show HN: Carry – Save every AI conversat; ai.homouniversalis/a2a-agent2agent-mcp-s; ai.homouniversalis/cryptography-merkle-t; Show HN: Lightscale AI – A language for ; Google, AI 에이전트에 자사 MCP 서버 사용 의무화 예정… Gm; Show HN: Selenia – Plain-English Seleniu; Show HN: Dev-Mem – Local-first SQLite kn; io.github.agent402-dev/a402-pay-mcp 0.15; Beyond Relevance-Centric Retrieval: Rubr; io.github.super-agent-os/super-artifacts; Fix How It Acts, Not How It Thinks: Surg; io.github.agent402-dev/a402-check-mcp 0.; AI 신입사원을 뉴스 데이터 시니어로 키우는 레포, news-data; SkillCore: Internalizing Generalizable S; AI 네이티브 서비스 비즈니스 모델의 내부 구조 screened_out=GDS Agent for Graph Algorithmic Reasonin (일반 그래프 추론 논문); GlitchPatch: Repairing Glitch Tokens in  (모델 토큰 보정 연구); DFly2: Turbocharging Long-Context Specul (추론 가속 기법 논문); Any-Rate: Half-Bit Multi-Precision LLM Q (양자화 기법 논문); MargEmbed-Akan: Bridging Twi Questions a (언어간 검색 논문); The Answer Is Not the State: Trajectory- (확산모델 코르지빌리티 논문); Match the Canvas, Not Just the Answer: P (확산모델 학습 논문); Spending 35B Opus 5.5 Tokens to Write a  (토큰 사용 후기글); SparDA: Sparse Decoupled Attention for E (긴문맥 추론 최적화 논문); Lost in Translation, Not in Confidence:  (다국어 의사결정 논문) llm_errors=judge:schema_errorx3 not_worth_briefing=5 what_unsupported=4 deferred=15",
+    "finished_at": "2026-11-28T00:02:47.594655Z",
+    "message": "interest=25 impact=0 explore=0 star_growth=0 prefilter_excluded=no_repositoryx53,no_signalx154,personnelx1,screened_outx43,source_capx20 must_read=io.github.DeepAgentLabs/deep-agentic-cor; io.github.unaibamir/agent-abilities-for-; Claude가 최첨단(SOTA) ML 연구 작업을 방해한다는 주장; Google, AI 에이전트에 자사 MCP 서버 사용 의무화 예정… Gm; Show HN: Selenia – Plain-English Seleniu; Show HN: Dev-Mem – Local-first SQLite kn; io.github.agent402-dev/a402-pay-mcp 0.15; Early outputs: Anthropic is A/B testing ; Plato's Key (8 minute read); com.busca-agentes/mcp 0.1.3; cloud.agent-tools/agent-tools-mcp 0.5.3; org.probityai/agent-evidence-mcp 0.2.8; How Clay Builds GTM Agents — Jeff Barg, ; From Model Compression to Looped Transfo; Trying /swarm in Google Antigravity (13  screened_out=GDS Agent for Graph Algorithmic Reasonin (일반 추론 논문); GlitchPatch: Repairing Glitch Tokens in  (모델 내부기법 논문); DFly2: Turbocharging Long-Context Specul (추론 최적화 논문); Any-Rate: Half-Bit Multi-Precision LLM Q (양자화 연구 논문); Llama.cpp용 AMD 특화 패치 (모델 속도 패치); OpenAI may be in cost control mode (모델 비용 논란); SparDA: Sparse Decoupled Attention for E (추론 효율 논문); Lost in Translation, Not in Confidence:  (일반 평가 논문); Verifiable but Not Predictable: What Sen (표현 임베딩 논문); Thinking Deeper, Not Longer: Memory-Effi (일반 아키텍처 논문) llm_errors=judge:schema_errorx6 not_worth_briefing=1 what_unsupported=13 deferred=11",
     "outcome": "ok",
-    "run_id": "d45da5db7392446f99a5915a7b6b1c48",
+    "run_id": "5d2ebc6381d74eee9e9938fe1177a0ac",
     "sources": {
       "active": 32,
-      "complete": 31,
+      "complete": 32,
       "failed": 0,
-      "partial": 1
+      "partial": 0
     },
-    "started_at": "2026-11-27T00:30:01.972117Z"
+    "started_at": "2026-11-27T23:59:28.887918Z"
   },
-  "last_success_at": "2026-11-27T00:30:01.972117Z",
+  "last_success_at": "2026-11-27T23:59:28.887918Z",
   "published": {
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "files": {
       "briefings/2026-11-20.json": "7373f1537869589faa0232c5a17356d232ea53bd260cbee5ee5228bef9605249",
       "briefings/2026-11-21.json": "3fa03f9adea13164b1b31576da4850ff6d633ad4ba03d8e893e2a1c023f1d489",
@@ -27,10 +27,11 @@
       "briefings/2026-11-25.json": "99db82952b6274dc64dc8b8ae86b39f21ee4107d733783e797d97921cff28d68",
       "briefings/2026-11-26.json": "32ef28a3c20b306737e6e3736e5e9047b3ebad5d1eec57ca8ad804f4ee8554db",
       "briefings/2026-11-27.json": "d72ca71cc966897c2bd34088d790f410e4848397bb84f698d5651d9cd02902fd",
-      "index/2026.json": "d3958861f960071141a499bff96f460f6e861736e770db7d29439e0fafab3407"
+      "briefings/2026-11-28.json": "32abe2708db7fc3330612bf5539b743f62952d03a4d76f780a0ecc2c1f86b1e2",
+      "index/2026.json": "387347d332696cd6d44dbe5b3f7d10befbbeb2e89dfa61b35a4d91265ee6fc0b"
     },
-    "generated_at": "2026-11-27T00:30:01.972117Z",
-    "run_id": "d45da5db7392446f99a5915a7b6b1c48"
+    "generated_at": "2026-11-27T23:59:28.887918Z",
+    "run_id": "5d2ebc6381d74eee9e9938fe1177a0ac"
   },
   "schema_version": "1.0.0"
 }

@@ -1,5 +1,23 @@
 [
   {
+    "card_id": "card_3c0d32aed745",
+    "date": "2026-11-27",
+    "event_id": "52dc8bc6f460d799ad823c3a92edf8846f0227c2a57ce36f272e95851935828c",
+    "revision": 1
+  },
+  {
+    "card_id": "card_f1464b60202c",
+    "date": "2026-11-27",
+    "event_id": "ea1348c2855120ec208c0a9746560fdc33f41b305cc540550ca4de17e7c2d410",
+    "revision": 1
+  },
+  {
+    "card_id": "card_31f6d34a92ab",
+    "date": "2026-11-27",
+    "event_id": "9639e66f3d7ad8a97d209afdbc6eb8f2b4f8c538abcc22b7aac1ede82eae2a69",
+    "revision": 1
+  },
+  {
     "card_id": "card_ca52e9b0cc85",
     "date": "2026-11-26",
     "event_id": "bfb37b8719ef1cf9bd1c0cb31ae57c809e2b52b27e7a33253d8d41d89dd0b516",
@@ -156,21 +174,27 @@
     "revision": 1
   },
   {
-    "card_id": "card_3c0d32aed745",
-    "date": "2026-11-27",
-    "event_id": "52dc8bc6f460d799ad823c3a92edf8846f0227c2a57ce36f272e95851935828c",
+    "card_id": "card_e1c305fc1619",
+    "date": "2026-11-28",
+    "event_id": "888376febe46dbf1c84d68e3db4e6a4af5a71d110aedcd188273923612e8715f",
     "revision": 1
   },
   {
-    "card_id": "card_f1464b60202c",
-    "date": "2026-11-27",
-    "event_id": "ea1348c2855120ec208c0a9746560fdc33f41b305cc540550ca4de17e7c2d410",
+    "card_id": "card_d494f279b5c2",
+    "date": "2026-11-28",
+    "event_id": "584e33c6775555ed0a25d15116220bea5e91fedae4cc2414862e18df891c1295",
     "revision": 1
   },
   {
-    "card_id": "card_31f6d34a92ab",
-    "date": "2026-11-27",
-    "event_id": "9639e66f3d7ad8a97d209afdbc6eb8f2b4f8c538abcc22b7aac1ede82eae2a69",
+    "card_id": "card_e2f18c16ed18",
+    "date": "2026-11-28",
+    "event_id": "4f4b7c0e72436bdca153659290ad9f3797fd39075d0c5bdd7366b89b03a51ca1",
+    "revision": 1
+  },
+  {
+    "card_id": "card_7640a10e094a",
+    "date": "2026-11-28",
+    "event_id": "6787d15990c8961f0b613f44fbd639448977da1d4f107b03d28436c99ceb3418",
     "revision": 1
   }
 ]

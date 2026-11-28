@@ -305,5 +305,52 @@
       "구글, Workspace AI 에이전트를 MCP 서버로 유도하고 Gmail 일부 기능을 제한",
       "GitHub Copilot용 통합 인라인 코드 편집 모델"
     ]
+  },
+  "2026-11-28": {
+    "card_count": 4,
+    "categories": [
+      "AI 개발 워크플로",
+      "MCP·도구 연결",
+      "에이전트 작업 환경"
+    ],
+    "headline_ko": "에이전트용 MCP·결제 도구가 확장된 날",
+    "path": "briefings/2026-11-28.json",
+    "tags": [
+      "AI coding harness",
+      "API router",
+      "Anthropic Messages API",
+      "Base",
+      "C++",
+      "Claude Code",
+      "Codex",
+      "Cursor",
+      "ImGui",
+      "JSON repair",
+      "MCP",
+      "OpenAI Chat Completions API",
+      "Solana",
+      "USDC",
+      "agent tools",
+      "api",
+      "bond",
+      "coding-agent",
+      "desktop control",
+      "desktop-app",
+      "free tier",
+      "local model",
+      "local-index",
+      "mcp",
+      "page to markdown",
+      "payments",
+      "session-history",
+      "single executable",
+      "x402"
+    ],
+    "titles": [
+      "Agent402 툴킷 0.5.1, x402 결제·본드용 MCP 서버 추가",
+      "무료 API 라우터와 에이전트용 MCP 서버 0.2.9",
+      "ImGui 기반 네이티브 AI 코딩 하니스 Prospero 공개",
+      "코딩 에이전트 세션을 한 그래프로 모아보는 SessionGraph"
+    ]
   }
 }
